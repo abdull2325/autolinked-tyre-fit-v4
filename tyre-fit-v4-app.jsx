@@ -8192,6 +8192,7 @@ export default function TyreFitApp() {
     const bookingFee = 5.95;
     const customerTotal = quotePrice + bookingFee;
     const fmtExpiry = `${Math.floor(quoteExpirySeconds / 60)}:${String(quoteExpirySeconds % 60).padStart(2, '0')}`;
+    const skipOtpForUiReview = true;
     const focusOtpField = () => {
       if (authSectionRef.current) {
         authSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -8443,7 +8444,14 @@ export default function TyreFitApp() {
                 return;
               }
 
-              if (!customerAuthenticated) {
+              let isAuthenticatedNow = customerAuthenticated;
+              if (!isAuthenticatedNow && skipOtpForUiReview) {
+                isAuthenticatedNow = true;
+                setCustomerAuthenticated(true);
+                showToast('Demo mode: OTP skipped');
+              }
+
+              if (!isAuthenticatedNow) {
                 if (!otpSent) {
                   setOtpSent(true);
                   showToast('OTP sent. Enter the 6-digit code above.');
@@ -8466,8 +8474,11 @@ export default function TyreFitApp() {
             }}
             style={{ width: '100%', padding: '18px', backgroundColor: paying ? '#9CA3AF' : custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '17px', cursor: paying ? 'default' : 'pointer', opacity: paying ? 0.7 : 1 }}
           >
-            {paying ? 'Processing...' : !agreed ? 'Accept terms to continue' : !customerAuthenticated ? (otpSent ? (otpCode.length === 6 ? 'Verify OTP and continue' : 'Enter OTP to continue') : 'Send OTP to continue') : `Pay £5.95 with ${customerPayMethod === 'apple_pay' ? 'Apple Pay' : customerPayMethod === 'google_pay' ? 'Google Pay' : customerPayMethod === 'paypal' ? 'PayPal' : 'Card'}`}
+            {paying ? 'Processing...' : !agreed ? 'Accept terms to continue' : !customerAuthenticated ? (skipOtpForUiReview ? 'Continue to booking (demo)' : (otpSent ? (otpCode.length === 6 ? 'Verify OTP and continue' : 'Enter OTP to continue') : 'Send OTP to continue')) : `Pay £5.95 with ${customerPayMethod === 'apple_pay' ? 'Apple Pay' : customerPayMethod === 'google_pay' ? 'Google Pay' : customerPayMethod === 'paypal' ? 'PayPal' : 'Card'}`}
           </button>
+          {skipOtpForUiReview && !customerAuthenticated && (
+            <p style={{ margin: '8px 0 0 0', color: '#065F46', fontSize: '13px', fontWeight: '600' }}>Demo mode active: OTP is bypassed for UI/UX review.</p>
+          )}
           {!customerAuthenticated && otpSent && (
             <div style={{ marginTop: '10px', padding: '10px', borderRadius: '10px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE' }}>
               <p style={{ margin: 0, color: '#6D28D9', fontSize: '13px', fontWeight: '600' }}>OTP sent. Enter your 6-digit code in the purple box above.</p>
