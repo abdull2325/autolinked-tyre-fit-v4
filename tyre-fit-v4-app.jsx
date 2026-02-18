@@ -263,11 +263,9 @@ export default function TyreFitApp() {
   const formatJobTimer = (secs) => { var m = Math.floor(secs / 60); var s = secs % 60; return m + ':' + (s < 10 ? '0' : '') + s; };
   const flowRunnerNextMap = {
     signin: { route: 'welcome', label: 'Welcome' },
-    welcome: { route: 'link-gmb', label: 'Google Business' },
-    'link-gmb': { route: 'business-setup', label: 'Business Setup' },
-    'business-setup': { route: 'team-setup', label: 'Team Setup' },
-    'team-setup': { route: 'setup-comms', label: 'Missed Calls + SMS AI' },
-    'setup-comms': { route: 'setup-final', label: 'Permissions' },
+    welcome: { route: 'business-setup', label: 'Business Setup' },
+    'business-setup': { route: 'link-gmb', label: 'Google Business' },
+    'link-gmb': { route: 'setup-final', label: 'Permissions' },
     'setup-final': { route: 'setup-complete', label: 'Setup Complete' },
     'setup-complete': { route: 'dashboard', label: 'Dashboard' },
     'quote-hub': { route: 'quick-quote', label: 'Quick Quote' },
@@ -280,7 +278,8 @@ export default function TyreFitApp() {
     'quote-sent': { route: 'dashboard', label: 'Back To Dashboard' },
     'cover-quote': { route: 'job-enroute', label: 'Start Cover Job' },
     'job-enroute': { route: 'job-before-photo', label: 'Before Photos' },
-    'job-before-photo': { route: 'job-after-photo', label: 'Condition Report' },
+    'job-before-photo': { route: 'job-condition-check', label: 'Condition Check' },
+    'job-condition-check': { route: 'job-payment', label: 'Payment' },
     'job-payment': { route: 'job-complete', label: 'Complete Job' },
     'job-complete': { route: 'day-summary', label: 'Day Summary' },
     'cover-job-complete': { route: 'day-summary', label: 'Day Summary' },
@@ -297,7 +296,7 @@ export default function TyreFitApp() {
   };
   const getFlowRunnerNext = () => {
     if (!flowRunnerActive || currentScreen === 'flow-runner') return null;
-    if (currentScreen === 'job-after-photo') {
+    if (currentScreen === 'job-after-photo' || currentScreen === 'job-condition-check') {
       return isCoverJob
         ? { route: 'cover-job-complete', label: 'Cover Job Complete' }
         : { route: 'job-payment', label: 'Payment' };
@@ -427,12 +426,18 @@ export default function TyreFitApp() {
     const alertCount = coverJobs.length + mockCoverCustomers.filter(c => c.status === 'expiring').length;
     return (
     <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, backgroundColor: theme.bgCard, borderTop: `1px solid ${theme.border}`, padding: '8px 16px 24px', display: 'flex', justifyContent: 'space-around', zIndex: 1000 }}>
-      {[{ icon: Home, label: 'Jobs', screen: 'dashboard' }, { icon: Zap, label: 'Quote', screen: 'quote-hub' }, { icon: User, label: 'Menu', screen: 'account' }].map(item => {
+      {[{ icon: Home, label: 'Home', screen: 'dashboard' }, { icon: Zap, label: 'Quote', screen: 'quick-quote' }, { icon: CreditCard, label: 'Wallet', screen: 'wallet' }, { icon: Map, label: 'Route', screen: 'route' }, { icon: User, label: 'Account', screen: 'account' }].map(item => {
         const isActive = item.screen === 'account'
           ? (currentScreen === 'account' || currentScreen.startsWith('settings-') || currentScreen === 'wallet' || currentScreen === 'wallet-withdraw' || currentScreen === 'invoices' || currentScreen === 'stock' || currentScreen === 'reviews' || currentScreen === 'disputes' || currentScreen === 'dispute-detail' || currentScreen === 'emergency' || currentScreen === 'evidence-vault' || currentScreen === 'referral' || currentScreen === 'route' || currentScreen === 'dispatcher')
           : item.screen === 'dashboard'
-          ? (currentScreen === 'dashboard' || currentScreen === 'job-enroute' || currentScreen === 'job-before-photo' || currentScreen === 'job-after-photo' || currentScreen === 'job-payment' || currentScreen === 'job-complete' || currentScreen === 'cover-job-complete')
-          : currentScreen === 'quote-hub' || currentScreen === 'quick-quote' || currentScreen.startsWith('quote-') || currentScreen === 'cover-quote' || currentScreen === 'quote-sent' || currentScreen === 'bookings';
+          ? (currentScreen === 'dashboard' || currentScreen === 'job-enroute' || currentScreen === 'job-before-photo' || currentScreen === 'job-after-photo' || currentScreen === 'job-condition-check' || currentScreen === 'job-payment' || currentScreen === 'job-complete' || currentScreen === 'cover-job-complete')
+          : item.screen === 'quick-quote'
+          ? (currentScreen === 'quote-hub' || currentScreen === 'quick-quote' || currentScreen.startsWith('quote-') || currentScreen === 'cover-quote' || currentScreen === 'quote-sent' || currentScreen === 'bookings')
+          : item.screen === 'wallet'
+          ? (currentScreen === 'wallet' || currentScreen === 'wallet-withdraw')
+          : item.screen === 'route'
+          ? currentScreen === 'route'
+          : false;
         return (
         <button key={item.screen} onClick={() => navigateTo(item.screen)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px 16px', borderRadius: '12px', background: 'none', border: 'none', color: isActive ? theme.primary : theme.textMuted, cursor: 'pointer', position: 'relative' }}>
           <item.icon size={24} />
@@ -851,25 +856,8 @@ export default function TyreFitApp() {
 
           {step === 1 && (
             <div>
-              <Input label="Full Name" placeholder="Enter your full name" value={signUpData.fullName} onChange={(v) => setSignUpData({...signUpData, fullName: v})} required />
               <Input label="Mobile Number" placeholder="07700 900123" type="tel" value={signUpData.mobile} onChange={(v) => setSignUpData({...signUpData, mobile: v})} required />
-              <Input label="Email Address" placeholder="you@example.com" type="email" value={signUpData.email} onChange={(v) => setSignUpData({...signUpData, email: v})} required />
               <Button onClick={() => setStep(2)}>Send Verification Code</Button>
-              <div style={{ display: 'flex', alignItems: 'center', margin: '32px 0', gap: '16px' }}>
-                <div style={{ flex: 1, height: '1px', backgroundColor: theme.border }} />
-                <span style={{ color: theme.textMuted, fontSize: '14px' }}>or continue with</span>
-                <div style={{ flex: 1, height: '1px', backgroundColor: theme.border }} />
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                <button onClick={() => setStep(2)} style={{ width: '100%', padding: '16px 24px', backgroundColor: '#fff', border: `1px solid ${theme.border}`, borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', cursor: 'pointer' }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                  <span style={{ color: '#1f1f1f', fontWeight: '600', fontSize: '16px' }}>Continue with Google</span>
-                </button>
-                <button onClick={() => setStep(2)} style={{ width: '100%', padding: '16px 24px', backgroundColor: '#000', border: 'none', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', cursor: 'pointer' }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-                  <span style={{ color: '#fff', fontWeight: '600', fontSize: '16px' }}>Continue with Apple</span>
-                </button>
-              </div>
             </div>
           )}
 
@@ -905,6 +893,13 @@ export default function TyreFitApp() {
     
     const tourSlides = [
       {
+        icon: Wrench,
+        color: theme.primary,
+        title: 'You Fit The Tyres. We Handle The Rest.',
+        subtitle: 'Full system in one paragraph.',
+        desc: 'Quote fast, get deposit, run the job, take proof photos once, get paid, trigger review requests, and keep customers returning with built-in 30-day emergency cover.',
+      },
+      {
         icon: PoundSterling,
         color: theme.primary,
         title: 'Completely Free to Use',
@@ -919,18 +914,18 @@ export default function TyreFitApp() {
         desc: 'Every quote you send includes free cover for the customer. TYRE-FIT provides it and pays you directly for callouts. Customers are far more likely to book when cover is included.',
       },
       {
-        icon: Zap,
-        color: '#f97316',
-        title: 'Quote to Payment in 20 Seconds',
-        subtitle: 'Reg plate, price, send. Customer pays online.',
-        desc: 'DVLA lookup finds the vehicle. Pick stock from your van. Send a branded quote by text. Customer gets a link to pay and confirm. Invoice syncs to your accounting software.',
-      },
-      {
         icon: Camera,
         color: theme.primary,
-        title: '5 Photos. 4 Jobs Done.',
+        title: '4 Photos. Job Done.',
         subtitle: 'One set of photos does everything.',
         desc: 'Before photos prove the car\'s state. After photos (4 tyres + plate) create dispute evidence, a condition report, 30-day cover activation, and tyre monitoring — all automatically.',
+      },
+      {
+        icon: RefreshCw,
+        color: '#06b6d4',
+        title: 'Everything Else Runs Itself',
+        subtitle: 'Reviews, referrals, invoices, disputes.',
+        desc: 'After each completed job, TYRE-FIT sends receipt + cover text, schedules review requests, logs evidence, and keeps admin in one place.',
       },
     ];
 
@@ -947,7 +942,7 @@ export default function TyreFitApp() {
 
         {/* SKIP */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '0 24px' }}>
-          <button onClick={() => navigateTo('link-gmb')} style={{ background: 'none', border: 'none', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', padding: '8px 0' }}>Skip tour</button>
+          <button onClick={() => navigateTo('business-setup')} style={{ background: 'none', border: 'none', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', padding: '8px 0' }}>Skip tour</button>
         </div>
 
         {/* SLIDE CONTENT */}
@@ -978,7 +973,7 @@ export default function TyreFitApp() {
           {/* BUTTONS */}
           {isLast ? (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Button onClick={() => navigateTo('link-gmb')}>Set Up My Business</Button>
+              <Button onClick={() => navigateTo('business-setup')}>Set Up My Business</Button>
               <Button variant="outline" onClick={() => navigateTo('practice-mode')}>Try Practice Mode First</Button>
             </div>
           ) : (
@@ -1219,7 +1214,10 @@ export default function TyreFitApp() {
               </div>
             )}
           </div>
-          <Button onClick={() => navigateTo('setup-comms')}>Continue</Button>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <Button onClick={() => navigateTo('link-gmb')}>Continue</Button>
+            <Button variant="ghost" onClick={() => navigateTo('setup-complete')}>Skip for now — just let me send quotes</Button>
+          </div>
         </div>
       </div>
     );
@@ -1254,7 +1252,7 @@ export default function TyreFitApp() {
           </div>
         </Card>
         <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <button onClick={() => navigateTo('business-setup')} style={{ width: '100%', padding: '16px 24px', backgroundColor: '#4285F4', border: 'none', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', cursor: 'pointer' }}>
+          <button onClick={() => navigateTo('setup-final')} style={{ width: '100%', padding: '16px 24px', backgroundColor: '#4285F4', border: 'none', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', cursor: 'pointer' }}>
             <div style={{ width: '24px', height: '24px', backgroundColor: '#fff', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
             </div>
@@ -1283,7 +1281,7 @@ export default function TyreFitApp() {
           <p style={{ color: theme.warning, fontSize: '14px', margin: '0 0 20px 0', lineHeight: 1.5 }}>Fitters who link their Google profile get <strong style={{ color: theme.text }}>3x more reviews</strong> on average. You can always link it later from Settings.</p>
           <div style={{ display: 'flex', gap: '12px' }}>
             <Button onClick={() => setShowSkipWarning(false)} fullWidth>Link It Now</Button>
-            <Button variant="secondary" onClick={() => { setShowSkipWarning(false); navigateTo('business-setup'); }} fullWidth>Skip Anyway</Button>
+            <Button variant="secondary" onClick={() => { setShowSkipWarning(false); navigateTo('setup-final'); }} fullWidth>Skip Anyway</Button>
           </div>
         </Modal>
       )}
@@ -1719,7 +1717,7 @@ export default function TyreFitApp() {
           ['bookings', 'Bookings'],
           ['job-enroute', 'En Route'],
           ['job-before-photo', 'Before Photos'],
-          ['job-after-photo', 'Condition Report'],
+          ['job-condition-check', 'Condition Report'],
           ['job-payment', 'Payment'],
           ['job-complete', 'Complete'],
           ['cover-job-complete', 'Cover Complete'],
@@ -1911,7 +1909,7 @@ export default function TyreFitApp() {
           ['dashboard', 'Home'], ['quote-hub', 'Quote & Booking'], ['bookings', 'Bookings'], ['quick-quote', 'Quick Quote'], ['quote-customer', 'Quote Customer'],
           ['quote-schedule', 'Quote Schedule'], ['quote-job', 'Quote Job'], ['quote-stock', 'Quote Stock'], ['quote-review', 'Quote Review'],
           ['quote-sent', 'Quote Sent'], ['cover-quote', 'Cover Quote'], ['job-enroute', 'En Route'], ['job-before-photo', 'Before Photos'],
-          ['job-after-photo', 'Condition'], ['job-payment', 'Payment'], ['job-complete', 'Complete'], ['cover-job-complete', 'Cover Complete'], ['day-summary', 'Day Summary']
+          ['job-condition-check', 'Condition'], ['job-payment', 'Payment'], ['job-complete', 'Complete'], ['cover-job-complete', 'Cover Complete'], ['day-summary', 'Day Summary']
         ]
       },
       {
@@ -1964,7 +1962,7 @@ export default function TyreFitApp() {
         setIsTeamAccount(true);
         setUserRole('owner');
       }
-      if (['job-enroute', 'job-before-photo', 'job-after-photo', 'job-payment', 'job-complete', 'day-summary', 'bookings'].includes(route)) {
+      if (['job-enroute', 'job-before-photo', 'job-after-photo', 'job-condition-check', 'job-payment', 'job-complete', 'day-summary', 'bookings'].includes(route)) {
         setActiveJob(demoJobSeed);
         setIsCoverJob(false);
         setBeforePhotos({});
@@ -2233,7 +2231,7 @@ export default function TyreFitApp() {
                   <p style={{ margin: '0 0 14px 0', color: theme.textMuted, fontSize: '14px' }}>
                     Send a quote to get your first job on the board.
                   </p>
-                  <Button onClick={() => navigateTo('quote-hub')} icon={Zap}>Quote & Booking</Button>
+                  <Button onClick={() => navigateTo('quick-quote')} icon={Zap}>Send a Quote</Button>
                 </Card>
               );
             }
@@ -2273,9 +2271,9 @@ export default function TyreFitApp() {
           {/* === SECTION 3: QUICK ACTIONS — what you do most === */}
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
-            <button onClick={() => navigateTo('quote-hub')} style={{ backgroundColor: theme.bgCard, border: `2px solid ${theme.primary}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
+            <button onClick={() => navigateTo('quick-quote')} style={{ backgroundColor: theme.bgCard, border: `2px solid ${theme.primary}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
               <div style={{ width: '56px', height: '56px', backgroundColor: `${theme.primary}20`, borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Zap size={28} color={theme.primary} /></div>
-              <span style={{ fontSize: '16px', fontWeight: '700', color: theme.text }}>Quote & Booking</span>
+              <span style={{ fontSize: '16px', fontWeight: '700', color: theme.text }}>Quick Quote</span>
             </button>
             <button onClick={() => navigateTo('route')} style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
               <div style={{ width: '56px', height: '56px', backgroundColor: '#f9731620', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Map size={28} color="#f97316" /></div>
@@ -4502,7 +4500,7 @@ export default function TyreFitApp() {
       if (allTaken && !advancing) {
         setAdvancing(true);
         showToast('All photos taken — condition check opening...');
-        const timer = setTimeout(() => navigateTo('job-after-photo'), 1500);
+        const timer = setTimeout(() => navigateTo('job-condition-check'), 1500);
         return () => clearTimeout(timer);
       }
     }, [allTaken]);
@@ -4546,7 +4544,7 @@ export default function TyreFitApp() {
             </div>
           </Card>
         </div>
-        <Button onClick={() => navigateTo('job-after-photo')} icon={ArrowRight} disabled={!allTaken}>{advancing ? 'Opening Condition Check...' : allTaken ? 'Condition Report →' : `Take All ${positions.length} Photos to Continue`}</Button>
+        <Button onClick={() => navigateTo('job-condition-check')} icon={ArrowRight} disabled={!allTaken}>{advancing ? 'Opening Condition Check...' : allTaken ? 'Condition Report →' : `Take All ${positions.length} Photos to Continue`}</Button>
         {!allTaken && <button onClick={() => setShowSkipPhotosWarning(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: 'none', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', marginTop: '8px' }}>Skip photos this time</button>}
         
         {showSkipPhotosWarning && (
@@ -4560,7 +4558,7 @@ export default function TyreFitApp() {
             </div>
             <div style={{ display: 'flex', gap: '12px' }}>
               <Button variant="secondary" onClick={() => setShowSkipPhotosWarning(false)} fullWidth>Go Back</Button>
-              <button onClick={() => { setShowSkipPhotosWarning(false); navigateTo('job-after-photo'); }} style={{ flex: 1, padding: '14px', backgroundColor: theme.danger, border: 'none', borderRadius: '12px', color: '#fff', fontWeight: '600', cursor: 'pointer' }}>Skip Anyway</button>
+              <button onClick={() => { setShowSkipPhotosWarning(false); navigateTo('job-condition-check'); }} style={{ flex: 1, padding: '14px', backgroundColor: theme.danger, border: 'none', borderRadius: '12px', color: '#fff', fontWeight: '600', cursor: 'pointer' }}>Skip Anyway</button>
             </div>
           </Modal>
         )}
@@ -8484,6 +8482,7 @@ const CustomerReceiptScreen = () => (
       case 'job-enroute': return <JobEnRouteScreen />;
       case 'job-before-photo': return <JobBeforePhotoScreen />;
       case 'job-after-photo': return <JobAfterPhotoScreen />;
+      case 'job-condition-check': return <JobAfterPhotoScreen />;
       case 'job-payment': return <JobPaymentScreen />;
       case 'job-complete': return <JobCompleteScreen />;
       case 'cover-job-complete': return <CoverJobCompleteScreen />;
@@ -8689,14 +8688,7 @@ const CustomerReceiptScreen = () => (
   return (
     <div style={{ maxWidth: '430px', margin: '0 auto', minHeight: '100vh', backgroundColor: theme.bg, color: theme.text }}>
       <style>{`* { box-sizing: border-box; } @keyframes spin { to { transform: rotate(360deg); } } html, body { height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; } input::placeholder { color: ${theme.textMuted}; }`}</style>
-      {currentScreen === 'dashboard' && (
-        <div style={{ position: 'sticky', top: 0, zIndex: 500, display: 'flex', justifyContent: 'center', padding: '8px', backgroundColor: theme.bg, backdropFilter: 'blur(8px)' }}>
-          <div style={{ display: 'flex', backgroundColor: theme.bgInput, borderRadius: '10px', padding: '3px', border: '1px solid ' + theme.border }}>
-            <button onClick={function() { setViewMode('fitter'); }} style={{ padding: '8px 16px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: '600', backgroundColor: viewMode === 'fitter' ? theme.primary : 'transparent', color: viewMode === 'fitter' ? '#000' : theme.textMuted }}>Fitter View</button>
-            <button onClick={function() { setViewMode('customer'); navigateTo('customer-booking'); }} style={{ padding: '8px 16px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: '600', backgroundColor: viewMode === 'customer' ? '#00C853' : 'transparent', color: viewMode === 'customer' ? '#fff' : theme.textMuted }}>Customer View</button>
-          </div>
-        </div>
-      )}
+      {/* v6: dashboard fitter/customer view toggle removed; customer demo entry is hidden in Account */}
       <CoverJobAlert />
       <CancelJobModal />
       {coverApprovalPhase && coverApprovalPhase !== 'idle' && (
