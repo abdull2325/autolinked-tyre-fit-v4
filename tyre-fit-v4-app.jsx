@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   FileText, ClipboardList, Shield, Map, Package, Star, Phone, Calendar,
   ChevronRight, ChevronLeft, Camera, Send, Clock, CheckCircle, AlertCircle,
@@ -8185,11 +8185,21 @@ export default function TyreFitApp() {
     const [otpSent, setOtpSent] = useState(false);
     const [otpCode, setOtpCode] = useState('');
     const [quoteExpirySeconds, setQuoteExpirySeconds] = useState(5 * 60);
+    const authSectionRef = useRef(null);
+    const otpInputRef = useRef(null);
     const fitterName = signUpData.businessName || "Dan's Mobile Tyres";
     const quotePrice = parseFloat(quoteData.price || '89.99');
     const bookingFee = 5.95;
     const customerTotal = quotePrice + bookingFee;
     const fmtExpiry = `${Math.floor(quoteExpirySeconds / 60)}:${String(quoteExpirySeconds % 60).padStart(2, '0')}`;
+    const focusOtpField = () => {
+      if (authSectionRef.current) {
+        authSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      setTimeout(() => {
+        if (otpInputRef.current) otpInputRef.current.focus();
+      }, 140);
+    };
 
     useEffect(() => {
       if (paid || customerTokenState !== 'valid') return;
@@ -8389,7 +8399,7 @@ export default function TyreFitApp() {
           <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '14px', border: '1px solid #A7F3D0', backgroundColor: '#ECFDF5', borderRadius: '15px', color: '#065F46', fontWeight: '700', fontSize: '15px', cursor: 'pointer', marginBottom: '14px' }}>
             View what your 30-day cover includes
           </button>
-          <div style={{ padding: '15px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', marginBottom: '14px', textAlign: 'left' }}>
+          <div ref={authSectionRef} style={{ padding: '15px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', marginBottom: '14px', textAlign: 'left' }}>
             <p style={{ margin: '0 0 6px 0', color: '#6D28D9', fontSize: '14px', fontWeight: '700', textTransform: 'uppercase' }}>Customer authentication</p>
             {!customerAuthenticated ? (
               <>
@@ -8400,7 +8410,7 @@ export default function TyreFitApp() {
                   </button>
                 ) : (
                   <div style={{ display: 'flex', gap: '8px' }}>
-                    <input value={otpCode} onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} placeholder="Enter 6-digit code" style={{ flex: 1, padding: '15px', borderRadius: '8px', border: '1px solid #C4B5FD', fontSize: '15px' }} />
+                    <input ref={otpInputRef} value={otpCode} onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} placeholder="Enter 6-digit code" style={{ flex: 1, padding: '15px', borderRadius: '8px', border: '1px solid #C4B5FD', fontSize: '15px' }} />
                     <button onClick={() => { if (otpCode.length === 6) { setCustomerAuthenticated(true); showToast('Number verified'); } }} style={{ padding: '10px 12px', backgroundColor: '#6D28D9', border: 'none', borderRadius: '8px', color: '#fff', fontWeight: '700', fontSize: '14px', cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed', opacity: otpCode.length === 6 ? 1 : 0.5 }}>
                       Verify
                     </button>
@@ -8436,11 +8446,13 @@ export default function TyreFitApp() {
               if (!customerAuthenticated) {
                 if (!otpSent) {
                   setOtpSent(true);
-                  showToast('OTP sent to your mobile');
+                  showToast('OTP sent. Enter the 6-digit code above.');
+                  focusOtpField();
                   return;
                 }
                 if (otpCode.length !== 6) {
                   showToast('Enter the 6-digit OTP code to continue');
+                  focusOtpField();
                   return;
                 }
                 setCustomerAuthenticated(true);
@@ -8454,8 +8466,16 @@ export default function TyreFitApp() {
             }}
             style={{ width: '100%', padding: '18px', backgroundColor: paying ? '#9CA3AF' : custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '17px', cursor: paying ? 'default' : 'pointer', opacity: paying ? 0.7 : 1 }}
           >
-            {paying ? 'Processing...' : !agreed ? 'Accept terms to continue' : !customerAuthenticated ? 'Verify mobile to continue' : `Pay £5.95 with ${customerPayMethod === 'apple_pay' ? 'Apple Pay' : customerPayMethod === 'google_pay' ? 'Google Pay' : customerPayMethod === 'paypal' ? 'PayPal' : 'Card'}`}
+            {paying ? 'Processing...' : !agreed ? 'Accept terms to continue' : !customerAuthenticated ? (otpSent ? (otpCode.length === 6 ? 'Verify OTP and continue' : 'Enter OTP to continue') : 'Send OTP to continue') : `Pay £5.95 with ${customerPayMethod === 'apple_pay' ? 'Apple Pay' : customerPayMethod === 'google_pay' ? 'Google Pay' : customerPayMethod === 'paypal' ? 'PayPal' : 'Card'}`}
           </button>
+          {!customerAuthenticated && otpSent && (
+            <div style={{ marginTop: '10px', padding: '10px', borderRadius: '10px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE' }}>
+              <p style={{ margin: 0, color: '#6D28D9', fontSize: '13px', fontWeight: '600' }}>OTP sent. Enter your 6-digit code in the purple box above.</p>
+              <button onClick={focusOtpField} style={{ marginTop: '6px', background: 'none', border: 'none', color: '#6D28D9', textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: '13px', fontWeight: '700' }}>
+                Jump to OTP field
+              </button>
+            </div>
+          )}
         </CustCard>
       </div>
     </div>
