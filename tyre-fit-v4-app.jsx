@@ -321,7 +321,8 @@ export default function TyreFitApp() {
     'customer-eta-tracking': { route: 'customer-receipt', label: 'Receipt' },
     'customer-pay-invoice': { route: 'customer-receipt', label: 'Receipt' },
     'customer-claim': { route: 'customer-receipt', label: 'Receipt + Report' },
-    'customer-receipt': { route: 'customer-cover-dashboard', label: 'Cover Dashboard' }
+    'customer-receipt': { route: 'customer-review', label: 'Review' },
+    'customer-review': { route: 'customer-cover-dashboard', label: 'Cover Dashboard' }
   };
   const getFlowRunnerNext = () => {
     if (!flowRunnerActive || currentScreen === 'flow-runner') return null;
@@ -1835,7 +1836,8 @@ export default function TyreFitApp() {
           ['customer-eta-tracking', 'ETA Tracking'],
           ['customer-pay-invoice', 'Pay Invoice'],
           ['customer-receipt', 'Receipt + Report'],
-          ['customer-claim', 'Claim']
+          ['customer-claim', 'Claim'],
+          ['customer-review', 'Review']
         ]
       },
       {
@@ -1995,7 +1997,7 @@ export default function TyreFitApp() {
         pages: [
           ['customer-booking', 'Booking'], ['customer-booking-terms', 'Booking Terms'], ['customer-cover-terms', 'Cover Terms'],
           ['customer-cover-dashboard', 'Cover Dashboard'], ['customer-eta-tracking', 'ETA'], ['customer-pay-invoice', 'Pay Invoice'],
-          ['customer-receipt', 'Receipt'], ['customer-claim', 'Claim']
+          ['customer-receipt', 'Receipt'], ['customer-claim', 'Claim'], ['customer-review', 'Review']
         ]
       },
       {
@@ -2100,6 +2102,7 @@ export default function TyreFitApp() {
               <LaunchButton label="Receipt + Condition Report" hint="Post-job receipt with report and claim path" onClick={() => launchCustomerFlow('customer-receipt')} icon={FileCheck} color="#ef4444" />
               <LaunchButton label="Claim Flow" hint="Issue type, photos, location, decision" onClick={() => launchCustomerFlow('customer-claim')} icon={Phone} color="#ef4444" />
               <LaunchButton label="ETA + Pay Invoice" hint="Tracking and pay-link flow pages" onClick={() => launchCustomerFlow('customer-eta-tracking')} icon={MapPin} color="#ef4444" />
+              <LaunchButton label="Review Page" hint="Google review link and quick rating" onClick={() => launchCustomerFlow('customer-review')} icon={Star} color="#ef4444" />
             </div>
           </div>
 
@@ -8256,6 +8259,7 @@ export default function TyreFitApp() {
               <button onClick={() => navigateTo('customer-receipt')} style={{ width: '100%', padding: '16px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '14px', color: '#6D28D9', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>View Receipt</button>
               <button onClick={() => navigateTo('customer-eta-tracking')} style={{ width: '100%', padding: '16px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '14px', color: '#1D4ED8', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>Track Fitter ETA</button>
               <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>View Your Cover</button>
+              <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '16px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '14px', color: '#92400E', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>Leave a Google Review</button>
             </div>
           </div>
         </div>
@@ -8413,14 +8417,30 @@ export default function TyreFitApp() {
             </span>
           </label>
           <button
-            disabled={!agreed || paying || !customerAuthenticated}
+            disabled={!agreed || paying}
             onClick={() => {
+              if (!agreed || paying) return;
+
+              if (!customerAuthenticated) {
+                if (!otpSent) {
+                  setOtpSent(true);
+                  showToast('OTP sent to your mobile');
+                  return;
+                }
+                if (otpCode.length !== 6) {
+                  showToast('Enter the 6-digit OTP code to continue');
+                  return;
+                }
+                setCustomerAuthenticated(true);
+                showToast('Mobile verified');
+              }
+
               const methodLabel = { apple_pay: 'Apple Pay', google_pay: 'Google Pay', paypal: 'PayPal', card: 'Card' }[customerPayMethod] || 'Card';
               showToast(`Opening ${methodLabel}...`);
               setPaying(true);
               setTimeout(() => setPaid(true), 2000);
             }}
-            style={{ width: '100%', padding: '18px', backgroundColor: agreed ? custTheme.primary : '#ccc', border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '17px', cursor: agreed ? 'pointer' : 'default', opacity: paying ? 0.7 : 1 }}
+            style={{ width: '100%', padding: '18px', backgroundColor: agreed ? custTheme.primary : '#ccc', border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '17px', cursor: agreed && !paying ? 'pointer' : 'default', opacity: paying ? 0.7 : 1 }}
           >
             {paying ? 'Processing...' : !customerAuthenticated ? 'Verify mobile to continue' : `Pay £5.95 with ${customerPayMethod === 'apple_pay' ? 'Apple Pay' : customerPayMethod === 'google_pay' ? 'Google Pay' : customerPayMethod === 'paypal' ? 'PayPal' : 'Card'}`}
           </button>
@@ -8634,6 +8654,7 @@ export default function TyreFitApp() {
             <button onClick={() => navigateTo('customer-receipt')} style={{ flex: 1, padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Receipt</button>
             <button onClick={() => navigateTo('customer-pay-invoice')} style={{ flex: 1, padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Pay Invoice</button>
           </div>
+          <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '15px', color: '#92400E', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '8px' }}>Leave a Google Review</button>
           <button onClick={() => navigateTo('customer-cover-terms')} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', textDecoration: 'underline' }}>View full cover terms</button>
           <p style={{ color: custTheme.textMuted, fontSize: '14px', marginTop: '8px' }}>Helpline: 0330 633 1247 (AI-powered, no queue)</p>
         </div>
@@ -8934,10 +8955,73 @@ const CustomerReceiptScreen = () => (
         <button onClick={() => showToast('Opening referral link...')} style={{ width: '100%', padding: '14px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '15px', color: '#065F46', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '15px' }}>
           Refer a mate for 10% off
         </button>
+        <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '15px', color: '#92400E', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '15px' }}>
+          Leave a Google Review
+        </button>
         <p style={{ margin: 0, color: custTheme.info, fontSize: '15px', textDecoration: 'underline' }}>tyre-fit.co/ref/AB12CDE</p>
       </div>
     </div>
   );
+
+  const CustomerReviewScreen = () => {
+    const [rating, setRating] = useState(5);
+    const [submitted, setSubmitted] = useState(false);
+
+    return (
+      <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
+        <CustUrlBar url="tyre-fit.co/review/ab12cde" />
+        <div style={{ padding: '20px' }}>
+          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+          <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 6px 0' }}>Leave a review</h1>
+          <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>Help other UK drivers find a trusted mobile fitter.</p>
+
+          <CustCard style={{ textAlign: 'center' }}>
+            <p style={{ margin: '0 0 10px 0', color: custTheme.text, fontSize: '15px', fontWeight: '600' }}>How was your service?</p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '14px' }}>
+              {[1, 2, 3, 4, 5].map((value) => (
+                <button
+                  key={value}
+                  onClick={() => setRating(value)}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                  aria-label={`${value} star${value > 1 ? 's' : ''}`}
+                >
+                  <Star size={28} color={value <= rating ? '#F59E0B' : '#D1D5DB'} fill={value <= rating ? '#F59E0B' : 'none'} />
+                </button>
+              ))}
+            </div>
+            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px' }}>{rating >= 4 ? 'Great, thank you.' : 'Thanks for the feedback.'}</p>
+          </CustCard>
+
+          <CustCard style={{ borderColor: '#BFDBFE', backgroundColor: '#E5F3FF' }}>
+            <p style={{ margin: '0 0 8px 0', color: '#1D4ED8', fontSize: '14px', fontWeight: '700' }}>Google review link</p>
+            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>
+              Your review is posted directly on {signUpData.businessName || "Dan's Mobile Tyres"} Google Business Profile.
+            </p>
+          </CustCard>
+
+          <button
+            onClick={() => {
+              showToast('Opening Google review page...');
+              setSubmitted(true);
+            }}
+            style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '16px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+          >
+            <ExternalLink size={18} />
+            Post review on Google
+          </button>
+
+          {submitted && (
+            <CustCard style={{ marginTop: '12px', borderColor: '#A7F3D0', backgroundColor: '#ECFDF5' }}>
+              <p style={{ margin: '0 0 8px 0', color: '#065F46', fontWeight: '700', fontSize: '14px' }}>Thank you. Your feedback helps this fitter win more local jobs.</p>
+              <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '12px', backgroundColor: '#fff', border: '1px solid #A7F3D0', borderRadius: '12px', color: '#065F46', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>
+                Back to Cover Dashboard
+              </button>
+            </CustCard>
+          )}
+        </div>
+      </div>
+    );
+  };
 
 
   const renderScreen = () => {
@@ -9009,6 +9093,7 @@ const CustomerReceiptScreen = () => (
       case 'customer-eta-tracking': return <CustomerEtaTrackingScreen />;
       case 'customer-pay-invoice': return <CustomerPayInvoiceScreen />;
       case 'customer-receipt': return <CustomerReceiptScreen />;
+      case 'customer-review': return <CustomerReviewScreen />;
       default: return <DashboardScreen />;
     }
   };
