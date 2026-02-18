@@ -937,37 +937,44 @@ export default function TyreFitApp() {
       {
         icon: Wrench,
         color: theme.primary,
-        title: 'You Fit The Tyres. We Handle The Rest.',
-        subtitle: 'Your mobile CRM for tyre jobs.',
-        desc: 'From first message to payment, TYRE-FIT runs quoting, booking, job proof, receipts, and follow-up so you can stay on the tools.',
+        title: 'Your CRM In Your Pocket',
+        subtitle: 'Built for UK mobile fitters.',
+        desc: 'From first enquiry to paid job, TYRE-FIT keeps every customer, quote, booking, and follow-up in one place.',
       },
       {
         icon: PoundSterling,
         color: theme.primary,
         title: 'Completely Free to Use',
         subtitle: 'No subscription. No monthly fee.',
-        desc: 'Customers pay a £5.95 booking fee to confirm. You keep control of your own labour price and get paid as normal.',
+        desc: 'Customers pay £5.95 to lock the booking. You set your labour price and get paid as normal.',
       },
       {
         icon: Shield,
         color: '#ef4444',
         title: 'Free Cover on Every Quote',
         subtitle: '30 days emergency cover included.',
-        desc: 'Customers get real peace of mind and book faster. If a cover callout happens, TYRE-FIT routes it and pays you directly.',
+        desc: 'Customers book faster with peace of mind. If a cover callout happens, TYRE-FIT routes it and pays you directly.',
       },
       {
         icon: Camera,
         color: theme.primary,
-        title: '4 Photos. Job Done.',
-        subtitle: 'One set of photos does everything.',
-        desc: 'Before photos prove the car\'s state. After photos (4 tyres + plate) create dispute evidence, a condition report, 30-day cover activation, and tyre monitoring — all automatically.',
+        title: '4 Photos = Full Protection',
+        subtitle: 'Proof, report, and cover in one flow.',
+        desc: 'Photos create dispute-proof evidence, tyre condition report, and automatic cover activation without extra paperwork.',
       },
       {
         icon: PhoneCall,
         color: '#06b6d4',
-        title: 'AI Follow-up That Wins Jobs',
-        subtitle: 'Missed calls, SMS, voice follow-up, reviews.',
-        desc: 'Missed call capture sends a quote link, SMS AI drafts quotes from reg texts, voice AI follows up non-responders, and review requests go out automatically after each job.',
+        title: 'AI SMS + Voice Follow-Up',
+        subtitle: 'Missed calls become paid jobs.',
+        desc: 'Missed call capture sends quote links, AI drafts quote texts, and voice AI follows up non-responders automatically.',
+      },
+      {
+        icon: Star,
+        color: '#eab308',
+        title: 'Reviews Collected Automatically',
+        subtitle: 'Grow Google ranking without chasing.',
+        desc: 'After each completed job, TYRE-FIT sends review requests and tracks who still needs a nudge.',
       },
     ];
 
@@ -2130,6 +2137,13 @@ export default function TyreFitApp() {
   // ============================================
   const DashboardScreen = () => {
     const showDispatcher = userRole === 'owner' && isTeamAccount;
+    const voiceAutomationOn = signUpData.comms?.voiceAiFollowup;
+    const crmLeadQueue = [
+      { id: 'l1', customer: 'Alex Reed', plate: 'LM22 QRS', stage: 'Quote viewed', nextStep: 'Auto reminder in 5 mins', priority: 'normal' },
+      { id: 'l2', customer: 'Nadia Khan', plate: 'YY19 KPL', stage: 'No response', nextStep: voiceAutomationOn ? 'AI voice call in 12 mins' : 'Manual call needed', priority: 'high' },
+      { id: 'l3', customer: 'Tom Harris', plate: 'EF12 YZA', stage: 'Deposit paid', nextStep: 'Job added to route', priority: 'done' }
+    ];
+    const activeLeadCount = crmLeadQueue.filter(l => l.stage !== 'Deposit paid').length;
     return (
       <div style={{ minHeight: '100vh', backgroundColor: theme.bg, paddingBottom: '100px' }}>
         <Toast />
@@ -2367,6 +2381,40 @@ export default function TyreFitApp() {
                 <p style={{ margin: 0, color: theme.warning, fontWeight: '700', fontSize: '20px' }}>{quotesStatus.waiting}</p>
                 <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Waiting</p>
               </div>
+            </div>
+          </Card>
+
+          <Card style={{ marginBottom: '16px', borderColor: `${theme.info}40` }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>AI Follow-up Queue</h3>
+              <Badge variant={activeLeadCount > 0 ? 'warning' : 'success'}>{activeLeadCount} active</Badge>
+            </div>
+            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>
+              Missed calls and unpaid quotes are followed up automatically. You can jump in manually anytime.
+            </p>
+            {!voiceAutomationOn && (
+              <div style={{ padding: '8px 10px', backgroundColor: `${theme.warning}12`, borderRadius: '8px', marginBottom: '10px' }}>
+                <p style={{ margin: 0, color: theme.warning, fontSize: '14px', fontWeight: '600' }}>Voice AI is off — only SMS reminders are active.</p>
+              </div>
+            )}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {crmLeadQueue.map(lead => (
+                <div key={lead.id} style={{ padding: '10px', backgroundColor: theme.bgInput, borderRadius: '8px', border: `1px solid ${theme.border}` }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>{lead.customer} — {lead.plate}</p>
+                    <Badge variant={lead.priority === 'done' ? 'success' : lead.priority === 'high' ? 'danger' : 'warning'}>{lead.stage}</Badge>
+                  </div>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{lead.nextStep}</p>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+              <Button size="small" fullWidth onClick={() => navigateTo('quote-hub')} icon={Zap}>Open Quote Queue</Button>
+              {voiceAutomationOn ? (
+                <Button size="small" variant="secondary" fullWidth onClick={() => showToast('AI voice call started for Nadia Khan')} icon={PhoneCall}>Call Next Lead</Button>
+              ) : (
+                <Button size="small" variant="secondary" fullWidth onClick={() => navigateTo('setup-comms')} icon={Settings}>Enable Voice AI</Button>
+              )}
             </div>
           </Card>
 
@@ -3189,6 +3237,15 @@ export default function TyreFitApp() {
   const QuoteSentScreen = () => {
     const isCover = quoteData.isCoverQuote;
     const [showReminderPreview, setShowReminderPreview] = useState(false);
+    const customerFirstName = (quoteData.customerName || 'customer').split(' ')[0];
+    const automationTimeline = [
+      { key: 'sent', title: 'Quote delivered now', desc: 'Customer has the secure pay link immediately.' },
+      { key: 'sms', title: 'Auto text reminder in 5 mins (if unpaid)', desc: 'Nudges the customer without you chasing.' },
+      ...(signUpData.comms?.voiceAiFollowup
+        ? [{ key: 'voice', title: 'AI voice follow-up after 15 mins', desc: 'Short callback offers quick booking options.' }]
+        : [{ key: 'voice-off', title: 'Voice follow-up is off', desc: 'Turn on in setup to auto-call non-responders.' }]),
+      { key: 'queue', title: 'Added to follow-up queue if still open', desc: 'Visible on dashboard for one-tap manual action.' }
+    ];
     return (
     <div style={{ minHeight: '100vh', backgroundColor: theme.bg, padding: '24px', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
@@ -3234,8 +3291,28 @@ export default function TyreFitApp() {
         <Card style={{ width: '100%', maxWidth: '400px', marginTop: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <BellRing size={24} color={theme.info} />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>If they don't pay in 5 mins, we'll remind them automatically</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>If they do not pay, TYRE-FIT runs reminder + follow-up automatically.</p>
           </div>
+        </Card>
+      )}
+      {!isCover && (
+        <Card style={{ width: '100%', maxWidth: '400px', marginTop: '14px', borderColor: `${theme.info}45` }}>
+          <p style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '14px', fontWeight: '700' }}>Automation timeline</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {automationTimeline.map((step, idx) => (
+              <div key={step.key} style={{ padding: '8px 10px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
+                <p style={{ margin: 0, color: theme.text, fontSize: '14px', fontWeight: idx === 0 ? '700' : '600' }}>{step.title}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{step.desc}</p>
+              </div>
+            ))}
+          </div>
+          {signUpData.comms?.voiceAiFollowup && (
+            <div style={{ marginTop: '10px' }}>
+              <Button size="small" variant="secondary" onClick={() => showToast(`AI voice follow-up started for ${customerFirstName}`)} icon={PhoneCall}>
+                Trigger Voice Follow-Up Now
+              </Button>
+            </div>
+          )}
         </Card>
       )}
       {!isCover && quoteSendStatus.status !== 'idle' && (
@@ -3528,6 +3605,12 @@ export default function TyreFitApp() {
           <span style={{ color: theme.textMuted, fontSize: '14px' }}>Simulate send failure (demo)</span>
         </label>
         <Button onClick={() => setShowQuoteSmsPreview(sendChannel)} icon={Send}>Send Quote</Button>
+        <Card style={{ marginTop: '12px', borderColor: `${theme.info}40` }}>
+          <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '14px' }}>What happens after Send</p>
+          <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>
+            1) Customer gets the link now. 2) They pay £5.95 to lock the booking. 3) TYRE-FIT auto-reminds if unpaid and can auto-call if voice follow-up is on.
+          </p>
+        </Card>
 
         {quoteSendStatus.status !== 'idle' && (
           <Card style={{ marginTop: '14px', borderColor: quoteSendStatus.status === 'failed' ? theme.danger : quoteSendStatus.status === 'queued-offline' ? theme.warning : `${theme.primary}50` }}>
