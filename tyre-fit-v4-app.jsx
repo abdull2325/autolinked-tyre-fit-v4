@@ -921,11 +921,11 @@ export default function TyreFitApp() {
         desc: 'Before photos prove the car\'s state. After photos (4 tyres + plate) create dispute evidence, a condition report, 30-day cover activation, and tyre monitoring — all automatically.',
       },
       {
-        icon: RefreshCw,
+        icon: MessageSquare,
         color: '#06b6d4',
-        title: 'Everything Else Runs Itself',
-        subtitle: 'Reviews, referrals, invoices, disputes.',
-        desc: 'After each completed job, TYRE-FIT sends receipt + cover text, schedules review requests, logs evidence, and keeps admin in one place.',
+        title: 'Missed Calls + SMS AI',
+        subtitle: 'Quotes start even when you miss the call.',
+        desc: 'When you miss a call or get a text like "need tyres AB12 CDE", TYRE-FIT creates a draft quote automatically for one-tap send.',
       },
     ];
 
@@ -947,9 +947,6 @@ export default function TyreFitApp() {
 
         {/* SLIDE CONTENT */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', textAlign: 'center' }}>
-          <p style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '16px', fontWeight: '700' }}>You Fit The Tyres. We Handle The Rest.</p>
-          <p style={{ margin: '0 0 20px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.6, maxWidth: '340px' }}>Built for fitters on the roadside. Quote fast, get paid, and keep customers coming back.</p>
-          
           {/* ICON */}
           <div style={{ width: '100px', height: '100px', borderRadius: '28px', backgroundColor: `${slide.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '32px' }}>
             <SlideIcon size={48} color={slide.color} />
