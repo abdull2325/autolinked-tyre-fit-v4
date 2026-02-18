@@ -124,7 +124,7 @@ export default function TyreFitApp() {
   const [gdprConsents, setGdprConsents] = useState({ terms: false, privacy: false, dataProcessing: false, comms: false });
   const [showSetupTips, setShowSetupTips] = useState(true);
   const [isFirstLogin, setIsFirstLogin] = useState(true);
-  const [fontSize, setFontSize] = useState('medium');
+  const [fontSize, setFontSize] = useState('large');
   const [highContrast, setHighContrast] = useState(false);
   const [quickQuoteService, setQuickQuoteService] = useState('tyre');
   const [showSkipPhotosWarning, setShowSkipPhotosWarning] = useState(false);
@@ -254,7 +254,7 @@ export default function TyreFitApp() {
     danger: '#ef4444',
     warning: '#f59e0b',
     info: '#3b82f6',
-    fs: fontSize === 'large' ? 1.2 : 1
+    fs: fontSize === 'large' ? 1.3 : 1
   };
 
   const navigateTo = (screen) => { setPreviousScreens([...previousScreens, currentScreen]); setCurrentScreen(screen); };
@@ -2984,15 +2984,20 @@ export default function TyreFitApp() {
           </Card>
           
           {/* CUSTOMER SEES - what they pay */}
-          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '16px' }}>What customer sees</h3>
+          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '20px' }}>What customer sees</h3>
           <Card>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Your Price</span><span style={{ color: theme.text, fontWeight: '600', fontSize: '16px' }}>£{basePrice.toFixed(2)}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Booking Fee</span><span style={{ color: theme.text, fontWeight: '500', fontSize: '16px' }}>£{bookingFee.toFixed(2)}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '18px' }}>Tyre fitting price</span><span style={{ color: theme.text, fontWeight: '600', fontSize: '18px' }}>£{basePrice.toFixed(2)}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '18px' }}>Booking fee</span><span style={{ color: theme.text, fontWeight: '500', fontSize: '18px' }}>£{bookingFee.toFixed(2)}</span></div>
               <div style={{ borderTop: `2px solid ${theme.border}`, paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: theme.text, fontWeight: '700', fontSize: '18px' }}>Customer Pays</span>
-                <span style={{ color: theme.primary, fontWeight: '700', fontSize: '28px' }}>£{customerTotal.toFixed(2)}</span>
+                <span style={{ color: theme.text, fontWeight: '700', fontSize: '22px' }}>Total customer sees</span>
+                <span style={{ color: theme.primary, fontWeight: '800', fontSize: '34px' }}>£{customerTotal.toFixed(2)}</span>
               </div>
+              <div style={{ padding: '12px', backgroundColor: `${theme.primary}10`, borderRadius: '10px', border: `1px solid ${theme.primary}30` }}>
+                <p style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '17px', fontWeight: '700' }}>Pay £5.95 now to secure booking</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Then pay fitter <strong style={{ color: theme.text }}>£{basePrice.toFixed(2)}</strong> after fitting.</p>
+              </div>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>All bookings include 30-day emergency tyre cover.</p>
             </div>
           </Card>
           
@@ -3037,9 +3042,9 @@ export default function TyreFitApp() {
           
           <Card style={{ marginTop: '16px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <p style={{ margin: 0, color: theme.text, fontSize: '15px' }}>Customer pays <strong style={{ color: theme.primary }}>£{bookingFee.toFixed(2)} deposit</strong> upfront to confirm</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Remaining <strong>£{(basePrice - bookingFee).toFixed(2)}</strong> collected when you finish the job</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}><Clock size={14} style={{ verticalAlign: 'middle', marginRight: '4px' }} />Link expires in 5 minutes</p>
+              <p style={{ margin: 0, color: theme.text, fontSize: '18px' }}>Customer pays <strong style={{ color: theme.primary }}>£{bookingFee.toFixed(2)} now</strong> to confirm</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '17px' }}>Customer then pays fitter <strong style={{ color: theme.text }}>£{basePrice.toFixed(2)}</strong> after fitting</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}><Clock size={14} style={{ verticalAlign: 'middle', marginRight: '4px' }} />Link expires in 5 minutes</p>
             </div>
           </Card>
           
@@ -3061,13 +3066,13 @@ export default function TyreFitApp() {
                   <h3 style={{ margin: 0, color: '#000', fontWeight: '700', fontSize: '18px' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</h3>
                 </div>
                 <div style={{ padding: '20px 16px' }}>
-                  <p style={{ margin: '0 0 4px 0', color: '#666', fontSize: '13px' }}>Hi {quoteData.customerName || 'John'},</p>
-                  <p style={{ margin: '0 0 16px 0', color: '#333', fontSize: '14px', lineHeight: 1.5 }}>Here's your quote for tyre fitting on your <strong>{quoteData.numberPlate || 'AB12 CDE'}</strong>:</p>
+                  <p style={{ margin: '0 0 4px 0', color: '#666', fontSize: '16px' }}>Hi {quoteData.customerName || 'John'},</p>
+                  <p style={{ margin: '0 0 16px 0', color: '#333', fontSize: '17px', lineHeight: 1.5 }}>Here is your quote for tyre fitting on <strong>{quoteData.numberPlate || 'AB12 CDE'}</strong>:</p>
                   
                   <div style={{ padding: '14px', backgroundColor: '#f8f9fa', borderRadius: '12px', marginBottom: '12px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '14px' }}>{quoteData.tyreQty || 2}x {quoteData.tyreSize || '205/55R16'}</span><span style={{ color: '#333', fontWeight: '600' }}>£{basePrice.toFixed(2)}</span></div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '14px' }}>Booking fee</span><span style={{ color: '#333' }}>£{bookingFee.toFixed(2)}</span></div>
-                    <div style={{ borderTop: '2px solid #e0e0e0', paddingTop: '10px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: '#333', fontWeight: '700', fontSize: '16px' }}>Total</span><span style={{ color: '#333', fontWeight: '700', fontSize: '20px' }}>£{customerTotal.toFixed(2)}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '16px' }}>{quoteData.tyreQty || 2}x {quoteData.tyreSize || '205/55R16'}</span><span style={{ color: '#333', fontWeight: '600', fontSize: '16px' }}>£{basePrice.toFixed(2)}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '16px' }}>Booking fee</span><span style={{ color: '#333', fontSize: '16px' }}>£{bookingFee.toFixed(2)}</span></div>
+                    <div style={{ borderTop: '2px solid #e0e0e0', paddingTop: '10px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: '#333', fontWeight: '700', fontSize: '19px' }}>Total</span><span style={{ color: '#333', fontWeight: '700', fontSize: '24px' }}>£{customerTotal.toFixed(2)}</span></div>
                   </div>
 
                   {!quoteData.isEmergency && quoteData.bookingDate && (
@@ -3089,9 +3094,10 @@ export default function TyreFitApp() {
                     <span style={{ color: '#333', fontSize: '13px' }}>Includes <strong style={{ color: theme.primary }}>30-day tyre cover</strong> — free</span>
                   </div>
 
-                  <p style={{ margin: '0 0 8px 0', color: '#666', fontSize: '12px', textAlign: 'center' }}>Pay £{bookingFee.toFixed(2)} deposit to confirm</p>
+                  <p style={{ margin: '0 0 8px 0', color: '#666', fontSize: '15px', textAlign: 'center', fontWeight: '700' }}>Pay £{bookingFee.toFixed(2)} now to secure booking</p>
+                  <p style={{ margin: '0 0 10px 0', color: '#666', fontSize: '14px', textAlign: 'center' }}>Pay fitter balance £{basePrice.toFixed(2)} after fitting</p>
                   <div style={{ padding: '16px', backgroundColor: theme.primary, borderRadius: '12px', textAlign: 'center', cursor: 'default' }}>
-                    <span style={{ color: '#000', fontWeight: '700', fontSize: '16px' }}>Confirm & Pay £{bookingFee.toFixed(2)}</span>
+                    <span style={{ color: '#000', fontWeight: '700', fontSize: '19px' }}>Confirm & Pay £{bookingFee.toFixed(2)}</span>
                   </div>
                   <p style={{ margin: '10px 0 0 0', color: '#999', fontSize: '11px', textAlign: 'center' }}>Quote expires in 5 minutes · Powered by TYRE-FIT</p>
                 </div>
@@ -3407,21 +3413,24 @@ export default function TyreFitApp() {
 
         {/* Full price breakdown */}
         <Card style={{ backgroundColor: `${theme.primary}08`, marginBottom: '16px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>{qJobType === 'replace' ? 'Fitting' : qJobType === 'repair' ? 'Repair' : qJobType === 'rotation' ? 'Rotation' : 'Fit only'}</span><span style={{ color: theme.text }}>£{basePrice.toFixed(2)}</span></div>
-          {qAddOns.balancing && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Digital Balancing × {qQty}</span><span style={{ color: signUpData.pricing.digitalBalancingFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.digitalBalancingFree ? '700' : '400' }}>{signUpData.pricing.digitalBalancingFree ? 'FREE' : `£${balancingTotal.toFixed(2)}`}</span></div>}
-          {qAddOns.newValves && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>New Valves × {qQty}</span><span style={{ color: signUpData.pricing.newValvesFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.newValvesFree ? '700' : '400' }}>{signUpData.pricing.newValvesFree ? 'FREE' : `£${valvesTotal.toFixed(2)}`}</span></div>}
-          {qAddOns.disposal && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Eco Disposal × {qQty}</span><span style={{ color: signUpData.pricing.disposalFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.disposalFree ? '700' : '400' }}>{signUpData.pricing.disposalFree ? 'FREE' : `£${disposalTotal.toFixed(2)}`}</span></div>}
-          {qLwn === 'no_key' && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.danger, fontSize: '14px' }}>Locking Nut Removal</span><span style={{ color: theme.danger }}>£{lwnCharge.toFixed(2)}</span></div>}
-          {qAddOns.alignment && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Wheel Alignment</span><span style={{ color: theme.text }}>£{alignmentCharge.toFixed(2)}</span></div>}
-          <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '4px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.text, fontWeight: '700' }}>Quote total</span><span style={{ color: theme.text, fontWeight: '700', fontSize: '18px' }}>£{totalPrice.toFixed(2)}</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}><span style={{ color: theme.textMuted, fontSize: '13px' }}>+ £5.95 booking fee (customer pays)</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>{qJobType === 'replace' ? 'Fitting' : qJobType === 'repair' ? 'Repair' : qJobType === 'rotation' ? 'Rotation' : 'Fit only'}</span><span style={{ color: theme.text, fontSize: '16px' }}>£{basePrice.toFixed(2)}</span></div>
+          {qAddOns.balancing && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Digital Balancing × {qQty}</span><span style={{ color: signUpData.pricing.digitalBalancingFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.digitalBalancingFree ? '700' : '400', fontSize: '16px' }}>{signUpData.pricing.digitalBalancingFree ? 'FREE' : `£${balancingTotal.toFixed(2)}`}</span></div>}
+          {qAddOns.newValves && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>New Valves × {qQty}</span><span style={{ color: signUpData.pricing.newValvesFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.newValvesFree ? '700' : '400', fontSize: '16px' }}>{signUpData.pricing.newValvesFree ? 'FREE' : `£${valvesTotal.toFixed(2)}`}</span></div>}
+          {qAddOns.disposal && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Eco Disposal × {qQty}</span><span style={{ color: signUpData.pricing.disposalFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.disposalFree ? '700' : '400', fontSize: '16px' }}>{signUpData.pricing.disposalFree ? 'FREE' : `£${disposalTotal.toFixed(2)}`}</span></div>}
+          {qLwn === 'no_key' && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.danger, fontSize: '16px' }}>Locking Nut Removal</span><span style={{ color: theme.danger, fontSize: '16px' }}>£{lwnCharge.toFixed(2)}</span></div>}
+          {qAddOns.alignment && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Wheel Alignment</span><span style={{ color: theme.text, fontSize: '16px' }}>£{alignmentCharge.toFixed(2)}</span></div>}
+          <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '4px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.text, fontWeight: '700', fontSize: '18px' }}>Tyre fitting quote</span><span style={{ color: theme.text, fontWeight: '700', fontSize: '22px' }}>£{totalPrice.toFixed(2)}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>+ £5.95 booking fee</span><span style={{ color: theme.text, fontSize: '16px', fontWeight: '700' }}>Total £{(totalPrice + 5.95).toFixed(2)}</span></div>
+          <div style={{ marginTop: '8px', padding: '10px', backgroundColor: `${theme.primary}10`, borderRadius: '10px' }}>
+            <span style={{ color: theme.text, fontSize: '16px', fontWeight: '600' }}>Customer pays £5.95 now, then pays fitter £{totalPrice.toFixed(2)} after fitting.</span>
+          </div>
           <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.primary, fontWeight: '700' }}>To your wallet</span><span style={{ color: theme.primary, fontWeight: '700', fontSize: '18px' }}>£{(totalPrice * 0.985 - 0.20).toFixed(2)}</span></div>
         </Card>
 
         {/* Cover badge */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 14px', backgroundColor: `${theme.primary}10`, borderRadius: '10px', marginBottom: '20px' }}>
           <ShieldCheck size={18} color={theme.primary} />
-          <span style={{ color: theme.textMuted, fontSize: '13px' }}>Customer gets <strong style={{ color: theme.primary }}>30 days free breakdown cover</strong> after fitting</span>
+          <span style={{ color: theme.textMuted, fontSize: '16px' }}>Customer gets <strong style={{ color: theme.primary }}>30 days free breakdown cover</strong> after fitting</span>
         </div>
 
         <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '15px', textAlign: 'center' }}>Send quote to customer</h3>
@@ -7753,7 +7762,9 @@ export default function TyreFitApp() {
     const [paid, setPaid] = useState(false);
     const [customerPayMethod, setCustomerPayMethod] = useState('card');
     const fitterName = signUpData.businessName || "Dan's Mobile Tyres";
-    const quotePrice = quoteData.price || '89.99';
+    const quotePrice = parseFloat(quoteData.price || '89.99');
+    const bookingFee = 5.95;
+    const customerTotal = quotePrice + bookingFee;
 
     if (paid) {
       return (
@@ -7820,8 +7831,8 @@ export default function TyreFitApp() {
       </div>
 
       <div style={{ padding: '20px' }}>
-        <h1 style={{ color: custTheme.text, fontSize: '24px', fontWeight: '700', margin: '0 0 4px 0' }}>Your Quote</h1>
-        <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 20px 0' }}>Review and pay £5.95 to lock in your slot</p>
+        <h1 style={{ color: custTheme.text, fontSize: '28px', fontWeight: '800', margin: '0 0 4px 0' }}>Your Quote</h1>
+        <p style={{ color: custTheme.textMuted, fontSize: '17px', margin: '0 0 20px 0' }}>Total price <strong style={{ color: custTheme.text }}>£{customerTotal.toFixed(2)}</strong> includes the £5.95 booking fee.</p>
 
         {/* QUOTE BREAKDOWN */}
         <CustCard>
@@ -7835,14 +7846,22 @@ export default function TyreFitApp() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
             <span style={{ color: custTheme.textMuted }}>Appointment</span>
-            <span style={{ color: custTheme.text, fontWeight: '600' }}>{quoteData.bookingDate || 'Tue 18 Feb'} · {quoteData.bookingTime || '10:00-12:00'} window</span>
+            <span style={{ color: custTheme.text, fontWeight: '700', fontSize: '16px' }}>{quoteData.bookingDate || 'Tue 18 Feb'} · {quoteData.bookingTime || '10:00-12:00'} window</span>
           </div>
           <div style={{ borderTop: `1px solid ${custTheme.border}`, paddingTop: '12px', marginTop: '4px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ color: custTheme.textMuted }}>Total price</span>
-              <span style={{ color: custTheme.text, fontWeight: '700', fontSize: '18px' }}>£{quotePrice}</span>
+              <span style={{ color: custTheme.text, fontWeight: '700', fontSize: '22px' }}>£{customerTotal.toFixed(2)}</span>
             </div>
-            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '12px' }}>Balance paid on the day to fitter. You only pay £5.95 now to confirm.</p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+              <span style={{ color: custTheme.textMuted }}>Pay now</span>
+              <span style={{ color: custTheme.primary, fontWeight: '700' }}>£{bookingFee.toFixed(2)}</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+              <span style={{ color: custTheme.textMuted }}>Pay fitter after fitting</span>
+              <span style={{ color: custTheme.text, fontWeight: '700' }}>£{quotePrice.toFixed(2)}</span>
+            </div>
+            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px' }}>All bookings include 30-day emergency tyre cover.</p>
           </div>
         </CustCard>
 
@@ -7865,7 +7884,7 @@ export default function TyreFitApp() {
 
         {/* BOOKING FEE */}
         <CustCard style={{ textAlign: 'center' }}>
-          <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '13px' }}>Pay now to confirm</p>
+          <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '15px' }}>Pay now to secure booking</p>
           <p style={{ margin: '0 0 12px 0', color: custTheme.text, fontSize: '36px', fontWeight: '800' }}>£5.95</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', marginBottom: '12px' }}>
             <Lock size={12} color={custTheme.textMuted} />
@@ -7897,7 +7916,7 @@ export default function TyreFitApp() {
               </button>
             ))}
           </div>
-          <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '12px', border: '1px solid #A7F3D0', backgroundColor: '#ECFDF5', borderRadius: '10px', color: '#065F46', fontWeight: '700', fontSize: '13px', cursor: 'pointer', marginBottom: '12px' }}>
+          <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '12px', border: '1px solid #A7F3D0', backgroundColor: '#ECFDF5', borderRadius: '10px', color: '#065F46', fontWeight: '700', fontSize: '15px', cursor: 'pointer', marginBottom: '12px' }}>
             View what your 30-day cover includes
           </button>
           <label style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', textAlign: 'left', cursor: 'pointer', marginBottom: '16px' }}>
