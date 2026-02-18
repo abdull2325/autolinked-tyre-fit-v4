@@ -8435,46 +8435,17 @@ export default function TyreFitApp() {
             </span>
           </label>
           <button
-            disabled={paying}
             onClick={() => {
-              if (paying) return;
-
               if (!agreed) {
                 showToast('Tick the booking and cover terms checkbox first');
                 return;
               }
-
-              let isAuthenticatedNow = customerAuthenticated;
-              if (!isAuthenticatedNow && skipOtpForUiReview) {
-                isAuthenticatedNow = true;
-                setCustomerAuthenticated(true);
-                showToast('Demo mode: OTP skipped');
-              }
-
-              if (!isAuthenticatedNow) {
-                if (!otpSent) {
-                  setOtpSent(true);
-                  showToast('OTP sent. Enter the 6-digit code above.');
-                  focusOtpField();
-                  return;
-                }
-                if (otpCode.length !== 6) {
-                  showToast('Enter the 6-digit OTP code to continue');
-                  focusOtpField();
-                  return;
-                }
-                setCustomerAuthenticated(true);
-                showToast('Mobile verified');
-              }
-
-              const methodLabel = { apple_pay: 'Apple Pay', google_pay: 'Google Pay', paypal: 'PayPal', card: 'Card' }[customerPayMethod] || 'Card';
-              showToast(`Opening ${methodLabel}...`);
-              setPaying(true);
-              setTimeout(() => setPaid(true), 2000);
+              showToast('Demo mode: continuing to next page');
+              navigateTo('customer-cover-dashboard');
             }}
-            style={{ width: '100%', padding: '18px', backgroundColor: paying ? '#9CA3AF' : custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '17px', cursor: paying ? 'default' : 'pointer', opacity: paying ? 0.7 : 1 }}
+            style={{ width: '100%', padding: '18px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '17px', cursor: 'pointer' }}
           >
-            {paying ? 'Processing...' : !agreed ? 'Accept terms to continue' : !customerAuthenticated ? (skipOtpForUiReview ? 'Continue to booking (demo)' : (otpSent ? (otpCode.length === 6 ? 'Verify OTP and continue' : 'Enter OTP to continue') : 'Send OTP to continue')) : `Pay £5.95 with ${customerPayMethod === 'apple_pay' ? 'Apple Pay' : customerPayMethod === 'google_pay' ? 'Google Pay' : customerPayMethod === 'paypal' ? 'PayPal' : 'Card'}`}
+            {!agreed ? 'Accept terms to continue' : 'Continue to next screen (demo)'}
           </button>
           {skipOtpForUiReview && !customerAuthenticated && (
             <p style={{ margin: '8px 0 0 0', color: '#065F46', fontSize: '13px', fontWeight: '600' }}>Demo mode active: OTP is bypassed for UI/UX review.</p>
