@@ -2153,28 +2153,43 @@ export default function TyreFitApp() {
       { id: 'l3', customer: 'Tom Harris', plate: 'EF12 YZA', stage: 'Deposit paid', nextStep: 'Job added to route', priority: 'done' }
     ];
     const activeLeadCount = crmLeadQueue.filter(l => l.stage !== 'Deposit paid').length;
+    const dash = {
+      bgTop: '#ECF8FF',
+      bgBottom: '#F8FBFF',
+      surface: '#FFFFFF',
+      surfaceSoft: '#F4FAFF',
+      border: '#CFE3F2',
+      borderStrong: '#9EC7DE',
+      text: '#0F2A3C',
+      textMuted: '#456279',
+      accent: '#00A99D',
+      accentAlt: '#0EA5E9',
+      warning: '#F59E0B',
+      danger: '#EF4444'
+    };
+
     return (
-      <div style={{ minHeight: '100vh', backgroundColor: theme.bg, paddingBottom: '100px' }}>
+      <div style={{ minHeight: '100vh', background: `linear-gradient(160deg, ${dash.bgTop} 0%, ${dash.bgBottom} 60%)`, paddingBottom: '100px', fontFamily: "'Avenir Next', 'Segoe UI', sans-serif" }}>
         <Toast />
         {emergencyAccepted && (
-          <div style={{ backgroundColor: theme.primary, color: '#000', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ background: `linear-gradient(90deg, ${dash.accent} 0%, ${dash.accentAlt} 100%)`, color: '#fff', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '14px', borderBottom: `1px solid ${dash.borderStrong}` }}>
             <CheckCircle size={20} />
-            <div style={{ flex: 1 }}><p style={{ margin: 0, fontWeight: '600' }}>Emergency cover job accepted</p><p style={{ margin: '2px 0 0 0', fontSize: '14px' }}>TYRE-FIT will update the customer</p></div>
-            <button onClick={() => setEmergencyAccepted(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#000' }}><X size={20} /></button>
+            <div style={{ flex: 1 }}><p style={{ margin: 0, fontWeight: '700' }}>Emergency cover job accepted</p><p style={{ margin: '2px 0 0 0', fontSize: '14px', opacity: 0.95 }}>TYRE-FIT will update the customer</p></div>
+            <button onClick={() => setEmergencyAccepted(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#fff' }}><X size={20} /></button>
           </div>
         )}
-        <div style={{ backgroundColor: theme.bgCard, borderBottom: `1px solid ${theme.border}`, padding: '16px' }}>
+        <div style={{ backgroundColor: dash.surface, borderBottom: `1px solid ${dash.border}`, padding: '16px', boxShadow: '0 10px 24px rgba(13, 54, 88, 0.08)' }}>
           {/* OFFLINE BANNER */}
           {isOffline && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', backgroundColor: `${theme.warning}15`, borderRadius: '8px', marginBottom: '14px', border: `1px solid ${theme.warning}30` }}>
-              <NoWifi size={16} color={theme.warning} />
-              <span style={{ color: theme.warning, fontSize: '15px', fontWeight: '600' }}>Saved — will sync when online</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', backgroundColor: '#FEF7E8', borderRadius: '10px', marginBottom: '14px', border: `1px solid #F8D9A0` }}>
+              <NoWifi size={16} color={dash.warning} />
+              <span style={{ color: '#8A5A00', fontSize: '15px', fontWeight: '700' }}>Saved — will sync when online</span>
             </div>
           )}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div><p style={{ color: theme.textMuted, fontSize: '14px', margin: 0 }}>{getTimeOfDay() === 'morning' ? 'Good morning' : getTimeOfDay() === 'evening' ? 'Evening' : 'Hello'}</p><h1 style={{ fontSize: '22px', fontWeight: 'bold', color: theme.text, margin: '4px 0 0 0' }}>{signUpData.fullName?.split(' ')[0] || 'Dan'}</h1></div>
+            <div><p style={{ color: dash.textMuted, fontSize: '14px', margin: 0, fontWeight: '600' }}>{getTimeOfDay() === 'morning' ? 'Good morning' : getTimeOfDay() === 'evening' ? 'Evening' : 'Hello'}</p><h1 style={{ fontSize: '28px', fontWeight: '800', color: dash.text, margin: '4px 0 0 0', letterSpacing: '-0.3px' }}>{signUpData.fullName?.split(' ')[0] || 'Dan'}</h1></div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <button onClick={() => setShowGlobalSearch(true)} style={{ width: '36px', height: '36px', borderRadius: '15px', backgroundColor: theme.bgInput, border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}><Search size={18} color={theme.textMuted} /></button>
+              <button onClick={() => setShowGlobalSearch(true)} style={{ width: '36px', height: '36px', borderRadius: '15px', backgroundColor: dash.surfaceSoft, border: `1px solid ${dash.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}><Search size={18} color={dash.textMuted} /></button>
               <Badge variant="success">3 jobs today</Badge>
               <FontSizeToggle />
               <ThemeToggle />
@@ -2183,16 +2198,16 @@ export default function TyreFitApp() {
         </div>
         
         <div style={{ padding: '16px' }}>
-          <Card style={{ position: 'sticky', top: '80px', zIndex: 30, borderColor: `${theme.primary}40`, borderWidth: '2px' }}>
+          <Card style={{ position: 'sticky', top: '80px', zIndex: 30, borderColor: dash.borderStrong, borderWidth: '2px', background: `linear-gradient(135deg, ${dash.surface} 0%, ${dash.surfaceSoft} 100%)`, boxShadow: '0 12px 28px rgba(15, 42, 60, 0.12)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: '14px' }}>
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Total Earnings</p>
-                <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '26px', fontWeight: '800' }}>£{weeklyWins.earned.toLocaleString()}</p>
+                <p style={{ margin: 0, color: dash.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Total Earnings</p>
+                <p style={{ margin: '4px 0 0 0', color: dash.accent, fontSize: '28px', fontWeight: '800' }}>£{weeklyWins.earned.toLocaleString()}</p>
               </div>
-              <div style={{ width: '1px', backgroundColor: theme.border }} />
+              <div style={{ width: '1px', backgroundColor: dash.border }} />
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Total Jobs</p>
-                <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '26px', fontWeight: '800' }}>{weeklyWins.jobs}</p>
+                <p style={{ margin: 0, color: dash.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Total Jobs</p>
+                <p style={{ margin: '4px 0 0 0', color: dash.text, fontSize: '28px', fontWeight: '800' }}>{weeklyWins.jobs}</p>
               </div>
             </div>
           </Card>
@@ -2200,7 +2215,7 @@ export default function TyreFitApp() {
           {/* === SECTION 1: URGENT STUFF — things that need action NOW === */}
           
           {/* INCOMING COVER JOBS — urgent, needs immediate decision */}
-          <Card style={{ marginBottom: '14px' }}>
+          <Card style={{ marginBottom: '14px', backgroundColor: dash.surface, borderColor: dash.border, boxShadow: '0 8px 20px rgba(15, 42, 60, 0.08)' }}>
             <Toggle
               label="Emergency jobs right now"
               checked={signUpData.availability.emergency}
@@ -2209,26 +2224,26 @@ export default function TyreFitApp() {
                 availability: { ...signUpData.availability, emergency: v }
               })}
             />
-            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: '4px 0 0 0', color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>
               {signUpData.availability.emergency ? 'You can receive cover job alerts' : 'Cover jobs paused for now'}
             </p>
           </Card>
 
           {coverJobs.length > 0 && signUpData.availability.emergency && (
-            <Card style={{ borderColor: theme.danger, marginBottom: '14px', borderWidth: '2px' }}>
+            <Card style={{ borderColor: '#F7B2BC', marginBottom: '14px', borderWidth: '2px', backgroundColor: '#FFF8F9', boxShadow: '0 10px 24px rgba(239, 68, 68, 0.12)' }}>
               <button onClick={() => setCoverJobsExpanded(!coverJobsExpanded)} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '15px', background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginBottom: coverJobsExpanded ? '14px' : 0 }}>
-                <div style={{ width: '40px', height: '40px', backgroundColor: `${theme.danger}15`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <ShieldCheck size={20} color={theme.danger} />
+                <div style={{ width: '40px', height: '40px', backgroundColor: '#FDE7EA', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <ShieldCheck size={20} color={dash.danger} />
                 </div>
                 <div style={{ flex: 1, textAlign: 'left' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '15px', fontWeight: '700', color: theme.text }}>Emergency Cover Jobs</span>
+                    <span style={{ fontSize: '16px', fontWeight: '800', color: dash.text }}>Emergency Cover Jobs</span>
                     <Badge variant="danger">{coverJobs.length}</Badge>
                   </div>
-                  <p style={{ margin: '2px 0 0 0', fontSize: '15px', color: theme.textMuted }}>{coverJobs.length === 1 ? '1 customer needs help nearby' : `${coverJobs.length} customers need help nearby`}</p>
+                  <p style={{ margin: '2px 0 0 0', fontSize: '15px', color: dash.textMuted }}>{coverJobs.length === 1 ? '1 customer needs help nearby' : `${coverJobs.length} customers need help nearby`}</p>
                 </div>
-                <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: theme.bgInput, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {coverJobsExpanded ? <Minus size={18} color={theme.textMuted} /> : <Plus size={18} color={theme.textMuted} />}
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: '#F2F6FA', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${dash.border}` }}>
+                  {coverJobsExpanded ? <Minus size={18} color={dash.textMuted} /> : <Plus size={18} color={dash.textMuted} />}
                 </div>
               </button>
               
@@ -2237,14 +2252,14 @@ export default function TyreFitApp() {
                   {coverJobs.map(cj => {
                     const tyreOnVan = mockStock.find(s => s.size === cj.tyreSize && s.location === 'Van');
                     return (
-                      <div key={cj.id} style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '14px', border: `1px solid ${theme.border}` }}>
+                      <div key={cj.id} style={{ padding: '14px', backgroundColor: dash.surface, borderRadius: '14px', border: `1px solid ${dash.border}`, boxShadow: '0 6px 16px rgba(15, 42, 60, 0.06)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                          <span style={{ fontSize: '14px', color: theme.danger, fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cover Job</span>
-                          <span style={{ fontSize: '14px', color: theme.textMuted }}>{cj.timeAgo}</span>
+                          <span style={{ fontSize: '14px', color: dash.danger, fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cover Job</span>
+                          <span style={{ fontSize: '14px', color: dash.textMuted, fontWeight: '600' }}>{cj.timeAgo}</span>
                         </div>
-                        <h4 style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>{cj.name} — {cj.plate}</h4>
-                        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}><MapPin size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} />{cj.location} — {cj.distance}</p>
-                        <p style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '15px' }}>{cj.issue} — {cj.tyreSize} x{cj.qty}</p>
+                        <h4 style={{ margin: '0 0 4px 0', color: dash.text, fontWeight: '700', fontSize: '16px' }}>{cj.name} — {cj.plate}</h4>
+                        <p style={{ margin: '0 0 4px 0', color: dash.textMuted, fontSize: '15px' }}><MapPin size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} />{cj.location} — {cj.distance}</p>
+                        <p style={{ margin: '0 0 8px 0', color: dash.text, fontSize: '15px', fontWeight: '600' }}>{cj.issue} — {cj.tyreSize} x{cj.qty}</p>
                         
                         <div style={{ display: 'flex', gap: '6px', marginBottom: '15px' }}>
                           {tyreOnVan ? (
@@ -2254,8 +2269,8 @@ export default function TyreFitApp() {
                           )}
                         </div>
                         
-                        <div style={{ padding: '8px 10px', backgroundColor: `${theme.primary}08`, borderRadius: '8px', marginBottom: '15px' }}>
-                          <p style={{ margin: 0, fontSize: '14px', color: theme.textMuted }}>Quote goes to TYRE-FIT — <strong style={{ color: theme.primary }}>TYRE-FIT pays you directly</strong></p>
+                        <div style={{ padding: '8px 10px', backgroundColor: '#EAF8F7', borderRadius: '8px', marginBottom: '15px', border: `1px solid ${dash.border}` }}>
+                          <p style={{ margin: 0, fontSize: '14px', color: dash.textMuted }}>Quote goes to TYRE-FIT — <strong style={{ color: dash.accent }}>TYRE-FIT pays you directly</strong></p>
                         </div>
                         
                         <div style={{ display: 'flex', gap: '8px' }}>
@@ -2278,32 +2293,32 @@ export default function TyreFitApp() {
 
           {/* STOCK ALERT — you need to pick up tyres before your first job */}
           {mockUpcomingBookingsNeedingStock.length > 0 && (getTimeOfDay() === 'morning' || getTimeOfDay() === 'evening') && (
-            <Card style={{ borderColor: theme.warning, marginBottom: '14px', borderWidth: '2px' }}>
+            <Card style={{ borderColor: '#F5D88D', marginBottom: '14px', borderWidth: '2px', backgroundColor: '#FFF9EC', boxShadow: '0 10px 20px rgba(245, 158, 11, 0.1)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <div style={{ width: '40px', height: '40px', backgroundColor: `${theme.warning}15`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Package size={20} color={theme.warning} />
+                <div style={{ width: '40px', height: '40px', backgroundColor: '#FFEFCC', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Package size={20} color={dash.warning} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>Stock needed for upcoming jobs</p>
+                  <p style={{ margin: 0, color: dash.text, fontWeight: '800', fontSize: '15px' }}>Stock needed for upcoming jobs</p>
                   {mockUpcomingBookingsNeedingStock.map(b => (
-                    <p key={b.id} style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{b.qty}x {b.tyreSize} — collect from {b.location}</p>
+                    <p key={b.id} style={{ margin: '4px 0 0 0', color: dash.textMuted, fontSize: '15px' }}>{b.qty}x {b.tyreSize} — collect from {b.location}</p>
                   ))}
                 </div>
-                <button onClick={() => navigateTo('stock')} style={{ padding: '8px 12px', backgroundColor: theme.warning, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#000', fontWeight: '600', fontSize: '14px' }}>View</button>
+                <button onClick={() => navigateTo('stock')} style={{ padding: '9px 13px', backgroundColor: dash.warning, border: 'none', borderRadius: '10px', cursor: 'pointer', color: '#111827', fontWeight: '700', fontSize: '14px' }}>View</button>
               </div>
             </Card>
           )}
 
           {/* WEATHER — affects your outdoor jobs today */}
           {getTimeOfDay() === 'morning' && (
-            <Card style={{ marginBottom: '14px', borderColor: `${theme.info}40` }}>
+            <Card style={{ marginBottom: '14px', borderColor: '#BDE6FC', backgroundColor: '#F3FBFF' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <div style={{ width: '40px', height: '40px', backgroundColor: `${theme.info}15`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <RainAlert size={20} color={theme.info} />
+                <div style={{ width: '40px', height: '40px', backgroundColor: '#DFF4FF', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <RainAlert size={20} color={dash.accentAlt} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>Rain forecast 2-5pm</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>2 outdoor jobs in that window</p>
+                  <p style={{ margin: 0, color: dash.text, fontWeight: '700', fontSize: '15px' }}>Rain forecast 2-5pm</p>
+                  <p style={{ margin: '2px 0 0 0', color: dash.textMuted, fontSize: '15px' }}>2 outdoor jobs in that window</p>
                 </div>
               </div>
             </Card>
@@ -2316,9 +2331,9 @@ export default function TyreFitApp() {
             const isInProgress = !!activeJob;
             if (!nextJob) {
               return (
-                <Card highlight style={{ marginBottom: '16px', textAlign: 'center' }}>
-                  <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700' }}>No bookings yet today</h3>
-                  <p style={{ margin: '0 0 14px 0', color: theme.textMuted, fontSize: '14px' }}>
+                <Card highlight style={{ marginBottom: '16px', textAlign: 'center', background: `linear-gradient(135deg, ${dash.surface} 0%, ${dash.surfaceSoft} 100%)`, borderColor: dash.borderStrong }}>
+                  <h3 style={{ margin: '0 0 8px 0', color: dash.text, fontWeight: '800', fontSize: '20px' }}>No bookings yet today</h3>
+                  <p style={{ margin: '0 0 14px 0', color: dash.textMuted, fontSize: '15px' }}>
                     Send a quote to get your first job on the board.
                   </p>
                   <Button onClick={() => navigateTo('quick-quote')} icon={Zap}>Send a Quote</Button>
@@ -2326,14 +2341,14 @@ export default function TyreFitApp() {
               );
             }
             return (
-            <Card highlight style={{ marginBottom: '16px' }}>
+            <Card highlight style={{ marginBottom: '16px', background: `linear-gradient(135deg, ${dash.surface} 0%, #E9FAF8 100%)`, borderColor: dash.borderStrong, borderWidth: '2px', boxShadow: '0 12px 24px rgba(0, 169, 157, 0.12)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                <h3 style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '16px' }}>{isInProgress ? 'Job In Progress' : 'Your Next Job'}</h3>
+                <h3 style={{ margin: 0, color: dash.accent, fontWeight: '800', fontSize: '17px', letterSpacing: '0.2px' }}>{isInProgress ? 'Job In Progress' : 'Your Next Job'}</h3>
                 {isInProgress ? <Badge variant="warning">In progress</Badge> : <Badge variant="info">{nextJob.eta} away</Badge>}
               </div>
-              <h3 style={{ fontSize: '20px', fontWeight: '600', color: theme.text, margin: '0 0 8px 0' }}>{nextJob.customer}</h3>
-              <p style={{ color: theme.textMuted, margin: '0 0 4px 0', fontSize: '16px' }}>{nextJob.plate} • {nextJob.tyreSize}</p>
-              <p style={{ color: theme.textSubtle, fontSize: '15px', margin: '0 0 12px 0' }}>{nextJob.location}</p>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', color: dash.text, margin: '0 0 8px 0' }}>{nextJob.customer}</h3>
+              <p style={{ color: dash.textMuted, margin: '0 0 4px 0', fontSize: '16px', fontWeight: '600' }}>{nextJob.plate} • {nextJob.tyreSize}</p>
+              <p style={{ color: dash.textMuted, fontSize: '15px', margin: '0 0 12px 0' }}>{nextJob.location}</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                 {nextJob.isCoverJob ? <Badge variant="danger">Cover Job</Badge> : nextJob.isEmergency ? <Badge variant="warning">Urgent</Badge> : <Badge variant="success">Deposit paid</Badge>}
                 {nextJob.stockOnVan !== false && <Badge variant="success">Tyres on van</Badge>}
@@ -2349,11 +2364,11 @@ export default function TyreFitApp() {
 
           {/* TEAM — only for owners, right after next job */}
           {showDispatcher && (
-            <Card onClick={() => navigateTo('dispatcher')} style={{ marginBottom: '16px' }}>
+            <Card onClick={() => navigateTo('dispatcher')} style={{ marginBottom: '16px', backgroundColor: dash.surface, borderColor: dash.border, boxShadow: '0 8px 20px rgba(14, 165, 233, 0.1)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div style={{ width: '48px', height: '48px', backgroundColor: `${theme.info}20`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Users size={24} color={theme.info} /></div>
-                <div style={{ flex: 1 }}><h3 style={{ fontSize: '16px', fontWeight: '600', color: theme.text, margin: 0 }}>My Team</h3><p style={{ fontSize: '14px', color: theme.textMuted, margin: '4px 0 0 0' }}>See all fitters and assign jobs</p></div>
-                <ChevronRight size={20} color={theme.textMuted} />
+                <div style={{ width: '48px', height: '48px', backgroundColor: '#DDF3FF', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Users size={24} color={dash.accentAlt} /></div>
+                <div style={{ flex: 1 }}><h3 style={{ fontSize: '17px', fontWeight: '700', color: dash.text, margin: 0 }}>My Team</h3><p style={{ fontSize: '15px', color: dash.textMuted, margin: '4px 0 0 0' }}>See all fitters and assign jobs</p></div>
+                <ChevronRight size={20} color={dash.textMuted} />
               </div>
             </Card>
           )}
@@ -2361,59 +2376,59 @@ export default function TyreFitApp() {
           {/* === SECTION 3: QUICK ACTIONS — what you do most === */}
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '16px' }}>
-            <button onClick={() => navigateTo('quick-quote')} style={{ backgroundColor: theme.bgCard, border: `2px solid ${theme.primary}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', cursor: 'pointer' }}>
-              <div style={{ width: '56px', height: '56px', backgroundColor: `${theme.primary}20`, borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Zap size={28} color={theme.primary} /></div>
-              <span style={{ fontSize: '16px', fontWeight: '700', color: theme.text }}>Quick Quote</span>
+            <button onClick={() => navigateTo('quick-quote')} style={{ background: `linear-gradient(145deg, ${dash.surface} 0%, #E9FAF8 100%)`, border: `2px solid ${dash.accent}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', cursor: 'pointer', boxShadow: '0 10px 22px rgba(0, 169, 157, 0.15)' }}>
+              <div style={{ width: '56px', height: '56px', backgroundColor: '#DDF7F4', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Zap size={28} color={dash.accent} /></div>
+              <span style={{ fontSize: '17px', fontWeight: '800', color: dash.text }}>Quick Quote</span>
             </button>
-            <button onClick={() => navigateTo('route')} style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', cursor: 'pointer' }}>
-              <div style={{ width: '56px', height: '56px', backgroundColor: '#f9731620', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Map size={28} color="#f97316" /></div>
-              <span style={{ fontSize: '16px', fontWeight: '600', color: theme.text }}>Best Route</span>
+            <button onClick={() => navigateTo('route')} style={{ background: `linear-gradient(145deg, ${dash.surface} 0%, #EEF7FF 100%)`, border: `1px solid ${dash.border}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', cursor: 'pointer', boxShadow: '0 8px 18px rgba(15, 42, 60, 0.08)' }}>
+              <div style={{ width: '56px', height: '56px', backgroundColor: '#E5F2FF', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Map size={28} color={dash.accentAlt} /></div>
+              <span style={{ fontSize: '17px', fontWeight: '700', color: dash.text }}>Best Route</span>
             </button>
           </div>
 
           {/* TODAY'S QUOTES — quick glance, are customers paying? */}
-          <Card style={{ marginBottom: '16px' }}>
+          <Card style={{ marginBottom: '16px', backgroundColor: dash.surface, borderColor: dash.border, boxShadow: '0 8px 20px rgba(15, 42, 60, 0.08)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>{"Today's Quotes"}</h3>
-              <span style={{ color: theme.textMuted, fontSize: '15px' }}>{quotesStatus.sent} sent</span>
+              <h3 style={{ margin: 0, color: dash.text, fontWeight: '700', fontSize: '16px' }}>{"Today's Quotes"}</h3>
+              <span style={{ color: dash.textMuted, fontSize: '15px', fontWeight: '600' }}>{quotesStatus.sent} sent</span>
             </div>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <div style={{ flex: 1, padding: '14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', textAlign: 'center' }}>
-                <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '20px' }}>{quotesStatus.paid}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Paid</p>
+              <div style={{ flex: 1, padding: '14px', backgroundColor: '#EAF8F7', borderRadius: '15px', textAlign: 'center', border: `1px solid ${dash.border}` }}>
+                <p style={{ margin: 0, color: dash.accent, fontWeight: '800', fontSize: '21px' }}>{quotesStatus.paid}</p>
+                <p style={{ margin: '2px 0 0 0', color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>Paid</p>
               </div>
-              <div style={{ flex: 1, padding: '14px', backgroundColor: `${theme.info}10`, borderRadius: '15px', textAlign: 'center' }}>
-                <p style={{ margin: 0, color: theme.info, fontWeight: '700', fontSize: '20px' }}>{quotesStatus.opened}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Opened</p>
+              <div style={{ flex: 1, padding: '14px', backgroundColor: '#E8F5FF', borderRadius: '15px', textAlign: 'center', border: `1px solid ${dash.border}` }}>
+                <p style={{ margin: 0, color: dash.accentAlt, fontWeight: '800', fontSize: '21px' }}>{quotesStatus.opened}</p>
+                <p style={{ margin: '2px 0 0 0', color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>Opened</p>
               </div>
-              <div style={{ flex: 1, padding: '14px', backgroundColor: `${theme.warning}10`, borderRadius: '15px', textAlign: 'center' }}>
-                <p style={{ margin: 0, color: theme.warning, fontWeight: '700', fontSize: '20px' }}>{quotesStatus.waiting}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Waiting</p>
+              <div style={{ flex: 1, padding: '14px', backgroundColor: '#FFF8E7', borderRadius: '15px', textAlign: 'center', border: `1px solid ${dash.border}` }}>
+                <p style={{ margin: 0, color: dash.warning, fontWeight: '800', fontSize: '21px' }}>{quotesStatus.waiting}</p>
+                <p style={{ margin: '2px 0 0 0', color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>Waiting</p>
               </div>
             </div>
           </Card>
 
-          <Card style={{ marginBottom: '16px', borderColor: `${theme.info}40` }}>
+          <Card style={{ marginBottom: '16px', borderColor: '#BDE6FC', backgroundColor: '#F5FBFF' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>AI Follow-up Queue</h3>
+              <h3 style={{ margin: 0, color: dash.text, fontWeight: '800', fontSize: '16px' }}>AI Follow-up Queue</h3>
               <Badge variant={activeLeadCount > 0 ? 'warning' : 'success'}>{activeLeadCount} active</Badge>
             </div>
-            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>
+            <p style={{ margin: '0 0 12px 0', color: dash.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
               Missed calls and unpaid quotes are followed up automatically. You can jump in manually anytime.
             </p>
             {!voiceAutomationOn && (
-              <div style={{ padding: '8px 10px', backgroundColor: `${theme.warning}12`, borderRadius: '8px', marginBottom: '10px' }}>
-                <p style={{ margin: 0, color: theme.warning, fontSize: '14px', fontWeight: '600' }}>Voice AI is off — only SMS reminders are active.</p>
+              <div style={{ padding: '8px 10px', backgroundColor: '#FFF8E7', borderRadius: '8px', marginBottom: '10px', border: `1px solid #F8DCA0` }}>
+                <p style={{ margin: 0, color: dash.warning, fontSize: '14px', fontWeight: '700' }}>Voice AI is off — only SMS reminders are active.</p>
               </div>
             )}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {crmLeadQueue.map(lead => (
-                <div key={lead.id} style={{ padding: '10px', backgroundColor: theme.bgInput, borderRadius: '8px', border: `1px solid ${theme.border}` }}>
+                <div key={lead.id} style={{ padding: '10px', backgroundColor: dash.surface, borderRadius: '10px', border: `1px solid ${dash.border}` }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>{lead.customer} — {lead.plate}</p>
+                    <p style={{ margin: 0, color: dash.text, fontWeight: '700', fontSize: '14px' }}>{lead.customer} — {lead.plate}</p>
                     <Badge variant={lead.priority === 'done' ? 'success' : lead.priority === 'high' ? 'danger' : 'warning'}>{lead.stage}</Badge>
                   </div>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{lead.nextStep}</p>
+                  <p style={{ margin: '4px 0 0 0', color: dash.textMuted, fontSize: '14px' }}>{lead.nextStep}</p>
                 </div>
               ))}
             </div>
@@ -2431,18 +2446,18 @@ export default function TyreFitApp() {
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '16px' }}>
             {[
-              { icon: PoundSterling, title: 'Invoices', sub: mockInvoices.overdue.length > 0 ? `${mockInvoices.overdue.length} overdue` : 'All paid', color: mockInvoices.overdue.length > 0 ? theme.danger : theme.info, screen: 'invoices' },
+              { icon: PoundSterling, title: 'Invoices', sub: mockInvoices.overdue.length > 0 ? `${mockInvoices.overdue.length} overdue` : 'All paid', color: mockInvoices.overdue.length > 0 ? dash.danger : dash.accentAlt, screen: 'invoices' },
               { icon: Package, title: 'My Stock', sub: 'Tyres on van', color: '#ec4899', screen: 'stock' },
               { icon: Star, title: 'Reviews', sub: '4.8 average', color: '#eab308', screen: 'reviews' },
-              { icon: Calendar, title: 'Bookings', sub: 'All jobs', color: '#06b6d4', screen: 'bookings' },
-              { icon: Shield, title: 'Disputes', sub: 'No open cases', color: '#8b5cf6', screen: 'disputes' },
-              { icon: ShieldCheck, title: 'Customer Cover', sub: `${mockCoverCustomers.filter(c => c.status === 'active' || c.status === 'expiring').length} active`, color: theme.primary, screen: 'emergency' },
+              { icon: Calendar, title: 'Bookings', sub: 'All jobs', color: dash.accentAlt, screen: 'bookings' },
+              { icon: Shield, title: 'Disputes', sub: 'No open cases', color: '#7C83FD', screen: 'disputes' },
+              { icon: ShieldCheck, title: 'Customer Cover', sub: `${mockCoverCustomers.filter(c => c.status === 'active' || c.status === 'expiring').length} active`, color: dash.accent, screen: 'emergency' },
             ].map((item) => (
-              <button key={item.screen} onClick={() => navigateTo(item.screen)} style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '16px', padding: '16px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' }}>
+              <button key={item.screen} onClick={() => navigateTo(item.screen)} style={{ background: `linear-gradient(145deg, ${dash.surface} 0%, ${dash.surfaceSoft} 100%)`, border: `1px solid ${dash.border}`, borderRadius: '16px', padding: '16px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left', boxShadow: '0 6px 16px rgba(15, 42, 60, 0.06)' }}>
                 <div style={{ width: '44px', height: '44px', backgroundColor: `${item.color}20`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><item.icon size={22} color={item.color} /></div>
                 <div>
-                  <span style={{ fontSize: '15px', fontWeight: '600', color: theme.text, display: 'block' }}>{item.title}</span>
-                  <span style={{ fontSize: '15px', color: item.color === theme.danger ? theme.danger : theme.textMuted }}>{item.sub}</span>
+                  <span style={{ fontSize: '16px', fontWeight: '700', color: dash.text, display: 'block' }}>{item.title}</span>
+                  <span style={{ fontSize: '15px', color: item.color === dash.danger ? dash.danger : dash.textMuted, fontWeight: '600' }}>{item.sub}</span>
                 </div>
               </button>
             ))}
@@ -2450,38 +2465,38 @@ export default function TyreFitApp() {
 
           {/* WALLET + MILEAGE — combined row, end-of-day stuff */}
           <div style={{ display: 'flex', gap: '14px', marginBottom: '14px' }}>
-            <Card onClick={() => navigateTo('wallet')} style={{ flex: 1, marginBottom: 0, cursor: 'pointer', backgroundColor: theme.primary }}>
-              <p style={{ margin: 0, color: '#000', opacity: 0.7, fontSize: '14px' }}>Wallet</p>
-              <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '22px', fontWeight: '700' }}>{'\u00A3'}{walletBalance.toFixed(2)}</p>
+            <Card onClick={() => navigateTo('wallet')} style={{ flex: 1, marginBottom: 0, cursor: 'pointer', background: `linear-gradient(120deg, ${dash.accent} 0%, ${dash.accentAlt} 100%)`, borderColor: dash.accent }}>
+              <p style={{ margin: 0, color: '#ECFEFF', opacity: 0.95, fontSize: '14px', fontWeight: '700' }}>Wallet</p>
+              <p style={{ margin: '4px 0 0 0', color: '#FFFFFF', fontSize: '24px', fontWeight: '800' }}>{'\u00A3'}{walletBalance.toFixed(2)}</p>
             </Card>
-            <Card onClick={() => setShowMileage(!showMileage)} style={{ flex: 1, marginBottom: 0, cursor: 'pointer' }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Miles today</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '22px', fontWeight: '700' }}>{mileageToday}</p>
+            <Card onClick={() => setShowMileage(!showMileage)} style={{ flex: 1, marginBottom: 0, cursor: 'pointer', background: `linear-gradient(145deg, ${dash.surface} 0%, ${dash.surfaceSoft} 100%)`, borderColor: dash.border, boxShadow: '0 8px 18px rgba(15, 42, 60, 0.08)' }}>
+              <p style={{ margin: 0, color: dash.textMuted, fontSize: '14px', fontWeight: '700' }}>Miles today</p>
+              <p style={{ margin: '4px 0 0 0', color: dash.text, fontSize: '24px', fontWeight: '800' }}>{mileageToday}</p>
             </Card>
           </div>
 
           {/* MILEAGE EXPANDED */}
           {showMileage && (
-            <Card style={{ marginBottom: '14px' }}>
+            <Card style={{ marginBottom: '14px', backgroundColor: dash.surface, borderColor: dash.border, boxShadow: '0 8px 20px rgba(15, 42, 60, 0.08)' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '15px', marginBottom: '14px' }}>
-                <div style={{ textAlign: 'center', padding: '8px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{mileageToday}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Today</p>
+                <div style={{ textAlign: 'center', padding: '10px', backgroundColor: dash.surfaceSoft, borderRadius: '10px', border: `1px solid ${dash.border}` }}>
+                  <p style={{ margin: 0, color: dash.text, fontWeight: '800', fontSize: '20px' }}>{mileageToday}</p>
+                  <p style={{ margin: '2px 0 0 0', color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>Today</p>
                 </div>
-                <div style={{ textAlign: 'center', padding: '8px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{mileageWeek}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>This week</p>
+                <div style={{ textAlign: 'center', padding: '10px', backgroundColor: dash.surfaceSoft, borderRadius: '10px', border: `1px solid ${dash.border}` }}>
+                  <p style={{ margin: 0, color: dash.text, fontWeight: '800', fontSize: '20px' }}>{mileageWeek}</p>
+                  <p style={{ margin: '2px 0 0 0', color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>This week</p>
                 </div>
-                <div style={{ textAlign: 'center', padding: '8px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{mileageMonth}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>This month</p>
+                <div style={{ textAlign: 'center', padding: '10px', backgroundColor: dash.surfaceSoft, borderRadius: '10px', border: `1px solid ${dash.border}` }}>
+                  <p style={{ margin: 0, color: dash.text, fontWeight: '800', fontSize: '20px' }}>{mileageMonth}</p>
+                  <p style={{ margin: '2px 0 0 0', color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>This month</p>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <span style={{ color: theme.textMuted, fontSize: '14px' }}>HMRC rate: 45p/mile</span>
-                <span style={{ color: theme.primary, fontWeight: '600', fontSize: '15px' }}>{'\u00A3'}{(mileageMonth * 0.45).toFixed(2)} claimable</span>
+                <span style={{ color: dash.textMuted, fontSize: '14px', fontWeight: '600' }}>HMRC rate: 45p/mile</span>
+                <span style={{ color: dash.accent, fontWeight: '700', fontSize: '15px' }}>{'\u00A3'}{(mileageMonth * 0.45).toFixed(2)} claimable</span>
               </div>
-              <button onClick={() => showToast('Mileage report downloaded')} style={{ width: '100%', padding: '15px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '15px', fontWeight: '500', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}><Download size={14} /> Export for Accountant</button>
+              <button onClick={() => showToast('Mileage report downloaded')} style={{ width: '100%', padding: '15px', backgroundColor: dash.surfaceSoft, border: `1px solid ${dash.border}`, borderRadius: '10px', color: dash.text, fontSize: '15px', fontWeight: '700', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}><Download size={14} /> Export for Accountant</button>
             </Card>
           )}
 
@@ -2490,16 +2505,16 @@ export default function TyreFitApp() {
             const expiring = mockCoverCustomers.filter(c => c.status === 'expiring');
             if (expiring.length === 0) return null;
             return (
-              <Card style={{ borderColor: theme.warning, marginBottom: '14px' }}>
+              <Card style={{ borderColor: '#F5D88D', marginBottom: '14px', backgroundColor: '#FFF9EC' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                  <div style={{ width: '40px', height: '40px', backgroundColor: `${theme.warning}15`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Shield size={20} color={theme.warning} />
+                  <div style={{ width: '40px', height: '40px', backgroundColor: '#FFEFCC', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Shield size={20} color={dash.warning} />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>{expiring.length} cover{expiring.length > 1 ? 's' : ''} expiring soon</p>
-                    <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{expiring.map(c => c.name).join(', ')}</p>
+                    <p style={{ margin: 0, color: dash.text, fontWeight: '800', fontSize: '15px' }}>{expiring.length} cover{expiring.length > 1 ? 's' : ''} expiring soon</p>
+                    <p style={{ margin: '4px 0 0 0', color: dash.textMuted, fontSize: '15px' }}>{expiring.map(c => c.name).join(', ')}</p>
                   </div>
-                  <button onClick={() => navigateTo('emergency')} style={{ padding: '8px 12px', backgroundColor: theme.warning, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#000', fontWeight: '600', fontSize: '14px' }}>Message</button>
+                  <button onClick={() => navigateTo('emergency')} style={{ padding: '9px 13px', backgroundColor: dash.warning, border: 'none', borderRadius: '10px', cursor: 'pointer', color: '#111827', fontWeight: '700', fontSize: '14px' }}>Message</button>
                 </div>
               </Card>
             );
@@ -2507,16 +2522,16 @@ export default function TyreFitApp() {
 
           {/* OVERDUE INVOICES — nudge */}
           {mockInvoices.overdue.length > 0 && getTimeOfDay() === 'evening' && (
-            <Card style={{ borderColor: theme.danger, marginBottom: '14px' }}>
+            <Card style={{ borderColor: '#F5B4B4', marginBottom: '14px', backgroundColor: '#FFF6F6' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <div style={{ width: '40px', height: '40px', backgroundColor: `${theme.danger}15`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <PoundSterling size={20} color={theme.danger} />
+                <div style={{ width: '40px', height: '40px', backgroundColor: '#FFE3E3', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <PoundSterling size={20} color={dash.danger} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>{mockInvoices.overdue.length} overdue invoice{mockInvoices.overdue.length > 1 ? 's' : ''}</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.danger, fontSize: '15px', fontWeight: '600' }}>{'\u00A3'}{mockInvoices.overdue.reduce((s, i) => s + i.amount, 0).toFixed(2)} outstanding</p>
+                  <p style={{ margin: 0, color: dash.text, fontWeight: '800', fontSize: '15px' }}>{mockInvoices.overdue.length} overdue invoice{mockInvoices.overdue.length > 1 ? 's' : ''}</p>
+                  <p style={{ margin: '4px 0 0 0', color: dash.danger, fontSize: '15px', fontWeight: '700' }}>{'\u00A3'}{mockInvoices.overdue.reduce((s, i) => s + i.amount, 0).toFixed(2)} outstanding</p>
                 </div>
-                <button onClick={() => navigateTo('invoices')} style={{ padding: '8px 12px', backgroundColor: theme.danger, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#fff', fontWeight: '600', fontSize: '14px' }}>Chase</button>
+                <button onClick={() => navigateTo('invoices')} style={{ padding: '9px 13px', backgroundColor: dash.danger, border: 'none', borderRadius: '10px', cursor: 'pointer', color: '#fff', fontWeight: '700', fontSize: '14px' }}>Chase</button>
               </div>
             </Card>
           )}
@@ -2524,8 +2539,8 @@ export default function TyreFitApp() {
         </div>
         {showDeclineModal && (
           <Modal title="Can't Take This Job?" onClose={() => setShowDeclineModal(false)}>
-            <p style={{ color: theme.textMuted, marginBottom: '16px' }}>No problem — TYRE-FIT will find another fitter nearby.</p>
-            <p style={{ color: theme.textMuted, marginBottom: '24px', fontSize: '14px' }}><strong style={{ color: theme.text }}>They stay your customer.</strong> Future tyre work, alerts, and quotes still come to you.</p>
+            <p style={{ color: dash.textMuted, marginBottom: '16px' }}>No problem — TYRE-FIT will find another fitter nearby.</p>
+            <p style={{ color: dash.textMuted, marginBottom: '24px', fontSize: '14px' }}><strong style={{ color: dash.text }}>They stay your customer.</strong> Future tyre work, alerts, and quotes still come to you.</p>
             <div style={{ display: 'flex', gap: '14px' }}>
               <Button variant="secondary" onClick={() => setShowDeclineModal(false)} fullWidth>Go Back</Button>
               <Button onClick={() => { setShowDeclineModal(false); setCoverJobs(prev => prev.filter(j => j.id !== declineCoverJobId)); showToast('Passed to nearest available fitter'); }} fullWidth>Pass Job</Button>
@@ -2535,44 +2550,44 @@ export default function TyreFitApp() {
 
         {/* GLOBAL CUSTOMER SEARCH */}
         {showGlobalSearch && (
-          <div style={{ position: 'fixed', inset: 0, backgroundColor: theme.bg, zIndex: 2000, display: 'flex', flexDirection: 'column' }}>
-            <div style={{ padding: '16px', borderBottom: `1px solid ${theme.border}` }}>
+          <div style={{ position: 'fixed', inset: 0, background: `linear-gradient(160deg, ${dash.bgTop} 0%, ${dash.bgBottom} 70%)`, zIndex: 2000, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ padding: '16px', borderBottom: `1px solid ${dash.border}`, backgroundColor: dash.surface }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <button onClick={() => { setShowGlobalSearch(false); setGlobalSearchTerm(''); }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}><ArrowLeft size={24} color={theme.text} /></button>
+                <button onClick={() => { setShowGlobalSearch(false); setGlobalSearchTerm(''); }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}><ArrowLeft size={24} color={dash.text} /></button>
                 <div style={{ flex: 1, position: 'relative' }}>
-                  <Search size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: theme.textMuted }} />
-                  <input autoFocus type="text" placeholder="Search by name, plate, or phone..." value={globalSearchTerm} onChange={(e) => setGlobalSearchTerm(e.target.value)} style={{ width: '100%', padding: '14px 14px 14px 44px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '16px', outline: 'none', boxSizing: 'border-box' }} />
+                  <Search size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: dash.textMuted }} />
+                  <input autoFocus type="text" placeholder="Search by name, plate, or phone..." value={globalSearchTerm} onChange={(e) => setGlobalSearchTerm(e.target.value)} style={{ width: '100%', padding: '14px 14px 14px 44px', backgroundColor: dash.surfaceSoft, border: `1px solid ${dash.border}`, borderRadius: '14px', color: dash.text, fontSize: '16px', outline: 'none', boxSizing: 'border-box' }} />
                 </div>
               </div>
             </div>
             <div style={{ flex: 1, overflowY: 'auto', padding: '8px 16px' }}>
               {globalSearchTerm.length < 2 ? (
                 <div style={{ textAlign: 'center', padding: '40px 20px' }}>
-                  <Search size={40} color={theme.textMuted} style={{ marginBottom: '14px', opacity: 0.3 }} />
-                  <p style={{ color: theme.textMuted, fontSize: '15px' }}>Search all your customers</p>
-                  <p style={{ color: theme.textMuted, fontSize: '15px' }}>Find by name, reg plate, or phone number</p>
+                  <Search size={40} color={dash.textMuted} style={{ marginBottom: '14px', opacity: 0.35 }} />
+                  <p style={{ color: dash.textMuted, fontSize: '16px', fontWeight: '600' }}>Search all your customers</p>
+                  <p style={{ color: dash.textMuted, fontSize: '15px' }}>Find by name, reg plate, or phone number</p>
                 </div>
               ) : (
                 (() => {
                   const term = globalSearchTerm.toLowerCase();
                   const results = allCustomers.filter(c => c.name.toLowerCase().includes(term) || c.plate.toLowerCase().replace(/\s/g, '').includes(term.replace(/\s/g, '')) || c.phone.includes(term));
-                  if (results.length === 0) return <p style={{ color: theme.textMuted, textAlign: 'center', padding: '40px', fontSize: '15px' }}>No customers found for "{globalSearchTerm}"</p>;
+                  if (results.length === 0) return <p style={{ color: dash.textMuted, textAlign: 'center', padding: '40px', fontSize: '16px' }}>No customers found for "{globalSearchTerm}"</p>;
                   return results.map((c, i) => (
-                    <Card key={i} style={{ marginBottom: '8px' }}>
+                    <Card key={i} style={{ marginBottom: '8px', backgroundColor: dash.surface, borderColor: dash.border, boxShadow: '0 8px 18px rgba(15, 42, 60, 0.08)' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                         <div>
-                          <h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>{c.name}</h3>
-                          <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{c.plate} — {c.vehicle}</p>
+                          <h3 style={{ margin: 0, color: dash.text, fontWeight: '700', fontSize: '16px' }}>{c.name}</h3>
+                          <p style={{ margin: '3px 0 0 0', color: dash.textMuted, fontSize: '15px' }}>{c.plate} — {c.vehicle}</p>
                         </div>
                         <Badge variant={c.status === 'active-cover' ? 'success' : c.status === 'expiring-cover' ? 'warning' : c.status === 'expired-cover' ? 'default' : 'info'}>
                           {c.status === 'active-cover' ? 'Covered' : c.status === 'expiring-cover' ? 'Expiring' : c.status === 'expired-cover' ? 'Expired' : 'No cover'}
                         </Badge>
                       </div>
-                      <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '14px' }}>Last job: {c.lastJob} · {c.tyreSize} · {c.phone}</p>
+                      <p style={{ margin: '0 0 10px 0', color: dash.textMuted, fontSize: '14px' }}>Last job: {c.lastJob} · {c.tyreSize} · {c.phone}</p>
                       <div style={{ display: 'flex', gap: '8px' }}>
-                        <button onClick={() => { setShowGlobalSearch(false); setGlobalSearchTerm(''); setQuoteData(prev => ({...prev, customerName: c.name, mobile: c.phone, numberPlate: c.plate})); navigateTo('quote-customer'); }} style={{ flex: 1, padding: '15px', backgroundColor: `${theme.primary}15`, border: `1px solid ${theme.primary}40`, borderRadius: '8px', cursor: 'pointer', color: theme.primary, fontWeight: '600', fontSize: '15px' }}>New Quote</button>
-                        <button onClick={() => { showToast(`Calling ${c.name}...`); }} style={{ padding: '10px 14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', cursor: 'pointer' }}><Phone size={16} color={theme.text} /></button>
-                        <button onClick={() => { showToast(`Opening WhatsApp for ${c.name}...`); }} style={{ padding: '10px 14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', cursor: 'pointer' }}><MessageSquare size={16} color={theme.text} /></button>
+                        <button onClick={() => { setShowGlobalSearch(false); setGlobalSearchTerm(''); setQuoteData(prev => ({...prev, customerName: c.name, mobile: c.phone, numberPlate: c.plate})); navigateTo('quote-customer'); }} style={{ flex: 1, padding: '15px', backgroundColor: '#EAF8F7', border: `1px solid ${dash.borderStrong}`, borderRadius: '8px', cursor: 'pointer', color: dash.accent, fontWeight: '700', fontSize: '15px' }}>New Quote</button>
+                        <button onClick={() => { showToast(`Calling ${c.name}...`); }} style={{ padding: '10px 14px', backgroundColor: dash.surfaceSoft, border: `1px solid ${dash.border}`, borderRadius: '8px', cursor: 'pointer' }}><Phone size={16} color={dash.text} /></button>
+                        <button onClick={() => { showToast(`Opening WhatsApp for ${c.name}...`); }} style={{ padding: '10px 14px', backgroundColor: dash.surfaceSoft, border: `1px solid ${dash.border}`, borderRadius: '8px', cursor: 'pointer' }}><MessageSquare size={16} color={dash.text} /></button>
                       </div>
                     </Card>
                   ));
