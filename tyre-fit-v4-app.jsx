@@ -16,7 +16,7 @@ const Wrench = Settings;
 
 // Aliases for icons not available in lucide-react 0.263.1
 const PoundSterling = ({ size = 24, color = 'currentColor', style = {} }) => (
-  <span style={{ fontSize: `${size}px`, fontWeight: '700', color, lineHeight: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: `${size}px`, height: `${size}px`, ...style }}>£</span>
+  <span style={{ fontSize: `${size}px`, fontWeight: '800', color, lineHeight: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: `${size}px`, height: `${size}px`, ...style }}>£</span>
 );
 const QrCode = Smartphone;
 const Wallet = CreditCard;
@@ -194,7 +194,7 @@ export default function TyreFitApp() {
   };
   
   const Toast = () => toast && (
-    <div style={{ position: 'fixed', top: '24px', left: '50%', transform: 'translateX(-50%)', backgroundColor: theme.primary, color: '#000', padding: '12px 24px', borderRadius: '14px', zIndex: 9999, display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '500', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
+    <div style={{ position: 'fixed', top: '24px', left: '50%', transform: 'translateX(-50%)', backgroundColor: theme.primary, color: '#000', padding: '12px 24px', borderRadius: '14px', zIndex: 9999, display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '600', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
       <CheckCircle size={20} />{toast}
     </div>
   );
@@ -203,7 +203,7 @@ export default function TyreFitApp() {
     <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', zIndex: 2000 }}>
       <Card style={{ maxWidth: '400px', width: '100%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-          <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{title}</h3>
+          <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{title}</h3>
           <button onClick={onClose} style={{ background: 'none', border: 'none', color: theme.textMuted, cursor: 'pointer' }}><X size={24} /></button>
         </div>
         {children}
@@ -264,8 +264,8 @@ export default function TyreFitApp() {
     <div style={{ display: 'flex', gap: '15px', padding: '14px', backgroundColor: `${accent || theme.info}10`, borderRadius: '15px', border: `1px solid ${accent || theme.info}20`, marginBottom: '16px' }}>
       <TipIcon size={18} color={accent || theme.info} style={{ flexShrink: 0, marginTop: '2px' }} />
       <div>
-        {title && <p style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>{title}</p>}
-        <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>{children}</p>
+        {title && <p style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>{title}</p>}
+        <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>{children}</p>
       </div>
     </div>
   );
@@ -282,7 +282,7 @@ export default function TyreFitApp() {
     danger: '#ef4444',
     warning: '#f59e0b',
     info: '#3b82f6',
-    fs: fontSize === 'large' ? 1.3 : 1
+    fs: fontSize === 'large' ? 1.4 : 1.1
   };
 
   const navigateTo = (screen) => { setPreviousScreens([...previousScreens, currentScreen]); setCurrentScreen(screen); };
@@ -447,7 +447,7 @@ export default function TyreFitApp() {
 
   const FontSizeToggle = () => (
     <button onClick={() => { const next = fontSize === 'medium' ? 'large' : 'medium'; setFontSize(next); showToast(next === 'large' ? 'Large text' : 'Normal text'); }} style={{ padding: '4px 8px', background: fontSize === 'large' ? `${theme.primary}15` : `${theme.primary}10`, border: `1px solid ${fontSize === 'large' ? theme.primary + '30' : theme.border}`, borderRadius: '15px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s ease', minWidth: `${uiSizing.controlHeight}px`, height: `${uiSizing.controlHeight}px` }}>
-      <span style={{ fontSize: fontSize === 'large' ? '16px' : '15px', fontWeight: '700', color: fontSize === 'large' ? theme.primary : theme.textMuted, lineHeight: 1 }}>Aa</span>
+      <span style={{ fontSize: fontSize === 'large' ? '16px' : '15px', fontWeight: '800', color: fontSize === 'large' ? theme.primary : theme.textMuted, lineHeight: 1 }}>Aa</span>
     </button>
   );
 
@@ -456,8 +456,8 @@ export default function TyreFitApp() {
       <div style={{ display: 'flex', alignItems: 'center', gap: roomyUi ? '16px' : '14px' }}>
         {showBack && <button onClick={goBack} style={{ padding: '8px', marginLeft: '-8px', background: 'none', border: 'none', color: theme.text, cursor: 'pointer' }}><ChevronLeft size={24} /></button>}
         <div style={{ flex: 1 }}>
-          <h1 style={{ fontSize: `${20 * theme.fs}px`, fontWeight: 'bold', color: theme.text, margin: 0 }}>{title}</h1>
-          {subtitle && <p style={{ fontSize: `${14 * theme.fs}px`, color: theme.textMuted, margin: '6px 0 0 0', lineHeight: 1.45 }}>{subtitle}</p>}
+          <h1 style={{ fontSize: `${21 * theme.fs}px`, fontWeight: '800', color: theme.text, margin: 0 }}>{title}</h1>
+          {subtitle && <p style={{ fontSize: `${15 * theme.fs}px`, color: theme.textMuted, margin: '6px 0 0 0', lineHeight: 1.45 }}>{subtitle}</p>}
         </div>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <FontSizeToggle />
@@ -488,10 +488,10 @@ export default function TyreFitApp() {
           <item.icon size={24} />
           {item.screen === 'dashboard' && alertCount > 0 && (
             <div style={{ position: 'absolute', top: '4px', right: '15px', width: '18px', height: '18px', borderRadius: '50%', backgroundColor: theme.danger, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#fff', fontSize: '15px', fontWeight: '700' }}>{alertCount}</span>
+              <span style={{ color: '#fff', fontSize: '16px', fontWeight: '800' }}>{alertCount}</span>
             </div>
           )}
-          <span style={{ fontSize: '14px', marginTop: roomyUi ? '6px' : '4px' }}>{item.label}</span>
+          <span style={{ fontSize: '15px', marginTop: roomyUi ? '6px' : '4px' }}>{item.label}</span>
         </button>
         );
       })}
@@ -501,10 +501,10 @@ export default function TyreFitApp() {
 
   const Input = ({ label, placeholder, value, onChange, type = 'text', icon: Icon, uppercase = false, required = false }) => (
     <div style={{ marginBottom: roomyUi ? '18px' : '16px' }}>
-      {label && <label style={{ display: 'block', fontSize: `${14 * theme.fs}px`, color: theme.textMuted, marginBottom: roomyUi ? '10px' : '8px', lineHeight: 1.4 }}>{label} {required && <span style={{ color: theme.danger }}>*</span>}</label>}
+      {label && <label style={{ display: 'block', fontSize: `${15 * theme.fs}px`, color: theme.textMuted, marginBottom: roomyUi ? '10px' : '8px', lineHeight: 1.4 }}>{label} {required && <span style={{ color: theme.danger }}>*</span>}</label>}
       <div style={{ position: 'relative' }}>
         {Icon && <Icon size={20} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: theme.textMuted }} />}
-        <input type={type} placeholder={placeholder} value={value} onChange={(e) => onChange(uppercase ? e.target.value.toUpperCase() : e.target.value)} style={{ width: '100%', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: Icon ? uiSizing.inputIconPadding : uiSizing.inputPadding, fontSize: `${16 * theme.fs}px`, lineHeight: 1.35, color: theme.text, outline: 'none', boxSizing: 'border-box', textTransform: uppercase ? 'uppercase' : 'none' }} />
+        <input type={type} placeholder={placeholder} value={value} onChange={(e) => onChange(uppercase ? e.target.value.toUpperCase() : e.target.value)} style={{ width: '100%', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: Icon ? uiSizing.inputIconPadding : uiSizing.inputPadding, fontSize: `${17 * theme.fs}px`, lineHeight: 1.35, color: theme.text, outline: 'none', boxSizing: 'border-box', textTransform: uppercase ? 'uppercase' : 'none' }} />
       </div>
     </div>
   );
@@ -512,24 +512,24 @@ export default function TyreFitApp() {
   const Button = ({ children, onClick, variant = 'primary', size = 'large', icon: Icon, disabled = false, fullWidth = true }) => {
     const styles = { primary: { backgroundColor: theme.primary, color: '#000' }, secondary: { backgroundColor: theme.bgInput, color: theme.text }, danger: { backgroundColor: theme.danger, color: '#fff' }, success: { backgroundColor: '#22c55e', color: '#fff' }, outline: { backgroundColor: 'transparent', color: theme.primary, border: `2px solid ${theme.primary}` }, ghost: { backgroundColor: 'transparent', color: theme.textMuted }, whatsapp: { backgroundColor: '#25D366', color: '#fff' } };
     return (
-      <button onClick={onClick} disabled={disabled} style={{ ...styles[variant], width: fullWidth ? '100%' : 'auto', minHeight: size === 'large' ? (roomyUi ? '56px' : '52px') : size === 'medium' ? (roomyUi ? '48px' : '44px') : (roomyUi ? '42px' : '38px'), padding: size === 'large' ? uiSizing.buttonPadLarge : size === 'medium' ? uiSizing.buttonPadMedium : uiSizing.buttonPadSmall, borderRadius: '14px', fontSize: `${(size === 'large' ? 16 : 14) * theme.fs}px`, lineHeight: 1.2, fontWeight: '600', border: variant === 'outline' ? `2px solid ${theme.primary}` : 'none', cursor: disabled ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: disabled ? 0.5 : 1 }}>
+      <button onClick={onClick} disabled={disabled} style={{ ...styles[variant], width: fullWidth ? '100%' : 'auto', minHeight: size === 'large' ? (roomyUi ? '56px' : '52px') : size === 'medium' ? (roomyUi ? '48px' : '44px') : (roomyUi ? '42px' : '38px'), padding: size === 'large' ? uiSizing.buttonPadLarge : size === 'medium' ? uiSizing.buttonPadMedium : uiSizing.buttonPadSmall, borderRadius: '14px', fontSize: `${(size === 'large' ? 16 : 14) * theme.fs}px`, lineHeight: 1.2, fontWeight: '700', border: variant === 'outline' ? `2px solid ${theme.primary}` : 'none', cursor: disabled ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: disabled ? 0.5 : 1 }}>
         {Icon && <Icon size={size === 'large' ? 20 : 18} />}{children}
       </button>
     );
   };
 
   const Card = ({ children, onClick, highlight = false, style = {} }) => (
-    <div onClick={onClick} style={{ backgroundColor: theme.bgCard, border: `1px solid ${highlight ? theme.primary : theme.border}`, borderRadius: uiSizing.cardRadius, padding: uiSizing.cardPadding, marginBottom: roomyUi ? '16px' : '14px', cursor: onClick ? 'pointer' : 'default', fontSize: `${14 * theme.fs}px`, ...style }}>{children}</div>
+    <div onClick={onClick} style={{ backgroundColor: theme.bgCard, border: `1px solid ${highlight ? theme.primary : theme.border}`, borderRadius: uiSizing.cardRadius, padding: uiSizing.cardPadding, marginBottom: roomyUi ? '16px' : '14px', cursor: onClick ? 'pointer' : 'default', fontSize: `${15 * theme.fs}px`, ...style }}>{children}</div>
   );
 
   const Badge = ({ children, variant = 'default' }) => {
     const colors = { default: { bg: theme.bgInput, text: theme.textMuted }, success: { bg: 'rgba(16,185,129,0.2)', text: theme.primary }, warning: { bg: 'rgba(245,158,11,0.2)', text: theme.warning }, danger: { bg: 'rgba(239,68,68,0.2)', text: theme.danger }, info: { bg: 'rgba(59,130,246,0.2)', text: theme.info } };
-    return <span style={{ backgroundColor: colors[variant].bg, color: colors[variant].text, padding: '4px 12px', borderRadius: '20px', fontSize: `${12 * theme.fs}px`, fontWeight: '500' }}>{children}</span>;
+    return <span style={{ backgroundColor: colors[variant].bg, color: colors[variant].text, padding: '4px 12px', borderRadius: '20px', fontSize: `${13 * theme.fs}px`, fontWeight: '600' }}>{children}</span>;
   };
 
   const Toggle = ({ checked, onChange, label }) => (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: roomyUi ? '14px 0' : '12px 0' }}>
-      <span style={{ color: theme.text, fontSize: `${14 * theme.fs}px`, lineHeight: 1.35 }}>{label}</span>
+      <span style={{ color: theme.text, fontSize: `${15 * theme.fs}px`, lineHeight: 1.35 }}>{label}</span>
       <button onClick={() => onChange(!checked)} style={{ width: '52px', height: '28px', borderRadius: '14px', backgroundColor: checked ? theme.primary : theme.bgInput, border: 'none', cursor: 'pointer', position: 'relative' }}>
         <div style={{ width: '24px', height: '24px', borderRadius: '14px', backgroundColor: '#fff', position: 'absolute', top: '2px', left: checked ? '26px' : '2px', transition: 'all 0.2s' }} />
       </button>
@@ -539,13 +539,13 @@ export default function TyreFitApp() {
   const [activeLegalDoc, setActiveLegalDoc] = useState(null);
 
   const LegalDocViewer = ({ docKey, onClose }) => {
-    const s = { h2: { fontSize: '18px', fontWeight: '700', color: theme.text, margin: '28px 0 12px 0' }, h3: { fontSize: '15px', fontWeight: '600', color: theme.text, margin: '20px 0 8px 0' }, p: { margin: '0 0 12px 0', fontSize: '14px', color: theme.textMuted, lineHeight: 1.7 }, li: { margin: '0 0 8px 0', fontSize: '14px', color: theme.textMuted, lineHeight: 1.7, paddingLeft: '8px' }, strong: { color: theme.text, fontWeight: '600' } };
+    const s = { h2: { fontSize: '19px', fontWeight: '800', color: theme.text, margin: '28px 0 12px 0' }, h3: { fontSize: '16px', fontWeight: '700', color: theme.text, margin: '20px 0 8px 0' }, p: { margin: '0 0 12px 0', fontSize: '15px', color: theme.textMuted, lineHeight: 1.7 }, li: { margin: '0 0 8px 0', fontSize: '15px', color: theme.textMuted, lineHeight: 1.7, paddingLeft: '8px' }, strong: { color: theme.text, fontWeight: '700' } };
 
     const docs = {
       terms: (
         <div>
           <h2 style={{ ...s.h2, marginTop: '0' }}>TYRE-FIT Terms of Service</h2>
-          <p style={{ ...s.p, fontSize: '15px', color: theme.textSubtle }}>Last updated: 1 February 2026 · Effective: 1 February 2026</p>
+          <p style={{ ...s.p, fontSize: '16px', color: theme.textSubtle }}>Last updated: 1 February 2026 · Effective: 1 February 2026</p>
           <p style={s.p}>These Terms of Service ("Terms") govern your use of the TYRE-FIT platform ("Platform"), operated by TYRE-FIT Ltd, a company registered in England and Wales ("TYRE-FIT", "we", "us", "our"). By creating an account, you agree to these Terms.</p>
 
           <h3 style={s.h3}>1. About TYRE-FIT</h3>
@@ -622,7 +622,7 @@ export default function TyreFitApp() {
       privacy: (
         <div>
           <h2 style={{ ...s.h2, marginTop: '0' }}>TYRE-FIT Privacy Policy</h2>
-          <p style={{ ...s.p, fontSize: '15px', color: theme.textSubtle }}>Last updated: 1 February 2026 · Effective: 1 February 2026</p>
+          <p style={{ ...s.p, fontSize: '16px', color: theme.textSubtle }}>Last updated: 1 February 2026 · Effective: 1 February 2026</p>
           <p style={s.p}>This Privacy Policy explains how TYRE-FIT Ltd ("TYRE-FIT", "we", "us") collects, uses, stores, and protects your personal data when you use the TYRE-FIT platform. We are committed to protecting your privacy and complying with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
           <h3 style={s.h3}>1. Who We Are</h3>
@@ -713,7 +713,7 @@ export default function TyreFitApp() {
       cookies: (
         <div>
           <h2 style={{ ...s.h2, marginTop: '0' }}>TYRE-FIT Cookie Policy</h2>
-          <p style={{ ...s.p, fontSize: '15px', color: theme.textSubtle }}>Last updated: 1 February 2026</p>
+          <p style={{ ...s.p, fontSize: '16px', color: theme.textSubtle }}>Last updated: 1 February 2026</p>
           <p style={s.p}>This Cookie Policy explains how TYRE-FIT Ltd ("TYRE-FIT", "we") uses cookies and similar technologies when you use the TYRE-FIT platform.</p>
 
           <h3 style={s.h3}>1. What Are Cookies</h3>
@@ -746,7 +746,7 @@ export default function TyreFitApp() {
       customerdata: (
         <div>
           <h2 style={{ ...s.h2, marginTop: '0' }}>Customer Data — Your Data, Your Control</h2>
-          <p style={{ ...s.p, fontSize: '15px', color: theme.textSubtle }}>Last updated: 1 February 2026</p>
+          <p style={{ ...s.p, fontSize: '16px', color: theme.textSubtle }}>Last updated: 1 February 2026</p>
           <p style={s.p}>This document explains how customer data works within TYRE-FIT, your responsibilities as a data controller, and how we protect the information you entrust to us.</p>
 
           <h3 style={s.h3}>1. Who Owns the Data</h3>
@@ -801,7 +801,7 @@ export default function TyreFitApp() {
       fees: (
         <div>
           <h2 style={{ ...s.h2, marginTop: '0' }}>Where the £5.95 Booking Fee Goes</h2>
-          <p style={{ ...s.p, fontSize: '15px', color: theme.textSubtle }}>Last updated: 1 February 2026</p>
+          <p style={{ ...s.p, fontSize: '16px', color: theme.textSubtle }}>Last updated: 1 February 2026</p>
           <p style={s.p}>TYRE-FIT charges no monthly fees, no setup fees, and no lock-in contracts. The only fee is £5.95 per confirmed booking, paid by the customer — not the Fitter.</p>
 
           <h3 style={s.h3}>What It Covers</h3>
@@ -846,7 +846,7 @@ export default function TyreFitApp() {
       <div style={{ position: 'fixed', inset: 0, backgroundColor: theme.bg, zIndex: 3000, display: 'flex', flexDirection: 'column' }}>
         <div style={{ backgroundColor: theme.bgCard, borderBottom: `1px solid ${theme.border}`, padding: '16px', display: 'flex', alignItems: 'center', gap: '14px' }}>
           <button onClick={onClose} style={{ padding: '8px', marginLeft: '-8px', background: 'none', border: 'none', color: theme.text, cursor: 'pointer' }}><ChevronLeft size={24} /></button>
-          <h1 style={{ fontSize: '18px', fontWeight: 'bold', color: theme.text, margin: 0 }}>
+          <h1 style={{ fontSize: '19px', fontWeight: '800', color: theme.text, margin: 0 }}>
             {docKey === 'terms' && 'Terms of Service'}
             {docKey === 'privacy' && 'Privacy Policy'}
             {docKey === 'cookies' && 'Cookie Policy'}
@@ -868,7 +868,7 @@ export default function TyreFitApp() {
       {steps.map((step, i) => (
         <div key={i} style={{ flex: 1, textAlign: 'center' }}>
           <div style={{ height: '4px', borderRadius: '2px', backgroundColor: i <= currentStep ? theme.primary : theme.bgInput, marginBottom: '8px', opacity: i === currentStep ? 0.5 : 1 }} />
-          <span style={{ fontSize: '15px', color: i <= currentStep ? theme.primary : theme.textMuted }}>{step}</span>
+          <span style={{ fontSize: '16px', color: i <= currentStep ? theme.primary : theme.textMuted }}>{step}</span>
         </div>
       ))}
     </div>
@@ -891,11 +891,11 @@ export default function TyreFitApp() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: '400px', margin: '0 auto', width: '100%' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{ width: '80px', height: '80px', background: `linear-gradient(135deg, ${theme.primary}, #059669)`, borderRadius: '20px', margin: '0 auto 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '8px' }}>
-              <span style={{ fontSize: '15px', fontWeight: '900', color: '#fff', letterSpacing: '1px', lineHeight: 1 }}>TYRE</span>
+              <span style={{ fontSize: '16px', fontWeight: '900', color: '#fff', letterSpacing: '1px', lineHeight: 1 }}>TYRE</span>
               <div style={{ width: '36px', height: '2px', backgroundColor: '#fff', margin: '3px 0', borderRadius: '1px' }} />
-              <span style={{ fontSize: '18px', fontWeight: '900', color: '#fff', letterSpacing: '2px', lineHeight: 1 }}>FIT</span>
+              <span style={{ fontSize: '19px', fontWeight: '900', color: '#fff', letterSpacing: '2px', lineHeight: 1 }}>FIT</span>
             </div>
-            <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: theme.text, margin: '0 0 8px 0' }}>TYRE-FIT</h1>
+            <h1 style={{ fontSize: '25px', fontWeight: '800', color: theme.text, margin: '0 0 8px 0' }}>TYRE-FIT</h1>
             <p style={{ color: theme.textMuted, margin: 0 }}>Mobile Tyre Management</p>
           </div>
 
@@ -909,17 +909,17 @@ export default function TyreFitApp() {
           {step === 2 && (
             <div>
               <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                <h2 style={{ fontSize: '20px', fontWeight: '600', color: theme.text, margin: '0 0 8px 0' }}>Enter Verification Code</h2>
+                <h2 style={{ fontSize: '21px', fontWeight: '700', color: theme.text, margin: '0 0 8px 0' }}>Enter Verification Code</h2>
                 <p style={{ color: theme.textMuted, margin: 0 }}>We sent a code to {signUpData.mobile || 'your mobile'}</p>
               </div>
               <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginBottom: '32px' }}>
                 {otp.map((digit, i) => (
                   <input key={i} type="text" maxLength={1} value={digit} onChange={(e) => { const newOtp = [...otp]; newOtp[i] = e.target.value; setOtp(newOtp); }}
-                    style={{ width: '48px', height: '56px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', fontSize: '24px', textAlign: 'center', color: theme.text, outline: 'none' }} />
+                    style={{ width: '48px', height: '56px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', fontSize: '25px', textAlign: 'center', color: theme.text, outline: 'none' }} />
                 ))}
               </div>
               <Button onClick={() => navigateTo('welcome')}>Verify & Continue</Button>
-              <button onClick={() => showToast('Code resent')} style={{ width: '100%', padding: '16px', marginTop: '14px', background: 'none', border: 'none', color: theme.textMuted, fontSize: '14px', cursor: 'pointer' }}>Resend code</button>
+              <button onClick={() => showToast('Code resent')} style={{ width: '100%', padding: '16px', marginTop: '14px', background: 'none', border: 'none', color: theme.textMuted, fontSize: '15px', cursor: 'pointer' }}>Resend code</button>
             </div>
           )}
         </div>
@@ -994,7 +994,7 @@ export default function TyreFitApp() {
 
         {/* SKIP */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '0 24px' }}>
-          <button onClick={() => navigateTo('link-gmb')} style={{ background: 'none', border: 'none', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', padding: '8px 0' }}>Skip tour</button>
+          <button onClick={() => navigateTo('link-gmb')} style={{ background: 'none', border: 'none', color: theme.textMuted, fontSize: '15px', cursor: 'pointer', padding: '8px 0' }}>Skip tour</button>
         </div>
 
         {/* SLIDE CONTENT */}
@@ -1005,9 +1005,9 @@ export default function TyreFitApp() {
           </div>
 
           {/* TITLE */}
-          <h1 style={{ fontSize: `${26 * theme.fs}px`, fontWeight: '800', color: theme.text, margin: '0 0 8px 0', lineHeight: 1.2 }}>{slide.title}</h1>
-          <p style={{ fontSize: `${17 * theme.fs}px`, color: theme.primary, fontWeight: '700', margin: '0 0 16px 0' }}>{slide.subtitle}</p>
-          <p style={{ fontSize: `${16 * theme.fs}px`, color: theme.textMuted, lineHeight: 1.65, margin: 0, maxWidth: '380px' }}>{slide.desc}</p>
+          <h1 style={{ fontSize: `${27 * theme.fs}px`, fontWeight: '800', color: theme.text, margin: '0 0 8px 0', lineHeight: 1.2 }}>{slide.title}</h1>
+          <p style={{ fontSize: `${18 * theme.fs}px`, color: theme.primary, fontWeight: '800', margin: '0 0 16px 0' }}>{slide.subtitle}</p>
+          <p style={{ fontSize: `${17 * theme.fs}px`, color: theme.textMuted, lineHeight: 1.65, margin: 0, maxWidth: '380px' }}>{slide.desc}</p>
         </div>
 
         {/* DOTS + BUTTONS */}
@@ -1068,10 +1068,10 @@ export default function TyreFitApp() {
           </div>
           
           <div style={{ marginBottom: '24px' }}>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '14px' }}>Business Logo</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '14px' }}>Business Logo</label>
             <button onClick={() => { setSignUpData({...signUpData, logoUploaded: !signUpData.logoUploaded}); showToast(signUpData.logoUploaded ? 'Logo removed' : 'Logo uploaded'); }} style={{ width: '100%', padding: signUpData.logoUploaded ? '16px' : '32px', backgroundColor: signUpData.logoUploaded ? `${theme.primary}10` : theme.bgInput, border: `2px ${signUpData.logoUploaded ? 'solid' : 'dashed'} ${signUpData.logoUploaded ? theme.primary : theme.border}`, borderRadius: '14px', color: theme.textMuted, cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
               {signUpData.logoUploaded ? (
-                <><div style={{ width: '64px', height: '64px', borderRadius: '14px', backgroundColor: theme.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: '#000', fontWeight: '700', fontSize: '20px' }}>{(signUpData.businessName || 'DM')[0]}{(signUpData.businessName || 'DM').split(' ')[1]?.[0] || 'T'}</span></div><span style={{ color: theme.primary, fontWeight: '500' }}>Logo uploaded — tap to change</span></>
+                <><div style={{ width: '64px', height: '64px', borderRadius: '14px', backgroundColor: theme.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: '#000', fontWeight: '800', fontSize: '21px' }}>{(signUpData.businessName || 'DM')[0]}{(signUpData.businessName || 'DM').split(' ')[1]?.[0] || 'T'}</span></div><span style={{ color: theme.primary, fontWeight: '600' }}>Logo uploaded — tap to change</span></>
               ) : (
                 <><Upload size={32} /><span>Upload logo or pull from GMB</span></>
               )}
@@ -1079,7 +1079,7 @@ export default function TyreFitApp() {
           </div>
 
           <div style={{ marginBottom: '24px' }}>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '14px' }}>Services Offered</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '14px' }}>Services Offered</label>
             {showSetupTips && (
               <SetupTip icon={CheckCircle} title="These appear on your booking page">
                 Customers see which services you offer when they view your quote. Turn on what you do — you can add more later.
@@ -1093,7 +1093,7 @@ export default function TyreFitApp() {
               <Toggle label="TPMS Sensors" checked={signUpData.services.tpms} onChange={(v) => setSignUpData({...signUpData, services: {...signUpData.services, tpms: v}})} />
             </Card>
 
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '14px', marginTop: '24px' }}>Standard Pricing</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '14px', marginTop: '24px' }}>Standard Pricing</label>
             {showSetupTips && (
               <SetupTip icon={Info} title="These appear on every quote">
                 Customers see these as line items on every quote. Set your prices or mark as free — great for advertising "free balancing included".
@@ -1108,59 +1108,59 @@ export default function TyreFitApp() {
                 ].map((item, idx) => (
                   <div key={item.key} style={{ borderTop: idx > 0 ? `1px solid ${theme.border}` : 'none', paddingTop: idx > 0 ? '16px' : 0 }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                      <div><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>{item.label}</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Per tyre — shown on every quote</p></div>
+                      <div><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{item.label}</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Per tyre — shown on every quote</p></div>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                       <button onClick={() => setSignUpData({...signUpData, pricing: {...signUpData.pricing, [item.freeKey]: false}})} style={{ flex: 1, padding: '14px', backgroundColor: !signUpData.pricing[item.freeKey] ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${!signUpData.pricing[item.freeKey] ? theme.primary : theme.border}`, borderRadius: '15px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                        <span style={{ color: !signUpData.pricing[item.freeKey] ? theme.primary : theme.text, fontWeight: '600', fontSize: '14px' }}>£</span>
-                        <input type="number" placeholder="0.00" value={signUpData.pricing[item.priceKey]} onChange={(e) => setSignUpData({...signUpData, pricing: {...signUpData.pricing, [item.priceKey]: e.target.value, [item.freeKey]: false}})} style={{ width: '60px', backgroundColor: 'transparent', border: 'none', color: theme.text, fontSize: '16px', fontWeight: '600', outline: 'none', textAlign: 'center' }} />
+                        <span style={{ color: !signUpData.pricing[item.freeKey] ? theme.primary : theme.text, fontWeight: '700', fontSize: '15px' }}>£</span>
+                        <input type="number" placeholder="0.00" value={signUpData.pricing[item.priceKey]} onChange={(e) => setSignUpData({...signUpData, pricing: {...signUpData.pricing, [item.priceKey]: e.target.value, [item.freeKey]: false}})} style={{ width: '60px', backgroundColor: 'transparent', border: 'none', color: theme.text, fontSize: '17px', fontWeight: '700', outline: 'none', textAlign: 'center' }} />
                       </button>
                       <button onClick={() => setSignUpData({...signUpData, pricing: {...signUpData.pricing, [item.freeKey]: true}})} style={{ padding: '12px 20px', backgroundColor: signUpData.pricing[item.freeKey] ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${signUpData.pricing[item.freeKey] ? theme.primary : theme.border}`, borderRadius: '15px', cursor: 'pointer' }}>
-                        <span style={{ color: signUpData.pricing[item.freeKey] ? theme.primary : theme.textMuted, fontWeight: '600', fontSize: '14px' }}>FREE</span>
+                        <span style={{ color: signUpData.pricing[item.freeKey] ? theme.primary : theme.textMuted, fontWeight: '700', fontSize: '15px' }}>FREE</span>
                       </button>
                     </div>
                   </div>
                 ))}
                 <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '16px', marginTop: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                    <div><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>Locking Wheel Nut Removal</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Do you offer this service?</p></div>
+                    <div><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Locking Wheel Nut Removal</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Do you offer this service?</p></div>
                   </div>
                   <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                     <button onClick={() => setSignUpData({...signUpData, services: {...signUpData.services, lwnRemoval: true}})} style={{ flex: 1, padding: '14px', backgroundColor: signUpData.services.lwnRemoval !== false ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${signUpData.services.lwnRemoval !== false ? theme.primary : theme.border}`, borderRadius: '15px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                      <span style={{ color: signUpData.services.lwnRemoval !== false ? theme.primary : theme.text, fontWeight: '600', fontSize: '14px' }}>Yes — £</span>
-                      <input type="number" placeholder="25" value={signUpData.pricing.lwnRemovalPrice} onChange={(e) => setSignUpData({...signUpData, pricing: {...signUpData.pricing, lwnRemovalPrice: e.target.value}, services: {...signUpData.services, lwnRemoval: true}})} style={{ width: '60px', backgroundColor: 'transparent', border: 'none', color: theme.text, fontSize: '16px', fontWeight: '600', outline: 'none', textAlign: 'center' }} />
+                      <span style={{ color: signUpData.services.lwnRemoval !== false ? theme.primary : theme.text, fontWeight: '700', fontSize: '15px' }}>Yes — £</span>
+                      <input type="number" placeholder="25" value={signUpData.pricing.lwnRemovalPrice} onChange={(e) => setSignUpData({...signUpData, pricing: {...signUpData.pricing, lwnRemovalPrice: e.target.value}, services: {...signUpData.services, lwnRemoval: true}})} style={{ width: '60px', backgroundColor: 'transparent', border: 'none', color: theme.text, fontSize: '17px', fontWeight: '700', outline: 'none', textAlign: 'center' }} />
                     </button>
                     <button onClick={() => setSignUpData({...signUpData, services: {...signUpData.services, lwnRemoval: false}})} style={{ padding: '12px 20px', backgroundColor: signUpData.services.lwnRemoval === false ? `${theme.danger}15` : theme.bgInput, border: `2px solid ${signUpData.services.lwnRemoval === false ? theme.danger : theme.border}`, borderRadius: '15px', cursor: 'pointer' }}>
-                      <span style={{ color: signUpData.services.lwnRemoval === false ? theme.danger : theme.textMuted, fontWeight: '600', fontSize: '14px' }}>No</span>
+                      <span style={{ color: signUpData.services.lwnRemoval === false ? theme.danger : theme.textMuted, fontWeight: '700', fontSize: '15px' }}>No</span>
                     </button>
                   </div>
                 </div>
               </div>
             </Card>
 
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '14px', marginTop: '24px' }}>Extra Services</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '14px', marginTop: '24px' }}>Extra Services</label>
             <Card>
               <Toggle label="Wheel Alignment" checked={signUpData.services.alignment} onChange={(v) => setSignUpData({...signUpData, services: {...signUpData.services, alignment: v}})} />
               {signUpData.services.alignment && <div style={{ paddingLeft: '16px', paddingBottom: '8px' }}><Input placeholder="Alignment price (£)" type="number" value={signUpData.services.alignmentPrice} onChange={(v) => setSignUpData({...signUpData, services: {...signUpData.services, alignmentPrice: v}})} /></div>}
             </Card>
 
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '14px', marginTop: '24px' }}>Availability</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '14px', marginTop: '24px' }}>Availability</label>
             {showSetupTips && (
               <SetupTip icon={Clock} title="When do you work?">
                 This tells TYRE-FIT when to send you jobs and cover alerts. Customers only see available time slots. You can change this anytime.
               </SetupTip>
             )}
             <Card>
-              <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>What work do you take?</h4>
+              <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>What work do you take?</h4>
               <Toggle label="Scheduled Bookings" checked={signUpData.availability.bookings} onChange={(v) => setSignUpData({...signUpData, availability: {...signUpData.availability, bookings: v}})} />
-              <p style={{ fontSize: '14px', color: theme.textMuted, margin: '0 0 12px 16px' }}>Customers book in advance for a set date and time</p>
+              <p style={{ fontSize: '15px', color: theme.textMuted, margin: '0 0 12px 16px' }}>Customers book in advance for a set date and time</p>
               <Toggle label="Emergency / Urgent Jobs" checked={signUpData.availability.emergency} onChange={(v) => setSignUpData({...signUpData, availability: {...signUpData.availability, emergency: v}})} />
-              <p style={{ fontSize: '14px', color: theme.textMuted, margin: '0 0 4px 16px' }}>Same-day callouts and cover job alerts from TYRE-FIT</p>
+              <p style={{ fontSize: '15px', color: theme.textMuted, margin: '0 0 4px 16px' }}>Same-day callouts and cover job alerts from TYRE-FIT</p>
             </Card>
 
             {signUpData.availability.emergency && (
               <Card>
-                <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>Emergency hours</h4>
+                <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>Emergency hours</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {[
                     { id: '247', label: '24/7', desc: 'Available any time, day or night' },
@@ -1169,8 +1169,8 @@ export default function TyreFitApp() {
                   ].map(opt => (
                     <button key={opt.id} onClick={() => setSignUpData({...signUpData, availability: {...signUpData.availability, emergencyHours: opt.id}})} style={{ width: '100%', padding: '14px 16px', backgroundColor: signUpData.availability.emergencyHours === opt.id ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${signUpData.availability.emergencyHours === opt.id ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div>
-                        <span style={{ color: signUpData.availability.emergencyHours === opt.id ? theme.primary : theme.text, fontWeight: '600', display: 'block' }}>{opt.label}</span>
-                        <span style={{ color: theme.textMuted, fontSize: '15px' }}>{opt.desc}</span>
+                        <span style={{ color: signUpData.availability.emergencyHours === opt.id ? theme.primary : theme.text, fontWeight: '700', display: 'block' }}>{opt.label}</span>
+                        <span style={{ color: theme.textMuted, fontSize: '16px' }}>{opt.desc}</span>
                       </div>
                       {signUpData.availability.emergencyHours === opt.id && <CheckCircle size={20} color={theme.primary} />}
                     </button>
@@ -1181,14 +1181,14 @@ export default function TyreFitApp() {
                   <div style={{ marginTop: '16px' }}>
                     <div style={{ display: 'flex', gap: '14px', marginBottom: '14px' }}>
                       <div style={{ flex: 1 }}>
-                        <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '4px' }}>Start</label>
-                        <select value={signUpData.availability.businessHoursStart} onChange={(e) => setSignUpData({...signUpData, availability: {...signUpData.availability, businessHoursStart: e.target.value}})} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '16px' }}>
+                        <label style={{ display: 'block', fontSize: '16px', color: theme.textMuted, marginBottom: '4px' }}>Start</label>
+                        <select value={signUpData.availability.businessHoursStart} onChange={(e) => setSignUpData({...signUpData, availability: {...signUpData.availability, businessHoursStart: e.target.value}})} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '17px' }}>
                           {['06:00','07:00','08:00','09:00','10:00'].map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
                       </div>
                       <div style={{ flex: 1 }}>
-                        <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '4px' }}>End</label>
-                        <select value={signUpData.availability.businessHoursEnd} onChange={(e) => setSignUpData({...signUpData, availability: {...signUpData.availability, businessHoursEnd: e.target.value}})} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '16px' }}>
+                        <label style={{ display: 'block', fontSize: '16px', color: theme.textMuted, marginBottom: '4px' }}>End</label>
+                        <select value={signUpData.availability.businessHoursEnd} onChange={(e) => setSignUpData({...signUpData, availability: {...signUpData.availability, businessHoursEnd: e.target.value}})} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '17px' }}>
                           {['16:00','17:00','18:00','19:00','20:00','21:00','22:00'].map(t => <option key={t} value={t}>{t}</option>)}
                         </select>
                       </div>
@@ -1198,7 +1198,7 @@ export default function TyreFitApp() {
                         const active = signUpData.availability.businessDays.includes(day);
                         return (
                           <button key={day} onClick={() => { const days = active ? signUpData.availability.businessDays.filter(d => d !== day) : [...signUpData.availability.businessDays, day]; setSignUpData({...signUpData, availability: {...signUpData.availability, businessDays: days}}); }} style={{ padding: '10px 14px', backgroundColor: active ? `${theme.primary}20` : theme.bgInput, border: `2px solid ${active ? theme.primary : theme.border}`, borderRadius: '15px', cursor: 'pointer' }}>
-                            <span style={{ color: active ? theme.primary : theme.textMuted, fontWeight: '600', fontSize: '15px' }}>{day}</span>
+                            <span style={{ color: active ? theme.primary : theme.textMuted, fontWeight: '700', fontSize: '16px' }}>{day}</span>
                           </button>
                         );
                       })}
@@ -1211,13 +1211,13 @@ export default function TyreFitApp() {
             {!signUpData.availability.bookings && !signUpData.availability.emergency && (
               <div style={{ padding: '14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', marginTop: '8px', display: 'flex', gap: '15px', alignItems: 'center' }}>
                 <AlertTriangle size={18} color={theme.danger} />
-                <span style={{ color: theme.danger, fontSize: '14px' }}>You need at least one — bookings or emergency</span>
+                <span style={{ color: theme.danger, fontSize: '15px' }}>You need at least one — bookings or emergency</span>
               </div>
             )}
           </div>
 
           <div style={{ marginBottom: '24px' }}>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '14px' }}>Depot Locations</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '14px' }}>Depot Locations</label>
             {showSetupTips && (
               <SetupTip icon={MapPin} title="Your coverage area">
                 Your depot address and radius set where customers can book you. Overlapping areas are fine if you have multiple depots. TYRE-FIT uses this to match nearby cover jobs to you.
@@ -1226,40 +1226,40 @@ export default function TyreFitApp() {
             {signUpData.depots.map((depot, i) => (
               <Card key={i}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                  <h4 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{signUpData.depots.length === 1 ? 'Your Base' : i === 0 ? 'Main Base' : `Location ${i + 1}`}</h4>
+                  <h4 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{signUpData.depots.length === 1 ? 'Your Base' : i === 0 ? 'Main Base' : `Location ${i + 1}`}</h4>
                   {i > 0 && <button onClick={() => removeDepot(i)} style={{ background: 'none', border: 'none', color: theme.danger, cursor: 'pointer', padding: '4px' }}><Trash2 size={18} /></button>}
                 </div>
-                {i === 0 && <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>Where you store your tyres — could be your house, a garage, a lock-up, or a depot. We use this to plan your routes and work out which customers are in your area.</p>}
+                {i === 0 && <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Where you store your tyres — could be your house, a garage, a lock-up, or a depot. We use this to plan your routes and work out which customers are in your area.</p>}
                 <Input placeholder="Depot name" value={depot.name} onChange={(v) => updateDepot(i, 'name', v)} />
                 <Input placeholder="Address" icon={MapPin} value={depot.address} onChange={(v) => updateDepot(i, 'address', v)} />
                 <div>
-                  <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Catchment Radius: {depot.radius} miles (max 25)</label>
+                  <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Catchment Radius: {depot.radius} miles (max 25)</label>
                   <input type="range" min="1" max="25" value={depot.radius} onChange={(e) => updateDepot(i, 'radius', parseInt(e.target.value))} style={{ width: '100%', accentColor: theme.primary }} />
                 </div>
               </Card>
             ))}
-            <button onClick={addDepot} style={{ width: '100%', padding: '16px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Plus size={20} /> Add Another Storage Location</button>
-            <p style={{ fontSize: '14px', color: theme.textSubtle, marginTop: '8px', textAlign: 'center' }}>Overlapping catchment areas are fine</p>
+            <button onClick={addDepot} style={{ width: '100%', padding: '16px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '15px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Plus size={20} /> Add Another Storage Location</button>
+            <p style={{ fontSize: '15px', color: theme.textSubtle, marginTop: '8px', textAlign: 'center' }}>Overlapping catchment areas are fine</p>
           </div>
           <div style={{ marginBottom: '24px' }}>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '14px' }}>How do you operate?</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '14px' }}>How do you operate?</label>
             <div style={{ display: 'flex', gap: '14px' }}>
               <Card onClick={() => { setIsTeamAccount(false); setUserRole('owner'); }} highlight={!isTeamAccount} style={{ flex: 1, textAlign: 'center', cursor: 'pointer' }}>
                 <User size={24} color={!isTeamAccount ? theme.primary : theme.textMuted} style={{ marginBottom: '8px' }} />
-                <p style={{ margin: 0, fontWeight: '600', color: theme.text, fontSize: '15px' }}>Solo Fitter</p>
-                <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: theme.textMuted }}>Just me</p>
+                <p style={{ margin: 0, fontWeight: '700', color: theme.text, fontSize: '16px' }}>Solo Fitter</p>
+                <p style={{ margin: '4px 0 0 0', fontSize: '15px', color: theme.textMuted }}>Just me</p>
               </Card>
               <Card onClick={() => { setIsTeamAccount(true); setUserRole('owner'); }} highlight={isTeamAccount} style={{ flex: 1, textAlign: 'center', cursor: 'pointer' }}>
                 <Users size={24} color={isTeamAccount ? theme.primary : theme.textMuted} style={{ marginBottom: '8px' }} />
-                <p style={{ margin: 0, fontWeight: '600', color: theme.text, fontSize: '15px' }}>Team</p>
-                <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: theme.textMuted }}>Multiple fitters</p>
+                <p style={{ margin: 0, fontWeight: '700', color: theme.text, fontSize: '16px' }}>Team</p>
+                <p style={{ margin: '4px 0 0 0', fontSize: '15px', color: theme.textMuted }}>Multiple fitters</p>
               </Card>
             </div>
             {isTeamAccount && (
               <div style={{ marginTop: '16px' }}>
                 <Input label="Invite fitter (mobile number)" placeholder="07700 900000" value={signUpData.teamInvite || ''} onChange={(v) => setSignUpData({...signUpData, teamInvite: v})} icon={Phone} />
                 <Button variant="secondary" size="small" onClick={() => showToast('SMS invite sent')} icon={Send}>Send Invite</Button>
-                <p style={{ fontSize: '14px', color: theme.textMuted, marginTop: '8px' }}>You can add more fitters later in Settings</p>
+                <p style={{ fontSize: '15px', color: theme.textMuted, marginTop: '8px' }}>You can add more fitters later in Settings</p>
               </div>
             )}
           </div>
@@ -1289,11 +1289,11 @@ export default function TyreFitApp() {
           <div style={{ width: '80px', height: '80px', backgroundColor: '#fff', borderRadius: '20px', margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>
             <svg width="48" height="48" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           </div>
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: theme.text, margin: '0 0 8px 0' }}>Link Google Business Profile</h1>
-          {showSetupTips && <p style={{ color: theme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>This is how TYRE-FIT collects reviews for you automatically. Highly recommended — fitters with more Google reviews get more bookings.</p>}
+          <h1 style={{ fontSize: '25px', fontWeight: '800', color: theme.text, margin: '0 0 8px 0' }}>Link Google Business Profile</h1>
+          {showSetupTips && <p style={{ color: theme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>This is how TYRE-FIT collects reviews for you automatically. Highly recommended — fitters with more Google reviews get more bookings.</p>}
         </div>
         <Card>
-          <h3 style={{ fontSize: '16px', fontWeight: '600', color: theme.text, margin: '0 0 16px 0' }}>This allows us to:</h3>
+          <h3 style={{ fontSize: '17px', fontWeight: '700', color: theme.text, margin: '0 0 16px 0' }}>This allows us to:</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[{ icon: Star, text: 'Collect reviews automatically' }, { icon: Clock, text: 'Sync your opening times' }, { icon: Settings, text: 'Display your services' }, { icon: Bell, text: 'Notify you of new reviews' }].map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><item.icon size={20} color={theme.primary} /><span style={{ color: theme.text }}>{item.text}</span></div>
@@ -1305,7 +1305,7 @@ export default function TyreFitApp() {
             <div style={{ width: '24px', height: '24px', backgroundColor: '#fff', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
             </div>
-            <span style={{ color: '#fff', fontWeight: '600', fontSize: '16px' }}>Link Google Business Profile</span>
+            <span style={{ color: '#fff', fontWeight: '700', fontSize: '17px' }}>Link Google Business Profile</span>
           </button>
           <Button variant="ghost" onClick={() => setShowSkipWarning(true)}>Skip for now</Button>
         </div>
@@ -1313,7 +1313,7 @@ export default function TyreFitApp() {
       
       {showSkipWarning && (
         <Modal title="Are you sure?" onClose={() => setShowSkipWarning(false)}>
-          <p style={{ color: theme.textMuted, margin: '0 0 16px 0', fontSize: '15px', lineHeight: 1.6 }}>Without linking your Google Business Profile, you'll miss out on:</p>
+          <p style={{ color: theme.textMuted, margin: '0 0 16px 0', fontSize: '16px', lineHeight: 1.6 }}>Without linking your Google Business Profile, you'll miss out on:</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '20px' }}>
             {[
               { icon: Star, text: 'Automatic Google reviews after every job', color: '#eab308' },
@@ -1323,11 +1323,11 @@ export default function TyreFitApp() {
             ].map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '15px', backgroundColor: theme.bgInput, borderRadius: '15px' }}>
                 <item.icon size={20} color={item.color} />
-                <span style={{ color: theme.text, fontSize: '14px' }}>{item.text}</span>
+                <span style={{ color: theme.text, fontSize: '15px' }}>{item.text}</span>
               </div>
             ))}
           </div>
-          <p style={{ color: theme.warning, fontSize: '14px', margin: '0 0 20px 0', lineHeight: 1.5 }}>Fitters who link their Google profile get <strong style={{ color: theme.text }}>3x more reviews</strong> on average. You can always link it later from Settings.</p>
+          <p style={{ color: theme.warning, fontSize: '15px', margin: '0 0 20px 0', lineHeight: 1.5 }}>Fitters who link their Google profile get <strong style={{ color: theme.text }}>3x more reviews</strong> on average. You can always link it later from Settings.</p>
           <div style={{ display: 'flex', gap: '14px' }}>
             <Button onClick={() => setShowSkipWarning(false)} fullWidth>Link It Now</Button>
             <Button variant="secondary" onClick={() => { setShowSkipWarning(false); navigateTo('business-setup'); }} fullWidth>Skip Anyway</Button>
@@ -1354,7 +1354,7 @@ export default function TyreFitApp() {
             <ThemeToggle />
           </div>
           <div style={{ textAlign: 'center', marginBottom: '32px', paddingTop: '14px' }}>
-            <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: theme.text, margin: '0 0 8px 0' }}>Team Setup</h1>
+            <h1 style={{ fontSize: '25px', fontWeight: '800', color: theme.text, margin: '0 0 8px 0' }}>Team Setup</h1>
             <p style={{ color: theme.textMuted, margin: 0 }}>Are you a solo fitter or do you have a team?</p>
           </div>
           
@@ -1362,13 +1362,13 @@ export default function TyreFitApp() {
             <Card onClick={() => { setIsTeamAccount(false); setUserRole('owner'); }} highlight={!isTeamAccount}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '56px', height: '56px', backgroundColor: !isTeamAccount ? `${theme.primary}20` : theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><User size={28} color={!isTeamAccount ? theme.primary : theme.textMuted} /></div>
-                <div><h3 style={{ fontSize: '18px', fontWeight: '600', color: theme.text, margin: 0 }}>Solo Fitter</h3><p style={{ fontSize: '14px', color: theme.textMuted, margin: '4px 0 0 0' }}>Just me, myself and I</p></div>
+                <div><h3 style={{ fontSize: '19px', fontWeight: '700', color: theme.text, margin: 0 }}>Solo Fitter</h3><p style={{ fontSize: '15px', color: theme.textMuted, margin: '4px 0 0 0' }}>Just me, myself and I</p></div>
               </div>
             </Card>
             <Card onClick={() => { setIsTeamAccount(true); setUserRole('owner'); }} highlight={isTeamAccount}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '56px', height: '56px', backgroundColor: isTeamAccount ? `${theme.primary}20` : theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Users size={28} color={isTeamAccount ? theme.primary : theme.textMuted} /></div>
-                <div><h3 style={{ fontSize: '18px', fontWeight: '600', color: theme.text, margin: 0 }}>Team / Business</h3><p style={{ fontSize: '14px', color: theme.textMuted, margin: '4px 0 0 0' }}>I have multiple fitters</p></div>
+                <div><h3 style={{ fontSize: '19px', fontWeight: '700', color: theme.text, margin: 0 }}>Team / Business</h3><p style={{ fontSize: '15px', color: theme.textMuted, margin: '4px 0 0 0' }}>I have multiple fitters</p></div>
               </div>
             </Card>
           </div>
@@ -1380,17 +1380,17 @@ export default function TyreFitApp() {
                   As the owner, {"you'll"} see a Dispatcher view where you can assign jobs, view all fitter locations, and manage routes. Your fitters get their own app with their jobs, wallet, and route.
                 </SetupTip>
               )}
-              <h3 style={{ fontSize: '16px', fontWeight: '600', color: theme.text, margin: '0 0 12px 0' }}><UserPlus size={20} style={{ verticalAlign: 'middle', marginRight: '8px' }} />Invite Your Fitters</h3>
+              <h3 style={{ fontSize: '17px', fontWeight: '700', color: theme.text, margin: '0 0 12px 0' }}><UserPlus size={20} style={{ verticalAlign: 'middle', marginRight: '8px' }} />Invite Your Fitters</h3>
               
               {/* How it works */}
               <Card style={{ backgroundColor: `${theme.info}08`, marginBottom: '16px' }}>
                 <div style={{ display: 'flex', gap: '15px' }}>
                   <Info size={18} color={theme.info} style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '600', fontSize: '14px' }}>What happens when you invite someone:</p>
-                    <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>1. They get an SMS with a link to download TYRE-FIT</p>
-                    <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>2. They sign up with their mobile number</p>
-                    <p style={{ margin: '0 0 0 0', color: theme.primary, fontSize: '15px', fontWeight: '600' }}>3. They're automatically linked to {signUpData.businessName || 'your business'} — no codes needed</p>
+                    <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '15px' }}>What happens when you invite someone:</p>
+                    <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}>1. They get an SMS with a link to download TYRE-FIT</p>
+                    <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}>2. They sign up with their mobile number</p>
+                    <p style={{ margin: '0 0 0 0', color: theme.primary, fontSize: '16px', fontWeight: '700' }}>3. They're automatically linked to {signUpData.businessName || 'your business'} — no codes needed</p>
                   </div>
                 </div>
               </Card>
@@ -1398,16 +1398,16 @@ export default function TyreFitApp() {
               {signUpData.invitedFitters.map((fitter, i) => (
                 <Card key={i} style={{ marginBottom: '14px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-                    <span style={{ color: theme.textMuted, fontSize: '15px', fontWeight: '600' }}>Fitter {i + 1}</span>
+                    <span style={{ color: theme.textMuted, fontSize: '16px', fontWeight: '700' }}>Fitter {i + 1}</span>
                     {signUpData.invitedFitters.length > 1 && <button onClick={() => removeFitter(i)} style={{ background: 'none', border: 'none', color: theme.danger, cursor: 'pointer', padding: '4px' }}><X size={18} /></button>}
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <input placeholder="Name" value={fitter.name} onChange={(e) => updateFitter(i, 'name', e.target.value)} style={{ padding: '14px 16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '16px', outline: 'none' }} />
-                    <input type="tel" placeholder="Mobile number" value={fitter.mobile} onChange={(e) => updateFitter(i, 'mobile', e.target.value)} style={{ padding: '14px 16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '16px', outline: 'none' }} />
+                    <input placeholder="Name" value={fitter.name} onChange={(e) => updateFitter(i, 'name', e.target.value)} style={{ padding: '14px 16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '17px', outline: 'none' }} />
+                    <input type="tel" placeholder="Mobile number" value={fitter.mobile} onChange={(e) => updateFitter(i, 'mobile', e.target.value)} style={{ padding: '14px 16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '17px', outline: 'none' }} />
                   </div>
                 </Card>
               ))}
-              <button onClick={addFitter} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Plus size={18} /> Add Another Fitter</button>
+              <button onClick={addFitter} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '15px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Plus size={18} /> Add Another Fitter</button>
             </div>
           )}
           <Button onClick={() => navigateTo('setup-comms')}>{isTeamAccount ? 'Send Invites & Continue' : 'Continue'}</Button>
@@ -1437,8 +1437,8 @@ export default function TyreFitApp() {
             <div style={{ width: '70px', height: '70px', borderRadius: '16px', backgroundColor: `${theme.primary}18`, margin: '0 auto 14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <PhoneCall size={34} color={theme.primary} />
             </div>
-            <h1 style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '24px', fontWeight: '800' }}>Activate Missed Calls, SMS + Voice AI</h1>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Let TYRE-FIT capture leads, draft quotes, and follow up customers while you are fitting. You can switch this off anytime.</p>
+            <h1 style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '25px', fontWeight: '800' }}>Activate Missed Calls, SMS + Voice AI</h1>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>Let TYRE-FIT capture leads, draft quotes, and follow up customers while you are fitting. You can switch this off anytime.</p>
           </div>
 
           <Card>
@@ -1447,7 +1447,7 @@ export default function TyreFitApp() {
               checked={comms.missedCallCapture}
               onChange={(v) => setComms({ missedCallCapture: v })}
             />
-            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px' }}>
               When someone calls and you miss it, TYRE-FIT can text them back with a quote link.
             </p>
             <Toggle
@@ -1455,7 +1455,7 @@ export default function TyreFitApp() {
               checked={comms.smsQuoteAi}
               onChange={(v) => setComms({ smsQuoteAi: v })}
             />
-            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px' }}>
               Incoming SMS like "Need 2 tyres for AB12 CDE" are turned into draft quotes for one-tap send.
             </p>
             <Toggle
@@ -1463,7 +1463,7 @@ export default function TyreFitApp() {
               checked={comms.autoReply}
               onChange={(v) => setComms({ autoReply: v })}
             />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>
               Sends "On a job right now — tap to book" while you work.
             </p>
             <div style={{ height: '14px' }} />
@@ -1472,13 +1472,13 @@ export default function TyreFitApp() {
               checked={comms.voiceAiFollowup}
               onChange={(v) => setComms({ voiceAiFollowup: v })}
             />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>
               If there is no response after a quote link, TYRE-FIT places a short voice callback with booking options.
             </p>
           </Card>
 
           <Card style={{ borderColor: `${theme.warning}40` }}>
-            <p style={{ margin: 0, color: theme.text, fontSize: '14px', lineHeight: 1.6 }}>
+            <p style={{ margin: 0, color: theme.text, fontSize: '15px', lineHeight: 1.6 }}>
               If you skip this, quoting still works. You just lose automatic lead capture from missed calls and texts.
             </p>
           </Card>
@@ -1510,16 +1510,16 @@ export default function TyreFitApp() {
           </div>
           <div style={{ textAlign: 'center', marginBottom: '28px', paddingTop: '8px' }}>
             <div style={{ width: '72px', height: '72px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Check size={36} color={theme.primary} /></div>
-            <h1 style={{ fontSize: '24px', fontWeight: 'bold', color: theme.text, margin: '0 0 8px 0' }}>Nearly There</h1>
-            <p style={{ color: theme.textMuted, margin: 0, fontSize: '16px' }}>Allow permissions and accept the basics to get started.</p>
+            <h1 style={{ fontSize: '25px', fontWeight: '800', color: theme.text, margin: '0 0 8px 0' }}>Nearly There</h1>
+            <p style={{ color: theme.textMuted, margin: 0, fontSize: '17px' }}>Allow permissions and accept the basics to get started.</p>
           </div>
           
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Permissions</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Permissions</h3>
           <Card>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: `1px solid ${theme.border}` }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div style={{ width: '36px', height: '36px', backgroundColor: `${theme.info}20`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Bell size={18} color={theme.info} /></div>
-                <div><p style={{ margin: 0, color: theme.text, fontWeight: '500', fontSize: '15px' }}>Notifications</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Job alerts, payments, reviews</p></div>
+                <div><p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>Notifications</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Job alerts, payments, reviews</p></div>
               </div>
               <button onClick={() => setNotificationsOn(!notificationsOn)} style={{ width: '48px', height: '26px', borderRadius: '15px', backgroundColor: notificationsOn ? theme.primary : theme.bgInput, border: 'none', cursor: 'pointer', position: 'relative' }}>
                 <div style={{ width: '22px', height: '22px', borderRadius: '14px', backgroundColor: '#fff', position: 'absolute', top: '2px', left: notificationsOn ? '24px' : '2px', transition: 'all 0.2s' }} />
@@ -1528,7 +1528,7 @@ export default function TyreFitApp() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: `1px solid ${theme.border}` }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div style={{ width: '36px', height: '36px', backgroundColor: '#f9731620', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><MapPin size={18} color="#f97316" /></div>
-                <div><p style={{ margin: 0, color: theme.text, fontWeight: '500', fontSize: '15px' }}>Location</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Routes, ETAs, photo proof</p></div>
+                <div><p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>Location</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Routes, ETAs, photo proof</p></div>
               </div>
               <button onClick={() => setLocationOn(!locationOn)} style={{ width: '48px', height: '26px', borderRadius: '15px', backgroundColor: locationOn ? theme.primary : theme.bgInput, border: 'none', cursor: 'pointer', position: 'relative' }}>
                 <div style={{ width: '22px', height: '22px', borderRadius: '14px', backgroundColor: '#fff', position: 'absolute', top: '2px', left: locationOn ? '24px' : '2px', transition: 'all 0.2s' }} />
@@ -1537,40 +1537,40 @@ export default function TyreFitApp() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div style={{ width: '36px', height: '36px', backgroundColor: '#8b5cf620', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Camera size={18} color="#8b5cf6" /></div>
-                <div><p style={{ margin: 0, color: theme.text, fontWeight: '500', fontSize: '15px' }}>Camera</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Tyre scanning, before/after photos</p></div>
+                <div><p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>Camera</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Tyre scanning, before/after photos</p></div>
               </div>
               <button onClick={() => setCameraOn(!cameraOn)} style={{ width: '48px', height: '26px', borderRadius: '15px', backgroundColor: cameraOn ? theme.primary : theme.bgInput, border: 'none', cursor: 'pointer', position: 'relative' }}>
                 <div style={{ width: '22px', height: '22px', borderRadius: '14px', backgroundColor: '#fff', position: 'absolute', top: '2px', left: cameraOn ? '24px' : '2px', transition: 'all 0.2s' }} />
               </button>
             </div>
           </Card>
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '16px 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Customer Messages</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '16px 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Customer Messages</h3>
           <Card>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div style={{ width: '36px', height: '36px', backgroundColor: `${theme.info}20`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><MessageSquare size={18} color={theme.info} /></div>
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '500', fontSize: '15px' }}>SMS to customers</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Quotes, ETA, receipts, review requests</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>SMS to customers</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Quotes, ETA, receipts, review requests</p>
                 </div>
               </div>
               <button onClick={() => setSmsEnabled(!smsEnabled)} style={{ width: '48px', height: '26px', borderRadius: '15px', backgroundColor: smsEnabled ? theme.primary : theme.bgInput, border: 'none', cursor: 'pointer', position: 'relative' }}>
                 <div style={{ width: '22px', height: '22px', borderRadius: '14px', backgroundColor: '#fff', position: 'absolute', top: '2px', left: smsEnabled ? '24px' : '2px', transition: 'all 0.2s' }} />
               </button>
             </div>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>
               {smsEnabled ? 'SMS is enabled and will appear as a send option.' : 'SMS is off. We will not show SMS as a send option.'}
             </p>
           </Card>
           {(!notificationsOn || !locationOn || !cameraOn) && (
-            <p style={{ color: theme.warning, fontSize: '15px', margin: '-4px 0 12px 0' }}>You can enable these later in Settings, but the app works best with all three on.</p>
+            <p style={{ color: theme.warning, fontSize: '16px', margin: '-4px 0 12px 0' }}>You can enable these later in Settings, but the app works best with all three on.</p>
           )}
           
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '16px 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Terms & Privacy</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '16px 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Terms & Privacy</h3>
           <Card>
-            <div style={{ padding: '4px 0 16px 0', fontSize: '14px', color: theme.textMuted, lineHeight: 1.7 }}>
-              <p style={{ margin: '0 0 10px 0' }}>TYRE-FIT is <span style={{ color: theme.text, fontWeight: '500' }}>free to use — no monthly fees</span>. When a customer confirms a booking they pay a £5.95 fee. TYRE-FIT keeps this to cover AI tyre scanning, SMS alerts, free emergency cover, Google reviews, and running the platform.</p>
-              <p style={{ margin: '0 0 10px 0' }}>We only collect data needed to run the service (location, photos, customer details). <span style={{ color: theme.text, fontWeight: '500' }}>Your data belongs to you</span> — you can download or delete it anytime.</p>
+            <div style={{ padding: '4px 0 16px 0', fontSize: '15px', color: theme.textMuted, lineHeight: 1.7 }}>
+              <p style={{ margin: '0 0 10px 0' }}>TYRE-FIT is <span style={{ color: theme.text, fontWeight: '600' }}>free to use — no monthly fees</span>. When a customer confirms a booking they pay a £5.95 fee. TYRE-FIT keeps this to cover AI tyre scanning, SMS alerts, free emergency cover, Google reviews, and running the platform.</p>
+              <p style={{ margin: '0 0 10px 0' }}>We only collect data needed to run the service (location, photos, customer details). <span style={{ color: theme.text, fontWeight: '600' }}>Your data belongs to you</span> — you can download or delete it anytime.</p>
               <p style={{ margin: 0 }}>Customer info you enter stays yours. We store it securely on your behalf.</p>
             </div>
             <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '14px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -1581,7 +1581,7 @@ export default function TyreFitApp() {
                 { key: 'fees', label: 'Where the £5.95 goes' }
               ].map((item) => (
                 <button key={item.key} onClick={() => setActiveLegalDoc(item.key)} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0', textAlign: 'left' }}>
-                  <span style={{ color: theme.primary, fontSize: '14px', fontWeight: '500' }}>{item.label}</span>
+                  <span style={{ color: theme.primary, fontSize: '15px', fontWeight: '600' }}>{item.label}</span>
                   <ChevronRight size={16} color={theme.primary} />
                 </button>
               ))}
@@ -1590,7 +1590,7 @@ export default function TyreFitApp() {
           
           <button onClick={() => setAccepted(!accepted)} style={{ width: '100%', display: 'flex', alignItems: 'flex-start', gap: '14px', background: 'none', border: 'none', cursor: 'pointer', padding: '12px 0', textAlign: 'left', marginBottom: '8px' }}>
             <div style={{ width: '24px', height: '24px', borderRadius: '6px', border: `2px solid ${accepted ? theme.primary : theme.border}`, backgroundColor: accepted ? theme.primary : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>{accepted && <Check size={16} color="#000" />}</div>
-            <span style={{ color: theme.text, fontSize: '15px', lineHeight: 1.5 }}>I accept the Terms of Service and Privacy Policy</span>
+            <span style={{ color: theme.text, fontSize: '16px', lineHeight: 1.5 }}>I accept the Terms of Service and Privacy Policy</span>
           </button>
           
           <Button onClick={() => { setTermsAccepted(true); setLocationPermission(locationOn); setCameraPermission(cameraOn); navigateTo('setup-complete'); }} disabled={!accepted} icon={ArrowRight}>Accept & Let's Go</Button>
@@ -1610,27 +1610,27 @@ export default function TyreFitApp() {
       </div>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '120px', height: '120px', backgroundColor: theme.primary, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '32px' }}><CheckCircle size={60} color="#000" /></div>
-      <h1 style={{ fontSize: '28px', fontWeight: 'bold', color: theme.text, margin: '0 0 12px 0', textAlign: 'center' }}>You're All Set!</h1>
+      <h1 style={{ fontSize: '29px', fontWeight: '800', color: theme.text, margin: '0 0 12px 0', textAlign: 'center' }}>You're All Set!</h1>
       <p style={{ color: theme.textMuted, margin: '0 0 32px 0', textAlign: 'center', maxWidth: '300px' }}>Your TYRE-FIT account is ready. Start sending quotes and growing your business.</p>
       <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '16px', borderColor: `${theme.warning}40` }}>
-        <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>Profile 40% complete</p>
-        <p style={{ margin: '4px 0 10px 0', color: theme.textMuted, fontSize: '15px' }}>Add your logo and pricing to look more professional.</p>
+        <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '15px' }}>Profile 40% complete</p>
+        <p style={{ margin: '4px 0 10px 0', color: theme.textMuted, fontSize: '16px' }}>Add your logo and pricing to look more professional.</p>
         <Button variant="secondary" onClick={() => navigateTo('settings-business')} fullWidth>Finish Later in Settings</Button>
       </Card>
       {isTeamAccount && signUpData.invitedFitters.filter(e => e).length > 0 && (
         <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <Mail size={24} color={theme.info} />
-            <div><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>{signUpData.invitedFitters.filter(e => e).length} invite{signUpData.invitedFitters.filter(e => e).length > 1 ? 's' : ''} sent</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Your fitters will receive an email to join</p></div>
+            <div><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{signUpData.invitedFitters.filter(e => e).length} invite{signUpData.invitedFitters.filter(e => e).length > 1 ? 's' : ''} sent</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Your fitters will receive an email to join</p></div>
           </div>
         </Card>
       )}
       <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '24px' }}>
-        <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '14px' }}>Automation status</p>
-        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>Missed calls capture: <strong style={{ color: theme.text }}>{signUpData.comms?.missedCallCapture ? 'On' : 'Off'}</strong></p>
-        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>SMS quote AI: <strong style={{ color: theme.text }}>{signUpData.comms?.smsQuoteAi ? 'On' : 'Off'}</strong></p>
-        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>Voice follow-up AI: <strong style={{ color: theme.text }}>{signUpData.comms?.voiceAiFollowup ? 'On' : 'Off'}</strong></p>
-        <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Auto Google reviews: <strong style={{ color: theme.text }}>{gmbConnected ? 'On' : 'Off (link Google Business later)'}</strong></p>
+        <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '15px' }}>Automation status</p>
+        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}>Missed calls capture: <strong style={{ color: theme.text }}>{signUpData.comms?.missedCallCapture ? 'On' : 'Off'}</strong></p>
+        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}>SMS quote AI: <strong style={{ color: theme.text }}>{signUpData.comms?.smsQuoteAi ? 'On' : 'Off'}</strong></p>
+        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}>Voice follow-up AI: <strong style={{ color: theme.text }}>{signUpData.comms?.voiceAiFollowup ? 'On' : 'Off'}</strong></p>
+        <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Auto Google reviews: <strong style={{ color: theme.text }}>{gmbConnected ? 'On' : 'Off (link Google Business later)'}</strong></p>
       </Card>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', width: '100%', maxWidth: '350px' }}><Button onClick={() => { navigateTo('dashboard'); }} icon={ArrowRight}>Go to Dashboard</Button></div>
       </div>
@@ -1699,8 +1699,8 @@ export default function TyreFitApp() {
         <Header title="Mobile Setup Flow" />
         <div style={{ padding: '16px' }}>
           <Card style={{ marginBottom: '16px' }}>
-            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '18px', fontWeight: '700' }}>Side-by-side setup screens</h3>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Review the full mobile signup flow without tapping through each screen.</p>
+            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '19px', fontWeight: '800' }}>Side-by-side setup screens</h3>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Review the full mobile signup flow without tapping through each screen.</p>
           </Card>
 
           <div style={{ overflowX: 'auto', paddingBottom: '8px' }}>
@@ -1708,8 +1708,8 @@ export default function TyreFitApp() {
               {setupSteps.map((step, idx) => (
                 <div key={step.key} style={{ width: '280px', flexShrink: 0 }}>
                   <div style={{ marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '24px', height: '24px', borderRadius: '14px', backgroundColor: `${theme.primary}25`, color: theme.primary, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: '700' }}>{idx + 1}</span>
-                    <span style={{ color: theme.text, fontSize: '14px', fontWeight: '600' }}>{step.title}</span>
+                    <span style={{ width: '24px', height: '24px', borderRadius: '14px', backgroundColor: `${theme.primary}25`, color: theme.primary, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px', fontWeight: '800' }}>{idx + 1}</span>
+                    <span style={{ color: theme.text, fontSize: '15px', fontWeight: '700' }}>{step.title}</span>
                   </div>
                   <div style={{ backgroundColor: '#000', borderRadius: '28px', padding: '15px', border: `1px solid ${theme.border}` }}>
                     <div style={{ backgroundColor: theme.bg, borderRadius: '20px', minHeight: '500px', padding: '16px', display: 'flex', flexDirection: 'column' }}>
@@ -1717,18 +1717,18 @@ export default function TyreFitApp() {
                       <div style={{ width: '48px', height: '48px', borderRadius: '14px', backgroundColor: `${theme.primary}20`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
                         <Smartphone size={24} color={theme.primary} />
                       </div>
-                      <h4 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '20px', fontWeight: '700' }}>{step.title}</h4>
-                      <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '14px' }}>{step.subtitle}</p>
+                      <h4 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '21px', fontWeight: '800' }}>{step.title}</h4>
+                      <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '15px' }}>{step.subtitle}</p>
 
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: 'auto' }}>
                         {step.notes.map((note, noteIdx) => (
-                          <div key={noteIdx} style={{ padding: '10px 12px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgCard, color: theme.text, fontSize: '15px' }}>
+                          <div key={noteIdx} style={{ padding: '10px 12px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgCard, color: theme.text, fontSize: '16px' }}>
                             {note}
                           </div>
                         ))}
                       </div>
 
-                      <button style={{ marginTop: '16px', width: '100%', height: '52px', borderRadius: '14px', border: 'none', backgroundColor: theme.primary, color: '#000', fontWeight: '700', fontSize: '16px' }}>
+                      <button style={{ marginTop: '16px', width: '100%', height: '52px', borderRadius: '14px', border: 'none', backgroundColor: theme.primary, color: '#000', fontWeight: '800', fontSize: '17px' }}>
                         {step.primary}
                       </button>
                     </div>
@@ -1863,27 +1863,27 @@ export default function TyreFitApp() {
         <Header title="Storyboard Flow" />
         <div style={{ padding: '16px' }}>
           <Card style={{ marginBottom: '16px' }}>
-            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '18px', fontWeight: '700' }}>Full journey overview</h3>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>All {totalScreens} screens are shown together in journey order. Zoom your browser out to see more at once.</p>
+            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '19px', fontWeight: '800' }}>Full journey overview</h3>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>All {totalScreens} screens are shown together in journey order. Zoom your browser out to see more at once.</p>
           </Card>
 
           {flowRows.map((row, rowIdx) => (
             <div key={row.title} style={{ marginBottom: '18px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
-                <span style={{ width: '22px', height: '22px', borderRadius: '14px', backgroundColor: `${row.color}25`, color: row.color, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: '700' }}>{rowIdx + 1}</span>
-                <h3 style={{ margin: 0, color: row.color, fontSize: '16px', fontWeight: '700' }}>{row.title}</h3>
-                <span style={{ color: theme.textMuted, fontSize: '14px' }}>{row.screens.length} screens</span>
+                <span style={{ width: '22px', height: '22px', borderRadius: '14px', backgroundColor: `${row.color}25`, color: row.color, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px', fontWeight: '800' }}>{rowIdx + 1}</span>
+                <h3 style={{ margin: 0, color: row.color, fontSize: '17px', fontWeight: '800' }}>{row.title}</h3>
+                <span style={{ color: theme.textMuted, fontSize: '15px' }}>{row.screens.length} screens</span>
               </div>
 
               <div style={{ display: 'grid', gap: '15px', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))' }}>
                 {row.screens.map((screen, idx) => (
                   <div key={screen[0]} style={{ minHeight: '112px', borderRadius: '14px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgCard, padding: '15px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                      <span style={{ color: theme.textMuted, fontSize: '15px', fontWeight: '700' }}>STEP {idx + 1}</span>
-                      <span style={{ color: row.color, fontSize: '15px', fontWeight: '700' }}>MOBILE</span>
+                      <span style={{ color: theme.textMuted, fontSize: '16px', fontWeight: '800' }}>STEP {idx + 1}</span>
+                      <span style={{ color: row.color, fontSize: '16px', fontWeight: '800' }}>MOBILE</span>
                     </div>
-                    <h4 style={{ margin: '0 0 5px 0', color: theme.text, fontSize: '14px', fontWeight: '700', lineHeight: 1.25 }}>{screen[1]}</h4>
-                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', wordBreak: 'break-word' }}>{screen[0]}</p>
+                    <h4 style={{ margin: '0 0 5px 0', color: theme.text, fontSize: '15px', fontWeight: '800', lineHeight: 1.25 }}>{screen[1]}</h4>
+                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', wordBreak: 'break-word' }}>{screen[0]}</p>
                   </div>
                 ))}
               </div>
@@ -2054,8 +2054,8 @@ export default function TyreFitApp() {
           <Icon size={18} color={color} />
         </div>
         <div style={{ flex: 1 }}>
-          <p style={{ margin: 0, color: theme.text, fontSize: '14px', fontWeight: '700' }}>{label}</p>
-          <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{hint}</p>
+          <p style={{ margin: 0, color: theme.text, fontSize: '15px', fontWeight: '800' }}>{label}</p>
+          <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{hint}</p>
         </div>
       </button>
     );
@@ -2066,20 +2066,20 @@ export default function TyreFitApp() {
         <Header title="Flow Runner" />
         <div style={{ padding: '16px' }}>
           <Card style={{ marginBottom: '14px', borderColor: `${theme.primary}40` }}>
-            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '18px', fontWeight: '700' }}>Run Every Journey</h3>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Each launch seeds demo data first, then opens the right screen so the flow works properly end to end.</p>
+            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '19px', fontWeight: '800' }}>Run Every Journey</h3>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Each launch seeds demo data first, then opens the right screen so the flow works properly end to end.</p>
             <div style={{ marginTop: '15px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              <button onClick={() => setFlowRunnerAuto(!flowRunnerAuto)} style={{ padding: '10px 12px', backgroundColor: flowRunnerAuto ? `${theme.primary}20` : theme.bgInput, border: `1px solid ${flowRunnerAuto ? theme.primary : theme.border}`, borderRadius: '15px', color: flowRunnerAuto ? theme.primary : theme.text, fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}>
+              <button onClick={() => setFlowRunnerAuto(!flowRunnerAuto)} style={{ padding: '10px 12px', backgroundColor: flowRunnerAuto ? `${theme.primary}20` : theme.bgInput, border: `1px solid ${flowRunnerAuto ? theme.primary : theme.border}`, borderRadius: '15px', color: flowRunnerAuto ? theme.primary : theme.text, fontSize: '15px', fontWeight: '800', cursor: 'pointer' }}>
                 {flowRunnerAuto ? 'Auto Flow: ON' : 'Auto Flow: OFF'}
               </button>
-              <button onClick={() => { setFlowRunnerActive(false); setFlowRunnerAuto(false); }} style={{ padding: '10px 12px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}>
+              <button onClick={() => { setFlowRunnerActive(false); setFlowRunnerAuto(false); }} style={{ padding: '10px 12px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '15px', fontWeight: '800', cursor: 'pointer' }}>
                 Reset Runner State
               </button>
             </div>
           </Card>
 
           <div style={{ marginBottom: '16px' }}>
-            <h3 style={{ margin: '0 0 10px 0', color: theme.primary, fontSize: '15px', fontWeight: '700' }}>Fitter Flows</h3>
+            <h3 style={{ margin: '0 0 10px 0', color: theme.primary, fontSize: '16px', fontWeight: '800' }}>Fitter Flows</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <LaunchButton label="Quick Quote Flow" hint="Plate lookup, pricing, SMS preview, send quote" onClick={() => launchQuoteFlow(true)} icon={Zap} />
               <LaunchButton label="Detailed Quote Flow" hint="Customer -> schedule -> job details -> stock -> preview" onClick={() => launchQuoteFlow(false)} icon={ClipboardList} />
@@ -2090,7 +2090,7 @@ export default function TyreFitApp() {
           </div>
 
           <div style={{ marginBottom: '16px' }}>
-            <h3 style={{ margin: '0 0 10px 0', color: '#06b6d4', fontSize: '15px', fontWeight: '700' }}>Fitter Operations</h3>
+            <h3 style={{ margin: '0 0 10px 0', color: '#06b6d4', fontSize: '16px', fontWeight: '800' }}>Fitter Operations</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
               <LaunchButton label="Route" hint="Order + optimise jobs" onClick={() => openAnyPage('route')} icon={Route} color="#06b6d4" />
               <LaunchButton label="Stock" hint="Van/depot + alerts" onClick={() => openAnyPage('stock')} icon={Package} color="#06b6d4" />
@@ -2100,7 +2100,7 @@ export default function TyreFitApp() {
           </div>
 
           <div>
-            <h3 style={{ margin: '0 0 10px 0', color: '#ef4444', fontSize: '15px', fontWeight: '700' }}>Customer Flows</h3>
+            <h3 style={{ margin: '0 0 10px 0', color: '#ef4444', fontSize: '16px', fontWeight: '800' }}>Customer Flows</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <LaunchButton label="Booking + Deposit" hint="Customer quote page with Apple/Google/PayPal/Card" onClick={() => launchCustomerFlow('customer-booking')} icon={CreditCard} color="#ef4444" />
               <LaunchButton label="Cover Dashboard" hint="Status, days left, claim button" onClick={() => launchCustomerFlow('customer-cover-dashboard')} icon={Shield} color="#ef4444" />
@@ -2113,12 +2113,12 @@ export default function TyreFitApp() {
           </div>
 
           <Card style={{ marginTop: '16px', borderColor: `${theme.info}40` }}>
-            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '16px', fontWeight: '700' }}>All Pages ({allPageCount})</h3>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Every fitter and customer page is directly launchable with seeded demo state.</p>
+            <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '17px', fontWeight: '800' }}>All Pages ({allPageCount})</h3>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Every fitter and customer page is directly launchable with seeded demo state.</p>
           </Card>
           {allPageGroups.map((group) => (
             <div key={group.title} style={{ marginBottom: '14px' }}>
-              <h4 style={{ margin: '0 0 8px 0', color: theme.info, fontSize: '15px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              <h4 style={{ margin: '0 0 8px 0', color: theme.info, fontSize: '16px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 {group.title} ({group.pages.length})
               </h4>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '8px' }}>
@@ -2126,11 +2126,11 @@ export default function TyreFitApp() {
                   <button
                     key={route}
                     onClick={() => openAnyPage(route)}
-                    style={{ minHeight: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgCard, color: theme.text, fontSize: '14px', fontWeight: '700', cursor: 'pointer', padding: '8px', textAlign: 'left' }}
+                    style={{ minHeight: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgCard, color: theme.text, fontSize: '15px', fontWeight: '800', cursor: 'pointer', padding: '8px', textAlign: 'left' }}
                     title={route}
                   >
                     <span style={{ display: 'block', marginBottom: '3px' }}>{label}</span>
-                    <span style={{ color: theme.textMuted, fontSize: '15px', fontWeight: '600', wordBreak: 'break-word' }}>{route}</span>
+                    <span style={{ color: theme.textMuted, fontSize: '16px', fontWeight: '700', wordBreak: 'break-word' }}>{route}</span>
                   </button>
                 ))}
               </div>
@@ -2155,15 +2155,16 @@ export default function TyreFitApp() {
     const activeLeadCount = crmLeadQueue.filter(l => l.stage !== 'Deposit paid').length;
     const emergencyBannerHeight = emergencyAccepted ? 56 : 0;
     const headerHeight = isOffline ? 130 : 84;
-    const dashboardContentTop = emergencyBannerHeight + headerHeight + 12;
-    const stickyTop = emergencyBannerHeight + headerHeight + 8;
+    const summaryBarHeight = roomyUi ? 126 : 112;
+    const summaryTop = emergencyBannerHeight + headerHeight + 8;
+    const dashboardContentTop = emergencyBannerHeight + headerHeight + summaryBarHeight + 12;
     return (
       <div style={{ minHeight: '100vh', backgroundColor: theme.bg, paddingBottom: '100px' }}>
         <Toast />
         {emergencyAccepted && (
           <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, backgroundColor: theme.primary, color: '#000', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '14px' }}>
             <CheckCircle size={20} />
-            <div style={{ flex: 1 }}><p style={{ margin: 0, fontWeight: '600' }}>Emergency cover job accepted</p><p style={{ margin: '2px 0 0 0', fontSize: '14px' }}>TYRE-FIT will update the customer</p></div>
+            <div style={{ flex: 1 }}><p style={{ margin: 0, fontWeight: '700' }}>Emergency cover job accepted</p><p style={{ margin: '2px 0 0 0', fontSize: '15px' }}>TYRE-FIT will update the customer</p></div>
             <button onClick={() => setEmergencyAccepted(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#000' }}><X size={20} /></button>
           </div>
         )}
@@ -2172,11 +2173,11 @@ export default function TyreFitApp() {
           {isOffline && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', backgroundColor: `${theme.warning}15`, borderRadius: '8px', marginBottom: '14px', border: `1px solid ${theme.warning}30` }}>
               <NoWifi size={16} color={theme.warning} />
-              <span style={{ color: theme.warning, fontSize: '15px', fontWeight: '600' }}>Saved — will sync when online</span>
+              <span style={{ color: theme.warning, fontSize: '16px', fontWeight: '700' }}>Saved — will sync when online</span>
             </div>
           )}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div><p style={{ color: theme.textMuted, fontSize: '14px', margin: 0 }}>{getTimeOfDay() === 'morning' ? 'Good morning' : getTimeOfDay() === 'evening' ? 'Evening' : 'Hello'}</p><h1 style={{ fontSize: '22px', fontWeight: 'bold', color: theme.text, margin: '4px 0 0 0' }}>{signUpData.fullName?.split(' ')[0] || 'Dan'}</h1></div>
+            <div><p style={{ color: theme.textMuted, fontSize: '15px', margin: 0 }}>{getTimeOfDay() === 'morning' ? 'Good morning' : getTimeOfDay() === 'evening' ? 'Evening' : 'Hello'}</p><h1 style={{ fontSize: '23px', fontWeight: '800', color: theme.text, margin: '4px 0 0 0' }}>{signUpData.fullName?.split(' ')[0] || 'Dan'}</h1></div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <button onClick={() => setShowGlobalSearch(true)} style={{ width: '36px', height: '36px', borderRadius: '15px', backgroundColor: theme.bgInput, border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}><Search size={18} color={theme.textMuted} /></button>
               <Badge variant="success">3 jobs today</Badge>
@@ -2186,20 +2187,23 @@ export default function TyreFitApp() {
           </div>
         </div>
         
-        <div style={{ padding: '16px', paddingTop: `${dashboardContentTop}px` }}>
-          <Card style={{ position: 'sticky', top: `${stickyTop}px`, zIndex: 30, borderColor: `${theme.primary}40`, borderWidth: '2px' }}>
+        <div style={{ position: 'fixed', top: `${summaryTop}px`, left: '16px', right: '16px', zIndex: 40 }}>
+          <Card style={{ marginBottom: 0, borderColor: `${theme.primary}40`, borderWidth: '2px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: '14px' }}>
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Total Earnings</p>
-                <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '26px', fontWeight: '800' }}>£{weeklyWins.earned.toLocaleString()}</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Total Earnings</p>
+                <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '27px', fontWeight: '800' }}>£{weeklyWins.earned.toLocaleString()}</p>
               </div>
               <div style={{ width: '1px', backgroundColor: theme.border }} />
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Total Jobs</p>
-                <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '26px', fontWeight: '800' }}>{weeklyWins.jobs}</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Total Jobs</p>
+                <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '27px', fontWeight: '800' }}>{weeklyWins.jobs}</p>
               </div>
             </div>
           </Card>
+        </div>
+        
+        <div style={{ padding: '16px', paddingTop: `${dashboardContentTop}px` }}>
           
           {/* === SECTION 1: URGENT STUFF — things that need action NOW === */}
           
@@ -2213,7 +2217,7 @@ export default function TyreFitApp() {
                 availability: { ...signUpData.availability, emergency: v }
               })}
             />
-            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>
               {signUpData.availability.emergency ? 'You can receive cover job alerts' : 'Cover jobs paused for now'}
             </p>
           </Card>
@@ -2226,10 +2230,10 @@ export default function TyreFitApp() {
                 </div>
                 <div style={{ flex: 1, textAlign: 'left' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '15px', fontWeight: '700', color: theme.text }}>Emergency Cover Jobs</span>
+                    <span style={{ fontSize: '16px', fontWeight: '800', color: theme.text }}>Emergency Cover Jobs</span>
                     <Badge variant="danger">{coverJobs.length}</Badge>
                   </div>
-                  <p style={{ margin: '2px 0 0 0', fontSize: '15px', color: theme.textMuted }}>{coverJobs.length === 1 ? '1 customer needs help nearby' : `${coverJobs.length} customers need help nearby`}</p>
+                  <p style={{ margin: '2px 0 0 0', fontSize: '16px', color: theme.textMuted }}>{coverJobs.length === 1 ? '1 customer needs help nearby' : `${coverJobs.length} customers need help nearby`}</p>
                 </div>
                 <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: theme.bgInput, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {coverJobsExpanded ? <Minus size={18} color={theme.textMuted} /> : <Plus size={18} color={theme.textMuted} />}
@@ -2243,12 +2247,12 @@ export default function TyreFitApp() {
                     return (
                       <div key={cj.id} style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '14px', border: `1px solid ${theme.border}` }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                          <span style={{ fontSize: '14px', color: theme.danger, fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cover Job</span>
-                          <span style={{ fontSize: '14px', color: theme.textMuted }}>{cj.timeAgo}</span>
+                          <span style={{ fontSize: '15px', color: theme.danger, fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Cover Job</span>
+                          <span style={{ fontSize: '15px', color: theme.textMuted }}>{cj.timeAgo}</span>
                         </div>
-                        <h4 style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>{cj.name} — {cj.plate}</h4>
-                        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}><MapPin size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} />{cj.location} — {cj.distance}</p>
-                        <p style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '15px' }}>{cj.issue} — {cj.tyreSize} x{cj.qty}</p>
+                        <h4 style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>{cj.name} — {cj.plate}</h4>
+                        <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}><MapPin size={12} style={{ verticalAlign: 'middle', marginRight: '4px' }} />{cj.location} — {cj.distance}</p>
+                        <p style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '16px' }}>{cj.issue} — {cj.tyreSize} x{cj.qty}</p>
                         
                         <div style={{ display: 'flex', gap: '6px', marginBottom: '15px' }}>
                           {tyreOnVan ? (
@@ -2259,7 +2263,7 @@ export default function TyreFitApp() {
                         </div>
                         
                         <div style={{ padding: '8px 10px', backgroundColor: `${theme.primary}08`, borderRadius: '8px', marginBottom: '15px' }}>
-                          <p style={{ margin: 0, fontSize: '14px', color: theme.textMuted }}>Quote goes to TYRE-FIT — <strong style={{ color: theme.primary }}>TYRE-FIT pays you directly</strong></p>
+                          <p style={{ margin: 0, fontSize: '15px', color: theme.textMuted }}>Quote goes to TYRE-FIT — <strong style={{ color: theme.primary }}>TYRE-FIT pays you directly</strong></p>
                         </div>
                         
                         <div style={{ display: 'flex', gap: '8px' }}>
@@ -2288,12 +2292,12 @@ export default function TyreFitApp() {
                   <Package size={20} color={theme.warning} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>Stock needed for upcoming jobs</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '15px' }}>Stock needed for upcoming jobs</p>
                   {mockUpcomingBookingsNeedingStock.map(b => (
-                    <p key={b.id} style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{b.qty}x {b.tyreSize} — collect from {b.location}</p>
+                    <p key={b.id} style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{b.qty}x {b.tyreSize} — collect from {b.location}</p>
                   ))}
                 </div>
-                <button onClick={() => navigateTo('stock')} style={{ padding: '8px 12px', backgroundColor: theme.warning, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#000', fontWeight: '600', fontSize: '14px' }}>View</button>
+                <button onClick={() => navigateTo('stock')} style={{ padding: '8px 12px', backgroundColor: theme.warning, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#000', fontWeight: '700', fontSize: '15px' }}>View</button>
               </div>
             </Card>
           )}
@@ -2306,8 +2310,8 @@ export default function TyreFitApp() {
                   <RainAlert size={20} color={theme.info} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>Rain forecast 2-5pm</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>2 outdoor jobs in that window</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Rain forecast 2-5pm</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>2 outdoor jobs in that window</p>
                 </div>
               </div>
             </Card>
@@ -2321,8 +2325,8 @@ export default function TyreFitApp() {
             if (!nextJob) {
               return (
                 <Card highlight style={{ marginBottom: '16px', textAlign: 'center' }}>
-                  <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700' }}>No bookings yet today</h3>
-                  <p style={{ margin: '0 0 14px 0', color: theme.textMuted, fontSize: '14px' }}>
+                  <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800' }}>No bookings yet today</h3>
+                  <p style={{ margin: '0 0 14px 0', color: theme.textMuted, fontSize: '15px' }}>
                     Send a quote to get your first job on the board.
                   </p>
                   <Button onClick={() => navigateTo('quick-quote')} icon={Zap}>Send a Quote</Button>
@@ -2332,12 +2336,12 @@ export default function TyreFitApp() {
             return (
             <Card highlight style={{ marginBottom: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                <h3 style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '16px' }}>{isInProgress ? 'Job In Progress' : 'Your Next Job'}</h3>
+                <h3 style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '17px' }}>{isInProgress ? 'Job In Progress' : 'Your Next Job'}</h3>
                 {isInProgress ? <Badge variant="warning">In progress</Badge> : <Badge variant="info">{nextJob.eta} away</Badge>}
               </div>
-              <h3 style={{ fontSize: '20px', fontWeight: '600', color: theme.text, margin: '0 0 8px 0' }}>{nextJob.customer}</h3>
-              <p style={{ color: theme.textMuted, margin: '0 0 4px 0', fontSize: '16px' }}>{nextJob.plate} • {nextJob.tyreSize}</p>
-              <p style={{ color: theme.textSubtle, fontSize: '15px', margin: '0 0 12px 0' }}>{nextJob.location}</p>
+              <h3 style={{ fontSize: '21px', fontWeight: '700', color: theme.text, margin: '0 0 8px 0' }}>{nextJob.customer}</h3>
+              <p style={{ color: theme.textMuted, margin: '0 0 4px 0', fontSize: '17px' }}>{nextJob.plate} • {nextJob.tyreSize}</p>
+              <p style={{ color: theme.textSubtle, fontSize: '16px', margin: '0 0 12px 0' }}>{nextJob.location}</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                 {nextJob.isCoverJob ? <Badge variant="danger">Cover Job</Badge> : nextJob.isEmergency ? <Badge variant="warning">Urgent</Badge> : <Badge variant="success">Deposit paid</Badge>}
                 {nextJob.stockOnVan !== false && <Badge variant="success">Tyres on van</Badge>}
@@ -2356,7 +2360,7 @@ export default function TyreFitApp() {
             <Card onClick={() => navigateTo('dispatcher')} style={{ marginBottom: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ width: '48px', height: '48px', backgroundColor: `${theme.info}20`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Users size={24} color={theme.info} /></div>
-                <div style={{ flex: 1 }}><h3 style={{ fontSize: '16px', fontWeight: '600', color: theme.text, margin: 0 }}>My Team</h3><p style={{ fontSize: '14px', color: theme.textMuted, margin: '4px 0 0 0' }}>See all fitters and assign jobs</p></div>
+                <div style={{ flex: 1 }}><h3 style={{ fontSize: '17px', fontWeight: '700', color: theme.text, margin: 0 }}>My Team</h3><p style={{ fontSize: '15px', color: theme.textMuted, margin: '4px 0 0 0' }}>See all fitters and assign jobs</p></div>
                 <ChevronRight size={20} color={theme.textMuted} />
               </div>
             </Card>
@@ -2367,57 +2371,57 @@ export default function TyreFitApp() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '16px' }}>
             <button onClick={() => navigateTo('quick-quote')} style={{ backgroundColor: theme.bgCard, border: `2px solid ${theme.primary}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', cursor: 'pointer' }}>
               <div style={{ width: '56px', height: '56px', backgroundColor: `${theme.primary}20`, borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Zap size={28} color={theme.primary} /></div>
-              <span style={{ fontSize: '16px', fontWeight: '700', color: theme.text }}>Quick Quote</span>
+              <span style={{ fontSize: '17px', fontWeight: '800', color: theme.text }}>Quick Quote</span>
             </button>
             <button onClick={() => navigateTo('route')} style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '16px', padding: '24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', cursor: 'pointer' }}>
               <div style={{ width: '56px', height: '56px', backgroundColor: '#f9731620', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Map size={28} color="#f97316" /></div>
-              <span style={{ fontSize: '16px', fontWeight: '600', color: theme.text }}>Best Route</span>
+              <span style={{ fontSize: '17px', fontWeight: '700', color: theme.text }}>Best Route</span>
             </button>
           </div>
 
           {/* TODAY'S QUOTES — quick glance, are customers paying? */}
           <Card style={{ marginBottom: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>{"Today's Quotes"}</h3>
-              <span style={{ color: theme.textMuted, fontSize: '15px' }}>{quotesStatus.sent} sent</span>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>{"Today's Quotes"}</h3>
+              <span style={{ color: theme.textMuted, fontSize: '16px' }}>{quotesStatus.sent} sent</span>
             </div>
             <div style={{ display: 'flex', gap: '8px' }}>
               <div style={{ flex: 1, padding: '14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', textAlign: 'center' }}>
-                <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '20px' }}>{quotesStatus.paid}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Paid</p>
+                <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '21px' }}>{quotesStatus.paid}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Paid</p>
               </div>
               <div style={{ flex: 1, padding: '14px', backgroundColor: `${theme.info}10`, borderRadius: '15px', textAlign: 'center' }}>
-                <p style={{ margin: 0, color: theme.info, fontWeight: '700', fontSize: '20px' }}>{quotesStatus.opened}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Opened</p>
+                <p style={{ margin: 0, color: theme.info, fontWeight: '800', fontSize: '21px' }}>{quotesStatus.opened}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Opened</p>
               </div>
               <div style={{ flex: 1, padding: '14px', backgroundColor: `${theme.warning}10`, borderRadius: '15px', textAlign: 'center' }}>
-                <p style={{ margin: 0, color: theme.warning, fontWeight: '700', fontSize: '20px' }}>{quotesStatus.waiting}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Waiting</p>
+                <p style={{ margin: 0, color: theme.warning, fontWeight: '800', fontSize: '21px' }}>{quotesStatus.waiting}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Waiting</p>
               </div>
             </div>
           </Card>
 
           <Card style={{ marginBottom: '16px', borderColor: `${theme.info}40` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>AI Follow-up Queue</h3>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '16px' }}>AI Follow-up Queue</h3>
               <Badge variant={activeLeadCount > 0 ? 'warning' : 'success'}>{activeLeadCount} active</Badge>
             </div>
-            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>
+            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
               Missed calls and unpaid quotes are followed up automatically. You can jump in manually anytime.
             </p>
             {!voiceAutomationOn && (
               <div style={{ padding: '8px 10px', backgroundColor: `${theme.warning}12`, borderRadius: '8px', marginBottom: '10px' }}>
-                <p style={{ margin: 0, color: theme.warning, fontSize: '14px', fontWeight: '600' }}>Voice AI is off — only SMS reminders are active.</p>
+                <p style={{ margin: 0, color: theme.warning, fontSize: '15px', fontWeight: '700' }}>Voice AI is off — only SMS reminders are active.</p>
               </div>
             )}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {crmLeadQueue.map(lead => (
                 <div key={lead.id} style={{ padding: '10px', backgroundColor: theme.bgInput, borderRadius: '8px', border: `1px solid ${theme.border}` }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>{lead.customer} — {lead.plate}</p>
+                    <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>{lead.customer} — {lead.plate}</p>
                     <Badge variant={lead.priority === 'done' ? 'success' : lead.priority === 'high' ? 'danger' : 'warning'}>{lead.stage}</Badge>
                   </div>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{lead.nextStep}</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{lead.nextStep}</p>
                 </div>
               ))}
             </div>
@@ -2445,8 +2449,8 @@ export default function TyreFitApp() {
               <button key={item.screen} onClick={() => navigateTo(item.screen)} style={{ backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '16px', padding: '16px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' }}>
                 <div style={{ width: '44px', height: '44px', backgroundColor: `${item.color}20`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><item.icon size={22} color={item.color} /></div>
                 <div>
-                  <span style={{ fontSize: '15px', fontWeight: '600', color: theme.text, display: 'block' }}>{item.title}</span>
-                  <span style={{ fontSize: '15px', color: item.color === theme.danger ? theme.danger : theme.textMuted }}>{item.sub}</span>
+                  <span style={{ fontSize: '16px', fontWeight: '700', color: theme.text, display: 'block' }}>{item.title}</span>
+                  <span style={{ fontSize: '16px', color: item.color === theme.danger ? theme.danger : theme.textMuted }}>{item.sub}</span>
                 </div>
               </button>
             ))}
@@ -2455,12 +2459,12 @@ export default function TyreFitApp() {
           {/* WALLET + MILEAGE — combined row, end-of-day stuff */}
           <div style={{ display: 'flex', gap: '14px', marginBottom: '14px' }}>
             <Card onClick={() => navigateTo('wallet')} style={{ flex: 1, marginBottom: 0, cursor: 'pointer', backgroundColor: theme.primary }}>
-              <p style={{ margin: 0, color: '#000', opacity: 0.7, fontSize: '14px' }}>Wallet</p>
-              <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '22px', fontWeight: '700' }}>{'\u00A3'}{walletBalance.toFixed(2)}</p>
+              <p style={{ margin: 0, color: '#000', opacity: 0.7, fontSize: '15px' }}>Wallet</p>
+              <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '23px', fontWeight: '800' }}>{'\u00A3'}{walletBalance.toFixed(2)}</p>
             </Card>
             <Card onClick={() => setShowMileage(!showMileage)} style={{ flex: 1, marginBottom: 0, cursor: 'pointer' }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Miles today</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '22px', fontWeight: '700' }}>{mileageToday}</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Miles today</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '23px', fontWeight: '800' }}>{mileageToday}</p>
             </Card>
           </div>
 
@@ -2469,23 +2473,23 @@ export default function TyreFitApp() {
             <Card style={{ marginBottom: '14px' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '15px', marginBottom: '14px' }}>
                 <div style={{ textAlign: 'center', padding: '8px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{mileageToday}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Today</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '19px' }}>{mileageToday}</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Today</p>
                 </div>
                 <div style={{ textAlign: 'center', padding: '8px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{mileageWeek}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>This week</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '19px' }}>{mileageWeek}</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>This week</p>
                 </div>
                 <div style={{ textAlign: 'center', padding: '8px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{mileageMonth}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>This month</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '19px' }}>{mileageMonth}</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>This month</p>
                 </div>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                <span style={{ color: theme.textMuted, fontSize: '14px' }}>HMRC rate: 45p/mile</span>
-                <span style={{ color: theme.primary, fontWeight: '600', fontSize: '15px' }}>{'\u00A3'}{(mileageMonth * 0.45).toFixed(2)} claimable</span>
+                <span style={{ color: theme.textMuted, fontSize: '15px' }}>HMRC rate: 45p/mile</span>
+                <span style={{ color: theme.primary, fontWeight: '700', fontSize: '16px' }}>{'\u00A3'}{(mileageMonth * 0.45).toFixed(2)} claimable</span>
               </div>
-              <button onClick={() => showToast('Mileage report downloaded')} style={{ width: '100%', padding: '15px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '15px', fontWeight: '500', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}><Download size={14} /> Export for Accountant</button>
+              <button onClick={() => showToast('Mileage report downloaded')} style={{ width: '100%', padding: '15px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '16px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}><Download size={14} /> Export for Accountant</button>
             </Card>
           )}
 
@@ -2500,10 +2504,10 @@ export default function TyreFitApp() {
                     <Shield size={20} color={theme.warning} />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>{expiring.length} cover{expiring.length > 1 ? 's' : ''} expiring soon</p>
-                    <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{expiring.map(c => c.name).join(', ')}</p>
+                    <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '15px' }}>{expiring.length} cover{expiring.length > 1 ? 's' : ''} expiring soon</p>
+                    <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{expiring.map(c => c.name).join(', ')}</p>
                   </div>
-                  <button onClick={() => navigateTo('emergency')} style={{ padding: '8px 12px', backgroundColor: theme.warning, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#000', fontWeight: '600', fontSize: '14px' }}>Message</button>
+                  <button onClick={() => navigateTo('emergency')} style={{ padding: '8px 12px', backgroundColor: theme.warning, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#000', fontWeight: '700', fontSize: '15px' }}>Message</button>
                 </div>
               </Card>
             );
@@ -2517,10 +2521,10 @@ export default function TyreFitApp() {
                   <PoundSterling size={20} color={theme.danger} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>{mockInvoices.overdue.length} overdue invoice{mockInvoices.overdue.length > 1 ? 's' : ''}</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.danger, fontSize: '15px', fontWeight: '600' }}>{'\u00A3'}{mockInvoices.overdue.reduce((s, i) => s + i.amount, 0).toFixed(2)} outstanding</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '15px' }}>{mockInvoices.overdue.length} overdue invoice{mockInvoices.overdue.length > 1 ? 's' : ''}</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.danger, fontSize: '16px', fontWeight: '700' }}>{'\u00A3'}{mockInvoices.overdue.reduce((s, i) => s + i.amount, 0).toFixed(2)} outstanding</p>
                 </div>
-                <button onClick={() => navigateTo('invoices')} style={{ padding: '8px 12px', backgroundColor: theme.danger, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#fff', fontWeight: '600', fontSize: '14px' }}>Chase</button>
+                <button onClick={() => navigateTo('invoices')} style={{ padding: '8px 12px', backgroundColor: theme.danger, border: 'none', borderRadius: '8px', cursor: 'pointer', color: '#fff', fontWeight: '700', fontSize: '15px' }}>Chase</button>
               </div>
             </Card>
           )}
@@ -2529,7 +2533,7 @@ export default function TyreFitApp() {
         {showDeclineModal && (
           <Modal title="Can't Take This Job?" onClose={() => setShowDeclineModal(false)}>
             <p style={{ color: theme.textMuted, marginBottom: '16px' }}>No problem — TYRE-FIT will find another fitter nearby.</p>
-            <p style={{ color: theme.textMuted, marginBottom: '24px', fontSize: '14px' }}><strong style={{ color: theme.text }}>They stay your customer.</strong> Future tyre work, alerts, and quotes still come to you.</p>
+            <p style={{ color: theme.textMuted, marginBottom: '24px', fontSize: '15px' }}><strong style={{ color: theme.text }}>They stay your customer.</strong> Future tyre work, alerts, and quotes still come to you.</p>
             <div style={{ display: 'flex', gap: '14px' }}>
               <Button variant="secondary" onClick={() => setShowDeclineModal(false)} fullWidth>Go Back</Button>
               <Button onClick={() => { setShowDeclineModal(false); setCoverJobs(prev => prev.filter(j => j.id !== declineCoverJobId)); showToast('Passed to nearest available fitter'); }} fullWidth>Pass Job</Button>
@@ -2545,7 +2549,7 @@ export default function TyreFitApp() {
                 <button onClick={() => { setShowGlobalSearch(false); setGlobalSearchTerm(''); }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}><ArrowLeft size={24} color={theme.text} /></button>
                 <div style={{ flex: 1, position: 'relative' }}>
                   <Search size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: theme.textMuted }} />
-                  <input autoFocus type="text" placeholder="Search by name, plate, or phone..." value={globalSearchTerm} onChange={(e) => setGlobalSearchTerm(e.target.value)} style={{ width: '100%', padding: '14px 14px 14px 44px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '16px', outline: 'none', boxSizing: 'border-box' }} />
+                  <input autoFocus type="text" placeholder="Search by name, plate, or phone..." value={globalSearchTerm} onChange={(e) => setGlobalSearchTerm(e.target.value)} style={{ width: '100%', padding: '14px 14px 14px 44px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '17px', outline: 'none', boxSizing: 'border-box' }} />
                 </div>
               </div>
             </div>
@@ -2553,28 +2557,28 @@ export default function TyreFitApp() {
               {globalSearchTerm.length < 2 ? (
                 <div style={{ textAlign: 'center', padding: '40px 20px' }}>
                   <Search size={40} color={theme.textMuted} style={{ marginBottom: '14px', opacity: 0.3 }} />
-                  <p style={{ color: theme.textMuted, fontSize: '15px' }}>Search all your customers</p>
-                  <p style={{ color: theme.textMuted, fontSize: '15px' }}>Find by name, reg plate, or phone number</p>
+                  <p style={{ color: theme.textMuted, fontSize: '16px' }}>Search all your customers</p>
+                  <p style={{ color: theme.textMuted, fontSize: '16px' }}>Find by name, reg plate, or phone number</p>
                 </div>
               ) : (
                 (() => {
                   const term = globalSearchTerm.toLowerCase();
                   const results = allCustomers.filter(c => c.name.toLowerCase().includes(term) || c.plate.toLowerCase().replace(/\s/g, '').includes(term.replace(/\s/g, '')) || c.phone.includes(term));
-                  if (results.length === 0) return <p style={{ color: theme.textMuted, textAlign: 'center', padding: '40px', fontSize: '15px' }}>No customers found for "{globalSearchTerm}"</p>;
+                  if (results.length === 0) return <p style={{ color: theme.textMuted, textAlign: 'center', padding: '40px', fontSize: '16px' }}>No customers found for "{globalSearchTerm}"</p>;
                   return results.map((c, i) => (
                     <Card key={i} style={{ marginBottom: '8px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                         <div>
-                          <h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>{c.name}</h3>
-                          <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{c.plate} — {c.vehicle}</p>
+                          <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '17px' }}>{c.name}</h3>
+                          <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{c.plate} — {c.vehicle}</p>
                         </div>
                         <Badge variant={c.status === 'active-cover' ? 'success' : c.status === 'expiring-cover' ? 'warning' : c.status === 'expired-cover' ? 'default' : 'info'}>
                           {c.status === 'active-cover' ? 'Covered' : c.status === 'expiring-cover' ? 'Expiring' : c.status === 'expired-cover' ? 'Expired' : 'No cover'}
                         </Badge>
                       </div>
-                      <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '14px' }}>Last job: {c.lastJob} · {c.tyreSize} · {c.phone}</p>
+                      <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '15px' }}>Last job: {c.lastJob} · {c.tyreSize} · {c.phone}</p>
                       <div style={{ display: 'flex', gap: '8px' }}>
-                        <button onClick={() => { setShowGlobalSearch(false); setGlobalSearchTerm(''); setQuoteData(prev => ({...prev, customerName: c.name, mobile: c.phone, numberPlate: c.plate})); navigateTo('quote-customer'); }} style={{ flex: 1, padding: '15px', backgroundColor: `${theme.primary}15`, border: `1px solid ${theme.primary}40`, borderRadius: '8px', cursor: 'pointer', color: theme.primary, fontWeight: '600', fontSize: '15px' }}>New Quote</button>
+                        <button onClick={() => { setShowGlobalSearch(false); setGlobalSearchTerm(''); setQuoteData(prev => ({...prev, customerName: c.name, mobile: c.phone, numberPlate: c.plate})); navigateTo('quote-customer'); }} style={{ flex: 1, padding: '15px', backgroundColor: `${theme.primary}15`, border: `1px solid ${theme.primary}40`, borderRadius: '8px', cursor: 'pointer', color: theme.primary, fontWeight: '700', fontSize: '16px' }}>New Quote</button>
                         <button onClick={() => { showToast(`Calling ${c.name}...`); }} style={{ padding: '10px 14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', cursor: 'pointer' }}><Phone size={16} color={theme.text} /></button>
                         <button onClick={() => { showToast(`Opening WhatsApp for ${c.name}...`); }} style={{ padding: '10px 14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', cursor: 'pointer' }}><MessageSquare size={16} color={theme.text} /></button>
                       </div>
@@ -2599,8 +2603,8 @@ export default function TyreFitApp() {
       <Header title="Quote Flow" subtitle="Choose quick or detailed" />
       <div style={{ padding: '16px' }}>
         <Card style={{ marginBottom: '14px', borderColor: `${theme.primary}40` }}>
-          <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '18px', fontWeight: '700' }}>What just came in?</h3>
-          <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Start with Quick Quote or Detailed Quote. Emergency vs booking is selected inside the form flow.</p>
+          <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '19px', fontWeight: '800' }}>What just came in?</h3>
+          <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Start with Quick Quote or Detailed Quote. Emergency vs booking is selected inside the form flow.</p>
         </Card>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '14px', marginBottom: '14px' }}>
@@ -2609,8 +2613,8 @@ export default function TyreFitApp() {
               <Zap size={24} color={theme.primary} />
             </div>
             <div style={{ flex: 1 }}>
-              <p style={{ margin: 0, color: theme.text, fontSize: '16px', fontWeight: '700' }}>Quick Quote</p>
-              <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Single screen. Fast for calls and WhatsApp enquiries.</p>
+              <p style={{ margin: 0, color: theme.text, fontSize: '17px', fontWeight: '800' }}>Quick Quote</p>
+              <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Single screen. Fast for calls and WhatsApp enquiries.</p>
             </div>
             <ChevronRight size={18} color={theme.textMuted} />
           </button>
@@ -2620,8 +2624,8 @@ export default function TyreFitApp() {
               <ClipboardList size={24} color={theme.info} />
             </div>
             <div style={{ flex: 1 }}>
-              <p style={{ margin: 0, color: theme.text, fontSize: '16px', fontWeight: '700' }}>Detailed Quote</p>
-              <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>5-step flow with schedule, stock checks, and review screen.</p>
+              <p style={{ margin: 0, color: theme.text, fontSize: '17px', fontWeight: '800' }}>Detailed Quote</p>
+              <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>5-step flow with schedule, stock checks, and review screen.</p>
             </div>
             <ChevronRight size={18} color={theme.textMuted} />
           </button>
@@ -2631,8 +2635,8 @@ export default function TyreFitApp() {
               <ClipboardList size={24} color="#06b6d4" />
             </div>
             <div style={{ flex: 1 }}>
-              <p style={{ margin: 0, color: theme.text, fontSize: '16px', fontWeight: '700' }}>Manage Bookings</p>
-              <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>See scheduled jobs and start the runner when it is time.</p>
+              <p style={{ margin: 0, color: theme.text, fontSize: '17px', fontWeight: '800' }}>Manage Bookings</p>
+              <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>See scheduled jobs and start the runner when it is time.</p>
             </div>
             <ChevronRight size={18} color={theme.textMuted} />
           </button>
@@ -2648,20 +2652,20 @@ export default function TyreFitApp() {
       <Header title="New Quote" subtitle={`Step 1 of ${quoteData.isEmergency ? '4' : '5'}`} />
       <ProgressSteps steps={quoteData.isEmergency ? ['Customer', 'Job', 'Check', 'Send'] : ['Customer', 'Schedule', 'Job', 'Check', 'Send']} currentStep={0} />
       <div style={{ padding: '24px' }}>
-        <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '18px' }}>Who is the customer?</h3>
+        <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '19px' }}>Who is the customer?</h3>
         <Input label="Customer Name" placeholder="e.g. John Smith" value={quoteData.customerName} onChange={(v) => setQuoteData({...quoteData, customerName: v})} required />
         <Input label="Mobile Number" placeholder="07700 900123" type="tel" icon={Phone} value={quoteData.mobile} onChange={(v) => setQuoteData({...quoteData, mobile: v})} required />
         <Input label="Number Plate" placeholder="AB12 CDE" uppercase icon={Car} value={quoteData.numberPlate} onChange={(v) => setQuoteData({...quoteData, numberPlate: v})} required />
         {quoteData.numberPlate.length >= 7 && (
-          <Card><div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><CheckCircle size={20} color={theme.primary} /><div><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>2019 Ford Focus</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Found from number plate</p></div></div></Card>
+          <Card><div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><CheckCircle size={20} color={theme.primary} /><div><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>2019 Ford Focus</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Found from number plate</p></div></div></Card>
         )}
         <div style={{ marginTop: '24px', marginBottom: '24px' }}>
-          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '16px' }}>Job type</h3>
+          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '17px' }}>Job type</h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-            <button onClick={() => setQuoteData({...quoteData, isEmergency: false})} style={{ padding: '20px', backgroundColor: !quoteData.isEmergency ? `${theme.primary}20` : theme.bgInput, border: `2px solid ${!quoteData.isEmergency ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}><Calendar size={28} color={!quoteData.isEmergency ? theme.primary : theme.textMuted} /><span style={{ fontWeight: '600', color: !quoteData.isEmergency ? theme.primary : theme.text }}>Booking</span><span style={{ fontSize: '14px', color: theme.textMuted }}>2-hour arrival window</span></button>
-            <button onClick={() => setQuoteData({...quoteData, isEmergency: true})} style={{ padding: '20px', backgroundColor: quoteData.isEmergency ? `${theme.warning}20` : theme.bgInput, border: `2px solid ${quoteData.isEmergency ? theme.warning : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}><Zap size={28} color={quoteData.isEmergency ? theme.warning : theme.textMuted} /><span style={{ fontWeight: '600', color: quoteData.isEmergency ? theme.warning : theme.text }}>Emergency</span><span style={{ fontSize: '14px', color: theme.textMuted }}>45-90 mins arrival</span></button>
+            <button onClick={() => setQuoteData({...quoteData, isEmergency: false})} style={{ padding: '20px', backgroundColor: !quoteData.isEmergency ? `${theme.primary}20` : theme.bgInput, border: `2px solid ${!quoteData.isEmergency ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}><Calendar size={28} color={!quoteData.isEmergency ? theme.primary : theme.textMuted} /><span style={{ fontWeight: '700', color: !quoteData.isEmergency ? theme.primary : theme.text }}>Booking</span><span style={{ fontSize: '15px', color: theme.textMuted }}>2-hour arrival window</span></button>
+            <button onClick={() => setQuoteData({...quoteData, isEmergency: true})} style={{ padding: '20px', backgroundColor: quoteData.isEmergency ? `${theme.warning}20` : theme.bgInput, border: `2px solid ${quoteData.isEmergency ? theme.warning : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}><Zap size={28} color={quoteData.isEmergency ? theme.warning : theme.textMuted} /><span style={{ fontWeight: '700', color: quoteData.isEmergency ? theme.warning : theme.text }}>Emergency</span><span style={{ fontSize: '15px', color: theme.textMuted }}>45-90 mins arrival</span></button>
           </div>
-          <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '14px', textAlign: 'center' }}>In both cases, customer gets a text when you are minutes away.</p>
+          <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>In both cases, customer gets a text when you are minutes away.</p>
         </div>
         <Button onClick={() => navigateTo(quoteData.isEmergency ? 'quote-job' : 'quote-schedule')} icon={ArrowRight}>Next</Button>
       </div>
@@ -2692,7 +2696,7 @@ export default function TyreFitApp() {
         <Header title="Schedule" subtitle="Pick a 2-hour arrival window" />
         <ProgressSteps steps={['Customer', 'Schedule', 'Job', 'Check', 'Send']} currentStep={1} />
         <div style={{ padding: '24px' }}>
-          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '16px' }}>Pick a day</h3>
+          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '17px' }}>Pick a day</h3>
           <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', marginBottom: '24px' }}>
             {days.map(d => (
               <button key={d.date} onClick={() => setQuoteData({...quoteData, bookingDate: d.date})} style={{
@@ -2700,21 +2704,21 @@ export default function TyreFitApp() {
                 border: `2px solid ${quoteData.bookingDate === d.date ? theme.primary : theme.border}`, borderRadius: '14px',
                 cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', flexShrink: 0
               }}>
-                <span style={{ fontSize: '14px', fontWeight: '600', color: quoteData.bookingDate === d.date ? '#000' : theme.textMuted }}>{d.label}</span>
-                <span style={{ fontSize: '20px', fontWeight: '700', color: quoteData.bookingDate === d.date ? '#000' : theme.text }}>{d.dayNum}</span>
-                <span style={{ fontSize: '14px', color: quoteData.bookingDate === d.date ? '#000' : theme.textMuted }}>{d.month}</span>
+                <span style={{ fontSize: '15px', fontWeight: '700', color: quoteData.bookingDate === d.date ? '#000' : theme.textMuted }}>{d.label}</span>
+                <span style={{ fontSize: '21px', fontWeight: '800', color: quoteData.bookingDate === d.date ? '#000' : theme.text }}>{d.dayNum}</span>
+                <span style={{ fontSize: '15px', color: quoteData.bookingDate === d.date ? '#000' : theme.textMuted }}>{d.month}</span>
               </button>
             ))}
           </div>
 
-          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '16px' }}>Pick a booking window</h3>
+          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '17px' }}>Pick a booking window</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginBottom: '24px' }}>
             {bookingWindows.map(t => (
               <button key={t} onClick={() => setQuoteData({...quoteData, bookingTime: t})} style={{
                 padding: '14px 8px', backgroundColor: quoteData.bookingTime === t ? theme.primary : theme.bgInput,
                 border: `1px solid ${quoteData.bookingTime === t ? theme.primary : theme.border}`, borderRadius: '8px',
                 color: quoteData.bookingTime === t ? '#000' : theme.text, fontWeight: quoteData.bookingTime === t ? '700' : '400',
-                fontSize: '14px', cursor: 'pointer'
+                fontSize: '15px', cursor: 'pointer'
               }}>{t}</button>
             ))}
           </div>
@@ -2723,7 +2727,7 @@ export default function TyreFitApp() {
             <Card style={{ marginBottom: '24px', backgroundColor: `${theme.primary}10`, borderColor: theme.primary }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <Calendar size={20} color={theme.primary} />
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700' }}>
                   {new Date(quoteData.bookingDate).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })} · {quoteData.bookingTime} window
                 </p>
               </div>
@@ -2750,25 +2754,25 @@ export default function TyreFitApp() {
         <Header title="Job Details" subtitle={quoteData.isEmergency ? 'Step 2 of 4' : 'Step 3 of 5'} />
         <ProgressSteps steps={quoteData.isEmergency ? ['Customer', 'Job', 'Check', 'Send'] : ['Customer', 'Schedule', 'Job', 'Check', 'Send']} currentStep={quoteData.isEmergency ? 1 : 2} />
         <div style={{ padding: '24px' }}>
-          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '18px' }}>What tyres do they need?</h3>
+          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '19px' }}>What tyres do they need?</h3>
           {quoteData.tyres.map((tyre, i) => (
             <Card key={i}>
               <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                <select value={tyre.position} onChange={(e) => updateTyre(i, 'position', e.target.value)} style={{ flex: '1 1 100px', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '16px' }}><option value="Front">Front</option><option value="Rear">Rear</option><option value="All">All 4</option></select>
-                <input placeholder="Size e.g. 205/55R16" value={tyre.size} onChange={(e) => updateTyre(i, 'size', e.target.value)} style={{ flex: '2 1 150px', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '16px' }} />
+                <select value={tyre.position} onChange={(e) => updateTyre(i, 'position', e.target.value)} style={{ flex: '1 1 100px', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '17px' }}><option value="Front">Front</option><option value="Rear">Rear</option><option value="All">All 4</option></select>
+                <input placeholder="Size e.g. 205/55R16" value={tyre.size} onChange={(e) => updateTyre(i, 'size', e.target.value)} style={{ flex: '2 1 150px', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '17px' }} />
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span style={{ color: theme.textMuted }}>Qty:</span>
-                  <input type="number" min="1" value={tyre.qty} onChange={(e) => updateTyre(i, 'qty', e.target.value)} style={{ width: '60px', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '16px', textAlign: 'center' }} />
+                  <input type="number" min="1" value={tyre.qty} onChange={(e) => updateTyre(i, 'qty', e.target.value)} style={{ width: '60px', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '17px', textAlign: 'center' }} />
                 </div>
               </div>
-              {quoteData.tyres.length > 1 && <button onClick={() => removeTyre(i)} style={{ padding: '8px', marginTop: '8px', backgroundColor: 'transparent', border: 'none', color: theme.danger, fontSize: '14px', cursor: 'pointer' }}>Remove</button>}
+              {quoteData.tyres.length > 1 && <button onClick={() => removeTyre(i)} style={{ padding: '8px', marginTop: '8px', backgroundColor: 'transparent', border: 'none', color: theme.danger, fontSize: '15px', cursor: 'pointer' }}>Remove</button>}
             </Card>
           ))}
-          <button onClick={addTyre} style={{ width: '100%', padding: '16px', marginBottom: '24px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '16px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Plus size={20} /> Add more tyres</button>
+          <button onClick={addTyre} style={{ width: '100%', padding: '16px', marginBottom: '24px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '17px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}><Plus size={20} /> Add more tyres</button>
           
-          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '16px' }}>Locking wheel nuts?</h3>
+          <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontSize: '17px' }}>Locking wheel nuts?</h3>
           <Card>
-            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px' }}>Does the customer have the locking wheel nut key?</p>
+            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px' }}>Does the customer have the locking wheel nut key?</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {[
                 { id: 'has_key', label: 'Yes — has the key', desc: 'No extra cost', color: theme.primary },
@@ -2777,8 +2781,8 @@ export default function TyreFitApp() {
               ].map(opt => (
                 <button key={opt.id} onClick={() => setQuoteData({...quoteData, lwnStatus: opt.id})} style={{ width: '100%', padding: '14px 16px', backgroundColor: quoteData.lwnStatus === opt.id ? `${opt.color}15` : theme.bgInput, border: `2px solid ${quoteData.lwnStatus === opt.id ? opt.color : theme.border}`, borderRadius: '14px', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <span style={{ color: quoteData.lwnStatus === opt.id ? opt.color : theme.text, fontWeight: '600', fontSize: '15px', display: 'block' }}>{opt.label}</span>
-                    <span style={{ color: theme.textMuted, fontSize: '15px' }}>{opt.desc}</span>
+                    <span style={{ color: quoteData.lwnStatus === opt.id ? opt.color : theme.text, fontWeight: '700', fontSize: '16px', display: 'block' }}>{opt.label}</span>
+                    <span style={{ color: theme.textMuted, fontSize: '16px' }}>{opt.desc}</span>
                   </div>
                   {quoteData.lwnStatus === opt.id && <CheckCircle size={20} color={opt.color} />}
                 </button>
@@ -2787,12 +2791,12 @@ export default function TyreFitApp() {
             {quoteData.lwnStatus === 'no_key' && (
               <div style={{ marginTop: '14px', padding: '14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', display: 'flex', gap: '15px', alignItems: 'center' }}>
                 <Lock size={18} color={theme.danger} />
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Add your removal fee to the price below. The customer will see the total.</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Add your removal fee to the price below. The customer will see the total.</p>
               </div>
             )}
           </Card>
           
-          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '16px' }}>Where and how much?</h3>
+          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '17px' }}>Where and how much?</h3>
           <Input label="Address or Postcode" placeholder="e.g. E1 4QJ" icon={MapPin} value={quoteData.location} onChange={(v) => setQuoteData({...quoteData, location: v})} required />
           <Input label="Your Price (£)" placeholder="0.00" type="number" value={quoteData.price} onChange={(v) => setQuoteData({...quoteData, price: v})} required />
           <Input label="Notes (optional)" placeholder="Gate code, parking info, etc." value={quoteData.notes} onChange={(v) => setQuoteData({...quoteData, notes: v})} />
@@ -2812,22 +2816,22 @@ export default function TyreFitApp() {
       <Header title="Check Stock" subtitle={quoteData.isEmergency ? 'Step 3 of 4' : 'Step 4 of 5'} />
       <ProgressSteps steps={quoteData.isEmergency ? ['Customer', 'Job', 'Check', 'Send'] : ['Customer', 'Schedule', 'Job', 'Check', 'Send']} currentStep={quoteData.isEmergency ? 2 : 3} />
       <div style={{ padding: '24px' }}>
-        <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '18px' }}>Do you have the tyres?</h3>
-        <Card highlight><div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><CheckCircle size={28} color={theme.primary} /><div><p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '16px' }}>Yes - On Your Van</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>205/55R16 Michelin x 2</p></div></div></Card>
+        <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '19px' }}>Do you have the tyres?</h3>
+        <Card highlight><div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><CheckCircle size={28} color={theme.primary} /><div><p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '17px' }}>Yes - On Your Van</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>205/55R16 Michelin x 2</p></div></div></Card>
         
         {quoteData.isEmergency && (
           <>
-            <h3 style={{ margin: '24px 0 16px 0', color: theme.text, fontSize: '18px' }}>How long to get there?</h3>
+            <h3 style={{ margin: '24px 0 16px 0', color: theme.text, fontSize: '19px' }}>How long to get there?</h3>
             <Card>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Drive time</span><span style={{ color: theme.text, fontWeight: '500' }}>22 mins</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Drive time</span><span style={{ color: theme.text, fontWeight: '600' }}>22 mins</span></div>
                 <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ color: theme.text, fontWeight: '600', fontSize: '16px' }}>ETA</span>
-                  <span style={{ color: theme.primary, fontWeight: '700', fontSize: '24px' }}>~22 mins</span>
+                  <span style={{ color: theme.text, fontWeight: '700', fontSize: '17px' }}>ETA</span>
+                  <span style={{ color: theme.primary, fontWeight: '800', fontSize: '25px' }}>~22 mins</span>
                 </div>
               </div>
             </Card>
-            <div style={{ marginTop: '24px', height: '160px', backgroundColor: theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${theme.border}` }}><div style={{ textAlign: 'center', color: theme.textMuted }}><Map size={40} /><p style={{ margin: '8px 0 0 0', fontSize: '14px' }}>Route Preview</p></div></div>
+            <div style={{ marginTop: '24px', height: '160px', backgroundColor: theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${theme.border}` }}><div style={{ textAlign: 'center', color: theme.textMuted }}><Map size={40} /><p style={{ margin: '8px 0 0 0', fontSize: '15px' }}>Route Preview</p></div></div>
           </>
         )}
         <div style={{ display: 'flex', gap: '14px', marginTop: '24px' }}>
@@ -2866,32 +2870,32 @@ export default function TyreFitApp() {
           <div style={{ padding: '12px 14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', border: `1px solid ${theme.danger}25`, marginBottom: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <ShieldCheck size={18} color={theme.danger} />
-              <span style={{ fontSize: '15px', fontWeight: '700', color: theme.danger, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Emergency Cover Job</span>
+              <span style={{ fontSize: '16px', fontWeight: '800', color: theme.danger, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Emergency Cover Job</span>
             </div>
-            <p style={{ margin: 0, fontSize: '15px', color: theme.textMuted, lineHeight: 1.5 }}>This customer has active TYRE-FIT cover. Send your quote to TYRE-FIT — once approved, the job is yours and <strong style={{ color: theme.primary }}>TYRE-FIT pays you automatically</strong> when the job is complete. The customer pays nothing extra.</p>
+            <p style={{ margin: 0, fontSize: '16px', color: theme.textMuted, lineHeight: 1.5 }}>This customer has active TYRE-FIT cover. Send your quote to TYRE-FIT — once approved, the job is yours and <strong style={{ color: theme.primary }}>TYRE-FIT pays you automatically</strong> when the job is complete. The customer pays nothing extra.</p>
           </div>
 
           {/* PRE-FILLED CUSTOMER & JOB INFO */}
           <Card>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Customer</span><span style={{ color: theme.text, fontWeight: '600' }}>{coverJob.name}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '500' }}>{coverJob.vehicle || coverJob.plate} ({coverJob.plate})</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Issue</span><span style={{ color: theme.text, fontWeight: '500' }}>{coverJob.issue}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Tyre needed</span><span style={{ color: theme.text, fontWeight: '600' }}>{coverJob.tyreSize} x{coverJob.qty}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Location</span><span style={{ color: theme.text, fontWeight: '500' }}>{coverJob.distance} away</span></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><MapPin size={14} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '15px' }}>{coverJob.location}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Customer</span><span style={{ color: theme.text, fontWeight: '700' }}>{coverJob.name}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '600' }}>{coverJob.vehicle || coverJob.plate} ({coverJob.plate})</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Issue</span><span style={{ color: theme.text, fontWeight: '600' }}>{coverJob.issue}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Tyre needed</span><span style={{ color: theme.text, fontWeight: '700' }}>{coverJob.tyreSize} x{coverJob.qty}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Location</span><span style={{ color: theme.text, fontWeight: '600' }}>{coverJob.distance} away</span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><MapPin size={14} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '16px' }}>{coverJob.location}</span></div>
             </div>
           </Card>
 
           {/* AUTO STOCK CHECK */}
-          <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Stock Check</h3>
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Stock Check</h3>
           {stockStatus === 'van' && (
             <Card style={{ borderColor: theme.primary }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div style={{ width: '44px', height: '44px', backgroundColor: `${theme.primary}15`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CheckCircle size={24} color={theme.primary} /></div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '15px' }}>{coverJob.tyreSize} on your van</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{tyreOnVan.brand} — {tyreOnVan.qty} in stock</p>
+                  <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '16px' }}>{coverJob.tyreSize} on your van</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{tyreOnVan.brand} — {tyreOnVan.qty} in stock</p>
                 </div>
                 <Truck size={20} color={theme.primary} />
               </div>
@@ -2902,15 +2906,15 @@ export default function TyreFitApp() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div style={{ width: '44px', height: '44px', backgroundColor: `${theme.warning}15`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><AlertTriangle size={24} color={theme.warning} /></div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.warning, fontWeight: '700', fontSize: '15px' }}>Depot pickup needed</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{tyreAtDepot.brand} — {tyreAtDepot.qty} at {tyreAtDepot.location}</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Factor in collection time for your ETA</p>
+                  <p style={{ margin: 0, color: theme.warning, fontWeight: '800', fontSize: '16px' }}>Depot pickup needed</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{tyreAtDepot.brand} — {tyreAtDepot.qty} at {tyreAtDepot.location}</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Factor in collection time for your ETA</p>
                 </div>
                 <Building size={20} color={theme.warning} />
               </div>
               <div style={{ marginTop: '15px', padding: '8px 10px', backgroundColor: `${theme.info}10`, borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Route size={14} color={theme.info} />
-                <p style={{ margin: 0, color: theme.info, fontSize: '14px' }}>Depot stop will be added to your route automatically when you send this quote</p>
+                <p style={{ margin: 0, color: theme.info, fontSize: '15px' }}>Depot stop will be added to your route automatically when you send this quote</p>
               </div>
             </Card>
           )}
@@ -2919,21 +2923,21 @@ export default function TyreFitApp() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div style={{ width: '44px', height: '44px', backgroundColor: `${theme.danger}15`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><AlertOctagon size={24} color={theme.danger} /></div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.danger, fontWeight: '700', fontSize: '15px' }}>{coverJob.tyreSize} not in stock</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>You'll need to source this tyre before the job</p>
+                  <p style={{ margin: 0, color: theme.danger, fontWeight: '800', fontSize: '16px' }}>{coverJob.tyreSize} not in stock</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>You'll need to source this tyre before the job</p>
                 </div>
               </div>
               <div style={{ marginTop: '15px', padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                <p style={{ margin: '0 0 6px 0', color: theme.textMuted, fontSize: '14px', fontWeight: '600', textTransform: 'uppercase' }}>Ordering lead times</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}><Clock size={12} color={theme.primary} /><span style={{ color: theme.text, fontSize: '15px' }}>Budget & Mid-range — <strong>same day</strong> (weekdays)</span></div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={12} color={theme.warning} /><span style={{ color: theme.text, fontSize: '15px' }}>Premium — <strong>next working day</strong> (24hr weekdays)</span></div>
+                <p style={{ margin: '0 0 6px 0', color: theme.textMuted, fontSize: '15px', fontWeight: '700', textTransform: 'uppercase' }}>Ordering lead times</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}><Clock size={12} color={theme.primary} /><span style={{ color: theme.text, fontSize: '16px' }}>Budget & Mid-range — <strong>same day</strong> (weekdays)</span></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={12} color={theme.warning} /><span style={{ color: theme.text, fontSize: '16px' }}>Premium — <strong>next working day</strong> (24hr weekdays)</span></div>
               </div>
             </Card>
           )}
 
           {/* TYRE OPTIONS — Budget / Mid / Premium */}
-          <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Tyre Options for Customer</h3>
-          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px' }}>Select which options to offer. Customer chooses one.</p>
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Tyre Options for Customer</h3>
+          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '16px' }}>Select which options to offer. Customer chooses one.</p>
           {tyreTiers.map((t) => {
             const isSelected = selectedTier === t.tier;
             return (
@@ -2944,34 +2948,34 @@ export default function TyreFitApp() {
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ color: theme.text, fontWeight: '600', fontSize: '15px' }}>{t.label}</span>
+                      <span style={{ color: theme.text, fontWeight: '700', fontSize: '16px' }}>{t.label}</span>
                       <Badge variant={t.tier === 'budget' ? 'info' : t.tier === 'mid' ? 'warning' : 'success'}>{t.brand}</Badge>
                     </div>
-                    <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{t.desc}</p>
+                    <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{t.desc}</p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '6px' }}>
                       <Clock size={12} color={t.inStock ? theme.primary : theme.warning} />
-                      <span style={{ fontSize: '14px', fontWeight: '600', color: t.inStock ? theme.primary : theme.warning }}>{t.leadTime}</span>
+                      <span style={{ fontSize: '15px', fontWeight: '700', color: t.inStock ? theme.primary : theme.warning }}>{t.leadTime}</span>
                     </div>
                   </div>
-                  <span style={{ color: isSelected ? theme.primary : theme.text, fontWeight: '700', fontSize: '18px' }}>£{t.price}</span>
+                  <span style={{ color: isSelected ? theme.primary : theme.text, fontWeight: '800', fontSize: '19px' }}>£{t.price}</span>
                 </div>
               </Card>
             );
           })}
 
           {/* PRICE INPUT */}
-          <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Your Quote</h3>
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Your Quote</h3>
           <Card>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Your price (what you charge)</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Your price (what you charge)</label>
             <div style={{ position: 'relative' }}>
-              <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: theme.primary, fontSize: '20px', fontWeight: '700' }}>£</span>
+              <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: theme.primary, fontSize: '21px', fontWeight: '800' }}>£</span>
               <input
                 type="number"
                 inputMode="decimal"
                 placeholder="e.g. 89.99"
                 value={coverQuotePrice}
                 onChange={(e) => setCoverQuotePrice(e.target.value)}
-                style={{ width: '100%', backgroundColor: theme.bgInput, border: `2px solid ${coverQuotePrice ? theme.primary : theme.border}`, borderRadius: '14px', padding: '18px 16px 18px 48px', fontSize: '24px', fontWeight: '700', color: theme.text, outline: 'none', boxSizing: 'border-box' }}
+                style={{ width: '100%', backgroundColor: theme.bgInput, border: `2px solid ${coverQuotePrice ? theme.primary : theme.border}`, borderRadius: '14px', padding: '18px 16px 18px 48px', fontSize: '25px', fontWeight: '800', color: theme.text, outline: 'none', boxSizing: 'border-box' }}
               />
             </div>
           </Card>
@@ -2979,13 +2983,13 @@ export default function TyreFitApp() {
           {/* FEE BREAKDOWN — only show once price entered */}
           {basePrice > 0 && (
             <>
-              <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Payment Summary</h3>
+              <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Payment Summary</h3>
               <Card>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Your quote</span><span style={{ color: theme.text, fontWeight: '600' }}>£{basePrice.toFixed(2)}</span></div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Your quote</span><span style={{ color: theme.text, fontWeight: '700' }}>£{basePrice.toFixed(2)}</span></div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: `2px solid ${theme.primary}30`, paddingTop: '14px' }}>
-                    <span style={{ color: theme.text, fontWeight: '700', fontSize: '17px' }}>TYRE-FIT pays you</span>
-                    <span style={{ color: theme.primary, fontWeight: '700', fontSize: '24px' }}>£{basePrice.toFixed(2)}</span>
+                    <span style={{ color: theme.text, fontWeight: '800', fontSize: '18px' }}>TYRE-FIT pays you</span>
+                    <span style={{ color: theme.primary, fontWeight: '800', fontSize: '25px' }}>£{basePrice.toFixed(2)}</span>
                   </div>
                 </div>
               </Card>
@@ -2993,9 +2997,9 @@ export default function TyreFitApp() {
               <div style={{ padding: '12px 14px', backgroundColor: `${theme.primary}08`, borderRadius: '15px', border: `1px solid ${theme.primary}20`, marginTop: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
                   <Wallet size={16} color={theme.primary} />
-                  <span style={{ color: theme.text, fontSize: '14px', fontWeight: '600' }}>How cover job payment works</span>
+                  <span style={{ color: theme.text, fontSize: '15px', fontWeight: '700' }}>How cover job payment works</span>
                 </div>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>You complete the job → TYRE-FIT verifies → payment sent to your wallet automatically. No invoicing, no chasing. Customer pays nothing — {"it's"} covered under their plan.</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>You complete the job → TYRE-FIT verifies → payment sent to your wallet automatically. No invoicing, no chasing. Customer pays nothing — {"it's"} covered under their plan.</p>
               </div>
 
               {/* ETA */}
@@ -3005,13 +3009,13 @@ export default function TyreFitApp() {
                   <div>
                     {selectedTier === 'premium' && stockStatus !== 'van' ? (
                       <>
-                        <p style={{ margin: 0, color: theme.warning, fontWeight: '600', fontSize: '15px' }}>Premium — next working day</p>
-                        <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>24hr order. Book customer in for tomorrow (weekday).</p>
+                        <p style={{ margin: 0, color: theme.warning, fontWeight: '700', fontSize: '16px' }}>Premium — next working day</p>
+                        <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>24hr order. Book customer in for tomorrow (weekday).</p>
                       </>
                     ) : (
                       <>
-                        <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>ETA: ~{stockStatus === 'depot' ? '55' : '25'} mins</p>
-                        <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{stockStatus === 'depot' ? 'Includes depot collection time' : 'Direct to customer'}</p>
+                        <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>ETA: ~{stockStatus === 'depot' ? '55' : '25'} mins</p>
+                        <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{stockStatus === 'depot' ? 'Includes depot collection time' : 'Direct to customer'}</p>
                       </>
                     )}
                   </div>
@@ -3022,7 +3026,7 @@ export default function TyreFitApp() {
               <div style={{ marginTop: '20px' }}>
                 <Button onClick={() => { setQuoteData(prev => ({ ...prev, customerName: coverJob.name, mobile: '07700 900456', numberPlate: coverJob.plate, isEmergency: true, isCoverQuote: true, price: coverQuotePrice })); setCoverJobs(prev => prev.filter(j => j.id !== coverJob.id)); setCoverApprovalPhase('sending'); }} icon={Send}>Send Quote for Approval</Button>
               </div>
-              <p style={{ textAlign: 'center', color: theme.textMuted, fontSize: '15px', marginTop: '14px', lineHeight: 1.5 }}>TYRE-FIT approves your quote and updates the customer automatically.</p>
+              <p style={{ textAlign: 'center', color: theme.textMuted, fontSize: '16px', marginTop: '14px', lineHeight: 1.5 }}>TYRE-FIT approves your quote and updates the customer automatically.</p>
 
               {/* ROUTE UPDATE MODAL */}
               {showRouteUpdateModal && (
@@ -3030,16 +3034,16 @@ export default function TyreFitApp() {
                   <Card style={{ maxWidth: '400px', width: '100%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                       <div style={{ width: '64px', height: '64px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><Route size={32} color={theme.primary} /></div>
-                      <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '18px' }}>Update Your Route?</h3>
-                      <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>You have {mockJobs.length} jobs today. Where should this emergency fit in?</p>
+                      <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '19px' }}>Update Your Route?</h3>
+                      <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>You have {mockJobs.length} jobs today. Where should this emergency fit in?</p>
                     </div>
 
                     {/* Option 1: Next job (priority) */}
                     <button onClick={() => setRouteInsertPosition('next')} style={{ width: '100%', padding: '14px 16px', backgroundColor: routeInsertPosition === 'next' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${routeInsertPosition === 'next' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '8px', textAlign: 'left' }}>
                       <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: `2px solid ${routeInsertPosition === 'next' ? theme.primary : theme.border}`, backgroundColor: routeInsertPosition === 'next' ? theme.primary : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{routeInsertPosition === 'next' && <Check size={14} color="#000" />}</div>
                       <div>
-                        <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Do this first</p>
-                        <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Emergency becomes your next job. Other jobs shift back ~45 mins. Affected customers notified automatically.</p>
+                        <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Do this first</p>
+                        <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Emergency becomes your next job. Other jobs shift back ~45 mins. Affected customers notified automatically.</p>
                       </div>
                     </button>
 
@@ -3047,8 +3051,8 @@ export default function TyreFitApp() {
                     <button onClick={() => setRouteInsertPosition('optimise')} style={{ width: '100%', padding: '14px 16px', backgroundColor: routeInsertPosition === 'optimise' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${routeInsertPosition === 'optimise' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '8px', textAlign: 'left' }}>
                       <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: `2px solid ${routeInsertPosition === 'optimise' ? theme.primary : theme.border}`, backgroundColor: routeInsertPosition === 'optimise' ? theme.primary : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{routeInsertPosition === 'optimise' && <Check size={14} color="#000" />}</div>
                       <div>
-                        <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Slot in smartly</p>
-                        <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>AI optimises your route to fit the emergency between existing jobs with minimum disruption.</p>
+                        <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Slot in smartly</p>
+                        <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>AI optimises your route to fit the emergency between existing jobs with minimum disruption.</p>
                       </div>
                     </button>
 
@@ -3056,8 +3060,8 @@ export default function TyreFitApp() {
                     <button onClick={() => setRouteInsertPosition('manual')} style={{ width: '100%', padding: '14px 16px', backgroundColor: routeInsertPosition === 'manual' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${routeInsertPosition === 'manual' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px', textAlign: 'left' }}>
                       <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: `2px solid ${routeInsertPosition === 'manual' ? theme.primary : theme.border}`, backgroundColor: routeInsertPosition === 'manual' ? theme.primary : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{routeInsertPosition === 'manual' && <Check size={14} color="#000" />}</div>
                       <div>
-                        <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>I'll sort it myself</p>
-                        <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Job added to route but not positioned. You can drag to reorder later.</p>
+                        <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>I'll sort it myself</p>
+                        <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Job added to route but not positioned. You can drag to reorder later.</p>
                       </div>
                     </button>
 
@@ -3097,47 +3101,47 @@ export default function TyreFitApp() {
         <Header title="Send Quote" subtitle={quoteData.isEmergency ? 'Step 4 of 4' : 'Step 5 of 5'} />
         <ProgressSteps steps={quoteData.isEmergency ? ['Customer', 'Job', 'Check', 'Send'] : ['Customer', 'Schedule', 'Job', 'Check', 'Send']} currentStep={quoteData.isEmergency ? 3 : 4} />
         <div style={{ padding: '24px' }}>
-          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '18px' }}>Check everything looks right</h3>
+          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '19px' }}>Check everything looks right</h3>
           <Card>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Customer</span><span style={{ color: theme.text, fontWeight: '500' }}>{quoteData.customerName || 'John Smith'}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Mobile</span><span style={{ color: theme.text, fontWeight: '500' }}>{quoteData.mobile || '07700 900123'}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '500' }}>2019 Ford Focus ({quoteData.numberPlate || 'AB12 CDE'})</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Type</span><span style={{ color: quoteData.isEmergency ? theme.warning : theme.primary, fontWeight: '600' }}>{quoteData.isEmergency ? 'Emergency (45-90 mins)' : 'Booking (2-hour window)'}</span></div>
-              {!quoteData.isEmergency && quoteData.bookingDate && <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Scheduled</span><span style={{ color: theme.text, fontWeight: '500' }}>{new Date(quoteData.bookingDate).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })} · {quoteData.bookingTime} window</span></div>}
-              {quoteData.isEmergency && <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Arrival Target</span><span style={{ color: theme.warning, fontWeight: '600' }}>45-90 mins</span></div>}
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Customer</span><span style={{ color: theme.text, fontWeight: '600' }}>{quoteData.customerName || 'John Smith'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Mobile</span><span style={{ color: theme.text, fontWeight: '600' }}>{quoteData.mobile || '07700 900123'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '600' }}>2019 Ford Focus ({quoteData.numberPlate || 'AB12 CDE'})</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Type</span><span style={{ color: quoteData.isEmergency ? theme.warning : theme.primary, fontWeight: '700' }}>{quoteData.isEmergency ? 'Emergency (45-90 mins)' : 'Booking (2-hour window)'}</span></div>
+              {!quoteData.isEmergency && quoteData.bookingDate && <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Scheduled</span><span style={{ color: theme.text, fontWeight: '600' }}>{new Date(quoteData.bookingDate).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })} · {quoteData.bookingTime} window</span></div>}
+              {quoteData.isEmergency && <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Arrival Target</span><span style={{ color: theme.warning, fontWeight: '700' }}>45-90 mins</span></div>}
             </div>
           </Card>
           
           {/* CUSTOMER SEES - what they pay */}
-          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '20px' }}>What customer sees</h3>
+          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '21px' }}>What customer sees</h3>
           <Card>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '18px' }}>Tyre fitting price</span><span style={{ color: theme.text, fontWeight: '600', fontSize: '18px' }}>£{basePrice.toFixed(2)}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '18px' }}>Booking fee</span><span style={{ color: theme.text, fontWeight: '500', fontSize: '18px' }}>£{bookingFee.toFixed(2)}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '19px' }}>Tyre fitting price</span><span style={{ color: theme.text, fontWeight: '700', fontSize: '19px' }}>£{basePrice.toFixed(2)}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '19px' }}>Booking fee</span><span style={{ color: theme.text, fontWeight: '600', fontSize: '19px' }}>£{bookingFee.toFixed(2)}</span></div>
               <div style={{ borderTop: `2px solid ${theme.border}`, paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: theme.text, fontWeight: '700', fontSize: '22px' }}>Total customer sees</span>
-                <span style={{ color: theme.primary, fontWeight: '800', fontSize: '34px' }}>£{customerTotal.toFixed(2)}</span>
+                <span style={{ color: theme.text, fontWeight: '800', fontSize: '23px' }}>Total customer sees</span>
+                <span style={{ color: theme.primary, fontWeight: '800', fontSize: '35px' }}>£{customerTotal.toFixed(2)}</span>
               </div>
               <div style={{ padding: '14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', border: `1px solid ${theme.primary}30` }}>
-                <p style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '17px', fontWeight: '700' }}>Pay £5.95 now to secure booking</p>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Then pay fitter <strong style={{ color: theme.text }}>£{basePrice.toFixed(2)}</strong> after fitting.</p>
+                <p style={{ margin: '0 0 6px 0', color: theme.text, fontSize: '18px', fontWeight: '800' }}>Pay £5.95 now to secure booking</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '17px' }}>Then pay fitter <strong style={{ color: theme.text }}>£{basePrice.toFixed(2)}</strong> after fitting.</p>
               </div>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>All bookings include 30-day emergency tyre cover.</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>All bookings include 30-day emergency tyre cover.</p>
             </div>
           </Card>
           
           {/* FITTER RECEIVES - transparent fee breakdown */}
-          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '16px' }}>What you receive</h3>
+          <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '17px' }}>What you receive</h3>
           <Card style={{ backgroundColor: `${theme.primary}08` }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Your Price</span><span style={{ color: theme.text, fontWeight: '500', fontSize: '15px' }}>£{basePrice.toFixed(2)}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Payment Processing (1.5% + 20p)</span><span style={{ color: theme.textMuted, fontSize: '15px' }}>-£{stripeFee.toFixed(2)}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Your Price</span><span style={{ color: theme.text, fontWeight: '600', fontSize: '16px' }}>£{basePrice.toFixed(2)}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Payment Processing (1.5% + 20p)</span><span style={{ color: theme.textMuted, fontSize: '16px' }}>-£{stripeFee.toFixed(2)}</span></div>
               <div style={{ borderTop: `2px solid ${theme.border}`, paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: theme.text, fontWeight: '700', fontSize: '18px' }}>To Your Wallet</span>
-                <span style={{ color: theme.primary, fontWeight: '700', fontSize: '28px' }}>£{fitterReceives.toFixed(2)}</span>
+                <span style={{ color: theme.text, fontWeight: '800', fontSize: '19px' }}>To Your Wallet</span>
+                <span style={{ color: theme.primary, fontWeight: '800', fontSize: '29px' }}>£{fitterReceives.toFixed(2)}</span>
               </div>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>The £{bookingFee.toFixed(2)} booking fee is paid by the customer separately — it doesn't come out of your price.</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>The £{bookingFee.toFixed(2)} booking fee is paid by the customer separately — it doesn't come out of your price.</p>
             </div>
           </Card>
           
@@ -3146,11 +3150,11 @@ export default function TyreFitApp() {
             <div style={{ display: 'flex', gap: '14px' }}>
               <ShieldCheck size={28} color={theme.primary} style={{ flexShrink: 0 }} />
               <div>
-                <h3 style={{ margin: '0 0 10px 0', color: theme.primary, fontWeight: '700', fontSize: '16px' }}>How Cover Works</h3>
+                <h3 style={{ margin: '0 0 10px 0', color: theme.primary, fontWeight: '800', fontSize: '17px' }}>How Cover Works</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <p style={{ margin: 0, color: theme.text, fontSize: '14px' }}><strong>1.</strong> You fit their tyres</p>
-                  <p style={{ margin: 0, color: theme.text, fontSize: '14px' }}><strong>2.</strong> They get 30 days free breakdown cover</p>
-                  <p style={{ margin: 0, color: theme.primary, fontSize: '14px', fontWeight: '600' }}><strong>3.</strong> When they need help — you get paid</p>
+                  <p style={{ margin: 0, color: theme.text, fontSize: '15px' }}><strong>1.</strong> You fit their tyres</p>
+                  <p style={{ margin: 0, color: theme.text, fontSize: '15px' }}><strong>2.</strong> They get 30 days free breakdown cover</p>
+                  <p style={{ margin: 0, color: theme.primary, fontSize: '15px', fontWeight: '700' }}><strong>3.</strong> When they need help — you get paid</p>
                 </div>
               </div>
             </div>
@@ -3158,8 +3162,8 @@ export default function TyreFitApp() {
           
           {showDispatcherOptions && (
             <div style={{ marginTop: '16px' }}>
-              <label style={{ display: 'block', fontSize: '16px', color: theme.text, marginBottom: '8px', fontWeight: '500' }}>Who should do this job?</label>
-              <select value={quoteData.assignedTo || 'nearest'} onChange={(e) => setQuoteData({...quoteData, assignedTo: e.target.value})} style={{ width: '100%', padding: '16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '16px' }}>
+              <label style={{ display: 'block', fontSize: '17px', color: theme.text, marginBottom: '8px', fontWeight: '600' }}>Who should do this job?</label>
+              <select value={quoteData.assignedTo || 'nearest'} onChange={(e) => setQuoteData({...quoteData, assignedTo: e.target.value})} style={{ width: '100%', padding: '16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '17px' }}>
                 <option value="nearest">Nearest Fitter</option><option value="quickest">First Available</option>
                 {mockTeamFitters.map(f => <option key={f.id} value={f.id}>{f.name}</option>)}
               </select>
@@ -3168,9 +3172,9 @@ export default function TyreFitApp() {
           
           <Card style={{ marginTop: '16px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <p style={{ margin: 0, color: theme.text, fontSize: '18px' }}>Customer pays <strong style={{ color: theme.primary }}>£{bookingFee.toFixed(2)} now</strong> to confirm</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '17px' }}>Customer then pays fitter <strong style={{ color: theme.text }}>£{basePrice.toFixed(2)}</strong> after fitting</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}><Clock size={14} style={{ verticalAlign: 'middle', marginRight: '4px' }} />Link expires in 5 minutes</p>
+              <p style={{ margin: 0, color: theme.text, fontSize: '19px' }}>Customer pays <strong style={{ color: theme.primary }}>£{bookingFee.toFixed(2)} now</strong> to confirm</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '18px' }}>Customer then pays fitter <strong style={{ color: theme.text }}>£{basePrice.toFixed(2)}</strong> after fitting</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}><Clock size={14} style={{ verticalAlign: 'middle', marginRight: '4px' }} />Link expires in 5 minutes</p>
             </div>
           </Card>
           
@@ -3179,7 +3183,7 @@ export default function TyreFitApp() {
           {/* CUSTOMER PREVIEW */}
           <button onClick={() => setShowQuotePreview(true)} style={{ width: '100%', padding: '14px', backgroundColor: `${theme.info}10`, border: `1px solid ${theme.info}30`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px' }}>
             <Eye size={18} color={theme.info} />
-            <span style={{ color: theme.info, fontWeight: '600', fontSize: '14px' }}>See what your customer sees</span>
+            <span style={{ color: theme.info, fontWeight: '700', fontSize: '15px' }}>See what your customer sees</span>
           </button>
 
           {/* QUOTE PREVIEW POPUP — exactly what customer sees on their phone */}
@@ -3188,58 +3192,58 @@ export default function TyreFitApp() {
               <div style={{ maxWidth: '380px', width: '100%', backgroundColor: '#fff', borderRadius: '20px', overflow: 'hidden' }}>
                 {/* Phone-style header */}
                 <div style={{ backgroundColor: theme.primary, padding: '20px 16px', textAlign: 'center' }}>
-                  <p style={{ margin: '0 0 4px 0', color: '#000', fontSize: '14px', opacity: 0.7 }}>QUOTE FROM</p>
-                  <h3 style={{ margin: 0, color: '#000', fontWeight: '700', fontSize: '18px' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</h3>
+                  <p style={{ margin: '0 0 4px 0', color: '#000', fontSize: '15px', opacity: 0.7 }}>QUOTE FROM</p>
+                  <h3 style={{ margin: 0, color: '#000', fontWeight: '800', fontSize: '19px' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</h3>
                 </div>
                 <div style={{ padding: '20px 16px' }}>
-                  <p style={{ margin: '0 0 4px 0', color: '#666', fontSize: '16px' }}>Hi {quoteData.customerName || 'John'},</p>
-                  <p style={{ margin: '0 0 16px 0', color: '#333', fontSize: '17px', lineHeight: 1.5 }}>Here is your quote for tyre fitting on <strong>{quoteData.numberPlate || 'AB12 CDE'}</strong>:</p>
+                  <p style={{ margin: '0 0 4px 0', color: '#666', fontSize: '17px' }}>Hi {quoteData.customerName || 'John'},</p>
+                  <p style={{ margin: '0 0 16px 0', color: '#333', fontSize: '18px', lineHeight: 1.5 }}>Here is your quote for tyre fitting on <strong>{quoteData.numberPlate || 'AB12 CDE'}</strong>:</p>
                   
                   <div style={{ padding: '14px', backgroundColor: '#f8f9fa', borderRadius: '14px', marginBottom: '14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '16px' }}>{quoteData.tyreQty || 2}x {quoteData.tyreSize || '205/55R16'}</span><span style={{ color: '#333', fontWeight: '600', fontSize: '16px' }}>£{basePrice.toFixed(2)}</span></div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '16px' }}>Booking fee</span><span style={{ color: '#333', fontSize: '16px' }}>£{bookingFee.toFixed(2)}</span></div>
-                    <div style={{ borderTop: '2px solid #e0e0e0', paddingTop: '15px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: '#333', fontWeight: '700', fontSize: '19px' }}>Total</span><span style={{ color: '#333', fontWeight: '700', fontSize: '24px' }}>£{customerTotal.toFixed(2)}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '17px' }}>{quoteData.tyreQty || 2}x {quoteData.tyreSize || '205/55R16'}</span><span style={{ color: '#333', fontWeight: '700', fontSize: '17px' }}>£{basePrice.toFixed(2)}</span></div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: '#666', fontSize: '17px' }}>Booking fee</span><span style={{ color: '#333', fontSize: '17px' }}>£{bookingFee.toFixed(2)}</span></div>
+                    <div style={{ borderTop: '2px solid #e0e0e0', paddingTop: '15px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: '#333', fontWeight: '800', fontSize: '20px' }}>Total</span><span style={{ color: '#333', fontWeight: '800', fontSize: '25px' }}>£{customerTotal.toFixed(2)}</span></div>
                   </div>
 
                   {!quoteData.isEmergency && quoteData.bookingDate && (
                     <div style={{ padding: '10px 14px', backgroundColor: '#e8f5e9', borderRadius: '15px', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <Calendar size={16} color="#2e7d32" />
-                      <span style={{ color: '#2e7d32', fontSize: '14px', fontWeight: '500' }}>{new Date(quoteData.bookingDate).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })} · {quoteData.bookingTime} window</span>
+                      <span style={{ color: '#2e7d32', fontSize: '15px', fontWeight: '600' }}>{new Date(quoteData.bookingDate).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })} · {quoteData.bookingTime} window</span>
                     </div>
                   )}
 
                   {quoteData.isEmergency && (
                     <div style={{ padding: '10px 14px', backgroundColor: '#fff8e1', borderRadius: '15px', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <Zap size={16} color="#f59e0b" />
-                      <span style={{ color: '#b45309', fontSize: '14px', fontWeight: '600' }}>Emergency arrival target: 45-90 mins</span>
+                      <span style={{ color: '#b45309', fontSize: '15px', fontWeight: '700' }}>Emergency arrival target: 45-90 mins</span>
                     </div>
                   )}
 
                   <div style={{ padding: '10px 14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <ShieldCheck size={16} color={theme.primary} />
-                    <span style={{ color: '#333', fontSize: '15px' }}>Includes <strong style={{ color: theme.primary }}>30-day tyre cover</strong> — free</span>
+                    <span style={{ color: '#333', fontSize: '16px' }}>Includes <strong style={{ color: theme.primary }}>30-day tyre cover</strong> — free</span>
                   </div>
 
-                  <p style={{ margin: '0 0 8px 0', color: '#666', fontSize: '15px', textAlign: 'center', fontWeight: '700' }}>Pay £{bookingFee.toFixed(2)} now to secure booking</p>
-                  <p style={{ margin: '0 0 10px 0', color: '#666', fontSize: '14px', textAlign: 'center' }}>Pay fitter balance £{basePrice.toFixed(2)} after fitting</p>
+                  <p style={{ margin: '0 0 8px 0', color: '#666', fontSize: '16px', textAlign: 'center', fontWeight: '800' }}>Pay £{bookingFee.toFixed(2)} now to secure booking</p>
+                  <p style={{ margin: '0 0 10px 0', color: '#666', fontSize: '15px', textAlign: 'center' }}>Pay fitter balance £{basePrice.toFixed(2)} after fitting</p>
                   <div style={{ padding: '16px', backgroundColor: theme.primary, borderRadius: '14px', textAlign: 'center', cursor: 'default' }}>
-                    <span style={{ color: '#000', fontWeight: '700', fontSize: '19px' }}>Confirm & Pay £{bookingFee.toFixed(2)}</span>
+                    <span style={{ color: '#000', fontWeight: '800', fontSize: '20px' }}>Confirm & Pay £{bookingFee.toFixed(2)}</span>
                   </div>
-                  <p style={{ margin: '10px 0 0 0', color: '#999', fontSize: '14px', textAlign: 'center' }}>Quote expires in 5 minutes · Powered by TYRE-FIT</p>
+                  <p style={{ margin: '10px 0 0 0', color: '#999', fontSize: '15px', textAlign: 'center' }}>Quote expires in 5 minutes · Powered by TYRE-FIT</p>
                 </div>
                 <div style={{ padding: '0 16px 16px' }}>
-                  <button onClick={() => setShowQuotePreview(false)} style={{ width: '100%', padding: '14px', backgroundColor: '#333', border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '600', cursor: 'pointer', fontSize: '15px' }}>Close Preview</button>
+                  <button onClick={() => setShowQuotePreview(false)} style={{ width: '100%', padding: '14px', backgroundColor: '#333', border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', cursor: 'pointer', fontSize: '16px' }}>Close Preview</button>
                 </div>
               </div>
             </div>
           )}
           
-          <h3 style={{ margin: '20px 0 12px 0', color: theme.text, fontSize: '16px', textAlign: 'center' }}>Send quote to customer</h3>
+          <h3 style={{ margin: '20px 0 12px 0', color: theme.text, fontSize: '17px', textAlign: 'center' }}>Send quote to customer</h3>
           <div style={{ display: 'grid', gridTemplateColumns: smsEnabled ? '1fr 1fr' : '1fr', gap: '14px' }}>
             <Button onClick={() => navigateTo('quote-sent')} variant="whatsapp" icon={MessageSquare}>WhatsApp</Button>
             {smsEnabled && <Button onClick={() => navigateTo('quote-sent')} icon={Send}>Text Message</Button>}
           </div>
-          {!smsEnabled && <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '14px', textAlign: 'center' }}>SMS is off in onboarding, so only WhatsApp is available.</p>}
+          {!smsEnabled && <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>SMS is off in onboarding, so only WhatsApp is available.</p>}
         </div>
         <BottomNav />
       </div>
@@ -3269,30 +3273,30 @@ export default function TyreFitApp() {
       <div style={{ width: '100px', height: '100px', backgroundColor: isCover ? `${theme.danger}15` : `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
         {isCover ? <ShieldCheck size={50} color={theme.danger} /> : <CheckCircle size={50} color={theme.primary} />}
       </div>
-      <h1 style={{ fontSize: '28px', fontWeight: 'bold', color: theme.text, margin: '0 0 8px 0' }}>{isCover ? 'Quote Submitted!' : 'Quote Sent!'}</h1>
-      <p style={{ color: theme.textMuted, margin: '0 0 32px 0', textAlign: 'center', fontSize: '16px' }}>
+      <h1 style={{ fontSize: '29px', fontWeight: '800', color: theme.text, margin: '0 0 8px 0' }}>{isCover ? 'Quote Submitted!' : 'Quote Sent!'}</h1>
+      <p style={{ color: theme.textMuted, margin: '0 0 32px 0', textAlign: 'center', fontSize: '17px' }}>
         {isCover ? 'TYRE-FIT is reviewing your quote' : quoteData.isEmergency ? `Waiting for ${quoteData.customerName || 'customer'} to pay deposit so you can dispatch now` : `Waiting for ${quoteData.customerName || 'customer'} to pay deposit and lock the 2-hour window`}
       </p>
       
       <Card style={{ width: '100%', maxWidth: '400px' }}>
         <div style={{ textAlign: 'center' }}>
-          <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px' }}>{isCover ? 'Submitted to' : 'Sent to'}</p>
-          <p style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '600', fontSize: '18px' }}>{isCover ? 'TYRE-FIT' : (quoteData.mobile || '07700 900123')}</p>
+          <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>{isCover ? 'Submitted to' : 'Sent to'}</p>
+          <p style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '700', fontSize: '19px' }}>{isCover ? 'TYRE-FIT' : (quoteData.mobile || '07700 900123')}</p>
           {isCover ? (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '14px', backgroundColor: `${theme.primary}10`, borderRadius: '14px' }}>
                 <Clock size={20} color={theme.primary} />
-                <span style={{ color: theme.primary, fontWeight: '600' }}>Awaiting approval...</span>
+                <span style={{ color: theme.primary, fontWeight: '700' }}>Awaiting approval...</span>
               </div>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>TYRE-FIT reviews cover quotes within minutes. Once approved, the job appears in your route and the customer is notified automatically.</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>TYRE-FIT reviews cover quotes within minutes. Once approved, the job appears in your route and the customer is notified automatically.</p>
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '14px', backgroundColor: `${theme.warning}20`, borderRadius: '14px' }}>
                 <Clock size={20} color={theme.warning} />
-                <span style={{ color: theme.warning, fontWeight: '600' }}>Waiting for deposit...</span>
+                <span style={{ color: theme.warning, fontWeight: '700' }}>Waiting for deposit...</span>
               </div>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>
                 {quoteData.isEmergency ? 'After payment, this becomes a live emergency dispatch with 45-90 minute arrival target and mins-away text updates.' : 'After payment, booking is confirmed for the selected 2-hour window and customer gets mins-away text updates on the day.'}
               </p>
             </div>
@@ -3304,18 +3308,18 @@ export default function TyreFitApp() {
         <Card style={{ width: '100%', maxWidth: '400px', marginTop: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <BellRing size={24} color={theme.info} />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>If they do not pay, TYRE-FIT runs reminder + follow-up automatically.</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>If they do not pay, TYRE-FIT runs reminder + follow-up automatically.</p>
           </div>
         </Card>
       )}
       {!isCover && (
         <Card style={{ width: '100%', maxWidth: '400px', marginTop: '14px', borderColor: `${theme.info}45` }}>
-          <p style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '14px', fontWeight: '700' }}>Automation timeline</p>
+          <p style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '15px', fontWeight: '800' }}>Automation timeline</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {automationTimeline.map((step, idx) => (
               <div key={step.key} style={{ padding: '8px 10px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                <p style={{ margin: 0, color: theme.text, fontSize: '14px', fontWeight: idx === 0 ? '700' : '600' }}>{step.title}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{step.desc}</p>
+                <p style={{ margin: 0, color: theme.text, fontSize: '15px', fontWeight: idx === 0 ? '700' : '600' }}>{step.title}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -3330,11 +3334,11 @@ export default function TyreFitApp() {
       )}
       {!isCover && quoteSendStatus.status !== 'idle' && (
         <Card style={{ width: '100%', maxWidth: '400px', marginTop: '14px', borderColor: quoteSendStatus.status === 'failed' ? theme.danger : quoteSendStatus.status === 'queued-offline' ? theme.warning : `${theme.primary}50` }}>
-          <p style={{ margin: 0, color: theme.text, fontSize: '14px', fontWeight: '700' }}>Delivery status</p>
-          <p style={{ margin: '4px 0 0 0', color: quoteSendStatus.status === 'failed' ? theme.danger : quoteSendStatus.status === 'queued-offline' ? theme.warning : theme.primary, fontSize: '14px', fontWeight: '700' }}>
+          <p style={{ margin: 0, color: theme.text, fontSize: '15px', fontWeight: '800' }}>Delivery status</p>
+          <p style={{ margin: '4px 0 0 0', color: quoteSendStatus.status === 'failed' ? theme.danger : quoteSendStatus.status === 'queued-offline' ? theme.warning : theme.primary, fontSize: '15px', fontWeight: '800' }}>
             {quoteSendStatus.status === 'sent' ? 'Delivered' : quoteSendStatus.status === 'queued-offline' ? 'Queued for retry' : 'Failed'}
           </p>
-          <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>
+          <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>
             {quoteSendStatus.channel ? `Channel: ${quoteSendStatus.channel.toUpperCase()}` : 'Channel unknown'} {quoteSendStatus.lastAttempt ? `· ${quoteSendStatus.lastAttempt}` : ''}
           </p>
           {(quoteSendStatus.status === 'failed' || quoteSendStatus.status === 'queued-offline') && (
@@ -3349,7 +3353,7 @@ export default function TyreFitApp() {
         <Card style={{ width: '100%', maxWidth: '400px', marginTop: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <Wallet size={24} color={theme.primary} />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Once job is complete, TYRE-FIT pays you directly to your wallet. No chasing the customer.</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Once job is complete, TYRE-FIT pays you directly to your wallet. No chasing the customer.</p>
           </div>
         </Card>
       )}
@@ -3362,8 +3366,8 @@ export default function TyreFitApp() {
       {showReminderPreview && (
         <Modal title="Preview Reminder" onClose={() => setShowReminderPreview(false)}>
           <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '16px' }}>
-            <p style={{ margin: '0 0 2px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '600' }}>Text to {quoteData.customerName || 'customer'}</p>
-            <div style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
+            <p style={{ margin: '0 0 2px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Text to {quoteData.customerName || 'customer'}</p>
+            <div style={{ fontSize: '16px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
               <p style={{ margin: '6px 0 0 0' }}>Hi {quoteData.customerName || 'there'}, just checking if you saw the quote from {signUpData.businessName || "Dan's Mobile Tyres"} for your {quoteData.numberPlate || 'vehicle'}?</p>
               <p style={{ margin: '6px 0 0 0' }}>It includes <strong style={{ color: theme.primary }}>30 days free emergency tyre cover</strong>. Pay the deposit to lock in your slot:</p>
               <p style={{ margin: '6px 0 0 0' }}><span style={{ color: theme.info, textDecoration: 'underline' }}>tyre-fit.co/q/{(quoteData.numberPlate || 'AB12CDE').replace(/\s/g, '')}</span></p>
@@ -3423,9 +3427,9 @@ export default function TyreFitApp() {
     <div style={{ minHeight: '100vh', backgroundColor: theme.bg, paddingBottom: '100px' }}>
       <Toast />
       <div style={{ backgroundColor: theme.bgCard, borderBottom: `1px solid ${theme.border}`, padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div><h1 style={{ fontSize: '20px', fontWeight: 'bold', color: theme.text, margin: 0 }}>Quick Quote</h1><p style={{ color: theme.textMuted, fontSize: '15px', margin: '4px 0 0 0' }}>Send in 20 seconds</p></div>
+        <div><h1 style={{ fontSize: '21px', fontWeight: '800', color: theme.text, margin: 0 }}>Quick Quote</h1><p style={{ color: theme.textMuted, fontSize: '16px', margin: '4px 0 0 0' }}>Send in 20 seconds</p></div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <button onClick={() => navigateTo('quote-customer')} style={{ padding: '8px 16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.textMuted, fontSize: '15px', cursor: 'pointer' }}>Detailed Quote →</button>
+          <button onClick={() => navigateTo('quote-customer')} style={{ padding: '8px 16px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.textMuted, fontSize: '16px', cursor: 'pointer' }}>Detailed Quote →</button>
           <FontSizeToggle />
           <ThemeToggle />
         </div>
@@ -3438,8 +3442,8 @@ export default function TyreFitApp() {
             <div style={{ position: 'absolute', top: '76px', left: 0, right: 0, backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', zIndex: 100, overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
               {filteredCustomers.map((c, i) => (
                 <button key={i} onClick={() => selectCustomer(c)} style={{ width: '100%', padding: '14px 16px', backgroundColor: 'transparent', border: 'none', borderBottom: i < filteredCustomers.length - 1 ? `1px solid ${theme.border}` : 'none', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>{c.name}</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{c.plate} • {c.vehicle}</p></div>
-                  <span style={{ color: theme.textSubtle, fontSize: '14px' }}>{c.lastService}</span>
+                  <div><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{c.name}</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{c.plate} • {c.vehicle}</p></div>
+                  <span style={{ color: theme.textSubtle, fontSize: '15px' }}>{c.lastService}</span>
                 </button>
               ))}
             </div>
@@ -3451,19 +3455,19 @@ export default function TyreFitApp() {
         <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
           <div style={{ flex: 1 }}><Input label="Reg Plate" placeholder="AB12 CDE" value={qPlate} onChange={(v) => { setQPlate(v.toUpperCase()); if (v.length >= 7) lookupPlate(); }} /></div>
         </div>
-        {vehicleLookup && <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.primary}15`, borderRadius: '15px', marginBottom: '14px', marginTop: '-4px' }}><CheckCircle size={16} color={theme.primary} /><span style={{ color: theme.primary, fontSize: '14px', fontWeight: '500' }}>{vehicleLookup}</span></div>}
-        <button onClick={() => setShowAdvanced(!showAdvanced)} style={{ width: '100%', minHeight: '52px', padding: '12px 14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', color: theme.text, fontSize: '15px', fontWeight: '700', textAlign: 'left', marginBottom: '14px' }}>
+        {vehicleLookup && <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.primary}15`, borderRadius: '15px', marginBottom: '14px', marginTop: '-4px' }}><CheckCircle size={16} color={theme.primary} /><span style={{ color: theme.primary, fontSize: '15px', fontWeight: '600' }}>{vehicleLookup}</span></div>}
+        <button onClick={() => setShowAdvanced(!showAdvanced)} style={{ width: '100%', minHeight: '52px', padding: '12px 14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', color: theme.text, fontSize: '16px', fontWeight: '800', textAlign: 'left', marginBottom: '14px' }}>
           {showAdvanced ? 'Hide extra options' : 'More options (job type, add-ons, notes)'}
         </button>
 
         {/* Job Type */}
         {showAdvanced && (
           <>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>What do they need?</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>What do they need?</label>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '16px' }}>
               {[{ id: 'replace', label: 'Replace' }, { id: 'repair', label: 'Repair' }, { id: 'fit_only', label: 'Fit Only' }, { id: 'rotation', label: 'Rotation' }].map(jt => (
                 <button key={jt.id} onClick={() => setQJobType(jt.id)} style={{ minHeight: '52px', padding: '14px', backgroundColor: qJobType === jt.id ? `${theme.primary}20` : theme.bgInput, border: `2px solid ${qJobType === jt.id ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', textAlign: 'center' }}>
-                  <span style={{ fontSize: '14px', fontWeight: '600', color: qJobType === jt.id ? theme.primary : theme.text }}>{jt.label}</span>
+                  <span style={{ fontSize: '15px', fontWeight: '700', color: qJobType === jt.id ? theme.primary : theme.text }}>{jt.label}</span>
                 </button>
               ))}
             </div>
@@ -3475,11 +3479,11 @@ export default function TyreFitApp() {
           <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
             <div style={{ flex: 2 }}><Input label="Tyre Size" placeholder="205/55R16" value={qTyreSize} onChange={setQTyreSize} /></div>
             <div style={{ flex: 1 }}>
-              <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Qty</label>
+              <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Qty</label>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <button onClick={() => setQQty(Math.max(1, qQty - 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '20px', cursor: 'pointer' }}>−</button>
-                <span style={{ fontSize: '20px', fontWeight: '700', color: theme.text, minWidth: '24px', textAlign: 'center' }}>{qQty}</span>
-                <button onClick={() => setQQty(Math.min(4, qQty + 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '20px', cursor: 'pointer' }}>+</button>
+                <button onClick={() => setQQty(Math.max(1, qQty - 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '21px', cursor: 'pointer' }}>−</button>
+                <span style={{ fontSize: '21px', fontWeight: '800', color: theme.text, minWidth: '24px', textAlign: 'center' }}>{qQty}</span>
+                <button onClick={() => setQQty(Math.min(4, qQty + 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '21px', cursor: 'pointer' }}>+</button>
               </div>
             </div>
           </div>
@@ -3492,40 +3496,40 @@ export default function TyreFitApp() {
           return vanStock && vanStock.qty >= qQty ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', marginBottom: '14px', border: `1px solid ${theme.primary}30` }}>
               <Package size={16} color={theme.primary} />
-              <span style={{ color: theme.primary, fontSize: '15px', fontWeight: '600' }}>{vanStock.qty}x {qTyreSize} on van ({vanStock.brand})</span>
+              <span style={{ color: theme.primary, fontSize: '16px', fontWeight: '700' }}>{vanStock.qty}x {qTyreSize} on van ({vanStock.brand})</span>
             </div>
           ) : depotStock ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.warning}10`, borderRadius: '15px', marginBottom: '14px', border: `1px solid ${theme.warning}30` }}>
               <AlertTriangle size={16} color={theme.warning} />
-              <span style={{ color: theme.warning, fontSize: '15px', fontWeight: '600' }}>Not on van — {depotStock.qty}x at {depotStock.location}</span>
+              <span style={{ color: theme.warning, fontSize: '16px', fontWeight: '700' }}>Not on van — {depotStock.qty}x at {depotStock.location}</span>
             </div>
           ) : vanStock && vanStock.qty < qQty ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.warning}10`, borderRadius: '15px', marginBottom: '14px', border: `1px solid ${theme.warning}30` }}>
               <AlertTriangle size={16} color={theme.warning} />
-              <span style={{ color: theme.warning, fontSize: '15px', fontWeight: '600' }}>Only {vanStock.qty}x on van — need {qQty}</span>
+              <span style={{ color: theme.warning, fontSize: '16px', fontWeight: '700' }}>Only {vanStock.qty}x on van — need {qQty}</span>
             </div>
           ) : (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', marginBottom: '14px', border: `1px solid ${theme.danger}30` }}>
               <AlertTriangle size={16} color={theme.danger} />
-              <span style={{ color: theme.danger, fontSize: '15px', fontWeight: '600' }}>{qTyreSize} not in stock — order or depot needed</span>
+              <span style={{ color: theme.danger, fontSize: '16px', fontWeight: '700' }}>{qTyreSize} not in stock — order or depot needed</span>
             </div>
           );
         })()}
 
         {!needsTyreSize && (
           <div style={{ marginBottom: '14px' }}>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>How many tyres?</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>How many tyres?</label>
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-              <button onClick={() => setQQty(Math.max(1, qQty - 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '20px', cursor: 'pointer' }}>−</button>
-              <span style={{ fontSize: '20px', fontWeight: '700', color: theme.text, minWidth: '24px', textAlign: 'center' }}>{qQty}</span>
-              <button onClick={() => setQQty(Math.min(4, qQty + 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '20px', cursor: 'pointer' }}>+</button>
+              <button onClick={() => setQQty(Math.max(1, qQty - 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '21px', cursor: 'pointer' }}>−</button>
+              <span style={{ fontSize: '21px', fontWeight: '800', color: theme.text, minWidth: '24px', textAlign: 'center' }}>{qQty}</span>
+              <button onClick={() => setQQty(Math.min(4, qQty + 1))} style={{ width: '52px', height: '52px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '21px', cursor: 'pointer' }}>+</button>
             </div>
           </div>
         )}
 
         {showAdvanced && (
           <>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Locking wheel nuts?</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Locking wheel nuts?</label>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
               {[
                 { id: 'has_key', label: 'Has key', sub: 'No extra' },
@@ -3533,8 +3537,8 @@ export default function TyreFitApp() {
                 { id: 'not_fitted', label: 'None fitted', sub: 'No extra' }
               ].map(opt => (
                 <button key={opt.id} onClick={() => setQLwn(opt.id)} style={{ flex: 1, minHeight: '52px', padding: '12px 8px', backgroundColor: qLwn === opt.id ? (opt.id === 'no_key' ? `${theme.danger}15` : `${theme.primary}15`) : theme.bgInput, border: `2px solid ${qLwn === opt.id ? (opt.id === 'no_key' ? theme.danger : theme.primary) : theme.border}`, borderRadius: '15px', cursor: 'pointer', textAlign: 'center' }}>
-                  <span style={{ display: 'block', fontSize: '15px', fontWeight: '600', color: qLwn === opt.id ? (opt.id === 'no_key' ? theme.danger : theme.primary) : theme.text }}>{opt.label}</span>
-                  <span style={{ display: 'block', fontSize: '14px', color: opt.id === 'no_key' && qLwn === opt.id ? theme.danger : theme.textMuted, marginTop: '2px' }}>{opt.sub}</span>
+                  <span style={{ display: 'block', fontSize: '16px', fontWeight: '700', color: qLwn === opt.id ? (opt.id === 'no_key' ? theme.danger : theme.primary) : theme.text }}>{opt.label}</span>
+                  <span style={{ display: 'block', fontSize: '15px', color: opt.id === 'no_key' && qLwn === opt.id ? theme.danger : theme.textMuted, marginTop: '2px' }}>{opt.sub}</span>
                 </button>
               ))}
             </div>
@@ -3546,14 +3550,14 @@ export default function TyreFitApp() {
         {priceSuggestion && needsTyreSize && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.info}10`, borderRadius: '15px', marginBottom: '14px', marginTop: '-4px' }}>
             <TrendingUp size={16} color={theme.info} />
-            <span style={{ color: theme.info, fontSize: '15px' }}>You usually charge £{priceSuggestion.low}–£{priceSuggestion.high} for {qTyreSize}</span>
+            <span style={{ color: theme.info, fontSize: '16px' }}>You usually charge £{priceSuggestion.low}–£{priceSuggestion.high} for {qTyreSize}</span>
           </div>
         )}
 
         {/* Add-ons — customer sees these on the quote */}
         {showAdvanced && (
           <>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Customer sees on quote</label>
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Customer sees on quote</label>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '16px' }}>
               {[
                 { key: 'balancing', label: 'Digital Balancing', price: signUpData.pricing.digitalBalancingPrice, free: signUpData.pricing.digitalBalancingFree, perTyre: true },
@@ -3564,8 +3568,8 @@ export default function TyreFitApp() {
                 const active = qAddOns[addon.key];
                 return (
                   <button key={addon.key} onClick={() => setQAddOns({ ...qAddOns, [addon.key]: !active })} style={{ minHeight: '58px', padding: '14px', backgroundColor: active ? `${theme.primary}12` : theme.bgInput, border: `2px solid ${active ? theme.primary : theme.border}`, borderRadius: '14px', textAlign: 'left', cursor: 'pointer' }}>
-                    <span style={{ display: 'block', color: active ? theme.primary : theme.text, fontSize: '14px', fontWeight: '700' }}>{addon.label}</span>
-                    <span style={{ display: 'block', color: active ? theme.primary : theme.textMuted, fontSize: '14px' }}>{addon.free ? 'FREE' : `£${addon.price}${addon.perTyre ? ` × ${qQty}` : ''}`}</span>
+                    <span style={{ display: 'block', color: active ? theme.primary : theme.text, fontSize: '15px', fontWeight: '800' }}>{addon.label}</span>
+                    <span style={{ display: 'block', color: active ? theme.primary : theme.textMuted, fontSize: '15px' }}>{addon.free ? 'FREE' : `£${addon.price}${addon.perTyre ? ` × ${qQty}` : ''}`}</span>
                   </button>
                 );
               })}
@@ -3585,54 +3589,54 @@ export default function TyreFitApp() {
 
         {/* Full price breakdown */}
         <Card style={{ backgroundColor: `${theme.primary}08`, marginBottom: '16px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>{qJobType === 'replace' ? 'Fitting' : qJobType === 'repair' ? 'Repair' : qJobType === 'rotation' ? 'Rotation' : 'Fit only'}</span><span style={{ color: theme.text, fontSize: '16px' }}>£{basePrice.toFixed(2)}</span></div>
-          {qAddOns.balancing && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Digital Balancing × {qQty}</span><span style={{ color: signUpData.pricing.digitalBalancingFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.digitalBalancingFree ? '700' : '400', fontSize: '16px' }}>{signUpData.pricing.digitalBalancingFree ? 'FREE' : `£${balancingTotal.toFixed(2)}`}</span></div>}
-          {qAddOns.newValves && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>New Valves × {qQty}</span><span style={{ color: signUpData.pricing.newValvesFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.newValvesFree ? '700' : '400', fontSize: '16px' }}>{signUpData.pricing.newValvesFree ? 'FREE' : `£${valvesTotal.toFixed(2)}`}</span></div>}
-          {qAddOns.disposal && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Eco Disposal × {qQty}</span><span style={{ color: signUpData.pricing.disposalFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.disposalFree ? '700' : '400', fontSize: '16px' }}>{signUpData.pricing.disposalFree ? 'FREE' : `£${disposalTotal.toFixed(2)}`}</span></div>}
-          {qLwn === 'no_key' && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.danger, fontSize: '16px' }}>Locking Nut Removal</span><span style={{ color: theme.danger, fontSize: '16px' }}>£{lwnCharge.toFixed(2)}</span></div>}
-          {qAddOns.alignment && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Wheel Alignment</span><span style={{ color: theme.text, fontSize: '16px' }}>£{alignmentCharge.toFixed(2)}</span></div>}
-          <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '4px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.text, fontWeight: '700', fontSize: '18px' }}>Tyre fitting quote</span><span style={{ color: theme.text, fontWeight: '700', fontSize: '22px' }}>£{totalPrice.toFixed(2)}</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>+ £5.95 booking fee</span><span style={{ color: theme.text, fontSize: '16px', fontWeight: '700' }}>Total £{(totalPrice + 5.95).toFixed(2)}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '17px' }}>{qJobType === 'replace' ? 'Fitting' : qJobType === 'repair' ? 'Repair' : qJobType === 'rotation' ? 'Rotation' : 'Fit only'}</span><span style={{ color: theme.text, fontSize: '17px' }}>£{basePrice.toFixed(2)}</span></div>
+          {qAddOns.balancing && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '17px' }}>Digital Balancing × {qQty}</span><span style={{ color: signUpData.pricing.digitalBalancingFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.digitalBalancingFree ? '700' : '400', fontSize: '17px' }}>{signUpData.pricing.digitalBalancingFree ? 'FREE' : `£${balancingTotal.toFixed(2)}`}</span></div>}
+          {qAddOns.newValves && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '17px' }}>New Valves × {qQty}</span><span style={{ color: signUpData.pricing.newValvesFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.newValvesFree ? '700' : '400', fontSize: '17px' }}>{signUpData.pricing.newValvesFree ? 'FREE' : `£${valvesTotal.toFixed(2)}`}</span></div>}
+          {qAddOns.disposal && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '17px' }}>Eco Disposal × {qQty}</span><span style={{ color: signUpData.pricing.disposalFree ? theme.primary : theme.text, fontWeight: signUpData.pricing.disposalFree ? '700' : '400', fontSize: '17px' }}>{signUpData.pricing.disposalFree ? 'FREE' : `£${disposalTotal.toFixed(2)}`}</span></div>}
+          {qLwn === 'no_key' && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.danger, fontSize: '17px' }}>Locking Nut Removal</span><span style={{ color: theme.danger, fontSize: '17px' }}>£{lwnCharge.toFixed(2)}</span></div>}
+          {qAddOns.alignment && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '17px' }}>Wheel Alignment</span><span style={{ color: theme.text, fontSize: '17px' }}>£{alignmentCharge.toFixed(2)}</span></div>}
+          <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '4px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.text, fontWeight: '800', fontSize: '19px' }}>Tyre fitting quote</span><span style={{ color: theme.text, fontWeight: '800', fontSize: '23px' }}>£{totalPrice.toFixed(2)}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}><span style={{ color: theme.textMuted, fontSize: '17px' }}>+ £5.95 booking fee</span><span style={{ color: theme.text, fontSize: '17px', fontWeight: '800' }}>Total £{(totalPrice + 5.95).toFixed(2)}</span></div>
           <div style={{ marginTop: '8px', padding: '15px', backgroundColor: `${theme.primary}10`, borderRadius: '15px' }}>
-            <span style={{ color: theme.text, fontSize: '16px', fontWeight: '600' }}>Customer pays £5.95 now, then pays fitter £{totalPrice.toFixed(2)} after fitting.</span>
+            <span style={{ color: theme.text, fontSize: '17px', fontWeight: '700' }}>Customer pays £5.95 now, then pays fitter £{totalPrice.toFixed(2)} after fitting.</span>
           </div>
-          <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.primary, fontWeight: '700' }}>To your wallet</span><span style={{ color: theme.primary, fontWeight: '700', fontSize: '18px' }}>£{(totalPrice * 0.985 - 0.20).toFixed(2)}</span></div>
+          <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.primary, fontWeight: '800' }}>To your wallet</span><span style={{ color: theme.primary, fontWeight: '800', fontSize: '19px' }}>£{(totalPrice * 0.985 - 0.20).toFixed(2)}</span></div>
         </Card>
 
         {/* Cover badge */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '12px 14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', marginBottom: '20px' }}>
           <ShieldCheck size={18} color={theme.primary} />
-          <span style={{ color: theme.textMuted, fontSize: '16px' }}>Customer gets <strong style={{ color: theme.primary }}>30 days free breakdown cover</strong> after fitting</span>
+          <span style={{ color: theme.textMuted, fontSize: '17px' }}>Customer gets <strong style={{ color: theme.primary }}>30 days free breakdown cover</strong> after fitting</span>
         </div>
 
-        <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '15px', textAlign: 'center' }}>Send quote to customer</h3>
+        <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '16px', textAlign: 'center' }}>Send quote to customer</h3>
         <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
           {smsEnabled && (
-            <button onClick={() => setSendChannel('sms')} style={{ flex: 1, minHeight: '52px', padding: '14px', backgroundColor: sendChannel === 'sms' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${sendChannel === 'sms' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', fontSize: '15px', fontWeight: '700', color: sendChannel === 'sms' ? theme.primary : theme.text }}>Text Message</button>
+            <button onClick={() => setSendChannel('sms')} style={{ flex: 1, minHeight: '52px', padding: '14px', backgroundColor: sendChannel === 'sms' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${sendChannel === 'sms' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', fontSize: '16px', fontWeight: '800', color: sendChannel === 'sms' ? theme.primary : theme.text }}>Text Message</button>
           )}
-          <button onClick={() => setSendChannel('whatsapp')} style={{ flex: 1, minHeight: '52px', padding: '14px', backgroundColor: sendChannel === 'whatsapp' ? '#25D36620' : theme.bgInput, border: `2px solid ${sendChannel === 'whatsapp' ? '#25D366' : theme.border}`, borderRadius: '14px', cursor: 'pointer', fontSize: '15px', fontWeight: '700', color: sendChannel === 'whatsapp' ? '#25D366' : theme.text }}>WhatsApp</button>
+          <button onClick={() => setSendChannel('whatsapp')} style={{ flex: 1, minHeight: '52px', padding: '14px', backgroundColor: sendChannel === 'whatsapp' ? '#25D36620' : theme.bgInput, border: `2px solid ${sendChannel === 'whatsapp' ? '#25D366' : theme.border}`, borderRadius: '14px', cursor: 'pointer', fontSize: '16px', fontWeight: '800', color: sendChannel === 'whatsapp' ? '#25D366' : theme.text }}>WhatsApp</button>
         </div>
-        {!smsEnabled && <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px', textAlign: 'center' }}>SMS is off in onboarding settings, so only WhatsApp is shown.</p>}
+        {!smsEnabled && <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>SMS is off in onboarding settings, so only WhatsApp is shown.</p>}
         <label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px', cursor: 'pointer' }}>
           <input type="checkbox" checked={forceSendFail} onChange={(e) => setForceSendFail(e.target.checked)} style={{ width: '16px', height: '16px', accentColor: theme.warning }} />
-          <span style={{ color: theme.textMuted, fontSize: '14px' }}>Simulate send failure (demo)</span>
+          <span style={{ color: theme.textMuted, fontSize: '15px' }}>Simulate send failure (demo)</span>
         </label>
         <Button onClick={() => setShowQuoteSmsPreview(sendChannel)} icon={Send}>Send Quote</Button>
         <Card style={{ marginTop: '12px', borderColor: `${theme.info}40` }}>
-          <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '14px' }}>What happens after Send</p>
-          <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>
+          <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800', fontSize: '15px' }}>What happens after Send</p>
+          <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>
             1) Customer gets the link now. 2) They pay £5.95 to lock the booking. 3) TYRE-FIT auto-reminds if unpaid and can auto-call if voice follow-up is on.
           </p>
         </Card>
 
         {quoteSendStatus.status !== 'idle' && (
           <Card style={{ marginTop: '14px', borderColor: quoteSendStatus.status === 'failed' ? theme.danger : quoteSendStatus.status === 'queued-offline' ? theme.warning : `${theme.primary}50` }}>
-            <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>Last send status</p>
-            <p style={{ margin: '6px 0 0 0', color: quoteSendStatus.status === 'failed' ? theme.danger : quoteSendStatus.status === 'queued-offline' ? theme.warning : theme.primary, fontWeight: '700', fontSize: '14px' }}>
+            <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '15px' }}>Last send status</p>
+            <p style={{ margin: '6px 0 0 0', color: quoteSendStatus.status === 'failed' ? theme.danger : quoteSendStatus.status === 'queued-offline' ? theme.warning : theme.primary, fontWeight: '800', fontSize: '15px' }}>
               {quoteSendStatus.status === 'sent' ? 'Sent' : quoteSendStatus.status === 'queued-offline' ? 'Queued (offline)' : 'Failed'}
               {quoteSendStatus.channel ? ` via ${quoteSendStatus.channel.toUpperCase()}` : ''}
             </p>
-            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>
               {quoteSendStatus.lastAttempt ? `Last attempt: ${quoteSendStatus.lastAttempt}` : 'No attempts yet'}
               {quoteSendStatus.lastError ? ` · ${quoteSendStatus.lastError}` : ''}
             </p>
@@ -3649,14 +3653,14 @@ export default function TyreFitApp() {
           <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', zIndex: 2000, overflow: 'auto' }}>
             <Card style={{ maxWidth: '400px', width: '100%' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Customer will receive</h3>
+                <h3 style={{ margin: 0, color: theme.text, fontWeight: '800' }}>Customer will receive</h3>
                 <button onClick={() => setShowQuoteSmsPreview(null)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><X size={24} color={theme.textMuted} /></button>
               </div>
               <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '14px', border: '1px solid ' + theme.border, marginBottom: '16px' }}>
-                <p style={{ margin: '0 0 4px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Via {showQuoteSmsPreview === 'whatsapp' ? 'WhatsApp' : 'SMS'}</p>
-                <div style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.7 }}>
+                <p style={{ margin: '0 0 4px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '800' }}>Via {showQuoteSmsPreview === 'whatsapp' ? 'WhatsApp' : 'SMS'}</p>
+                <div style={{ fontSize: '16px', color: theme.textMuted, lineHeight: 1.7 }}>
                   <p style={{ margin: '4px 0 0 0' }}>Hi {qName || 'there'}, here is your quote from {signUpData.businessName || "Dan's Mobile Tyres"}:</p>
-                  <p style={{ margin: '6px 0 0 0', fontWeight: '600', color: theme.text }}>{qQty}x {qTyreSize || '205/55R16'} {qJobType === 'replace' ? 'fitting' : qJobType} {'\u2014'} {'\u00A3'}{(totalPrice + 5.95).toFixed(2)}</p>
+                  <p style={{ margin: '6px 0 0 0', fontWeight: '700', color: theme.text }}>{qQty}x {qTyreSize || '205/55R16'} {qJobType === 'replace' ? 'fitting' : qJobType} {'\u2014'} {'\u00A3'}{(totalPrice + 5.95).toFixed(2)}</p>
                   <p style={{ margin: '6px 0 0 0' }}><strong style={{ color: theme.primary }}>Pay {'\u00A3'}5.95 deposit now</strong> to secure your booking.</p>
                   <p style={{ margin: '6px 0 0 0' }}>All bookings include 30 days emergency tyre cover {'\u2014'} up to {'\u00A3'}300 repair or replace, nationwide.</p>
                   <p style={{ margin: '6px 0 0 0' }}>Remaining {'\u00A3'}{totalPrice.toFixed(2)} due on the day.</p>
@@ -3702,7 +3706,7 @@ export default function TyreFitApp() {
         <Card style={{ backgroundColor: `${theme.primary}10`, borderColor: theme.primary, marginBottom: '16px' }}>
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
             <Shield size={24} color={theme.primary} />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>Every job has timestamped photos, GPS location, and customer sign-off. If anyone complains or raises a chargeback, <strong style={{ color: theme.text }}>this is your evidence</strong>.</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Every job has timestamped photos, GPS location, and customer sign-off. If anyone complains or raises a chargeback, <strong style={{ color: theme.text }}>this is your evidence</strong>.</p>
           </div>
         </Card>
         <Input placeholder="Search by name or reg plate..." value={searchTerm} onChange={setSearchTerm} icon={Search} />
@@ -3711,7 +3715,7 @@ export default function TyreFitApp() {
         {filtered.map(e => (
           <Card key={e.id} onClick={() => { setSelectedEvidence(e); setSelectedEvidenceSegment(null); }} style={{ cursor: 'pointer' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <div><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{e.customer}</h3><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{e.plate} • {e.date}</p></div>
+              <div><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{e.customer}</h3><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{e.plate} • {e.date}</p></div>
               <ChevronRight size={20} color={theme.textMuted} />
             </div>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -3725,7 +3729,7 @@ export default function TyreFitApp() {
       </div>
       {selectedEvidence && (
         <Modal title={`${selectedEvidence.customer} — Evidence`} onClose={() => { setSelectedEvidence(null); setSelectedEvidenceSegment(null); }}>
-          <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '14px' }}>Tap a segment to drill in</p>
+          <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '15px' }}>Tap a segment to drill in</p>
           <div style={{ display: 'grid', gap: '8px', marginBottom: '14px' }}>
             {[
               { key: 'before', label: `Before photos (${selectedEvidence.beforePhotos})`, detail: 'Stored in Cloudflare R2 with GPS + timestamp.' },
@@ -3733,19 +3737,19 @@ export default function TyreFitApp() {
               { key: 'signoff', label: selectedEvidence.signature ? 'Customer sign-off captured' : 'No sign-off captured', detail: selectedEvidence.signature ? 'Signed at vehicle with date/time stamp.' : 'Missing signature lowers dispute strength.' },
               { key: 'gps', label: 'GPS + timeline events', detail: 'Captured at arrival, before photos, after photos, and completion.' }
             ].map(seg => (
-              <button key={seg.key} onClick={() => setSelectedEvidenceSegment(seg)} style={{ padding: '14px', textAlign: 'left', borderRadius: '15px', border: `1px solid ${selectedEvidenceSegment?.key === seg.key ? theme.primary : theme.border}`, backgroundColor: selectedEvidenceSegment?.key === seg.key ? `${theme.primary}12` : theme.bgInput, color: selectedEvidenceSegment?.key === seg.key ? theme.primary : theme.text, fontWeight: '600', cursor: 'pointer' }}>
+              <button key={seg.key} onClick={() => setSelectedEvidenceSegment(seg)} style={{ padding: '14px', textAlign: 'left', borderRadius: '15px', border: `1px solid ${selectedEvidenceSegment?.key === seg.key ? theme.primary : theme.border}`, backgroundColor: selectedEvidenceSegment?.key === seg.key ? `${theme.primary}12` : theme.bgInput, color: selectedEvidenceSegment?.key === seg.key ? theme.primary : theme.text, fontWeight: '700', cursor: 'pointer' }}>
                 {seg.label}
               </button>
             ))}
           </div>
           {selectedEvidenceSegment && (
             <div style={{ padding: '15px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '14px' }}>
-              <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '15px' }}>{selectedEvidenceSegment.label}</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>{selectedEvidenceSegment.detail}</p>
+              <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800', fontSize: '16px' }}>{selectedEvidenceSegment.label}</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>{selectedEvidenceSegment.detail}</p>
             </div>
           )}
           <div style={{ padding: '15px', backgroundColor: `${theme.info}10`, borderRadius: '15px', marginBottom: '14px' }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>Storage + retention: files are stored in secure object storage, access is owner/fitter permission-based, and retained for 24 months for disputes before archival/deletion.</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Storage + retention: files are stored in secure object storage, access is owner/fitter permission-based, and retained for 24 months for disputes before archival/deletion.</p>
           </div>
           <Button icon={Download} onClick={() => showToast('Evidence package exported (PDF + ZIP)')}>Export Full Package</Button>
         </Modal>
@@ -3765,11 +3769,11 @@ export default function TyreFitApp() {
       <div style={{ padding: '16px' }}>
         <Card style={{ textAlign: 'center', padding: '32px 24px' }}>
           <div style={{ width: '80px', height: '80px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><Gift size={36} color={theme.primary} /></div>
-          <h2 style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '22px' }}>Get £50. Give £50.</h2>
-          <p style={{ color: theme.textMuted, fontSize: '15px', lineHeight: 1.6, margin: '0 0 24px 0' }}>When a fitter you invite completes their 5th job, you both get £50 added to your wallet.</p>
+          <h2 style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '23px' }}>Get £50. Give £50.</h2>
+          <p style={{ color: theme.textMuted, fontSize: '16px', lineHeight: 1.6, margin: '0 0 24px 0' }}>When a fitter you invite completes their 5th job, you both get £50 added to your wallet.</p>
           <div style={{ padding: '16px', backgroundColor: theme.bgInput, borderRadius: '14px', marginBottom: '16px' }}>
-            <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>Your referral link</p>
-            <p style={{ margin: 0, color: theme.primary, fontWeight: '600', fontSize: '15px', wordBreak: 'break-all' }}>tyre-fit.co.uk/join/dan-2847</p>
+            <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}>Your referral link</p>
+            <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '16px', wordBreak: 'break-all' }}>tyre-fit.co.uk/join/dan-2847</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <Button onClick={() => showToast('Link copied!')} icon={Copy}>Copy Link</Button>
@@ -3777,14 +3781,14 @@ export default function TyreFitApp() {
           </div>
         </Card>
 
-        <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '16px' }}>Your Invites</h3>
+        <h3 style={{ margin: '24px 0 12px 0', color: theme.text, fontSize: '17px' }}>Your Invites</h3>
         <Card>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0' }}>
-            <div><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>Mike Palmer</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>3 of 5 jobs done</p></div>
+            <div><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Mike Palmer</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>3 of 5 jobs done</p></div>
             <Badge variant="warning">In progress</Badge>
           </div>
           <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '8px', marginTop: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>Chris Evans</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>5 of 5 jobs done</p></div>
+            <div><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Chris Evans</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>5 of 5 jobs done</p></div>
             <Badge variant="success">£50 earned!</Badge>
           </div>
         </Card>
@@ -3802,33 +3806,33 @@ export default function TyreFitApp() {
       <Header title="Display Settings" />
       <div style={{ padding: '16px' }}>
         <Card>
-          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '600' }}>Appearance</h3>
+          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '700' }}>Appearance</h3>
           <Toggle label="Dark Mode" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
           <Toggle label="High Contrast (Sunlight Mode)" checked={highContrast} onChange={() => { setHighContrast(!highContrast); showToast(highContrast ? 'Normal contrast' : 'High contrast on'); }} />
         </Card>
 
         <Card>
-          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '600' }}>Text Size</h3>
+          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '700' }}>Text Size</h3>
           <div style={{ display: 'flex', gap: '8px' }}>
             {[{ id: 'medium', label: 'Normal', sample: '16px' }, { id: 'large', label: 'Large', sample: '20px' }].map(size => (
               <button key={size.id} onClick={() => { setFontSize(size.id); showToast(`Text size: ${size.label}`); }} style={{ flex: 1, padding: '16px 12px', backgroundColor: fontSize === size.id ? `${theme.primary}20` : theme.bgInput, border: `2px solid ${fontSize === size.id ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', textAlign: 'center' }}>
-                <span style={{ fontSize: size.sample, fontWeight: '600', color: fontSize === size.id ? theme.primary : theme.text }}>Aa</span>
-                <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: theme.textMuted }}>{size.label}</p>
+                <span style={{ fontSize: size.sample, fontWeight: '700', color: fontSize === size.id ? theme.primary : theme.text }}>Aa</span>
+                <p style={{ margin: '4px 0 0 0', fontSize: '15px', color: theme.textMuted }}>{size.label}</p>
               </button>
             ))}
           </div>
-          <p style={{ margin: '12px 0 0 0', color: theme.textMuted, fontSize: `${14 * theme.fs}px`, lineHeight: 1.5 }}>Preview: This is how your text will look across the app.</p>
+          <p style={{ margin: '12px 0 0 0', color: theme.textMuted, fontSize: `${15 * theme.fs}px`, lineHeight: 1.5 }}>Preview: This is how your text will look across the app.</p>
         </Card>
 
         <Card>
-          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '600' }}>Accessibility</h3>
+          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '700' }}>Accessibility</h3>
           <Toggle label="Dyslexia-Friendly Font (OpenDyslexic)" checked={false} onChange={() => showToast('Font updated')} />
         </Card>
 
         <Card>
-          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '600' }}>Demo Controls</h3>
+          <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '700' }}>Demo Controls</h3>
           <Toggle label="Simulate Offline Mode" checked={isOffline} onChange={() => { setIsOffline(!isOffline); showToast(isOffline ? 'Back online — syncing...' : 'Offline mode — data will queue'); }} />
-          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>When offline, photos and job updates queue locally and sync when connection returns.</p>
+          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>When offline, photos and job updates queue locally and sync when connection returns.</p>
         </Card>
       </div>
     </div>
@@ -3859,7 +3863,7 @@ export default function TyreFitApp() {
         <Card style={{ backgroundColor: `${theme.info}10`, marginBottom: '16px' }}>
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
             <Info size={24} color={theme.info} />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>This is a safe sandbox. Nothing you do here affects real customers, real jobs, or real money. Tap any step to try it.</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>This is a safe sandbox. Nothing you do here affects real customers, real jobs, or real money. Tap any step to try it.</p>
           </div>
         </Card>
         {steps.map((step, i) => {
@@ -3873,12 +3877,12 @@ export default function TyreFitApp() {
                 {isDone ? <CheckCircle size={24} color={theme.primary} /> : <StepIcon size={24} color={isCurrent ? theme.primary : theme.textMuted} />}
               </div>
               <div style={{ flex: 1 }}>
-                <h3 style={{ margin: 0, color: isDone ? theme.primary : theme.text, fontWeight: '600' }}>{step.title}</h3>
-                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{step.desc}</p>
+                <h3 style={{ margin: 0, color: isDone ? theme.primary : theme.text, fontWeight: '700' }}>{step.title}</h3>
+                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{step.desc}</p>
               </div>
               {isCurrent && <ChevronRight size={20} color={theme.primary} />}
             </div>
-            {isCurrent && <button style={{ marginTop: '14px', width: '100%', padding: '14px', backgroundColor: theme.primary, border: 'none', borderRadius: '15px', color: '#000', fontWeight: '600', fontSize: '15px', cursor: 'pointer' }}>{step.action}</button>}
+            {isCurrent && <button style={{ marginTop: '14px', width: '100%', padding: '14px', backgroundColor: theme.primary, border: 'none', borderRadius: '15px', color: '#000', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>{step.action}</button>}
           </Card>
           );
         })}
@@ -3907,8 +3911,8 @@ export default function TyreFitApp() {
       <Header title="Invoices" />
       <div style={{ display: 'flex', gap: '8px', padding: '0 16px 16px' }}>
         {['sent', 'pending', 'overdue'].map(tab => (
-          <button key={tab} onClick={() => setInvoiceTab(tab)} style={{ flex: 1, padding: '14px', backgroundColor: invoiceTab === tab ? theme.primary : theme.bgInput, border: 'none', borderRadius: '8px', color: invoiceTab === tab ? '#000' : theme.textMuted, fontWeight: '600', cursor: 'pointer', textTransform: 'capitalize', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-            {tab}{tab === 'overdue' && mockInvoices.overdue.length > 0 && <span style={{ backgroundColor: invoiceTab === tab ? '#000' : theme.danger, color: invoiceTab === tab ? theme.primary : '#fff', padding: '2px 8px', borderRadius: '15px', fontSize: '14px' }}>{mockInvoices.overdue.length}</span>}
+          <button key={tab} onClick={() => setInvoiceTab(tab)} style={{ flex: 1, padding: '14px', backgroundColor: invoiceTab === tab ? theme.primary : theme.bgInput, border: 'none', borderRadius: '8px', color: invoiceTab === tab ? '#000' : theme.textMuted, fontWeight: '700', cursor: 'pointer', textTransform: 'capitalize', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+            {tab}{tab === 'overdue' && mockInvoices.overdue.length > 0 && <span style={{ backgroundColor: invoiceTab === tab ? '#000' : theme.danger, color: invoiceTab === tab ? theme.primary : '#fff', padding: '2px 8px', borderRadius: '15px', fontSize: '15px' }}>{mockInvoices.overdue.length}</span>}
           </button>
         ))}
       </div>
@@ -3916,27 +3920,27 @@ export default function TyreFitApp() {
         <Card style={{ marginBottom: '15px', borderColor: `${theme.info}40` }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px' }}>
             <div style={{ flex: 1, textAlign: 'center' }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase' }}>Pending</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase' }}>Pending</p>
               <p style={{ margin: '2px 0 0 0', color: theme.warning, fontWeight: '800' }}>{mockInvoices.pending.length}</p>
             </div>
             <div style={{ flex: 1, textAlign: 'center' }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase' }}>Paid</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase' }}>Paid</p>
               <p style={{ margin: '2px 0 0 0', color: theme.primary, fontWeight: '800' }}>{mockInvoices.sent.length}</p>
             </div>
             <div style={{ flex: 1, textAlign: 'center' }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase' }}>Overdue</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase' }}>Overdue</p>
               <p style={{ margin: '2px 0 0 0', color: theme.danger, fontWeight: '800' }}>{mockInvoices.overdue.length}</p>
             </div>
           </div>
-          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Invoice and payment status are synced from the same source: payment links + wallet settlement events.</p>
+          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Invoice and payment status are synced from the same source: payment links + wallet settlement events.</p>
         </Card>
       </div>
       <div style={{ padding: '0 16px' }}>
         {mockInvoices[invoiceTab]?.map(inv => (
           <Card key={inv.id}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
-              <div><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{inv.customer}</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{inv.plate}</p></div>
-              <div style={{ textAlign: 'right' }}><p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{'\u00A3'}{inv.amount}</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{inv.date}</p></div>
+              <div><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{inv.customer}</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{inv.plate}</p></div>
+              <div style={{ textAlign: 'right' }}><p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '19px' }}>{'\u00A3'}{inv.amount}</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{inv.date}</p></div>
             </div>
             {invoiceTab === 'overdue' && <div style={{ borderTop: '1px solid ' + theme.border, paddingTop: '14px' }}><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}><Badge variant="danger">{inv.daysOverdue} days overdue</Badge></div><div style={{ display: 'flex', gap: '8px' }}><Button size="small" fullWidth variant="secondary" onClick={() => setReminderPreview(inv)}>Send Reminder</Button><Button size="small" fullWidth onClick={() => showToast('Pay Now link sent to ' + inv.customer)}>Send Pay Now Link</Button></div></div>}
             {invoiceTab === 'pending' && <div style={{ display: 'flex', gap: '8px', borderTop: '1px solid ' + theme.border, paddingTop: '14px' }}><Button variant="secondary" size="small" fullWidth onClick={() => setResendPreview(inv)}>Resend</Button><Button size="small" fullWidth onClick={() => showToast('Pay Now link sent to ' + inv.customer)}>Pay Now Link</Button><Button size="small" fullWidth variant="outline" onClick={() => { setInvoiceTab('sent'); showToast('Marked as paid'); }}>Mark Paid</Button></div>}
@@ -3948,8 +3952,8 @@ export default function TyreFitApp() {
       {reminderPreview && (
         <Modal title="Preview Reminder" onClose={() => setReminderPreview(null)}>
           <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '16px' }}>
-            <p style={{ margin: '0 0 2px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '600' }}>Text to {reminderPreview.customer}</p>
-            <div style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
+            <p style={{ margin: '0 0 2px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Text to {reminderPreview.customer}</p>
+            <div style={{ fontSize: '16px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
               <p style={{ margin: '6px 0 0 0' }}>Hi {reminderPreview.customer.split(' ')[0]}, this is a friendly reminder that invoice {reminderPreview.id} for {'\u00A3'}{reminderPreview.amount} is {reminderPreview.daysOverdue} days overdue.</p>
               <p style={{ margin: '6px 0 0 0' }}>Pay online: <span style={{ color: theme.info, textDecoration: 'underline' }}>tyre-fit.co/pay/{reminderPreview.id}</span></p>
               <p style={{ margin: '6px 0 0 0' }}>Thanks — {signUpData.businessName || "Dan's Mobile Tyres"}</p>
@@ -3965,8 +3969,8 @@ export default function TyreFitApp() {
       {resendPreview && (
         <Modal title="Preview Invoice" onClose={() => setResendPreview(null)}>
           <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '16px' }}>
-            <p style={{ margin: '0 0 2px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '600' }}>Text to {resendPreview.customer}</p>
-            <div style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
+            <p style={{ margin: '0 0 2px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Text to {resendPreview.customer}</p>
+            <div style={{ fontSize: '16px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
               <p style={{ margin: '6px 0 0 0' }}>Hi {resendPreview.customer.split(' ')[0]}, here is your invoice from {signUpData.businessName || "Dan's Mobile Tyres"} for {'\u00A3'}{resendPreview.amount}.</p>
               <p style={{ margin: '6px 0 0 0' }}>Pay online: <span style={{ color: theme.info, textDecoration: 'underline' }}>tyre-fit.co/pay/{resendPreview.id}</span></p>
               <p style={{ margin: '6px 0 0 0' }}>Thanks — {signUpData.fullName || 'Dan'}</p>
@@ -4005,57 +4009,57 @@ export default function TyreFitApp() {
       <div style={{ padding: '16px' }}>
         {/* FROM — auto from business setup */}
         <Card style={{ marginBottom: '14px', backgroundColor: `${theme.primary}05`, borderColor: `${theme.primary}20` }}>
-          <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>From (your business)</p>
-          <p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</p>
-          <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{signUpData.fullName || 'Dan Smith'}</p>
-          {signUpData.depots?.[0]?.address && <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{signUpData.depots[0].address}</p>}
-          {signUpData.vatNumber && <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>VAT: {signUpData.vatNumber}</p>}
+          <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>From (your business)</p>
+          <p style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</p>
+          <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{signUpData.fullName || 'Dan Smith'}</p>
+          {signUpData.depots?.[0]?.address && <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{signUpData.depots[0].address}</p>}
+          {signUpData.vatNumber && <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>VAT: {signUpData.vatNumber}</p>}
         </Card>
 
         {/* TO — customer */}
-        <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Bill to</p>
+        <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Bill to</p>
         <Input label="Customer Name" placeholder="Enter name" value={invoiceFormData.customerName} onChange={(v) => setInvoiceFormData({...invoiceFormData, customerName: v})} required />
         <Input label="Mobile" placeholder="07700 900123" type="tel" icon={Phone} value={invoiceFormData.mobile} onChange={(v) => setInvoiceFormData({...invoiceFormData, mobile: v})} required />
 
         {/* LINE ITEMS */}
-        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Line items</p>
+        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Line items</p>
         {invLines.map((line, i) => (
           <Card key={i} style={{ marginBottom: '8px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <span style={{ color: theme.textMuted, fontSize: '14px', fontWeight: '600' }}>Item {i + 1}</span>
+              <span style={{ color: theme.textMuted, fontSize: '15px', fontWeight: '700' }}>Item {i + 1}</span>
               {invLines.length > 1 && <button onClick={() => removeLine(i)} style={{ background: 'none', border: 'none', color: theme.danger, cursor: 'pointer', padding: '4px' }}><Trash2 size={16} /></button>}
             </div>
             <Input placeholder="Description (e.g. 2x 205/55R16 fitting)" value={line.desc} onChange={(v) => updateLine(i, 'desc', v)} />
             <div style={{ display: 'flex', gap: '8px' }}>
               <div style={{ width: '80px' }}><Input label="Qty" type="number" value={String(line.qty)} onChange={(v) => updateLine(i, 'qty', parseInt(v) || 1)} /></div>
               <div style={{ flex: 1 }}><Input label="Unit Price (£)" type="number" placeholder="0.00" value={line.price} onChange={(v) => updateLine(i, 'price', v)} /></div>
-              <div style={{ width: '80px', paddingTop: '28px' }}><p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px', textAlign: 'right' }}>£{(parseFloat(line.price || 0) * line.qty).toFixed(2)}</p></div>
+              <div style={{ width: '80px', paddingTop: '28px' }}><p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '17px', textAlign: 'right' }}>£{(parseFloat(line.price || 0) * line.qty).toFixed(2)}</p></div>
             </div>
           </Card>
         ))}
-        <button onClick={addLine} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '15px', cursor: 'pointer', marginBottom: '16px' }}><Plus size={16} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Add Line Item</button>
+        <button onClick={addLine} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `2px dashed ${theme.border}`, borderRadius: '14px', color: theme.textMuted, fontSize: '16px', cursor: 'pointer', marginBottom: '16px' }}><Plus size={16} style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Add Line Item</button>
 
         {/* TOTALS */}
         <Card style={{ marginBottom: '14px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted }}>Subtotal</span><span style={{ color: theme.text, fontWeight: '500' }}>£{subtotal.toFixed(2)}</span></div>
-          {signUpData.vatNumber && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted }}>VAT (20%)</span><span style={{ color: theme.text, fontWeight: '500' }}>£{vatAmount.toFixed(2)}</span></div>}
-          <div style={{ borderTop: `2px solid ${theme.border}`, paddingTop: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.text, fontWeight: '700', fontSize: '16px' }}>Total</span><span style={{ color: theme.primary, fontWeight: '700', fontSize: '20px' }}>£{total.toFixed(2)}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted }}>Subtotal</span><span style={{ color: theme.text, fontWeight: '600' }}>£{subtotal.toFixed(2)}</span></div>
+          {signUpData.vatNumber && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted }}>VAT (20%)</span><span style={{ color: theme.text, fontWeight: '600' }}>£{vatAmount.toFixed(2)}</span></div>}
+          <div style={{ borderTop: `2px solid ${theme.border}`, paddingTop: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.text, fontWeight: '800', fontSize: '17px' }}>Total</span><span style={{ color: theme.primary, fontWeight: '800', fontSize: '21px' }}>£{total.toFixed(2)}</span></div>
         </Card>
 
         {/* DUE DATE + NOTES */}
         <div style={{ marginBottom: '14px' }}>
-          <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Payment due in</label>
+          <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Payment due in</label>
           <div style={{ display: 'flex', gap: '8px' }}>
             {['7', '14', '30'].map(d => (
               <button key={d} onClick={() => setInvDueDate(d)} style={{ flex: 1, padding: '14px', backgroundColor: invDueDate === d ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${invDueDate === d ? theme.primary : theme.border}`, borderRadius: '15px', cursor: 'pointer' }}>
-                <span style={{ color: invDueDate === d ? theme.primary : theme.text, fontWeight: '600' }}>{d} days</span>
+                <span style={{ color: invDueDate === d ? theme.primary : theme.text, fontWeight: '700' }}>{d} days</span>
               </button>
             ))}
           </div>
         </div>
         <div style={{ marginBottom: '16px' }}>
-          <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Notes (shown on invoice)</label>
-          <textarea value={invNotes} onChange={(e) => setInvNotes(e.target.value)} style={{ width: '100%', minHeight: '60px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: '14px', fontSize: '14px', color: theme.text, resize: 'vertical', boxSizing: 'border-box' }} />
+          <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Notes (shown on invoice)</label>
+          <textarea value={invNotes} onChange={(e) => setInvNotes(e.target.value)} style={{ width: '100%', minHeight: '60px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: '14px', fontSize: '15px', color: theme.text, resize: 'vertical', boxSizing: 'border-box' }} />
         </div>
 
         {/* ACTIONS */}
@@ -4074,64 +4078,64 @@ export default function TyreFitApp() {
               {/* Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px', borderBottom: '3px solid #10b981', paddingBottom: '16px' }}>
                 <div>
-                  <h2 style={{ margin: 0, fontSize: '22px', fontWeight: '700', color: '#000' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</h2>
-                  <p style={{ margin: '4px 0 0 0', color: '#666', fontSize: '15px' }}>{signUpData.fullName || 'Dan Smith'}</p>
-                  {signUpData.depots?.[0]?.address && <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '15px' }}>{signUpData.depots[0].address}</p>}
-                  {signUpData.vatNumber && <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '15px' }}>VAT: {signUpData.vatNumber}</p>}
+                  <h2 style={{ margin: 0, fontSize: '23px', fontWeight: '800', color: '#000' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</h2>
+                  <p style={{ margin: '4px 0 0 0', color: '#666', fontSize: '16px' }}>{signUpData.fullName || 'Dan Smith'}</p>
+                  {signUpData.depots?.[0]?.address && <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '16px' }}>{signUpData.depots[0].address}</p>}
+                  {signUpData.vatNumber && <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '16px' }}>VAT: {signUpData.vatNumber}</p>}
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <p style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: '#10b981' }}>INVOICE</p>
-                  <p style={{ margin: '4px 0 0 0', color: '#666', fontSize: '15px' }}>{invNumber}</p>
-                  <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '15px' }}>{today}</p>
+                  <p style={{ margin: 0, fontSize: '21px', fontWeight: '800', color: '#10b981' }}>INVOICE</p>
+                  <p style={{ margin: '4px 0 0 0', color: '#666', fontSize: '16px' }}>{invNumber}</p>
+                  <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '16px' }}>{today}</p>
                 </div>
               </div>
 
               {/* Bill to */}
               <div style={{ marginBottom: '20px' }}>
-                <p style={{ margin: '0 0 4px 0', color: '#999', fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Bill to</p>
-                <p style={{ margin: 0, color: '#000', fontWeight: '600' }}>{invoiceFormData.customerName || 'Customer Name'}</p>
-                <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '15px' }}>{invoiceFormData.mobile}</p>
+                <p style={{ margin: '0 0 4px 0', color: '#999', fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Bill to</p>
+                <p style={{ margin: 0, color: '#000', fontWeight: '700' }}>{invoiceFormData.customerName || 'Customer Name'}</p>
+                <p style={{ margin: '2px 0 0 0', color: '#666', fontSize: '16px' }}>{invoiceFormData.mobile}</p>
               </div>
 
               {/* Line items table */}
               <div style={{ marginBottom: '20px' }}>
                 <div style={{ display: 'flex', borderBottom: '2px solid #e5e5e5', paddingBottom: '8px', marginBottom: '8px' }}>
-                  <span style={{ flex: 3, color: '#999', fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Description</span>
-                  <span style={{ flex: 1, color: '#999', fontSize: '14px', textTransform: 'uppercase', fontWeight: '700', textAlign: 'center' }}>Qty</span>
-                  <span style={{ flex: 1, color: '#999', fontSize: '14px', textTransform: 'uppercase', fontWeight: '700', textAlign: 'right' }}>Price</span>
-                  <span style={{ flex: 1, color: '#999', fontSize: '14px', textTransform: 'uppercase', fontWeight: '700', textAlign: 'right' }}>Total</span>
+                  <span style={{ flex: 3, color: '#999', fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Description</span>
+                  <span style={{ flex: 1, color: '#999', fontSize: '15px', textTransform: 'uppercase', fontWeight: '800', textAlign: 'center' }}>Qty</span>
+                  <span style={{ flex: 1, color: '#999', fontSize: '15px', textTransform: 'uppercase', fontWeight: '800', textAlign: 'right' }}>Price</span>
+                  <span style={{ flex: 1, color: '#999', fontSize: '15px', textTransform: 'uppercase', fontWeight: '800', textAlign: 'right' }}>Total</span>
                 </div>
                 {invLines.map((line, i) => (
                   <div key={i} style={{ display: 'flex', padding: '6px 0', borderBottom: '1px solid #f0f0f0' }}>
-                    <span style={{ flex: 3, color: '#000', fontSize: '14px' }}>{line.desc || 'Item'}</span>
-                    <span style={{ flex: 1, color: '#666', fontSize: '14px', textAlign: 'center' }}>{line.qty}</span>
-                    <span style={{ flex: 1, color: '#666', fontSize: '14px', textAlign: 'right' }}>£{parseFloat(line.price || 0).toFixed(2)}</span>
-                    <span style={{ flex: 1, color: '#000', fontSize: '14px', fontWeight: '600', textAlign: 'right' }}>£{(parseFloat(line.price || 0) * line.qty).toFixed(2)}</span>
+                    <span style={{ flex: 3, color: '#000', fontSize: '15px' }}>{line.desc || 'Item'}</span>
+                    <span style={{ flex: 1, color: '#666', fontSize: '15px', textAlign: 'center' }}>{line.qty}</span>
+                    <span style={{ flex: 1, color: '#666', fontSize: '15px', textAlign: 'right' }}>£{parseFloat(line.price || 0).toFixed(2)}</span>
+                    <span style={{ flex: 1, color: '#000', fontSize: '15px', fontWeight: '700', textAlign: 'right' }}>£{(parseFloat(line.price || 0) * line.qty).toFixed(2)}</span>
                   </div>
                 ))}
               </div>
 
               {/* Totals */}
               <div style={{ marginLeft: 'auto', maxWidth: '200px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}><span style={{ color: '#666', fontSize: '14px' }}>Subtotal</span><span style={{ color: '#000' }}>£{subtotal.toFixed(2)}</span></div>
-                {signUpData.vatNumber && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}><span style={{ color: '#666', fontSize: '14px' }}>VAT (20%)</span><span style={{ color: '#000' }}>£{vatAmount.toFixed(2)}</span></div>}
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '2px solid #10b981', paddingTop: '8px', marginTop: '4px' }}><span style={{ color: '#000', fontWeight: '700', fontSize: '16px' }}>Total</span><span style={{ color: '#10b981', fontWeight: '700', fontSize: '20px' }}>£{total.toFixed(2)}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}><span style={{ color: '#666', fontSize: '15px' }}>Subtotal</span><span style={{ color: '#000' }}>£{subtotal.toFixed(2)}</span></div>
+                {signUpData.vatNumber && <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}><span style={{ color: '#666', fontSize: '15px' }}>VAT (20%)</span><span style={{ color: '#000' }}>£{vatAmount.toFixed(2)}</span></div>}
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '2px solid #10b981', paddingTop: '8px', marginTop: '4px' }}><span style={{ color: '#000', fontWeight: '800', fontSize: '17px' }}>Total</span><span style={{ color: '#10b981', fontWeight: '800', fontSize: '21px' }}>£{total.toFixed(2)}</span></div>
               </div>
 
               {/* Payment terms + notes */}
               <div style={{ marginTop: '24px', padding: '14px', backgroundColor: '#f8f8f8', borderRadius: '8px' }}>
-                <p style={{ margin: '0 0 4px 0', color: '#999', fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Payment due</p>
-                <p style={{ margin: 0, color: '#000', fontSize: '14px', fontWeight: '500' }}>{invDueDate} days — by {new Date(Date.now() + parseInt(invDueDate) * 86400000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-                {invNotes && <p style={{ margin: '8px 0 0 0', color: '#666', fontSize: '15px', lineHeight: 1.5 }}>{invNotes}</p>}
+                <p style={{ margin: '0 0 4px 0', color: '#999', fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Payment due</p>
+                <p style={{ margin: 0, color: '#000', fontSize: '15px', fontWeight: '600' }}>{invDueDate} days — by {new Date(Date.now() + parseInt(invDueDate) * 86400000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                {invNotes && <p style={{ margin: '8px 0 0 0', color: '#666', fontSize: '16px', lineHeight: 1.5 }}>{invNotes}</p>}
               </div>
 
               {/* Pay button (what customer sees) */}
               <div style={{ marginTop: '16px', padding: '14px', backgroundColor: '#10b981', borderRadius: '15px', textAlign: 'center' }}>
-                <span style={{ color: '#000', fontWeight: '700', fontSize: '16px' }}>Pay £{total.toFixed(2)} Now</span>
+                <span style={{ color: '#000', fontWeight: '800', fontSize: '17px' }}>Pay £{total.toFixed(2)} Now</span>
               </div>
 
               {/* Footer */}
-              <p style={{ margin: '16px 0 0 0', color: '#ccc', fontSize: '14px', textAlign: 'center' }}>{signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</p>
+              <p style={{ margin: '16px 0 0 0', color: '#ccc', fontSize: '15px', textAlign: 'center' }}>{signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</p>
             </div>
 
             <div style={{ display: 'flex', gap: '15px', marginTop: '16px' }}>
@@ -4169,30 +4173,30 @@ export default function TyreFitApp() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '15px' }}>
               <div style={{ width: '44px', height: '44px', backgroundColor: '#8b5cf620', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Shield size={22} color="#8b5cf6" /></div>
               <div>
-                <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Every job builds your evidence</h3>
-                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>TYRE-FIT logs GPS, timestamps, photos, and payment details automatically. Tap any job below to view the full evidence report — download it as a PDF or email it straight to the customer or your bank.</p>
+                <h3 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '16px' }}>Every job builds your evidence</h3>
+                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>TYRE-FIT logs GPS, timestamps, photos, and payment details automatically. Tap any job below to view the full evidence report — download it as a PDF or email it straight to the customer or your bank.</p>
               </div>
             </div>
           </Card>
         </div>
 
         <div style={{ padding: '0 16px 12px' }}>
-          <div style={{ position: 'relative' }}><Search size={20} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: theme.textMuted }} /><input type="text" placeholder="Search by plate or customer name..." value={search} onChange={(e) => setSearch(e.target.value.toUpperCase())} style={{ width: '100%', padding: '16px 16px 16px 48px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '16px', textTransform: 'uppercase', boxSizing: 'border-box' }} /></div>
+          <div style={{ position: 'relative' }}><Search size={20} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: theme.textMuted }} /><input type="text" placeholder="Search by plate or customer name..." value={search} onChange={(e) => setSearch(e.target.value.toUpperCase())} style={{ width: '100%', padding: '16px 16px 16px 48px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '17px', textTransform: 'uppercase', boxSizing: 'border-box' }} /></div>
         </div>
         <div style={{ padding: '0 16px' }}>
           {filtered.map(d => (
             <Card key={d.id} onClick={() => { setSelectedDispute(d); navigateTo('dispute-detail'); }} style={{ cursor: 'pointer' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
-                <div><h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '20px', letterSpacing: '1px' }}>{d.plate}</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted }}>{d.customer}</p></div>
-                <div style={{ textAlign: 'right' }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>{d.date}</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{d.time}</p></div>
+                <div><h3 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '21px', letterSpacing: '1px' }}>{d.plate}</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted }}>{d.customer}</p></div>
+                <div style={{ textAlign: 'right' }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>{d.date}</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{d.time}</p></div>
               </div>
               <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
-                <div style={{ flex: 1, height: '60px', backgroundColor: theme.bgInput, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div style={{ textAlign: 'center' }}><Camera size={20} color={theme.textMuted} /><p style={{ margin: '4px 0 0 0', fontSize: '15px', color: theme.textMuted }}>BEFORE</p></div></div>
-                <div style={{ flex: 1, height: '60px', backgroundColor: theme.bgInput, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div style={{ textAlign: 'center' }}><Camera size={20} color={theme.textMuted} /><p style={{ margin: '4px 0 0 0', fontSize: '15px', color: theme.textMuted }}>AFTER</p></div></div>
+                <div style={{ flex: 1, height: '60px', backgroundColor: theme.bgInput, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div style={{ textAlign: 'center' }}><Camera size={20} color={theme.textMuted} /><p style={{ margin: '4px 0 0 0', fontSize: '16px', color: theme.textMuted }}>BEFORE</p></div></div>
+                <div style={{ flex: 1, height: '60px', backgroundColor: theme.bgInput, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div style={{ textAlign: 'center' }}><Camera size={20} color={theme.textMuted} /><p style={{ margin: '4px 0 0 0', fontSize: '16px', color: theme.textMuted }}>AFTER</p></div></div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <MapPin size={14} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '14px' }}>{d.location}</span>
+                  <MapPin size={14} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '15px' }}>{d.location}</span>
                 </div>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   <Badge variant={d.paymentMethod === 'Cash' ? 'warning' : 'info'}>{d.paymentMethod === 'Cash' ? 'Cash' : 'Card'}</Badge>
@@ -4203,7 +4207,7 @@ export default function TyreFitApp() {
               <div style={{ borderTop: `1px solid ${theme.border}`, paddingTop: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <FileText size={15} color="#8b5cf6" />
-                  <span style={{ color: '#8b5cf6', fontSize: '15px', fontWeight: '600' }}>View full report — download or email</span>
+                  <span style={{ color: '#8b5cf6', fontSize: '16px', fontWeight: '700' }}>View full report — download or email</span>
                 </div>
                 <ChevronRight size={18} color="#8b5cf6" />
               </div>
@@ -4226,8 +4230,8 @@ export default function TyreFitApp() {
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
                 <AlertTriangle size={20} color={theme.warning} />
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700' }}>No dispute selected</p>
-                  <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Open a dispute from the list first so we can load evidence and timeline details.</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '800' }}>No dispute selected</p>
+                  <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Open a dispute from the list first so we can load evidence and timeline details.</p>
                 </div>
               </div>
             </Card>
@@ -4253,20 +4257,20 @@ export default function TyreFitApp() {
           <div style={{ padding: '12px 16px', backgroundColor: d.status === 'won' ? `${theme.primary}10` : d.status === 'lost' ? `${theme.danger}10` : `${theme.bgInput}`, borderRadius: '15px', border: `1px solid ${d.status === 'won' ? theme.primary : d.status === 'lost' ? theme.danger : theme.border}30`, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '15px' }}>
             {d.status === 'won' ? <CheckCircle size={18} color={theme.primary} /> : d.status === 'lost' ? <AlertOctagon size={18} color={theme.danger} /> : <Shield size={18} color={theme.textMuted} />}
             <div>
-              <p style={{ margin: 0, color: d.status === 'won' ? theme.primary : d.status === 'lost' ? theme.danger : theme.text, fontWeight: '600', fontSize: '14px' }}>{d.status === 'won' ? 'Dispute Won — evidence accepted' : d.status === 'lost' ? 'Dispute Lost' : 'No active dispute'}</p>
-              <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{d.status === 'none' ? 'Evidence pack ready if needed' : isCardPayment ? 'Bank chargeback resolved' : 'Customer complaint resolved'}</p>
+              <p style={{ margin: 0, color: d.status === 'won' ? theme.primary : d.status === 'lost' ? theme.danger : theme.text, fontWeight: '700', fontSize: '15px' }}>{d.status === 'won' ? 'Dispute Won — evidence accepted' : d.status === 'lost' ? 'Dispute Lost' : 'No active dispute'}</p>
+              <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{d.status === 'none' ? 'Evidence pack ready if needed' : isCardPayment ? 'Bank chargeback resolved' : 'Customer complaint resolved'}</p>
             </div>
           </div>
 
           {/* BEFORE / AFTER PHOTOS */}
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '0 0 10px 0', textTransform: 'uppercase' }}>Photo Evidence</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '0 0 10px 0', textTransform: 'uppercase' }}>Photo Evidence</h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '20px' }}>
-            <div><div style={{ aspectRatio: '4/3', backgroundColor: theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${theme.border}`, position: 'relative' }}><Camera size={36} color={theme.textMuted} /><div style={{ position: 'absolute', bottom: '8px', left: '8px', right: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ fontSize: '15px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>BEFORE</span><span style={{ fontSize: '15px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>{d.timeline.inspected}</span></div></div></div>
-            <div><div style={{ aspectRatio: '4/3', backgroundColor: theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${theme.border}`, position: 'relative' }}><Camera size={36} color={theme.textMuted} /><div style={{ position: 'absolute', bottom: '8px', left: '8px', right: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ fontSize: '15px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>AFTER</span><span style={{ fontSize: '15px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>{d.timeline.completed}</span></div></div></div>
+            <div><div style={{ aspectRatio: '4/3', backgroundColor: theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${theme.border}`, position: 'relative' }}><Camera size={36} color={theme.textMuted} /><div style={{ position: 'absolute', bottom: '8px', left: '8px', right: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ fontSize: '16px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>BEFORE</span><span style={{ fontSize: '16px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>{d.timeline.inspected}</span></div></div></div>
+            <div><div style={{ aspectRatio: '4/3', backgroundColor: theme.bgInput, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${theme.border}`, position: 'relative' }}><Camera size={36} color={theme.textMuted} /><div style={{ position: 'absolute', bottom: '8px', left: '8px', right: '8px', display: 'flex', justifyContent: 'space-between' }}><span style={{ fontSize: '16px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>AFTER</span><span style={{ fontSize: '16px', color: theme.textMuted, backgroundColor: 'rgba(0,0,0,0.6)', padding: '2px 6px', borderRadius: '4px' }}>{d.timeline.completed}</span></div></div></div>
           </div>
 
           {/* JOB TIMELINE */}
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '0 0 10px 0', textTransform: 'uppercase' }}>Job Timeline</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '0 0 10px 0', textTransform: 'uppercase' }}>Job Timeline</h3>
           <Card>
             {[
               { label: 'Arrived on site', time: d.timeline.arrived, icon: MapPin },
@@ -4277,42 +4281,42 @@ export default function TyreFitApp() {
             ].map((step, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '8px 0', borderBottom: i < 4 ? `1px solid ${theme.border}` : 'none' }}>
                 <div style={{ width: '32px', height: '32px', backgroundColor: `${theme.primary}15`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><step.icon size={14} color={theme.primary} /></div>
-                <span style={{ flex: 1, color: theme.text, fontSize: '14px' }}>{step.label}</span>
-                <span style={{ color: theme.primary, fontWeight: '600', fontSize: '14px', fontFamily: 'monospace' }}>{step.time}</span>
+                <span style={{ flex: 1, color: theme.text, fontSize: '15px' }}>{step.label}</span>
+                <span style={{ color: theme.primary, fontWeight: '700', fontSize: '15px', fontFamily: 'monospace' }}>{step.time}</span>
               </div>
             ))}
           </Card>
 
           {/* JOB DETAILS */}
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Job Details</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Job Details</h3>
           <Card>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Customer</span><span style={{ color: theme.text, fontWeight: '500' }}>{d.customer}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Phone</span><span style={{ color: theme.text, fontWeight: '500' }}>{d.phone}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '700', letterSpacing: '1px' }}>{d.plate}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Tyres fitted</span><span style={{ color: theme.text, fontWeight: '500' }}>{d.tyres}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Brand</span><span style={{ color: theme.text, fontWeight: '500' }}>{d.brand}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>DOT Code</span><span style={{ color: theme.text, fontWeight: '500', fontFamily: 'monospace' }}>{d.dot}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Location</span><span style={{ color: theme.text, fontWeight: '500' }}>{d.location}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>GPS</span><span style={{ color: theme.text, fontWeight: '500', fontFamily: 'monospace' }}>{d.gps}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Customer</span><span style={{ color: theme.text, fontWeight: '600' }}>{d.customer}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Phone</span><span style={{ color: theme.text, fontWeight: '600' }}>{d.phone}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '800', letterSpacing: '1px' }}>{d.plate}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Tyres fitted</span><span style={{ color: theme.text, fontWeight: '600' }}>{d.tyres}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Brand</span><span style={{ color: theme.text, fontWeight: '600' }}>{d.brand}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>DOT Code</span><span style={{ color: theme.text, fontWeight: '600', fontFamily: 'monospace' }}>{d.dot}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Location</span><span style={{ color: theme.text, fontWeight: '600' }}>{d.location}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>GPS</span><span style={{ color: theme.text, fontWeight: '600', fontFamily: 'monospace' }}>{d.gps}</span></div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: theme.textMuted }}>Customer sign-off</span>{d.signedOff ? <Badge variant="success">Signed</Badge> : <Badge variant="danger">Not signed</Badge>}</div>
             </div>
           </Card>
 
           {/* PAYMENT & TRANSACTION */}
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Payment Evidence</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Payment Evidence</h3>
           <Card style={isCardPayment ? { borderColor: theme.info } : {}}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><span style={{ color: theme.textMuted }}>Payment method</span><Badge variant={isCardPayment ? 'info' : 'warning'}>{d.paymentMethod}</Badge></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Amount</span><span style={{ color: theme.text, fontWeight: '700', fontSize: '16px' }}>{d.amount}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Invoice</span><span style={{ color: theme.primary, fontWeight: '500' }}>{d.invoiceRef}</span></div>
-              {d.transactionId && <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Transaction ID</span><span style={{ color: theme.text, fontWeight: '500', fontFamily: 'monospace', fontSize: '15px' }}>{d.transactionId}</span></div>}
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Amount</span><span style={{ color: theme.text, fontWeight: '800', fontSize: '17px' }}>{d.amount}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Invoice</span><span style={{ color: theme.primary, fontWeight: '600' }}>{d.invoiceRef}</span></div>
+              {d.transactionId && <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Transaction ID</span><span style={{ color: theme.text, fontWeight: '600', fontFamily: 'monospace', fontSize: '16px' }}>{d.transactionId}</span></div>}
             </div>
             {isCardPayment && (
               <div style={{ marginTop: '14px', padding: '15px', backgroundColor: `${theme.info}10`, borderRadius: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Info size={14} color={theme.info} />
-                  <span style={{ color: theme.info, fontSize: '14px' }}>Card payment — transaction ID and invoice included in evidence pack for bank chargeback defence</span>
+                  <span style={{ color: theme.info, fontSize: '15px' }}>Card payment — transaction ID and invoice included in evidence pack for bank chargeback defence</span>
                 </div>
               </div>
             )}
@@ -4320,14 +4324,14 @@ export default function TyreFitApp() {
               <div style={{ marginTop: '14px', padding: '15px', backgroundColor: `${theme.warning}10`, borderRadius: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Info size={14} color={theme.warning} />
-                  <span style={{ color: theme.warning, fontSize: '14px' }}>Cash payment — no chargeback risk. Evidence pack covers quality disputes only.</span>
+                  <span style={{ color: theme.warning, fontSize: '15px' }}>Cash payment — no chargeback risk. Evidence pack covers quality disputes only.</span>
                 </div>
               </div>
             )}
           </Card>
 
           {/* EVIDENCE STRENGTH */}
-          <h3 style={{ fontSize: '15px', fontWeight: '600', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Evidence Strength</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.textMuted, margin: '20px 0 10px 0', textTransform: 'uppercase' }}>Evidence Strength</h3>
           <Card>
             {[
               { label: 'Before & after photos', ok: true },
@@ -4339,11 +4343,11 @@ export default function TyreFitApp() {
             ].map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '6px 0' }}>
                 {item.ok ? <CheckCircle size={16} color={theme.primary} /> : <AlertTriangle size={16} color={theme.warning} />}
-                <span style={{ color: item.ok ? theme.text : theme.warning, fontSize: '14px' }}>{item.label}</span>
+                <span style={{ color: item.ok ? theme.text : theme.warning, fontSize: '15px' }}>{item.label}</span>
               </div>
             ))}
             <div style={{ marginTop: '14px', padding: '15px', backgroundColor: `${theme.primary}10`, borderRadius: '8px' }}>
-              <p style={{ margin: 0, color: theme.primary, fontSize: '15px', fontWeight: '600' }}>
+              <p style={{ margin: 0, color: theme.primary, fontSize: '16px', fontWeight: '700' }}>
                 {d.signedOff && isCardPayment ? 'Strong — all evidence captured. Ready for bank or customer dispute.' : d.signedOff ? 'Good — signed off with full photo evidence.' : 'Fair — missing customer sign-off. Photos and GPS still provide strong proof.'}
               </p>
             </div>
@@ -4355,17 +4359,17 @@ export default function TyreFitApp() {
             <Button variant="secondary" icon={Send} onClick={() => setShowEmailConfirm(true)} disabled={emailSent}>{emailSent ? 'Evidence Report Sent' : 'Email Report to Customer'}</Button>
             {isCardPayment && <Button variant="secondary" icon={Send} onClick={() => setShowChargebackConfirm(true)} disabled={chargebackSent}>{chargebackSent ? 'Chargeback Defence Submitted' : 'Submit Chargeback Defence'}</Button>}
           </div>
-          <p style={{ textAlign: 'center', color: theme.textMuted, fontSize: '14px', marginTop: '14px', lineHeight: 1.5 }}>The evidence report includes all photos, GPS data, job timeline, payment details, and customer sign-off in one PDF ready to send to banks or customers.</p>
+          <p style={{ textAlign: 'center', color: theme.textMuted, fontSize: '15px', marginTop: '14px', lineHeight: 1.5 }}>The evidence report includes all photos, GPS data, job timeline, payment details, and customer sign-off in one PDF ready to send to banks or customers.</p>
 
           {/* EMAIL CONFIRM MODAL */}
           {showEmailConfirm && (
             <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
               <Card style={{ maxWidth: '380px', width: '100%' }}>
-                <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Send evidence report to customer?</h3>
-                <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>This sends a PDF with all before/after photos, GPS data, job timeline, and payment proof to the customer. Use this when they've raised a complaint and you want to show the evidence.</p>
+                <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '17px' }}>Send evidence report to customer?</h3>
+                <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>This sends a PDF with all before/after photos, GPS data, job timeline, and payment proof to the customer. Use this when they've raised a complaint and you want to show the evidence.</p>
                 <div style={{ padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px', marginBottom: '16px' }}>
-                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Sending to</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.text, fontWeight: '600' }}>{d.customer} — via SMS/WhatsApp link</p>
+                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Sending to</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.text, fontWeight: '700' }}>{d.customer} — via SMS/WhatsApp link</p>
                 </div>
                 <div style={{ display: 'flex', gap: '15px' }}>
                   <Button variant="secondary" fullWidth onClick={() => setShowEmailConfirm(false)}>Cancel</Button>
@@ -4379,15 +4383,15 @@ export default function TyreFitApp() {
           {showChargebackConfirm && (
             <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
               <Card style={{ maxWidth: '380px', width: '100%' }}>
-                <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Submit chargeback defence?</h3>
-                <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>This submits your full evidence pack to the payment provider via Stripe. It includes all photos, GPS timestamps, the customer sign-off, and job timeline.</p>
+                <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '17px' }}>Submit chargeback defence?</h3>
+                <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>This submits your full evidence pack to the payment provider via Stripe. It includes all photos, GPS timestamps, the customer sign-off, and job timeline.</p>
                 <div style={{ padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px', marginBottom: '8px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Transaction</span><span style={{ color: theme.text, fontSize: '14px', fontWeight: '500' }}>{d.transactionId}</span></div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Amount</span><span style={{ color: theme.text, fontSize: '14px', fontWeight: '500' }}>{d.amount}</span></div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Transaction</span><span style={{ color: theme.text, fontSize: '15px', fontWeight: '600' }}>{d.transactionId}</span></div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Amount</span><span style={{ color: theme.text, fontSize: '15px', fontWeight: '600' }}>{d.amount}</span></div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', backgroundColor: `${theme.primary}10`, borderRadius: '8px', marginBottom: '16px' }}>
                   <CheckCircle size={14} color={theme.primary} />
-                  <span style={{ color: theme.primary, fontSize: '14px', fontWeight: '600' }}>Evidence strength: {d.signedOff && isCardPayment ? 'Strong' : d.signedOff ? 'Good' : 'Fair'}</span>
+                  <span style={{ color: theme.primary, fontSize: '15px', fontWeight: '700' }}>Evidence strength: {d.signedOff && isCardPayment ? 'Strong' : d.signedOff ? 'Good' : 'Fair'}</span>
                 </div>
                 <div style={{ display: 'flex', gap: '15px' }}>
                   <Button variant="secondary" fullWidth onClick={() => setShowChargebackConfirm(false)}>Cancel</Button>
@@ -4471,8 +4475,8 @@ export default function TyreFitApp() {
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Map size={48} color={theme.textMuted} /></div>
         <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
           <div style={{ backgroundColor: theme.bgCard, borderRadius: '14px', padding: '14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Total Distance</p><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{totalDistance}</p></div>
-            <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Est. Time</p><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{totalTime}</p></div>
+            <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Total Distance</p><p style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{totalDistance}</p></div>
+            <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Est. Time</p><p style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{totalTime}</p></div>
             <Button size="small" fullWidth={false} icon={Navigation} onClick={() => showToast('Opening Google Maps...')}>Navigate</Button>
           </div>
         </div>
@@ -4487,13 +4491,13 @@ export default function TyreFitApp() {
           {coverJobInRoute && (
             <div style={{ padding: '10px 14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', border: `1px solid ${theme.primary}30`, display: 'flex', alignItems: 'center', gap: '15px' }}>
               <RefreshCw size={16} color={theme.primary} />
-              <p style={{ margin: 0, color: theme.primary, fontSize: '15px', fontWeight: '500' }}>Emergency cover job {routeInsertPosition === 'next' ? 'set as next job' : routeInsertPosition === 'optimise' ? 'optimised into route' : 'added to end'} · affected customers get automatic ETA update text</p>
+              <p style={{ margin: 0, color: theme.primary, fontSize: '16px', fontWeight: '600' }}>Emergency cover job {routeInsertPosition === 'next' ? 'set as next job' : routeInsertPosition === 'optimise' ? 'optimised into route' : 'added to end'} · affected customers get automatic ETA update text</p>
             </div>
           )}
           {hasDepot && (
             <div style={{ padding: '10px 14px', backgroundColor: `${theme.warning}10`, borderRadius: '15px', border: `1px solid ${theme.warning}30`, display: 'flex', alignItems: 'center', gap: '15px' }}>
               <Building size={16} color={theme.warning} />
-              <p style={{ margin: 0, color: theme.warning, fontSize: '15px', fontWeight: '500' }}>Depot pickup added — {depotStops[0]?.timing === 'before-first' ? 'before your first job' : 'before the job that needs it'}</p>
+              <p style={{ margin: 0, color: theme.warning, fontSize: '16px', fontWeight: '600' }}>Depot pickup added — {depotStops[0]?.timing === 'before-first' ? 'before your first job' : 'before the job that needs it'}</p>
             </div>
           )}
         </div>
@@ -4511,18 +4515,18 @@ export default function TyreFitApp() {
                 <div style={{ flex: 1 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{item.name}</h3>
+                      <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{item.name}</h3>
                       <Badge variant="warning">DEPOT PICKUP</Badge>
                     </div>
-                    <span style={{ color: theme.warning, fontWeight: '500' }}>~10 mins</span>
+                    <span style={{ color: theme.warning, fontWeight: '600' }}>~10 mins</span>
                   </div>
-                  <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px' }}>{item.address}</p>
+                  <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>{item.address}</p>
                   <div style={{ padding: '8px', backgroundColor: theme.bgInput, borderRadius: '8px', marginTop: '6px' }}>
-                    <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px', fontWeight: '600', textTransform: 'uppercase' }}>Collecting</p>
+                    <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px', fontWeight: '700', textTransform: 'uppercase' }}>Collecting</p>
                     {item.tyres.map((t, ti) => (
                       <div key={ti} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '2px 0' }}>
                         <Package size={12} color={theme.primary} />
-                        <span style={{ color: theme.text, fontSize: '15px' }}>{t}</span>
+                        <span style={{ color: theme.text, fontSize: '16px' }}>{t}</span>
                       </div>
                     ))}
                   </div>
@@ -4545,19 +4549,19 @@ export default function TyreFitApp() {
             <Card style={item.isCoverJob ? { borderColor: theme.danger, borderWidth: '2px' } : item.isEmergency ? { borderColor: theme.warning, borderWidth: '2px' } : {}}>
               <div style={{ display: 'flex', gap: '16px' }}>
                 <div style={{ width: '40px', height: '40px', backgroundColor: item.isCoverJob ? `${theme.danger}20` : item.isEmergency ? `${theme.warning}20` : `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  {item.isCoverJob ? <ShieldCheck size={20} color={theme.danger} /> : <span style={{ fontWeight: '700', color: item.isEmergency ? theme.warning : theme.primary }}>{i + 1}</span>}
+                  {item.isCoverJob ? <ShieldCheck size={20} color={theme.danger} /> : <span style={{ fontWeight: '800', color: item.isEmergency ? theme.warning : theme.primary }}>{i + 1}</span>}
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{item.customer}</h3>
+                      <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{item.customer}</h3>
                       {item.isCoverJob && <Badge variant="danger">COVER JOB</Badge>}
                       {item.isEmergency && !item.isCoverJob && <Badge variant="warning">URGENT</Badge>}
                     </div>
-                    <span style={{ color: item.isCoverJob ? theme.danger : item.isEmergency ? theme.warning : theme.primary, fontWeight: '500' }}>{item.eta}</span>
+                    <span style={{ color: item.isCoverJob ? theme.danger : item.isEmergency ? theme.warning : theme.primary, fontWeight: '600' }}>{item.eta}</span>
                   </div>
-                  <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px' }}>{item.plate} • {item.tyreSize}</p>
-                  <p style={{ margin: '0 0 8px 0', color: theme.textSubtle, fontSize: '14px' }}>{item.location}</p>
+                  <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>{item.plate} • {item.tyreSize}</p>
+                  <p style={{ margin: '0 0 8px 0', color: theme.textSubtle, fontSize: '15px' }}>{item.location}</p>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                     {item.isCoverJob ? (
                       <Badge variant="info">TYRE-FIT Pays</Badge>
@@ -4569,7 +4573,7 @@ export default function TyreFitApp() {
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '8px', marginTop: '16px', borderTop: `1px solid ${theme.border}`, paddingTop: '14px' }}>
-                {!item.isCoverJob && <span style={{ alignSelf: 'center', fontSize: '14px', color: theme.textMuted }}>Drag card to reorder</span>}
+                {!item.isCoverJob && <span style={{ alignSelf: 'center', fontSize: '15px', color: theme.textMuted }}>Drag card to reorder</span>}
                 <Button variant="secondary" size="small" fullWidth icon={MessageSquare} onClick={() => showToast('Opening WhatsApp...')}>Message</Button>
                 <Button size="small" fullWidth disabled={!item.depositPaid && !item.isCoverJob && !item.isEmergency} onClick={() => { setActiveJob(item); setIsCoverJob(!!item.isCoverJob); setBeforePhotos({}); setAfterPhotos({}); setCustomerSigned(false); navigateTo('job-enroute'); }}>{item.isCoverJob ? 'Start Cover Job' : item.depositPaid ? 'Start Job' : item.isEmergency ? 'Start Urgent Job' : 'Awaiting Deposit'}</Button>
               </div>
@@ -4627,36 +4631,36 @@ export default function TyreFitApp() {
         {isOffline && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.warning}10`, borderRadius: '15px', marginBottom: '14px', border: `1px solid ${theme.warning}30` }}>
             <NoWifi size={16} color={theme.warning} />
-            <span style={{ color: theme.warning, fontSize: '15px', fontWeight: '500' }}>Saved — will sync when online. GPS tracking paused until signal returns.</span>
+            <span style={{ color: theme.warning, fontSize: '16px', fontWeight: '600' }}>Saved — will sync when online. GPS tracking paused until signal returns.</span>
           </div>
         )}
         
         {/* DESTINATION + ETA */}
         <Card style={{ marginBottom: '14px' }}>
           <div style={{ textAlign: 'center' }}>
-            <p style={{ color: theme.textMuted, margin: '0 0 4px 0', fontSize: '15px' }}>Destination</p>
-            <p style={{ color: theme.text, fontWeight: '600', margin: '0 0 8px 0', fontSize: '16px' }}>{jobLocation}</p>
-            <p style={{ color: theme.primary, fontWeight: '700', fontSize: '28px', margin: 0 }}>ETA: {activeJob?.eta || '12 mins'}</p>
+            <p style={{ color: theme.textMuted, margin: '0 0 4px 0', fontSize: '16px' }}>Destination</p>
+            <p style={{ color: theme.text, fontWeight: '700', margin: '0 0 8px 0', fontSize: '17px' }}>{jobLocation}</p>
+            <p style={{ color: theme.primary, fontWeight: '800', fontSize: '29px', margin: 0 }}>ETA: {activeJob?.eta || '12 mins'}</p>
           </div>
         </Card>
         
         {/* AUTO ETA NOTIFICATION — so fitter knows the customer has been told */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', marginBottom: '14px', border: `1px solid ${theme.primary}20` }}>
           <CheckCircle size={16} color={theme.primary} />
-          <span style={{ color: theme.primary, fontSize: '15px', fontWeight: '500' }}>"{activeJob?.customer || 'Emma'} your fitter is {activeJob?.eta || '12 mins'} away" sent automatically</span>
+          <span style={{ color: theme.primary, fontSize: '16px', fontWeight: '600' }}>"{activeJob?.customer || 'Emma'} your fitter is {activeJob?.eta || '12 mins'} away" sent automatically</span>
         </div>
         
         {/* CUSTOM POSTCODE — for when address is wrong or fitter knows a better route */}
         <div style={{ marginBottom: '16px' }}>
           <div style={{ display: 'flex', gap: '8px' }}>
-            <input value={customPostcode} onChange={(e) => setCustomPostcode(e.target.value.toUpperCase())} placeholder="Enter postcode (optional)" style={{ flex: 1, padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', fontSize: '16px', color: theme.text, outline: 'none', textTransform: 'uppercase', letterSpacing: '1px' }} />
+            <input value={customPostcode} onChange={(e) => setCustomPostcode(e.target.value.toUpperCase())} placeholder="Enter postcode (optional)" style={{ flex: 1, padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', fontSize: '17px', color: theme.text, outline: 'none', textTransform: 'uppercase', letterSpacing: '1px' }} />
             {customPostcode && (
               <button onClick={() => setCustomPostcode('')} style={{ padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer' }}>
                 <X size={18} color={theme.textMuted} />
               </button>
             )}
           </div>
-          {customPostcode && <p style={{ margin: '6px 0 0 0', color: theme.primary, fontSize: '14px' }}>Using custom postcode for navigation</p>}
+          {customPostcode && <p style={{ margin: '6px 0 0 0', color: theme.primary, fontSize: '15px' }}>Using custom postcode for navigation</p>}
         </div>
         
         {/* NAVIGATE — Google Maps only
@@ -4666,7 +4670,7 @@ export default function TyreFitApp() {
         <div style={{ marginBottom: '16px' }}>
           <button onClick={() => { showToast('Opening Google Maps...'); if (!arrived) setArrived(true); }} style={{ width: '100%', padding: '18px', backgroundColor: theme.primary, border: 'none', borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
             <Navigation size={24} color="#000" />
-            <span style={{ color: '#000', fontWeight: '700', fontSize: '16px' }}>Navigate (Google Maps)</span>
+            <span style={{ color: '#000', fontWeight: '800', fontSize: '17px' }}>Navigate (Google Maps)</span>
           </button>
         </div>
 
@@ -4674,28 +4678,28 @@ export default function TyreFitApp() {
           <Button onClick={() => navigateTo('job-before-photo')} icon={ArrowRight} fullWidth>
             Next: Before Photos
           </Button>
-          <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '14px', textAlign: 'center' }}>
+          <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>
             Use this if you are already with the customer.
           </p>
         </div>
         
         {/* CONTACT CUSTOMER — only for edge cases GPS can't handle */}
-        <p style={{ color: theme.textMuted, fontSize: '14px', margin: '0 0 8px 0', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Contact customer</p>
+        <p style={{ color: theme.textMuted, fontSize: '15px', margin: '0 0 8px 0', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Contact customer</p>
         <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
           <button onClick={() => showToast('Calling customer...')} style={{ flex: 1, padding: '14px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <Phone size={18} color={theme.text} />
-            <span style={{ color: theme.text, fontWeight: '500', fontSize: '14px' }}>Call</span>
+            <span style={{ color: theme.text, fontWeight: '600', fontSize: '15px' }}>Call</span>
           </button>
           <button onClick={() => setPendingMessage({ text: `Hi ${activeJob?.customer || 'Emma'}, just a heads up — running about 10 mins late. Sorry for the wait, on my way now.`, type: 'late' })} style={{ flex: 1, padding: '14px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <Clock size={18} color={theme.warning} />
-            <span style={{ color: theme.text, fontWeight: '500', fontSize: '14px' }}>Running Late</span>
+            <span style={{ color: theme.text, fontWeight: '600', fontSize: '15px' }}>Running Late</span>
           </button>
           <button onClick={() => setPendingMessage({ text: `Hi ${activeJob?.customer || 'Emma'}, I'm nearby but can't find the exact address — could you share a pin or come out and wave?`, type: 'lost' })} style={{ flex: 1, padding: '14px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <MapPin size={18} color={theme.danger} />
-            <span style={{ color: theme.text, fontWeight: '500', fontSize: '14px' }}>{"Can't Find"}</span>
+            <span style={{ color: theme.text, fontWeight: '600', fontSize: '15px' }}>{"Can't Find"}</span>
           </button>
         </div>
-        <p style={{ color: theme.textMuted, fontSize: '14px', margin: '0 0 16px 0', textAlign: 'center' }}>ETA and arrival texts are sent automatically by GPS — no need to message manually</p>
+        <p style={{ color: theme.textMuted, fontSize: '15px', margin: '0 0 16px 0', textAlign: 'center' }}>ETA and arrival texts are sent automatically by GPS — no need to message manually</p>
         
         {/* AUTO-ARRIVAL — auto-advances to camera */}
         {arrived && (
@@ -4705,8 +4709,8 @@ export default function TyreFitApp() {
                 <MapPin size={20} color="#000" />
               </div>
               <div>
-                <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '16px' }}>You've arrived</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Opening camera automatically...</p>
+                <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '17px' }}>You've arrived</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Opening camera automatically...</p>
               </div>
             </div>
             <Button onClick={() => navigateTo('job-before-photo')} icon={Camera} fullWidth>Open Camera Now</Button>
@@ -4717,7 +4721,7 @@ export default function TyreFitApp() {
         {!arrived && (
           <div style={{ padding: '10px 14px', backgroundColor: theme.bgInput, borderRadius: '15px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Crosshair size={14} color={theme.textMuted} />
-            <span style={{ color: theme.textMuted, fontSize: '14px' }}>GPS will detect when you arrive and prompt before photos</span>
+            <span style={{ color: theme.textMuted, fontSize: '15px' }}>GPS will detect when you arrive and prompt before photos</span>
           </div>
         )}
         <CancelJobButton />
@@ -4725,11 +4729,11 @@ export default function TyreFitApp() {
         {/* MESSAGE PREVIEW MODAL — always preview before sending */}
         {pendingMessage && (
           <Modal title="Preview Message" onClose={() => setPendingMessage(null)}>
-            <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px' }}>To: {activeJob?.customer || 'Emma'} ({activeJob?.phone || '07700 900123'})</p>
+            <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>To: {activeJob?.customer || 'Emma'} ({activeJob?.phone || '07700 900123'})</p>
             <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}`, marginBottom: '16px' }}>
-              <p style={{ margin: 0, color: theme.text, fontSize: '14px', lineHeight: 1.6, fontStyle: 'italic' }}>{pendingMessage.text}</p>
+              <p style={{ margin: 0, color: theme.text, fontSize: '15px', lineHeight: 1.6, fontStyle: 'italic' }}>{pendingMessage.text}</p>
             </div>
-            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '14px' }}>Sent via {preferredSend === 'whatsapp' ? 'WhatsApp' : 'SMS'}</p>
+            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '15px' }}>Sent via {preferredSend === 'whatsapp' ? 'WhatsApp' : 'SMS'}</p>
             <div style={{ display: 'flex', gap: '15px' }}>
               <Button variant="secondary" onClick={() => setPendingMessage(null)} fullWidth>Cancel</Button>
               <Button onClick={() => { showToast(`Message sent to ${activeJob?.customer || 'Emma'}`); setPendingMessage(null); }} fullWidth icon={MessageSquare}>Send</Button>
@@ -4768,13 +4772,13 @@ export default function TyreFitApp() {
         <div style={{ flex: 1, paddingTop: '16px' }}>
           {isOffline && (
             <Card style={{ borderColor: theme.warning, marginBottom: '14px' }}>
-              <p style={{ margin: '0 0 4px 0', color: theme.warning, fontWeight: '700', fontSize: '15px' }}>Offline capture mode</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>Before photos, timestamps, and GPS are stored locally and auto-sync when online. Keep taking photos as normal.</p>
+              <p style={{ margin: '0 0 4px 0', color: theme.warning, fontWeight: '800', fontSize: '16px' }}>Offline capture mode</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Before photos, timestamps, and GPS are stored locally and auto-sync when online. Keep taking photos as normal.</p>
             </Card>
           )}
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '16px' }}>
             <Shield size={18} color="#8b5cf6" />
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Photograph each tyre <strong style={{ color: theme.text }}>before</strong> you start — this protects you from disputes</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Photograph each tyre <strong style={{ color: theme.text }}>before</strong> you start — this protects you from disputes</p>
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: positions.length <= 2 ? '1fr 1fr' : '1fr 1fr', gap: '14px', marginBottom: '20px' }}>
@@ -4784,15 +4788,15 @@ export default function TyreFitApp() {
                 <button key={pos} onClick={() => { setBeforePhotos(prev => ({...prev, [pos]: true})); showToast(`${pos} — photo captured`); }} style={{ aspectRatio: positions.length <= 2 ? '4/3' : '1', backgroundColor: taken ? `${theme.primary}10` : theme.bgInput, border: `2px ${taken ? 'solid' : 'dashed'} ${taken ? theme.primary : theme.border}`, borderRadius: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px', cursor: 'pointer', color: taken ? theme.primary : theme.textMuted, position: 'relative', padding: '14px' }}>
                   {taken && <div style={{ position: 'absolute', top: '8px', right: '8px', width: '22px', height: '22px', borderRadius: '50%', backgroundColor: theme.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Check size={14} color="#000" /></div>}
                   <Camera size={positions.length <= 2 ? 28 : 24} />
-                  <span style={{ fontSize: '15px', fontWeight: '600' }}>{pos}</span>
-                  <span style={{ fontSize: '14px', color: taken ? theme.primary : theme.textMuted }}>{taken ? 'Tap to retake' : 'Tap to capture'}</span>
+                  <span style={{ fontSize: '16px', fontWeight: '700' }}>{pos}</span>
+                  <span style={{ fontSize: '15px', color: taken ? theme.primary : theme.textMuted }}>{taken ? 'Tap to retake' : 'Tap to capture'}</span>
                 </button>
               );
             })}
           </div>
           
           <div style={{ padding: '12px 16px', backgroundColor: theme.bgInput, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-            <span style={{ color: theme.textMuted, fontSize: '14px' }}>{Object.keys(beforePhotos).filter(k => beforePhotos[k]).length} of {positions.length} photos taken</span>
+            <span style={{ color: theme.textMuted, fontSize: '15px' }}>{Object.keys(beforePhotos).filter(k => beforePhotos[k]).length} of {positions.length} photos taken</span>
             <div style={{ display: 'flex', gap: '4px' }}>
               {positions.map((p, i) => <div key={i} style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: beforePhotos[p] ? theme.primary : theme.border }} />)}
             </div>
@@ -4801,25 +4805,25 @@ export default function TyreFitApp() {
           <Card style={{ backgroundColor: `#8b5cf608`, borderColor: '#8b5cf630' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
               <MapPin size={16} color="#8b5cf6" />
-              <span style={{ color: theme.textMuted, fontSize: '15px' }}>GPS location and timestamp recorded with each photo</span>
+              <span style={{ color: theme.textMuted, fontSize: '16px' }}>GPS location and timestamp recorded with each photo</span>
             </div>
           </Card>
         </div>
         <Button onClick={() => navigateTo('job-condition-check')} icon={ArrowRight} disabled={!allTaken}>{advancing ? 'Opening Condition Check...' : allTaken ? 'Condition Report →' : `Take All ${positions.length} Photos to Continue`}</Button>
-        {!allTaken && <button onClick={() => setShowSkipPhotosWarning(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: 'none', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', marginTop: '8px' }}>Skip photos this time</button>}
+        {!allTaken && <button onClick={() => setShowSkipPhotosWarning(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: 'none', color: theme.textMuted, fontSize: '15px', cursor: 'pointer', marginTop: '8px' }}>Skip photos this time</button>}
         
         {showSkipPhotosWarning && (
           <Modal title="Skip Photos?" onClose={() => setShowSkipPhotosWarning(false)}>
             <div style={{ display: 'flex', gap: '14px', padding: '16px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', marginBottom: '16px' }}>
               <AlertTriangle size={24} color={theme.danger} style={{ flexShrink: 0 }} />
               <div>
-                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '600' }}>No dispute protection</p>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>You will not be protected against disputes. Without before photos, you'll have <strong style={{ color: theme.danger }}>no evidence</strong> if the customer complains.</p>
+                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700' }}>No dispute protection</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>You will not be protected against disputes. Without before photos, you'll have <strong style={{ color: theme.danger }}>no evidence</strong> if the customer complains.</p>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '14px' }}>
               <Button variant="secondary" onClick={() => setShowSkipPhotosWarning(false)} fullWidth>Go Back</Button>
-              <button onClick={() => { setShowSkipPhotosWarning(false); navigateTo('job-condition-check'); }} style={{ flex: 1, padding: '14px', backgroundColor: theme.danger, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '600', cursor: 'pointer' }}>Skip Anyway</button>
+              <button onClick={() => { setShowSkipPhotosWarning(false); navigateTo('job-condition-check'); }} style={{ flex: 1, padding: '14px', backgroundColor: theme.danger, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', cursor: 'pointer' }}>Skip Anyway</button>
             </div>
           </Modal>
         )}
@@ -4905,29 +4909,29 @@ export default function TyreFitApp() {
               <div style={{ position: 'absolute', right: '-1px', top: '30%', bottom: '30%', width: '3px', backgroundColor: theme.primary, borderRadius: '2px' }} />
               <Camera size={48} color="rgba(255,255,255,0.4)" />
             </div>
-            <h2 style={{ margin: '0 0 8px 0', fontSize: '20px', fontWeight: '700', textAlign: 'center', color: '#fff' }}>Photograph {cameraOverlay}</h2>
+            <h2 style={{ margin: '0 0 8px 0', fontSize: '21px', fontWeight: '800', textAlign: 'center', color: '#fff' }}>Photograph {cameraOverlay}</h2>
             <div style={{ maxWidth: '300px', width: '100%' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '14px' }}>
                 <Check size={18} color="#2ecc71" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ color: '#ccc', fontSize: '14px', lineHeight: 1.5 }}>Get the <strong style={{ color: '#fff' }}>whole tyre and wheel</strong> in frame</span>
+                <span style={{ color: '#ccc', fontSize: '15px', lineHeight: 1.5 }}>Get the <strong style={{ color: '#fff' }}>whole tyre and wheel</strong> in frame</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '14px' }}>
                 <Check size={18} color="#2ecc71" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ color: '#ccc', fontSize: '14px', lineHeight: 1.5 }}>Make sure the <strong style={{ color: '#fff' }}>sidewall text is visible</strong> (size, brand, DOT)</span>
+                <span style={{ color: '#ccc', fontSize: '15px', lineHeight: 1.5 }}>Make sure the <strong style={{ color: '#fff' }}>sidewall text is visible</strong> (size, brand, DOT)</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '14px' }}>
                 <Check size={18} color="#2ecc71" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ color: '#ccc', fontSize: '14px', lineHeight: 1.5 }}>Make sure {"it’s"} <strong style={{ color: '#fff' }}>well lit</strong> — use phone torch if needed</span>
+                <span style={{ color: '#ccc', fontSize: '15px', lineHeight: 1.5 }}>Make sure {"it’s"} <strong style={{ color: '#fff' }}>well lit</strong> — use phone torch if needed</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '14px' }}>
                 <Check size={18} color="#2ecc71" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ color: '#ccc', fontSize: '14px', lineHeight: 1.5 }}>Include the <strong style={{ color: '#fff' }}>tread surface</strong> so wear is visible</span>
+                <span style={{ color: '#ccc', fontSize: '15px', lineHeight: 1.5 }}>Include the <strong style={{ color: '#fff' }}>tread surface</strong> so wear is visible</span>
               </div>
             </div>
-            <button onClick={() => confirmPhoto(cameraOverlay)} style={{ width: '100%', maxWidth: '300px', padding: '18px', borderRadius: '14px', border: 'none', backgroundColor: theme.primary, color: '#000', fontSize: '17px', fontWeight: '700', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
+            <button onClick={() => confirmPhoto(cameraOverlay)} style={{ width: '100%', maxWidth: '300px', padding: '18px', borderRadius: '14px', border: 'none', backgroundColor: theme.primary, color: '#000', fontSize: '18px', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
               <Camera size={22} color="#000" /> Take Photo
             </button>
-            <button onClick={() => setCameraOverlay(null)} style={{ marginTop: '14px', background: 'none', border: 'none', color: '#ccc', fontSize: '15px', cursor: 'pointer', padding: '15px' }}>Cancel</button>
+            <button onClick={() => setCameraOverlay(null)} style={{ marginTop: '14px', background: 'none', border: 'none', color: '#ccc', fontSize: '16px', cursor: 'pointer', padding: '15px' }}>Cancel</button>
             
             {/* BLUR WARNING */}
             {blurWarning && (
@@ -4935,11 +4939,11 @@ export default function TyreFitApp() {
                 <div style={{ maxWidth: '340px', width: '100%', backgroundColor: '#1a1a1a', borderRadius: '16px', padding: '24px', border: `2px solid ${theme.warning}` }}>
                   <div style={{ textAlign: 'center', marginBottom: '16px' }}>
                     <AlertTriangle size={40} color={theme.warning} style={{ marginBottom: '8px' }} />
-                    <h3 style={{ margin: '0 0 4px 0', color: '#fff', fontSize: '18px', fontWeight: '700' }}>Photo looks blurry</h3>
-                    <p style={{ margin: 0, color: '#aaa', fontSize: '15px', lineHeight: 1.5 }}>Blurry photos weaken your dispute evidence and the OCR may not read the sidewall. Retake for a sharper image.</p>
+                    <h3 style={{ margin: '0 0 4px 0', color: '#fff', fontSize: '19px', fontWeight: '800' }}>Photo looks blurry</h3>
+                    <p style={{ margin: 0, color: '#aaa', fontSize: '16px', lineHeight: 1.5 }}>Blurry photos weaken your dispute evidence and the OCR may not read the sidewall. Retake for a sharper image.</p>
                   </div>
-                  <button onClick={() => { setBlurWarning(null); }} style={{ width: '100%', padding: '14px', borderRadius: '15px', border: 'none', backgroundColor: theme.primary, color: '#000', fontSize: '15px', fontWeight: '700', cursor: 'pointer', marginBottom: '8px' }}>Retake Photo</button>
-                  <button onClick={() => forceAcceptBlur(blurWarning)} style={{ width: '100%', padding: '14px', borderRadius: '15px', border: '1px solid #444', backgroundColor: 'transparent', color: '#aaa', fontSize: '14px', cursor: 'pointer' }}>Use anyway</button>
+                  <button onClick={() => { setBlurWarning(null); }} style={{ width: '100%', padding: '14px', borderRadius: '15px', border: 'none', backgroundColor: theme.primary, color: '#000', fontSize: '16px', fontWeight: '800', cursor: 'pointer', marginBottom: '8px' }}>Retake Photo</button>
+                  <button onClick={() => forceAcceptBlur(blurWarning)} style={{ width: '100%', padding: '14px', borderRadius: '15px', border: '1px solid #444', backgroundColor: 'transparent', color: '#aaa', fontSize: '15px', cursor: 'pointer' }}>Use anyway</button>
                 </div>
               </div>
             )}
@@ -4952,8 +4956,8 @@ export default function TyreFitApp() {
           <ProgressSteps steps={['Arrive', 'Before', 'Condition', 'Payment']} currentStep={2} />
           <div style={{ paddingTop: '14px' }}>
             <Card style={{ marginBottom: '16px', backgroundColor: `${theme.primary}10`, borderColor: `${theme.primary}30` }}>
-              <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '14px' }}>Why photograph all 4 tyres?</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>AI reads size, brand and DOT from your photo — check {"it's"} right and report the condition. This creates the condition report, activates 30-day cover, and is your proof if {"there's"} a dispute.</p>
+              <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800', fontSize: '15px' }}>Why photograph all 4 tyres?</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>AI reads size, brand and DOT from your photo — check {"it's"} right and report the condition. This creates the condition report, activates 30-day cover, and is your proof if {"there's"} a dispute.</p>
             </Card>
 
             {allPositions.map(pos => {
@@ -4966,36 +4970,36 @@ export default function TyreFitApp() {
                   {!isScanned ? (
                     <button onClick={() => takePhoto(pos)} style={{ width: '100%', padding: '18px 16px', backgroundColor: theme.bgInput, border: `2px dashed ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', color: theme.text }}>
                       <div style={{ width: '44px', height: '44px', borderRadius: '50%', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Camera size={22} color={theme.textMuted} /></div>
-                      <div style={{ textAlign: 'left' }}><p style={{ margin: 0, fontWeight: '600', fontSize: '15px', color: theme.text }}>{pos}</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Tap to photograph</p></div>
+                      <div style={{ textAlign: 'left' }}><p style={{ margin: 0, fontWeight: '700', fontSize: '16px', color: theme.text }}>{pos}</p><p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Tap to photograph</p></div>
                     </button>
                   ) : (
                     <div style={{ backgroundColor: theme.bgCard, border: `2px solid ${color}`, borderRadius: '14px', overflow: 'hidden' }}>
                       <div onClick={() => toggleOpen(pos)} style={{ padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                          <div style={{ width: '30px', height: '30px', borderRadius: '50%', backgroundColor: color, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: isCov(t) ? '#000' : '#fff', fontWeight: '700', fontSize: '15px' }}>{isCov(t) ? 'Y' : 'N'}</span></div>
-                          <div><p style={{ margin: 0, fontWeight: '600', fontSize: '15px', color: theme.text }}>{pos}</p><p style={{ margin: '2px 0 0 0', fontSize: '14px', color, fontWeight: '600' }}>{getSum(t)} · {t.size}</p></div>
+                          <div style={{ width: '30px', height: '30px', borderRadius: '50%', backgroundColor: color, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: isCov(t) ? '#000' : '#fff', fontWeight: '800', fontSize: '16px' }}>{isCov(t) ? 'Y' : 'N'}</span></div>
+                          <div><p style={{ margin: 0, fontWeight: '700', fontSize: '16px', color: theme.text }}>{pos}</p><p style={{ margin: '2px 0 0 0', fontSize: '15px', color, fontWeight: '700' }}>{getSum(t)} · {t.size}</p></div>
                         </div>
                         <ChevronRight size={20} color={theme.textMuted} style={{ transform: isOpen ? 'rotate(90deg)' : 'none', transition: 'transform 0.2s' }} />
                       </div>
                       {isOpen && (
                         <div style={{ padding: '0 16px 16px', borderTop: `1px solid ${theme.border}` }}>
                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '14px', marginBottom: '8px' }}>
-                            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>AI Reading</p>
-                            <span style={{ fontSize: '14px', color: theme.info, fontWeight: '600' }}>Tap any field to correct</span>
+                            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800', letterSpacing: '0.5px' }}>AI Reading</p>
+                            <span style={{ fontSize: '15px', color: theme.info, fontWeight: '700' }}>Tap any field to correct</span>
                           </div>
                           <div style={{ padding: '10px 12px', backgroundColor: `${theme.info}08`, borderRadius: '8px', border: `1px solid ${theme.info}20`, marginBottom: '15px' }}>
-                            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>Read automatically from your photo. <strong style={{ color: theme.text }}>If anything is wrong, tap the field and type the correct value.</strong></p>
+                            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Read automatically from your photo. <strong style={{ color: theme.text }}>If anything is wrong, tap the field and type the correct value.</strong></p>
                           </div>
                           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
-                            <div><label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '4px', fontWeight: '600' }}>Size</label><input value={t.size} onChange={e => updateT(pos, 'size', e.target.value)} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '16px', fontWeight: '600', outline: 'none', boxSizing: 'border-box' }} /></div>
-                            <div><label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '4px', fontWeight: '600' }}>Brand</label><input value={t.brand} onChange={e => updateT(pos, 'brand', e.target.value)} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '16px', outline: 'none', boxSizing: 'border-box' }} /></div>
+                            <div><label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '4px', fontWeight: '700' }}>Size</label><input value={t.size} onChange={e => updateT(pos, 'size', e.target.value)} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '17px', fontWeight: '700', outline: 'none', boxSizing: 'border-box' }} /></div>
+                            <div><label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '4px', fontWeight: '700' }}>Brand</label><input value={t.brand} onChange={e => updateT(pos, 'brand', e.target.value)} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '17px', outline: 'none', boxSizing: 'border-box' }} /></div>
                           </div>
                           <div style={{ marginBottom: '16px' }}>
-                            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '4px', fontWeight: '600' }}>DOT Code (year of manufacture)</label>
-                            <input value={t.dot} onChange={e => updateT(pos, 'dot', e.target.value)} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '16px', outline: 'none', boxSizing: 'border-box' }} />
+                            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '4px', fontWeight: '700' }}>DOT Code (year of manufacture)</label>
+                            <input value={t.dot} onChange={e => updateT(pos, 'dot', e.target.value)} style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '17px', outline: 'none', boxSizing: 'border-box' }} />
                           </div>
 
-                          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Tread condition (visual check)</p>
+                          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800', letterSpacing: '0.5px' }}>Tread condition (visual check)</p>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '14px' }}>
                             {[
                               { id: 'good', label: 'Good tread', sub: 'Tread bars not visible — plenty of life left', col: theme.primary, bars: [1,1,1,1,1] },
@@ -5008,42 +5012,42 @@ export default function TyreFitApp() {
                               }} style={{ width: '100%', padding: '12px 14px', backgroundColor: t.treadStatus === opt.id ? `${opt.col}12` : theme.bgInput, border: `2px solid ${t.treadStatus === opt.id ? opt.col : theme.border}`, borderRadius: '14px', cursor: 'pointer', textAlign: 'left', color: theme.text }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '4px' }}>
                                   <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: t.treadStatus === opt.id ? opt.col : theme.border, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{t.treadStatus === opt.id && <Check size={14} color={opt.id === 'good' ? '#000' : '#fff'} />}</div>
-                                  <span style={{ fontWeight: t.treadStatus === opt.id ? '700' : '500', color: t.treadStatus === opt.id ? opt.col : theme.text, fontSize: '14px' }}>{opt.label}</span>
+                                  <span style={{ fontWeight: t.treadStatus === opt.id ? '700' : '500', color: t.treadStatus === opt.id ? opt.col : theme.text, fontSize: '15px' }}>{opt.label}</span>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: '32px' }}>
                                   <div style={{ display: 'flex', gap: '2px', alignItems: 'flex-end' }}>{opt.bars.map((h, i) => (<div key={i} style={{ width: '4px', height: `${Math.max(4, h * 16)}px`, backgroundColor: opt.col, borderRadius: '1px', opacity: h > 0 ? (t.treadStatus === opt.id ? 1 : 0.4) : 0.15 }} />))}</div>
-                                  <span style={{ fontSize: '14px', color: theme.textMuted, lineHeight: 1.4 }}>{opt.sub}</span>
+                                  <span style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.4 }}>{opt.sub}</span>
                                 </div>
                               </button>
                             ))}
                           </div>
 
-                          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Legal status</p>
+                          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Legal status</p>
                           <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
                             <button onClick={() => updateT(pos, 'legalStatus', 'legal')} style={{ flex: 1, padding: '14px', backgroundColor: t.legalStatus === 'legal' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${t.legalStatus === 'legal' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: theme.text }}>
                               <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: t.legalStatus === 'legal' ? theme.primary : theme.border, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{t.legalStatus === 'legal' && <Check size={14} color="#000" />}</div>
-                              <span style={{ fontWeight: t.legalStatus === 'legal' ? '700' : '400', color: t.legalStatus === 'legal' ? theme.primary : theme.text, fontSize: '15px' }}>Legal</span>
+                              <span style={{ fontWeight: t.legalStatus === 'legal' ? '700' : '400', color: t.legalStatus === 'legal' ? theme.primary : theme.text, fontSize: '16px' }}>Legal</span>
                             </button>
                             <button onClick={() => updateT(pos, 'legalStatus', 'illegal')} style={{ flex: 1, padding: '14px', backgroundColor: t.legalStatus === 'illegal' ? `${theme.danger}15` : theme.bgInput, border: `2px solid ${t.legalStatus === 'illegal' ? theme.danger : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: theme.text }}>
                               <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: t.legalStatus === 'illegal' ? theme.danger : theme.border, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{t.legalStatus === 'illegal' && <Check size={14} color="#fff" />}</div>
-                              <span style={{ fontWeight: t.legalStatus === 'illegal' ? '700' : '400', color: t.legalStatus === 'illegal' ? theme.danger : theme.text, fontSize: '15px' }}>Illegal</span>
+                              <span style={{ fontWeight: t.legalStatus === 'illegal' ? '700' : '400', color: t.legalStatus === 'illegal' ? theme.danger : theme.text, fontSize: '16px' }}>Illegal</span>
                             </button>
                           </div>
 
-                          <p style={{ margin: '0 0 6px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Any damage? (select all that apply)</p>
-                          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px' }}>Minor = still covered · Serious = excluded from cover</p>
-                          <p style={{ margin: '0 0 6px 0', color: theme.warning, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Minor (still covered)</p>
+                          <p style={{ margin: '0 0 6px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '800' }}>Any damage? (select all that apply)</p>
+                          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px' }}>Minor = still covered · Serious = excluded from cover</p>
+                          <p style={{ margin: '0 0 6px 0', color: theme.warning, fontSize: '16px', textTransform: 'uppercase', fontWeight: '800' }}>Minor (still covered)</p>
                           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '15px' }}>
-                            {minorDamage.map(d => { const sel = t.damages.includes(d); return (<button key={d} onClick={() => toggleDmg(pos, d)} style={{ padding: '8px 12px', backgroundColor: sel ? `${theme.warning}15` : theme.bgInput, border: `1.5px solid ${sel ? theme.warning : theme.border}`, borderRadius: '20px', cursor: 'pointer', fontSize: '14px', fontWeight: sel ? '700' : '400', color: sel ? theme.warning : theme.text }}>{d}</button>); })}
+                            {minorDamage.map(d => { const sel = t.damages.includes(d); return (<button key={d} onClick={() => toggleDmg(pos, d)} style={{ padding: '8px 12px', backgroundColor: sel ? `${theme.warning}15` : theme.bgInput, border: `1.5px solid ${sel ? theme.warning : theme.border}`, borderRadius: '20px', cursor: 'pointer', fontSize: '15px', fontWeight: sel ? '700' : '400', color: sel ? theme.warning : theme.text }}>{d}</button>); })}
                           </div>
-                          <p style={{ margin: '0 0 6px 0', color: theme.danger, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Serious (excluded from cover)</p>
+                          <p style={{ margin: '0 0 6px 0', color: theme.danger, fontSize: '16px', textTransform: 'uppercase', fontWeight: '800' }}>Serious (excluded from cover)</p>
                           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
-                            {seriousDamage.map(d => { const sel = t.damages.includes(d); return (<button key={d} onClick={() => toggleDmg(pos, d)} style={{ padding: '8px 12px', backgroundColor: sel ? `${theme.danger}15` : theme.bgInput, border: `1.5px solid ${sel ? theme.danger : theme.border}`, borderRadius: '20px', cursor: 'pointer', fontSize: '14px', fontWeight: sel ? '700' : '400', color: sel ? theme.danger : theme.text }}>{d}</button>); })}
+                            {seriousDamage.map(d => { const sel = t.damages.includes(d); return (<button key={d} onClick={() => toggleDmg(pos, d)} style={{ padding: '8px 12px', backgroundColor: sel ? `${theme.danger}15` : theme.bgInput, border: `1.5px solid ${sel ? theme.danger : theme.border}`, borderRadius: '20px', cursor: 'pointer', fontSize: '15px', fontWeight: sel ? '700' : '400', color: sel ? theme.danger : theme.text }}>{d}</button>); })}
                           </div>
 
-                          <div style={{ marginBottom: '14px' }}><label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '4px', textTransform: 'uppercase', fontWeight: '700' }}>Notes (optional)</label><input value={t.notes} onChange={e => updateT(pos, 'notes', e.target.value)} placeholder="e.g. nail found, uneven wear" style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} /></div>
-                          <div style={{ padding: '10px 12px', borderRadius: '8px', backgroundColor: isCov(t) ? `${theme.primary}10` : `${theme.danger}10`, border: `1px solid ${isCov(t) ? `${theme.primary}30` : `${theme.danger}30`}` }}><span style={{ fontSize: '14px', fontWeight: '700', color: isCov(t) ? theme.primary : theme.danger }}>{getCovLbl(t)}</span></div>
-                          <button onClick={() => takePhoto(pos)} style={{ width: '100%', padding: '15px', marginTop: '15px', backgroundColor: 'transparent', border: `1px solid ${theme.border}`, borderRadius: '15px', cursor: 'pointer', color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>Retake photo</button>
+                          <div style={{ marginBottom: '14px' }}><label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '4px', textTransform: 'uppercase', fontWeight: '800' }}>Notes (optional)</label><input value={t.notes} onChange={e => updateT(pos, 'notes', e.target.value)} placeholder="e.g. nail found, uneven wear" style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.text, fontSize: '15px', outline: 'none', boxSizing: 'border-box' }} /></div>
+                          <div style={{ padding: '10px 12px', borderRadius: '8px', backgroundColor: isCov(t) ? `${theme.primary}10` : `${theme.danger}10`, border: `1px solid ${isCov(t) ? `${theme.primary}30` : `${theme.danger}30`}` }}><span style={{ fontSize: '15px', fontWeight: '800', color: isCov(t) ? theme.primary : theme.danger }}>{getCovLbl(t)}</span></div>
+                          <button onClick={() => takePhoto(pos)} style={{ width: '100%', padding: '15px', marginTop: '15px', backgroundColor: 'transparent', border: `1px solid ${theme.border}`, borderRadius: '15px', cursor: 'pointer', color: theme.textMuted, fontSize: '16px', textAlign: 'center' }}>Retake photo</button>
                         </div>
                       )}
                     </div>
@@ -5052,9 +5056,9 @@ export default function TyreFitApp() {
               );
             })}
 
-            {allScanned && hasFailedCondition && (<div style={{ padding: '14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', border: `1px solid ${theme.danger}30`, marginBottom: '15px' }}><div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><AlertTriangle size={16} color={theme.danger} /><span style={{ color: theme.danger, fontWeight: '700', fontSize: '15px' }}>Condition failed — no cover will activate</span></div><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>If any tyre is illegal or has serious damage, the customer gets no free 30-day cover.</p></div>)}
-            {allScanned && !hasFailedCondition && (<div style={{ padding: '14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', border: `1px solid ${theme.primary}30`, marginBottom: '15px' }}><div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><ShieldCheck size={16} color={theme.primary} /><span style={{ color: theme.primary, fontWeight: '600', fontSize: '15px' }}>All 4 pass — 30-day cover will activate</span></div></div>)}
-            {allScanned && (<button onClick={() => setShowReport(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `1px solid ${theme.border}`, borderRadius: '15px', cursor: 'pointer', color: theme.text, fontSize: '15px', textAlign: 'center', fontWeight: '500', marginBottom: '15px' }}><ClipboardList size={14} color={theme.textMuted} style={{ marginRight: '6px', verticalAlign: 'middle' }} />Preview Condition Report</button>)}
+            {allScanned && hasFailedCondition && (<div style={{ padding: '14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', border: `1px solid ${theme.danger}30`, marginBottom: '15px' }}><div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><AlertTriangle size={16} color={theme.danger} /><span style={{ color: theme.danger, fontWeight: '800', fontSize: '16px' }}>Condition failed — no cover will activate</span></div><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>If any tyre is illegal or has serious damage, the customer gets no free 30-day cover.</p></div>)}
+            {allScanned && !hasFailedCondition && (<div style={{ padding: '14px', backgroundColor: `${theme.primary}10`, borderRadius: '15px', border: `1px solid ${theme.primary}30`, marginBottom: '15px' }}><div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><ShieldCheck size={16} color={theme.primary} /><span style={{ color: theme.primary, fontWeight: '700', fontSize: '16px' }}>All 4 pass — 30-day cover will activate</span></div></div>)}
+            {allScanned && (<button onClick={() => setShowReport(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `1px solid ${theme.border}`, borderRadius: '15px', cursor: 'pointer', color: theme.text, fontSize: '16px', textAlign: 'center', fontWeight: '600', marginBottom: '15px' }}><ClipboardList size={14} color={theme.textMuted} style={{ marginRight: '6px', verticalAlign: 'middle' }} />Preview Condition Report</button>)}
           </div>
         </div>
 
@@ -5064,7 +5068,7 @@ export default function TyreFitApp() {
             {autoAdvanceReady ? 'Opening Payment...' : !allScanned ? `Photograph ${4 - scannedCount} More Tyre${4 - scannedCount !== 1 ? 's' : ''}` : hasFailedCondition ? 'Continue — No Cover' : 'All Legal — Collect Payment'}
           </Button>
           {!allScanned && (
-            <button onClick={() => setShowSkipConditionWarning(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: 'none', color: theme.textMuted, fontSize: '14px', cursor: 'pointer', marginTop: '8px' }}>
+            <button onClick={() => setShowSkipConditionWarning(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: 'none', color: theme.textMuted, fontSize: '15px', cursor: 'pointer', marginTop: '8px' }}>
               Skip condition check
             </button>
           )}
@@ -5075,15 +5079,15 @@ export default function TyreFitApp() {
             <div style={{ display: 'flex', gap: '14px', padding: '16px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', marginBottom: '16px' }}>
               <AlertTriangle size={24} color={theme.danger} style={{ flexShrink: 0 }} />
               <div>
-                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '600' }}>You lose cover and protection</p>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>
+                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700' }}>You lose cover and protection</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
                   Customer will NOT get their free 30-day cover. You also lose key dispute protection.
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '14px' }}>
               <Button variant="secondary" onClick={() => setShowSkipConditionWarning(false)} fullWidth>Go Back</Button>
-              <button onClick={() => { setShowSkipConditionWarning(false); setConditionPassed(false); navigateTo(isCoverJob ? 'cover-job-complete' : 'job-payment'); }} style={{ flex: 1, padding: '14px', backgroundColor: theme.danger, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '600', cursor: 'pointer' }}>Skip Anyway</button>
+              <button onClick={() => { setShowSkipConditionWarning(false); setConditionPassed(false); navigateTo(isCoverJob ? 'cover-job-complete' : 'job-payment'); }} style={{ flex: 1, padding: '14px', backgroundColor: theme.danger, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', cursor: 'pointer' }}>Skip Anyway</button>
             </div>
           </Modal>
         )}
@@ -5093,45 +5097,45 @@ export default function TyreFitApp() {
           <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.95)', zIndex: 2000, overflow: 'auto' }}>
             <div style={{ maxWidth: '420px', margin: '0 auto', padding: '24px', minHeight: '100vh', backgroundColor: theme.bg }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                <h2 style={{ margin: 0, color: theme.text, fontSize: '20px', fontWeight: '700' }}>Tyre Condition Report</h2>
+                <h2 style={{ margin: 0, color: theme.text, fontSize: '21px', fontWeight: '800' }}>Tyre Condition Report</h2>
                 <button onClick={() => setShowReport(false)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><X size={24} color={theme.textMuted} /></button>
               </div>
               <Card style={{ marginBottom: '14px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '700', letterSpacing: '1px' }}>{activeJob?.plate || 'CD90 VWX'}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '500' }}>{activeJob?.customer || 'Emma Davis'}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Inspected by</span><span style={{ color: theme.text, fontWeight: '500' }}>{signUpData.fullName || 'Dan Smith'}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Business</span><span style={{ color: theme.text, fontWeight: '500' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Date</span><span style={{ color: theme.text, fontWeight: '500' }}>{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>GPS</span><span style={{ color: theme.text, fontWeight: '500' }}>51.5074, -0.1278</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '800', letterSpacing: '1px' }}>{activeJob?.plate || 'CD90 VWX'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '600' }}>{activeJob?.customer || 'Emma Davis'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Inspected by</span><span style={{ color: theme.text, fontWeight: '600' }}>{signUpData.fullName || 'Dan Smith'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Business</span><span style={{ color: theme.text, fontWeight: '600' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Date</span><span style={{ color: theme.text, fontWeight: '600' }}>{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>GPS</span><span style={{ color: theme.text, fontWeight: '600' }}>51.5074, -0.1278</span></div>
               </Card>
               <div style={{ padding: '14px', borderRadius: '14px', textAlign: 'center', marginBottom: '14px', backgroundColor: hasFailedCondition ? `${theme.danger}10` : `${theme.primary}10`, border: `2px solid ${hasFailedCondition ? theme.danger : theme.primary}` }}>
-                <p style={{ margin: '0 0 4px 0', fontWeight: '700', fontSize: '16px', color: hasFailedCondition ? theme.danger : theme.primary }}>{hasFailedCondition ? 'NO COVER' : 'FULL COVER — ALL 4 TYRES'}</p>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>{hasFailedCondition ? 'Condition failed. Free 30-day cover will not activate.' : '30-day cover activated on all 4 tyres'}</p>
+                <p style={{ margin: '0 0 4px 0', fontWeight: '800', fontSize: '17px', color: hasFailedCondition ? theme.danger : theme.primary }}>{hasFailedCondition ? 'NO COVER' : 'FULL COVER — ALL 4 TYRES'}</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>{hasFailedCondition ? 'Condition failed. Free 30-day cover will not activate.' : '30-day cover activated on all 4 tyres'}</p>
               </div>
               <div style={{ padding: '10px 12px', backgroundColor: `${theme.primary}08`, borderRadius: '15px', border: `1px solid ${theme.primary}20`, marginBottom: '16px' }}>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6, textAlign: 'center' }}>This report activates the customer's <strong style={{ color: theme.primary }}>30-day cover membership</strong>. Sent with receipt and stored as timestamped evidence.</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6, textAlign: 'center' }}>This report activates the customer's <strong style={{ color: theme.primary }}>30-day cover membership</strong>. Sent with receipt and stored as timestamped evidence.</p>
               </div>
               {allPositions.map(pos => { const t = tyres[pos]; if (!t) return null; const covered = isCov(t); const color = getCol(t); return (
                 <Card key={pos} style={{ marginBottom: '15px', borderLeft: `4px solid ${color}` }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}><span style={{ color: theme.text, fontWeight: '700', fontSize: '15px' }}>{pos}</span><span style={{ padding: '4px 12px', borderRadius: '20px', fontSize: '14px', fontWeight: '700', backgroundColor: covered ? `${theme.primary}15` : `${theme.danger}15`, color: covered ? theme.primary : theme.danger }}>{getCovLbl(t)}</span></div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', fontSize: '15px' }}>
-                    <div><span style={{ color: theme.textMuted }}>Size: </span><span style={{ color: theme.text, fontWeight: '500' }}>{t.size}</span></div>
-                    <div><span style={{ color: theme.textMuted }}>Brand: </span><span style={{ color: theme.text, fontWeight: '500' }}>{t.brand}</span></div>
-                    <div><span style={{ color: theme.textMuted }}>DOT: </span><span style={{ color: theme.text, fontWeight: '500' }}>{t.dot}</span></div>
-                    <div><span style={{ color: theme.textMuted }}>Tread: </span><span style={{ color: theme.text, fontWeight: '500' }}>{treadLabels[t.treadStatus]}</span></div>
-                    <div><span style={{ color: theme.textMuted }}>Legal: </span><span style={{ fontWeight: '600', color: t.legalStatus === 'legal' ? theme.primary : theme.danger }}>{t.legalStatus === 'legal' ? 'Yes' : 'No'}</span></div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}><span style={{ color: theme.text, fontWeight: '800', fontSize: '16px' }}>{pos}</span><span style={{ padding: '4px 12px', borderRadius: '20px', fontSize: '15px', fontWeight: '800', backgroundColor: covered ? `${theme.primary}15` : `${theme.danger}15`, color: covered ? theme.primary : theme.danger }}>{getCovLbl(t)}</span></div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', fontSize: '16px' }}>
+                    <div><span style={{ color: theme.textMuted }}>Size: </span><span style={{ color: theme.text, fontWeight: '600' }}>{t.size}</span></div>
+                    <div><span style={{ color: theme.textMuted }}>Brand: </span><span style={{ color: theme.text, fontWeight: '600' }}>{t.brand}</span></div>
+                    <div><span style={{ color: theme.textMuted }}>DOT: </span><span style={{ color: theme.text, fontWeight: '600' }}>{t.dot}</span></div>
+                    <div><span style={{ color: theme.textMuted }}>Tread: </span><span style={{ color: theme.text, fontWeight: '600' }}>{treadLabels[t.treadStatus]}</span></div>
+                    <div><span style={{ color: theme.textMuted }}>Legal: </span><span style={{ fontWeight: '700', color: t.legalStatus === 'legal' ? theme.primary : theme.danger }}>{t.legalStatus === 'legal' ? 'Yes' : 'No'}</span></div>
                   </div>
-                  {t.damages.length > 0 && (<div style={{ marginTop: '8px' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Damage: </span>{t.damages.map(d => (<span key={d} style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '15px', fontSize: '14px', fontWeight: '600', margin: '2px 4px 2px 0', backgroundColor: seriousDamage.includes(d) ? `${theme.danger}15` : `${theme.warning}15`, color: seriousDamage.includes(d) ? theme.danger : theme.warning }}>{d}</span>))}</div>)}
-                  {t.notes && <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '14px', fontStyle: 'italic' }}>Notes: {t.notes}</p>}
+                  {t.damages.length > 0 && (<div style={{ marginTop: '8px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Damage: </span>{t.damages.map(d => (<span key={d} style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '15px', fontSize: '15px', fontWeight: '700', margin: '2px 4px 2px 0', backgroundColor: seriousDamage.includes(d) ? `${theme.danger}15` : `${theme.warning}15`, color: seriousDamage.includes(d) ? theme.danger : theme.warning }}>{d}</span>))}</div>)}
+                  {t.notes && <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '15px', fontStyle: 'italic' }}>Notes: {t.notes}</p>}
                 </Card>
               ); })}
               <Card style={{ marginBottom: '16px' }}>
-                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '14px' }}>Cover Summary</p>
+                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '15px' }}>Cover Summary</p>
                 {allPositions.map(pos => { const t = tyres[pos]; const covered = t && isCov(t); return (
-                  <div key={pos} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: `1px solid ${theme.border}` }}><span style={{ color: theme.text, fontSize: '15px' }}>{pos}</span><span style={{ fontSize: '14px', fontWeight: '600', color: covered ? theme.primary : theme.danger }}>{covered ? 'Covered 30 days' : 'Excluded'}</span></div>
+                  <div key={pos} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: `1px solid ${theme.border}` }}><span style={{ color: theme.text, fontSize: '16px' }}>{pos}</span><span style={{ fontSize: '15px', fontWeight: '700', color: covered ? theme.primary : theme.danger }}>{covered ? 'Covered 30 days' : 'Excluded'}</span></div>
                 ); })}
-                <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Claim line: <strong style={{ color: theme.text }}>0330 633 1247</strong></p>
-                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>From {signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</p>
+                <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Claim line: <strong style={{ color: theme.text }}>0330 633 1247</strong></p>
+                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>From {signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</p>
               </Card>
               <Button onClick={() => setShowReport(false)} fullWidth>Close Report</Button>
             </div>
@@ -5170,8 +5174,8 @@ export default function TyreFitApp() {
         <div style={{ flex: 1, paddingTop: '24px' }}>
           {isOffline && (
             <Card style={{ borderColor: theme.warning, marginBottom: '14px' }}>
-              <p style={{ margin: '0 0 4px 0', color: theme.warning, fontWeight: '700', fontSize: '14px' }}>Offline mode</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>Card/QR payments are paused offline. Cash and own terminal logging still work and sync later. Any failed online payment attempts get retry prompts when signal returns.</p>
+              <p style={{ margin: '0 0 4px 0', color: theme.warning, fontWeight: '800', fontSize: '15px' }}>Offline mode</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Card/QR payments are paused offline. Cash and own terminal logging still work and sync later. Any failed online payment attempts get retry prompts when signal returns.</p>
             </Card>
           )}
           
@@ -5181,62 +5185,62 @@ export default function TyreFitApp() {
               <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Job Total</span><span style={{ color: theme.text }}>£{jobTotal.toFixed(2)}</span></div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Deposit Paid</span><span style={{ color: theme.primary }}>-£{depositPaid.toFixed(2)}</span></div>
               <div style={{ borderTop: `2px solid ${theme.border}`, paddingTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: theme.text, fontWeight: '700', fontSize: '18px' }}>Customer Owes</span>
-                <span style={{ color: theme.primary, fontWeight: '700', fontSize: '28px' }}>£{amountDue.toFixed(2)}</span>
+                <span style={{ color: theme.text, fontWeight: '800', fontSize: '19px' }}>Customer Owes</span>
+                <span style={{ color: theme.primary, fontWeight: '800', fontSize: '29px' }}>£{amountDue.toFixed(2)}</span>
               </div>
             </div>
           </Card>
           
           {/* OPTION 1: PAY VIA tyre-fit */}
-          <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '24px 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Pay via TYRE-FIT</h3>
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '24px 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Pay via TYRE-FIT</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '24px' }}>
             <button disabled={isOffline} onClick={() => setShowQRModal(true)} style={{ padding: '18px 20px', backgroundColor: isOffline ? theme.bgInput : theme.primary, border: 'none', borderRadius: '14px', cursor: isOffline ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '14px', opacity: isOffline ? 0.6 : 1 }}>
               <QrCode size={28} color="#000" />
               <div style={{ textAlign: 'left', flex: 1 }}>
-                <span style={{ color: '#000', fontWeight: '700', fontSize: '16px', display: 'block' }}>Show QR Code</span>
-                <span style={{ color: '#000', opacity: 0.7, fontSize: '15px' }}>Customer scans to pay • goes to wallet</span>
+                <span style={{ color: '#000', fontWeight: '800', fontSize: '17px', display: 'block' }}>Show QR Code</span>
+                <span style={{ color: '#000', opacity: 0.7, fontSize: '16px' }}>Customer scans to pay • goes to wallet</span>
               </div>
             </button>
             
             <button disabled={isOffline} onClick={() => handlePaymentComplete('tap')} style={{ padding: '18px 20px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: isOffline ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '14px', opacity: isOffline ? 0.6 : 1 }}>
               <Smartphone size={28} color={theme.text} />
               <div style={{ textAlign: 'left', flex: 1 }}>
-                <span style={{ color: theme.text, fontWeight: '600', fontSize: '16px', display: 'block' }}>Tap to Pay</span>
-                <span style={{ color: theme.textMuted, fontSize: '15px' }}>Contactless on your iPhone • goes to wallet</span>
+                <span style={{ color: theme.text, fontWeight: '700', fontSize: '17px', display: 'block' }}>Tap to Pay</span>
+                <span style={{ color: theme.textMuted, fontSize: '16px' }}>Contactless on your iPhone • goes to wallet</span>
               </div>
             </button>
           </div>
           
           {/* OPTION 2: ALREADY PAID */}
-          <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Already paid outside app</h3>
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '0 0 12px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Already paid outside app</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '16px' }}>
             <button onClick={() => { setPaymentMethod('cash'); setShowConfirmCash(true); }} style={{ padding: '18px 20px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px' }}>
               <PoundSterling size={28} color={theme.text} />
               <div style={{ textAlign: 'left', flex: 1 }}>
-                <span style={{ color: theme.text, fontWeight: '600', fontSize: '16px', display: 'block' }}>Paid Cash</span>
-                <span style={{ color: theme.textMuted, fontSize: '15px' }}>Confirm you've received cash</span>
+                <span style={{ color: theme.text, fontWeight: '700', fontSize: '17px', display: 'block' }}>Paid Cash</span>
+                <span style={{ color: theme.textMuted, fontSize: '16px' }}>Confirm you've received cash</span>
               </div>
             </button>
             
             <button onClick={() => { setPaymentMethod('own_terminal'); setShowConfirmCash(true); }} style={{ padding: '18px 20px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px' }}>
               <CreditCard size={28} color={theme.text} />
               <div style={{ textAlign: 'left', flex: 1 }}>
-                <span style={{ color: theme.text, fontWeight: '600', fontSize: '16px', display: 'block' }}>Own Card Machine</span>
-                <span style={{ color: theme.textMuted, fontSize: '15px' }}>Snap your receipt — we read the amount automatically</span>
+                <span style={{ color: theme.text, fontWeight: '700', fontSize: '17px', display: 'block' }}>Own Card Machine</span>
+                <span style={{ color: theme.textMuted, fontSize: '16px' }}>Snap your receipt — we read the amount automatically</span>
               </div>
             </button>
             
             <button onClick={() => { setInvoiceFormData({ customerName: activeJob?.customer || 'Emma Davis', mobile: '07700 900123', description: `${activeJob?.tyreQty || 2}x ${activeJob?.tyreSize || '205/55R16'} fitting — ${activeJob?.plate || 'CD90 VWX'}`, amount: String(amountDue.toFixed(2)) }); navigateTo('invoice-create'); }} style={{ padding: '18px 20px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px' }}>
               <ClipboardList size={28} color={theme.text} />
               <div style={{ textAlign: 'left', flex: 1 }}>
-                <span style={{ color: theme.text, fontWeight: '600', fontSize: '16px', display: 'block' }}>Send Invoice</span>
-                <span style={{ color: theme.textMuted, fontSize: '15px' }}>Customer pays later</span>
+                <span style={{ color: theme.text, fontWeight: '700', fontSize: '17px', display: 'block' }}>Send Invoice</span>
+                <span style={{ color: theme.textMuted, fontSize: '16px' }}>Customer pays later</span>
               </div>
             </button>
           </div>
           
           <div style={{ padding: '12px 14px', backgroundColor: `${theme.info}08`, borderRadius: '15px', border: `1px solid ${theme.info}20` }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>
               <strong style={{ color: theme.text }}>TYRE-FIT payments:</strong> 1.5% + 20p fee, money goes to your wallet. <strong style={{ color: theme.text }}>Cash / own terminal:</strong> No fee, payment logged only. Either way, customer gets their receipt + cover text once you confirm.
             </p>
           </div>
@@ -5246,8 +5250,8 @@ export default function TyreFitApp() {
         {showQRModal && (
           <div style={{ position: 'fixed', inset: 0, backgroundColor: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', zIndex: 2000 }}>
             <button onClick={() => setShowQRModal(false)} style={{ position: 'absolute', top: '24px', right: '24px', background: 'none', border: 'none', cursor: 'pointer' }}><X size={32} color="#000" /></button>
-            <h2 style={{ fontSize: '24px', fontWeight: '700', color: '#000', margin: '0 0 8px 0' }}>Customer Scans to Pay</h2>
-            <p style={{ color: '#666', margin: '0 0 32px 0', fontSize: '16px' }}>Point this at their phone camera</p>
+            <h2 style={{ fontSize: '25px', fontWeight: '800', color: '#000', margin: '0 0 8px 0' }}>Customer Scans to Pay</h2>
+            <p style={{ color: '#666', margin: '0 0 32px 0', fontSize: '17px' }}>Point this at their phone camera</p>
             <div style={{ width: '280px', height: '280px', backgroundColor: '#fff', border: '4px solid #000', borderRadius: '24px', padding: '20px', marginBottom: '24px' }}>
               <div style={{ width: '100%', height: '100%', display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gridTemplateRows: 'repeat(7, 1fr)', gap: '4px' }}>
                 {[...Array(49)].map((_, i) => {
@@ -5258,11 +5262,11 @@ export default function TyreFitApp() {
               </div>
             </div>
             <div style={{ backgroundColor: '#f0f0f0', padding: '16px 32px', borderRadius: '14px', marginBottom: '32px' }}>
-              <p style={{ margin: 0, color: '#666', fontSize: '14px', textAlign: 'center' }}>Amount</p>
-              <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '36px', fontWeight: '700', textAlign: 'center' }}>£{amountDue.toFixed(2)}</p>
+              <p style={{ margin: 0, color: '#666', fontSize: '15px', textAlign: 'center' }}>Amount</p>
+              <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '37px', fontWeight: '800', textAlign: 'center' }}>£{amountDue.toFixed(2)}</p>
             </div>
             <Button onClick={() => handlePaymentComplete('qr')} style={{ maxWidth: '300px' }}>Customer Has Paid</Button>
-            <button onClick={() => setShowQRModal(false)} style={{ marginTop: '16px', background: 'none', border: 'none', color: '#666', fontSize: '16px', cursor: 'pointer' }}>Cancel</button>
+            <button onClick={() => setShowQRModal(false)} style={{ marginTop: '16px', background: 'none', border: 'none', color: '#666', fontSize: '17px', cursor: 'pointer' }}>Cancel</button>
           </div>
         )}
         
@@ -5274,12 +5278,12 @@ export default function TyreFitApp() {
                 <div style={{ width: '64px', height: '64px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
                   {paymentMethod === 'cash' ? <PoundSterling size={32} color={theme.primary} /> : <CreditCard size={32} color={theme.primary} />}
                 </div>
-                <h2 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '20px' }}>
+                <h2 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '21px' }}>
                   {paymentMethod === 'cash' ? 'Confirm Cash Received' : 'Snap Card Machine Receipt'}
                 </h2>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
                   {paymentMethod === 'cash' 
-                    ? <>{"You've received"} <strong style={{ color: theme.primary, fontSize: '18px' }}>{'\u00A3'}{amountDue.toFixed(2)}</strong> in cash?</>
+                    ? <>{"You've received"} <strong style={{ color: theme.primary, fontSize: '19px' }}>{'\u00A3'}{amountDue.toFixed(2)}</strong> in cash?</>
                     : 'Take a photo of your card machine receipt and we will read the amount, date, and card details automatically.'
                   }
                 </p>
@@ -5288,8 +5292,8 @@ export default function TyreFitApp() {
               {paymentMethod === 'own_terminal' && (
                 <button onClick={() => showToast('Receipt scanned — amount confirmed')} style={{ width: '100%', padding: '20px', backgroundColor: theme.bgInput, border: `2px dashed ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
                   <Camera size={32} color={theme.textMuted} />
-                  <span style={{ color: theme.text, fontWeight: '600', fontSize: '15px' }}>Snap Receipt</span>
-                  <span style={{ color: theme.textMuted, fontSize: '14px' }}>OCR reads amount, date, last 4 digits</span>
+                  <span style={{ color: theme.text, fontWeight: '700', fontSize: '16px' }}>Snap Receipt</span>
+                  <span style={{ color: theme.textMuted, fontSize: '15px' }}>OCR reads amount, date, last 4 digits</span>
                 </button>
               )}
 
@@ -5297,14 +5301,14 @@ export default function TyreFitApp() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '14px', backgroundColor: `${theme.primary}08`, borderRadius: '15px', marginBottom: '16px' }}>
                   <CheckCircle size={16} color={theme.primary} />
                   <div>
-                    <p style={{ margin: 0, color: theme.text, fontSize: '14px', fontWeight: '600' }}>{'\u00A3'}{amountDue.toFixed(2)} — Visa ****4829</p>
-                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Read from receipt — {new Date().toLocaleDateString('en-GB')}</p>
+                    <p style={{ margin: 0, color: theme.text, fontSize: '15px', fontWeight: '700' }}>{'\u00A3'}{amountDue.toFixed(2)} — Visa ****4829</p>
+                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Read from receipt — {new Date().toLocaleDateString('en-GB')}</p>
                   </div>
                 </div>
               )}
               
               <div style={{ padding: '14px', backgroundColor: `${theme.primary}08`, borderRadius: '15px', marginBottom: '20px' }}>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6, textAlign: 'center' }}>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6, textAlign: 'center' }}>
                   This will close the job and send the customer their <strong style={{ color: theme.text }}>receipt</strong>, <strong style={{ color: theme.text }}>{conditionPassed ? '30-day cover' : 'condition report (no cover)'}</strong>, and schedule a <strong style={{ color: theme.text }}>review request</strong>.
                 </p>
               </div>
@@ -5312,7 +5316,7 @@ export default function TyreFitApp() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                 <Button onClick={() => handlePaymentComplete(paymentMethod)} icon={CheckCircle}>Confirm Payment</Button>
                 {paymentMethod === 'own_terminal' && (
-                  <button onClick={() => handlePaymentComplete(paymentMethod)} style={{ padding: '14px', background: 'none', border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.textMuted, fontSize: '14px', cursor: 'pointer' }}>Skip receipt — enter amount manually</button>
+                  <button onClick={() => handlePaymentComplete(paymentMethod)} style={{ padding: '14px', background: 'none', border: `1px solid ${theme.border}`, borderRadius: '15px', color: theme.textMuted, fontSize: '15px', cursor: 'pointer' }}>Skip receipt — enter amount manually</button>
                 )}
                 <Button variant="secondary" onClick={() => setShowConfirmCash(false)}>Go Back</Button>
               </div>
@@ -5340,18 +5344,18 @@ export default function TyreFitApp() {
       </div>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '120px', height: '120px', backgroundColor: theme.primary, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}><CheckCircle size={60} color="#000" /></div>
-      <h1 style={{ fontSize: '28px', fontWeight: 'bold', color: theme.text, margin: '0 0 8px 0' }}>Job Done!</h1>
-      <p style={{ color: theme.textMuted, margin: '0 0 32px 0', fontSize: '16px', textAlign: 'center' }}>{activeJob?.customer || 'Emma Davis'} — {activeJob?.plate || 'CD90 VWX'}</p>
+      <h1 style={{ fontSize: '29px', fontWeight: '800', color: theme.text, margin: '0 0 8px 0' }}>Job Done!</h1>
+      <p style={{ color: theme.textMuted, margin: '0 0 32px 0', fontSize: '17px', textAlign: 'center' }}>{activeJob?.customer || 'Emma Davis'} — {activeJob?.plate || 'CD90 VWX'}</p>
       
       {/* PAYMENT SUMMARY — different for cash vs Stripe */}
       <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '16px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Customer Paid</span><span style={{ color: theme.text, fontWeight: '500', fontSize: '15px' }}>£{customerPaid.toFixed(2)}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Customer Paid</span><span style={{ color: theme.text, fontWeight: '600', fontSize: '16px' }}>£{customerPaid.toFixed(2)}</span></div>
           <div style={{ borderTop: `2px solid ${theme.border}`, paddingTop: '14px', display: 'flex', alignItems: 'center', gap: '16px' }}>
             <Wallet size={28} color={theme.primary} />
             <div style={{ flex: 1 }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Payment Logged</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '24px', fontWeight: '700' }}>£{customerPaid.toFixed(2)}</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Payment Logged</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '25px', fontWeight: '800' }}>£{customerPaid.toFixed(2)}</p>
             </div>
           </div>
         </div>
@@ -5359,7 +5363,7 @@ export default function TyreFitApp() {
 
       {/* WHAT HAPPENS NEXT — TIMELINE */}
       <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '16px' }}>
-        <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '700', fontSize: '15px' }}>What happens now</h3>
+        <h3 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '800', fontSize: '16px' }}>What happens now</h3>
         
         {/* Step 1: Condition Report + Cover */}
         <div style={{ display: 'flex', gap: '14px', marginBottom: '16px' }}>
@@ -5370,20 +5374,20 @@ export default function TyreFitApp() {
             <div style={{ width: '2px', flex: 1, backgroundColor: theme.border, margin: '6px 0' }} />
           </div>
           <div style={{ flex: 1, paddingBottom: '8px' }}>
-            <p style={{ margin: 0, color: conditionPassed ? theme.primary : theme.danger, fontWeight: '700', fontSize: '15px' }}>{conditionPassed ? '30-Day Cover — LIVE NOW' : 'No Cover Activated'}</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>{conditionPassed ? 'Active immediately. No activation needed.' : 'Condition check failed. Customer does not get free 30-day cover.'}</p>
+            <p style={{ margin: 0, color: conditionPassed ? theme.primary : theme.danger, fontWeight: '800', fontSize: '16px' }}>{conditionPassed ? '30-Day Cover — LIVE NOW' : 'No Cover Activated'}</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>{conditionPassed ? 'Active immediately. No activation needed.' : 'Condition check failed. Customer does not get free 30-day cover.'}</p>
             <div style={{ marginTop: '8px', padding: '10px 12px', backgroundColor: conditionPassed ? `${theme.primary}08` : `${theme.danger}08`, borderRadius: '8px', border: `1px solid ${conditionPassed ? `${theme.primary}20` : `${theme.danger}20`}` }}>
               {conditionPassed ? (
                 <>
-                  <p style={{ margin: '0 0 4px 0', fontSize: '14px', color: theme.textMuted }}>Covers: flat tyre repair, locking wheel nut removal, 24/7 safe tow</p>
-                  <p style={{ margin: '0 0 4px 0', fontSize: '14px', color: theme.textMuted }}>From <strong style={{ color: theme.text }}>{signUpData.businessName || "Dan's Mobile Tyres"}</strong>, backed by TYRE-FIT</p>
-                  <p style={{ margin: 0, fontSize: '14px', color: theme.primary, fontWeight: '600' }}>When they need help → routes to you first</p>
+                  <p style={{ margin: '0 0 4px 0', fontSize: '15px', color: theme.textMuted }}>Covers: flat tyre repair, locking wheel nut removal, 24/7 safe tow</p>
+                  <p style={{ margin: '0 0 4px 0', fontSize: '15px', color: theme.textMuted }}>From <strong style={{ color: theme.text }}>{signUpData.businessName || "Dan's Mobile Tyres"}</strong>, backed by TYRE-FIT</p>
+                  <p style={{ margin: 0, fontSize: '15px', color: theme.primary, fontWeight: '700' }}>When they need help → routes to you first</p>
                 </>
               ) : (
-                <p style={{ margin: 0, fontSize: '14px', color: theme.textMuted }}>Customer still gets receipt and condition report, but no free cover due to failed condition check.</p>
+                <p style={{ margin: 0, fontSize: '15px', color: theme.textMuted }}>Customer still gets receipt and condition report, but no free cover due to failed condition check.</p>
               )}
             </div>
-            <button onClick={() => setShowJobCompleteReport(true)} style={{ marginTop: '8px', width: '100%', padding: '8px', backgroundColor: 'transparent', border: `1px solid ${theme.primary}30`, borderRadius: '8px', cursor: 'pointer', color: theme.primary, fontSize: '14px', fontWeight: '600' }}>
+            <button onClick={() => setShowJobCompleteReport(true)} style={{ marginTop: '8px', width: '100%', padding: '8px', backgroundColor: 'transparent', border: `1px solid ${theme.primary}30`, borderRadius: '8px', cursor: 'pointer', color: theme.primary, fontSize: '15px', fontWeight: '700' }}>
               <ClipboardList size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
               View Tyre Condition Report
             </button>
@@ -5399,12 +5403,12 @@ export default function TyreFitApp() {
             <div style={{ width: '2px', flex: 1, backgroundColor: theme.border, margin: '6px 0' }} />
           </div>
           <div style={{ flex: 1, paddingBottom: '8px' }}>
-            <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Customer Text — Sent Now</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Receipt + condition report + cover details</p>
+            <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Customer Text — Sent Now</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Receipt + condition report + cover details</p>
             {/* EXAMPLE TEXT */}
             <div style={{ marginTop: '8px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}` }}>
-              <p style={{ margin: '0 0 2px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '600' }}>Example text to customer</p>
-              <div style={{ fontSize: '14px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
+              <p style={{ margin: '0 0 2px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Example text to customer</p>
+              <div style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
                 <p style={{ margin: '6px 0 0 0' }}>Hi Emma, thanks for choosing {signUpData.businessName || "Dan's Mobile Tyres"}!</p>
                 <p style={{ margin: '6px 0 0 0' }}>2x 205/55R16 Continental fitted</p>
                 <p style={{ margin: '6px 0 0 0' }}>{conditionPassed ? <>Your 30-day tyre cover is now <strong style={{ color: theme.primary }}>ACTIVE</strong></> : <>Condition report complete — <strong style={{ color: theme.danger }}>NO COVER</strong> activated</>}</p>
@@ -5424,12 +5428,12 @@ export default function TyreFitApp() {
             </div>
           </div>
           <div style={{ flex: 1 }}>
-            <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Google Review Request</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Sent automatically in <strong style={{ color: '#eab308' }}>2 hours</strong></p>
+            <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Google Review Request</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Sent automatically in <strong style={{ color: '#eab308' }}>2 hours</strong></p>
             {/* EXAMPLE REVIEW TEXT */}
             <div style={{ marginTop: '8px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}` }}>
-              <p style={{ margin: '0 0 2px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '600' }}>Example text to customer</p>
-              <div style={{ fontSize: '14px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
+              <p style={{ margin: '0 0 2px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Example text to customer</p>
+              <div style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.6, fontStyle: 'italic' }}>
                 <p style={{ margin: '6px 0 0 0' }}>Hi Emma, hope the new tyres are riding well! If you have a moment, a quick Google review would really help us out:</p>
                 <p style={{ margin: '6px 0 0 0' }}><span style={{ color: theme.info, textDecoration: 'underline' }}>g.page/dansmobiletyres/review</span></p>
                 <p style={{ margin: '6px 0 0 0' }}>Thanks! — {signUpData.fullName || 'Dan'}</p>
@@ -5460,37 +5464,37 @@ export default function TyreFitApp() {
         <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.95)', zIndex: 2000, overflow: 'auto' }}>
           <div style={{ maxWidth: '420px', margin: '0 auto', padding: '24px', minHeight: '100vh', backgroundColor: theme.bg }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <h2 style={{ margin: 0, color: theme.text, fontSize: '20px', fontWeight: '700' }}>Tyre Condition Report</h2>
+              <h2 style={{ margin: 0, color: theme.text, fontSize: '21px', fontWeight: '800' }}>Tyre Condition Report</h2>
               <button onClick={() => setShowJobCompleteReport(false)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><X size={24} color={theme.textMuted} /></button>
             </div>
             <Card style={{ marginBottom: '14px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '700', letterSpacing: '1px' }}>{activeJob?.plate || 'CD90 VWX'}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '500' }}>{activeJob?.customer || 'Emma Davis'}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Inspected by</span><span style={{ color: theme.text, fontWeight: '500' }}>{signUpData.fullName || 'Dan Smith'}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Date</span><span style={{ color: theme.text, fontWeight: '500' }}>{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>GPS</span><span style={{ color: theme.text, fontWeight: '500' }}>51.5074, -0.1278</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '800', letterSpacing: '1px' }}>{activeJob?.plate || 'CD90 VWX'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '600' }}>{activeJob?.customer || 'Emma Davis'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Inspected by</span><span style={{ color: theme.text, fontWeight: '600' }}>{signUpData.fullName || 'Dan Smith'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Date</span><span style={{ color: theme.text, fontWeight: '600' }}>{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>GPS</span><span style={{ color: theme.text, fontWeight: '600' }}>51.5074, -0.1278</span></div>
             </Card>
             <div style={{ padding: '14px', borderRadius: '14px', textAlign: 'center', marginBottom: '14px', backgroundColor: conditionPassed ? `${theme.primary}10` : `${theme.danger}10`, border: `2px solid ${conditionPassed ? theme.primary : theme.danger}` }}>
-              <p style={{ margin: '0 0 4px 0', fontWeight: '700', fontSize: '16px', color: conditionPassed ? theme.primary : theme.danger }}>{conditionPassed ? 'FULL COVER — ALL 4 TYRES' : 'NO COVER'}</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>{conditionPassed ? '30-day cover activated on all 4 tyres' : 'Condition failed, so free cover did not activate'}</p>
+              <p style={{ margin: '0 0 4px 0', fontWeight: '800', fontSize: '17px', color: conditionPassed ? theme.primary : theme.danger }}>{conditionPassed ? 'FULL COVER — ALL 4 TYRES' : 'NO COVER'}</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>{conditionPassed ? '30-day cover activated on all 4 tyres' : 'Condition failed, so free cover did not activate'}</p>
             </div>
             {['Front Left', 'Front Right', 'Rear Left', 'Rear Right'].map(pos => (
               <Card key={pos} style={{ marginBottom: '15px', borderLeft: `4px solid ${theme.primary}` }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ color: theme.text, fontWeight: '700', fontSize: '15px' }}>{pos}</span>
-                  <span style={{ padding: '4px 12px', borderRadius: '20px', fontSize: '14px', fontWeight: '700', backgroundColor: conditionPassed ? `${theme.primary}15` : `${theme.danger}15`, color: conditionPassed ? theme.primary : theme.danger }}>{conditionPassed ? 'Covered' : 'No cover'}</span>
+                  <span style={{ color: theme.text, fontWeight: '800', fontSize: '16px' }}>{pos}</span>
+                  <span style={{ padding: '4px 12px', borderRadius: '20px', fontSize: '15px', fontWeight: '800', backgroundColor: conditionPassed ? `${theme.primary}15` : `${theme.danger}15`, color: conditionPassed ? theme.primary : theme.danger }}>{conditionPassed ? 'Covered' : 'No cover'}</span>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', fontSize: '15px' }}>
-                  <div><span style={{ color: theme.textMuted }}>Size: </span><span style={{ color: theme.text, fontWeight: '500' }}>{activeJob?.tyreSize || '205/55R16'}</span></div>
-                  <div><span style={{ color: theme.textMuted }}>Brand: </span><span style={{ color: theme.text, fontWeight: '500' }}>Continental</span></div>
-                  <div><span style={{ color: theme.textMuted }}>DOT: </span><span style={{ color: theme.text, fontWeight: '500' }}>2024</span></div>
-                  <div><span style={{ color: theme.textMuted }}>Tread: </span><span style={{ color: theme.text, fontWeight: '500' }}>Good (6.2mm)</span></div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px', fontSize: '16px' }}>
+                  <div><span style={{ color: theme.textMuted }}>Size: </span><span style={{ color: theme.text, fontWeight: '600' }}>{activeJob?.tyreSize || '205/55R16'}</span></div>
+                  <div><span style={{ color: theme.textMuted }}>Brand: </span><span style={{ color: theme.text, fontWeight: '600' }}>Continental</span></div>
+                  <div><span style={{ color: theme.textMuted }}>DOT: </span><span style={{ color: theme.text, fontWeight: '600' }}>2024</span></div>
+                  <div><span style={{ color: theme.textMuted }}>Tread: </span><span style={{ color: theme.text, fontWeight: '600' }}>Good (6.2mm)</span></div>
                 </div>
               </Card>
             ))}
             <Card>
-              <p style={{ margin: '0 0 6px 0', color: theme.textMuted, fontSize: '14px' }}>Claim line: <strong style={{ color: theme.text }}>0330 633 1247</strong></p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>From {signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</p>
+              <p style={{ margin: '0 0 6px 0', color: theme.textMuted, fontSize: '15px' }}>Claim line: <strong style={{ color: theme.text }}>0330 633 1247</strong></p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>From {signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</p>
             </Card>
             <Button onClick={() => setShowJobCompleteReport(false)} fullWidth style={{ marginTop: '16px' }}>Close Report</Button>
           </div>
@@ -5505,9 +5509,9 @@ export default function TyreFitApp() {
               <div style={{ width: '72px', height: '72px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
                 <CheckCircle size={40} color={theme.primary} />
               </div>
-              <h2 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '22px' }}>Job Complete</h2>
-              <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '28px' }}>£{customerPaid.toFixed(2)}</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{activeJob?.customer || 'Emma Davis'} — {activeJob?.plate || 'CD90 VWX'}</p>
+              <h2 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800', fontSize: '23px' }}>Job Complete</h2>
+              <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '29px' }}>£{customerPaid.toFixed(2)}</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{activeJob?.customer || 'Emma Davis'} — {activeJob?.plate || 'CD90 VWX'}</p>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '16px' }}>
@@ -5517,8 +5521,8 @@ export default function TyreFitApp() {
                   <ShieldCheck size={20} color={conditionPassed ? theme.primary : theme.danger} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: conditionPassed ? theme.primary : theme.danger, fontWeight: '700', fontSize: '14px' }}>{conditionPassed ? '30-Day Cover — LIVE' : 'No Cover Activated'}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{conditionPassed ? 'All 4 tyres covered · Active now' : 'Failed condition check · cover not active'}</p>
+                  <p style={{ margin: 0, color: conditionPassed ? theme.primary : theme.danger, fontWeight: '800', fontSize: '15px' }}>{conditionPassed ? '30-Day Cover — LIVE' : 'No Cover Activated'}</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{conditionPassed ? 'All 4 tyres covered · Active now' : 'Failed condition check · cover not active'}</p>
                 </div>
                 <CheckCircle size={16} color={conditionPassed ? theme.primary : theme.danger} style={{ flexShrink: 0 }} />
               </div>
@@ -5529,8 +5533,8 @@ export default function TyreFitApp() {
                   <ClipboardList size={20} color={theme.info} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>Condition Report Sent</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>4 tyres inspected · Report + receipt texted</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Condition Report Sent</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>4 tyres inspected · Report + receipt texted</p>
                 </div>
                 <CheckCircle size={16} color={theme.primary} style={{ flexShrink: 0 }} />
               </div>
@@ -5541,8 +5545,8 @@ export default function TyreFitApp() {
                   <Star size={20} color="#eab308" />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>Review Request</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Sending in 2 hours automatically</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Review Request</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Sending in 2 hours automatically</p>
                 </div>
                 <Clock size={16} color="#eab308" style={{ flexShrink: 0 }} />
               </div>
@@ -5550,8 +5554,8 @@ export default function TyreFitApp() {
 
             {/* EXAMPLE: What customer sees */}
             <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}`, marginBottom: '16px' }}>
-              <p style={{ margin: '0 0 6px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Customer receives this text now</p>
-              <div style={{ fontSize: '14px', color: theme.textMuted, lineHeight: 1.6 }}>
+              <p style={{ margin: '0 0 6px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '800' }}>Customer receives this text now</p>
+              <div style={{ fontSize: '15px', color: theme.textMuted, lineHeight: 1.6 }}>
                 <p style={{ margin: 0 }}>Hi Emma, thanks for choosing {signUpData.businessName || "Dan's Mobile Tyres"}! 2x 205/55R16 fitted. {conditionPassed ? <>30-day cover is <strong style={{ color: theme.primary }}>ACTIVE</strong>.</> : <>Condition report complete — <strong style={{ color: theme.danger }}>NO COVER</strong>.</>} <span style={{ color: theme.info, textDecoration: 'underline' }}>View report & cover</span>. Need help? 0330 633 1247</p>
               </div>
             </div>
@@ -5591,8 +5595,8 @@ export default function TyreFitApp() {
       </div>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '120px', height: '120px', backgroundColor: theme.primary, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}><CheckCircle size={60} color="#000" /></div>
-      <h1 style={{ fontSize: '28px', fontWeight: 'bold', color: theme.text, margin: '0 0 8px 0' }}>Cover Job Done!</h1>
-      <p style={{ color: theme.textMuted, margin: '0 0 32px 0', fontSize: '16px', textAlign: 'center' }}>{activeJob?.customer || 'John Smith'} — {activeJob?.plate || 'AB12 CDE'}</p>
+      <h1 style={{ fontSize: '29px', fontWeight: '800', color: theme.text, margin: '0 0 8px 0' }}>Cover Job Done!</h1>
+      <p style={{ color: theme.textMuted, margin: '0 0 32px 0', fontSize: '17px', textAlign: 'center' }}>{activeJob?.customer || 'John Smith'} — {activeJob?.plate || 'AB12 CDE'}</p>
       
       {/* PAYMENT — TYRE-FIT pays */}
       <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '16px', borderColor: theme.primary }}>
@@ -5601,23 +5605,23 @@ export default function TyreFitApp() {
             <ShieldCheck size={24} color={theme.primary} />
           </div>
           <div>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Cover Job — TYRE-FIT Pays You</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '28px', fontWeight: '700' }}>£{quoteAmount.toFixed(2)}</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Cover Job — TYRE-FIT Pays You</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '29px', fontWeight: '800' }}>£{quoteAmount.toFixed(2)}</p>
           </div>
         </div>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
             <CheckCircle size={16} color={theme.primary} />
-            <span style={{ color: theme.text, fontSize: '14px' }}>Job verified — photos & sign-off received</span>
+            <span style={{ color: theme.text, fontSize: '15px' }}>Job verified — photos & sign-off received</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
             <Clock size={16} color={theme.warning} />
-            <span style={{ color: theme.text, fontSize: '14px' }}>Payment to your wallet within 24 hours</span>
+            <span style={{ color: theme.text, fontSize: '15px' }}>Payment to your wallet within 24 hours</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
             <Wallet size={16} color={theme.primary} />
-            <span style={{ color: theme.text, fontSize: '14px' }}>No invoicing — TYRE-FIT handles everything</span>
+            <span style={{ color: theme.text, fontSize: '15px' }}>No invoicing — TYRE-FIT handles everything</span>
           </div>
         </div>
       </Card>
@@ -5627,9 +5631,9 @@ export default function TyreFitApp() {
         <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '16px', borderColor: theme.warning, borderWidth: '2px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
             <AlertTriangle size={20} color={theme.warning} />
-            <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>{needsAttention} other tyre{needsAttention > 1 ? 's' : ''} need{needsAttention === 1 ? 's' : ''} attention</h3>
+            <h3 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '16px' }}>{needsAttention} other tyre{needsAttention > 1 ? 's' : ''} need{needsAttention === 1 ? 's' : ''} attention</h3>
           </div>
-          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Your condition check found issues. Send {activeJob?.customer || 'John'} a quote for replacements — you're already here and they trust you.</p>
+          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Your condition check found issues. Send {activeJob?.customer || 'John'} a quote for replacements — you're already here and they trust you.</p>
           <div style={{ display: 'flex', gap: '8px' }}>
             <Button size="small" fullWidth onClick={() => setShowUpsellPreview(true)} icon={MessageSquare}>Send Quote Offer</Button>
             <Button size="small" variant="secondary" fullWidth onClick={() => setShowCoverConditionReport(true)} icon={FileCheck}>View Report</Button>
@@ -5646,14 +5650,14 @@ export default function TyreFitApp() {
       
       {/* JOB SUMMARY */}
       <Card style={{ maxWidth: '350px', width: '100%', marginBottom: '16px' }}>
-        <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Job Summary</h3>
+        <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Job Summary</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '500' }}>{activeJob?.customer || 'John Smith'}</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Vehicle</span><span style={{ color: theme.text }}>{activeJob?.plate || 'AB12 CDE'}</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Tyres</span><span style={{ color: theme.text }}>{activeJob?.tyreQty || 1}x {activeJob?.tyreSize || '205/55R16'}</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Before Photos</span><span style={{ color: theme.primary }}>{Object.keys(beforePhotos).filter(k => beforePhotos[k]).length} taken</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>After Photos</span><span style={{ color: theme.primary }}>{Object.keys(afterPhotos).filter(k => afterPhotos[k]).length} taken</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Customer Sign-off</span><span style={{ color: customerSigned ? theme.primary : theme.warning }}>{customerSigned ? 'Signed' : 'Skipped'}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '600' }}>{activeJob?.customer || 'John Smith'}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Vehicle</span><span style={{ color: theme.text }}>{activeJob?.plate || 'AB12 CDE'}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Tyres</span><span style={{ color: theme.text }}>{activeJob?.tyreQty || 1}x {activeJob?.tyreSize || '205/55R16'}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Before Photos</span><span style={{ color: theme.primary }}>{Object.keys(beforePhotos).filter(k => beforePhotos[k]).length} taken</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>After Photos</span><span style={{ color: theme.primary }}>{Object.keys(afterPhotos).filter(k => afterPhotos[k]).length} taken</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Customer Sign-off</span><span style={{ color: customerSigned ? theme.primary : theme.warning }}>{customerSigned ? 'Signed' : 'Skipped'}</span></div>
         </div>
       </Card>
       
@@ -5676,13 +5680,13 @@ export default function TyreFitApp() {
         <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 2000, overflowY: 'auto' }}>
           <div style={{ padding: '16px', maxWidth: '420px', margin: '0 auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-              <h2 style={{ margin: 0, color: '#fff', fontWeight: '700', fontSize: '18px' }}>Tyre Condition Report</h2>
+              <h2 style={{ margin: 0, color: '#fff', fontWeight: '800', fontSize: '19px' }}>Tyre Condition Report</h2>
               <button onClick={() => setShowCoverConditionReport(false)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><X size={24} color="#fff" /></button>
             </div>
             <div style={{ padding: '14px', backgroundColor: '#1a1a1a', borderRadius: '14px', marginBottom: '14px' }}>
-              <p style={{ margin: '0 0 4px 0', color: '#aaa', fontSize: '14px' }}>Vehicle</p>
-              <p style={{ margin: '0 0 8px 0', color: '#fff', fontWeight: '600' }}>{activeJob?.plate || 'AB12 CDE'} — {activeJob?.customer || 'John Smith'}</p>
-              <p style={{ margin: '0 0 4px 0', color: '#aaa', fontSize: '14px' }}>Inspected</p>
+              <p style={{ margin: '0 0 4px 0', color: '#aaa', fontSize: '15px' }}>Vehicle</p>
+              <p style={{ margin: '0 0 8px 0', color: '#fff', fontWeight: '700' }}>{activeJob?.plate || 'AB12 CDE'} — {activeJob?.customer || 'John Smith'}</p>
+              <p style={{ margin: '0 0 4px 0', color: '#aaa', fontSize: '15px' }}>Inspected</p>
               <p style={{ margin: 0, color: '#fff' }}>{new Date().toLocaleDateString('en-GB')} by {signUpData.fullName || 'Dan Smith'}</p>
             </div>
             {['Front Left', 'Front Right', 'Rear Left', 'Rear Right'].map((pos, i) => {
@@ -5691,15 +5695,15 @@ export default function TyreFitApp() {
               return (
                 <div key={pos} style={{ padding: '14px', backgroundColor: '#1a1a1a', borderRadius: '14px', marginBottom: '8px', borderLeft: `4px solid ${isIssue ? '#f59e0b' : '#10b981'}` }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                    <span style={{ color: '#fff', fontWeight: '600', fontSize: '14px' }}>{pos}</span>
-                    <span style={{ color: isIssue ? '#f59e0b' : '#10b981', fontSize: '14px', fontWeight: '600' }}>{t.condition || 'Good'}</span>
+                    <span style={{ color: '#fff', fontWeight: '700', fontSize: '15px' }}>{pos}</span>
+                    <span style={{ color: isIssue ? '#f59e0b' : '#10b981', fontSize: '15px', fontWeight: '700' }}>{t.condition || 'Good'}</span>
                   </div>
-                  <p style={{ margin: 0, color: '#aaa', fontSize: '14px' }}>{t.size || '205/55R16'} · {t.brand || 'Continental'} · Tread: {t.treadDepth || '5.2mm'}</p>
-                  {t.damages && t.damages.length > 0 && <p style={{ margin: '4px 0 0 0', color: '#f59e0b', fontSize: '14px' }}>{t.damages.join(', ')}</p>}
+                  <p style={{ margin: 0, color: '#aaa', fontSize: '15px' }}>{t.size || '205/55R16'} · {t.brand || 'Continental'} · Tread: {t.treadDepth || '5.2mm'}</p>
+                  {t.damages && t.damages.length > 0 && <p style={{ margin: '4px 0 0 0', color: '#f59e0b', fontSize: '15px' }}>{t.damages.join(', ')}</p>}
                 </div>
               );
             })}
-            <button onClick={() => setShowCoverConditionReport(false)} style={{ width: '100%', padding: '14px', backgroundColor: '#333', border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '600', fontSize: '15px', cursor: 'pointer', marginTop: '8px' }}>Close Report</button>
+            <button onClick={() => setShowCoverConditionReport(false)} style={{ width: '100%', padding: '14px', backgroundColor: '#333', border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '16px', cursor: 'pointer', marginTop: '8px' }}>Close Report</button>
           </div>
         </div>
       )}
@@ -5708,10 +5712,10 @@ export default function TyreFitApp() {
       {showUpsellPreview && (
         <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)', zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
           <Card style={{ maxWidth: '380px', width: '100%' }}>
-            <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Send replacement quote offer</h3>
-            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px' }}>This text goes to {activeJob?.customer || 'John'} with a link to get a quote from you:</p>
+            <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '800', fontSize: '17px' }}>Send replacement quote offer</h3>
+            <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '16px' }}>This text goes to {activeJob?.customer || 'John'} with a link to get a quote from you:</p>
             <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '16px', borderLeft: `3px solid ${theme.primary}` }}>
-              <p style={{ margin: 0, color: theme.text, fontSize: '15px', lineHeight: 1.6, fontStyle: 'italic' }}>
+              <p style={{ margin: 0, color: theme.text, fontSize: '16px', lineHeight: 1.6, fontStyle: 'italic' }}>
                 Hi {activeJob?.customer?.split(' ')[0] || 'John'}, we just sorted your emergency tyre — glad we could help! While checking your vehicle, we noticed {needsAttention} other tyre{needsAttention > 1 ? 's' : ''} that {needsAttention === 1 ? 'needs' : 'need'} attention soon. We can do a deal on replacements since we know your vehicle. Get a quote: tyre-fit.co/q/{activeJob?.plate || 'AB12CDE'} — {signUpData.fullName?.split(' ')[0] || 'Dan'}, {signUpData.businessName || "Dan's Mobile Tyres"}
               </p>
             </div>
@@ -5731,9 +5735,9 @@ export default function TyreFitApp() {
               <div style={{ width: '72px', height: '72px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
                 <ShieldCheck size={40} color={theme.primary} />
               </div>
-              <h2 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '22px' }}>Cover Job Submitted</h2>
-              <p style={{ margin: '0 0 4px 0', color: theme.primary, fontWeight: '700', fontSize: '28px' }}>£{quoteAmount.toFixed(2)}</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>TYRE-FIT is verifying your job</p>
+              <h2 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800', fontSize: '23px' }}>Cover Job Submitted</h2>
+              <p style={{ margin: '0 0 4px 0', color: theme.primary, fontWeight: '800', fontSize: '29px' }}>£{quoteAmount.toFixed(2)}</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>TYRE-FIT is verifying your job</p>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginBottom: '20px' }}>
@@ -5742,8 +5746,8 @@ export default function TyreFitApp() {
                   <Camera size={18} color={theme.primary} />
                 </div>
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>Photos & sign-off received</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Evidence pack submitted for verification</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Photos & sign-off received</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Evidence pack submitted for verification</p>
                 </div>
                 <CheckCircle size={16} color={theme.primary} style={{ flexShrink: 0, marginLeft: 'auto' }} />
               </div>
@@ -5753,14 +5757,14 @@ export default function TyreFitApp() {
                   <Wallet size={18} color={theme.warning} />
                 </div>
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>Payment within 24 hours</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>£{quoteAmount.toFixed(2)} sent to your wallet automatically</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Payment within 24 hours</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>£{quoteAmount.toFixed(2)} sent to your wallet automatically</p>
                 </div>
                 <Clock size={16} color={theme.warning} style={{ flexShrink: 0, marginLeft: 'auto' }} />
               </div>
             </div>
             
-            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center', lineHeight: 1.5 }}>Customer already has active cover — no review request or cover link needed.</p>
+            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '16px', textAlign: 'center', lineHeight: 1.5 }}>Customer already has active cover — no review request or cover link needed.</p>
             
             <Button onClick={() => setShowCoverCompletePopup(false)} fullWidth>Got It</Button>
           </Card>
@@ -5786,43 +5790,43 @@ export default function TyreFitApp() {
           <div style={{ width: '80px', height: '80px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
             <CheckCircle size={40} color={theme.primary} />
           </div>
-          <h1 style={{ fontSize: '24px', fontWeight: '700', color: theme.text, margin: '0 0 4px 0' }}>Day Complete</h1>
-          <p style={{ color: theme.textMuted, fontSize: '14px', margin: 0 }}>{today}</p>
+          <h1 style={{ fontSize: '25px', fontWeight: '800', color: theme.text, margin: '0 0 4px 0' }}>Day Complete</h1>
+          <p style={{ color: theme.textMuted, fontSize: '15px', margin: 0 }}>{today}</p>
         </div>
 
         <div style={{ padding: '0 16px' }}>
           {/* EARNINGS */}
           <Card style={{ marginBottom: '14px', background: `linear-gradient(135deg, ${theme.primary}, #059669)` }}>
             <div style={{ textAlign: 'center' }}>
-              <p style={{ margin: 0, color: '#000', opacity: 0.7, fontSize: '14px' }}>Today's Earnings</p>
-              <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '36px', fontWeight: '800' }}>£{(stats.earned / 5).toFixed(2)}</p>
-              <p style={{ margin: '4px 0 0 0', color: '#000', opacity: 0.6, fontSize: '15px' }}>Week total: £{stats.earned.toFixed(2)}</p>
+              <p style={{ margin: 0, color: '#000', opacity: 0.7, fontSize: '15px' }}>Today's Earnings</p>
+              <p style={{ margin: '4px 0 0 0', color: '#000', fontSize: '37px', fontWeight: '800' }}>£{(stats.earned / 5).toFixed(2)}</p>
+              <p style={{ margin: '4px 0 0 0', color: '#000', opacity: 0.6, fontSize: '16px' }}>Week total: £{stats.earned.toFixed(2)}</p>
             </div>
           </Card>
 
           {/* STATS GRID */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '14px' }}>
             <Card style={{ marginBottom: 0, textAlign: 'center' }}>
-              <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '28px' }}>{Math.round(stats.jobs / 5)}</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Jobs completed</p>
+              <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '29px' }}>{Math.round(stats.jobs / 5)}</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Jobs completed</p>
             </Card>
             <Card style={{ marginBottom: 0, textAlign: 'center' }}>
-              <p style={{ margin: 0, color: '#eab308', fontWeight: '700', fontSize: '28px' }}>{stats.reviews}</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Reviews requested</p>
+              <p style={{ margin: 0, color: '#eab308', fontWeight: '800', fontSize: '29px' }}>{stats.reviews}</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Reviews requested</p>
             </Card>
             <Card style={{ marginBottom: 0, textAlign: 'center' }}>
-              <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '28px' }}>{coverActivated}</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Covers activated</p>
+              <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '29px' }}>{coverActivated}</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Covers activated</p>
             </Card>
             <Card style={{ marginBottom: 0, textAlign: 'center' }}>
-              <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '28px' }}>{milesDriven}</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Miles driven</p>
+              <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '29px' }}>{milesDriven}</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Miles driven</p>
             </Card>
           </div>
 
           {/* WHAT HAPPENED AUTOMATICALLY */}
           <Card style={{ marginBottom: '14px' }}>
-            <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>TYRE-FIT handled today</h3>
+            <h3 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>TYRE-FIT handled today</h3>
             {[
               { icon: MessageSquare, text: `${Math.round(stats.jobs / 5)} ETA texts sent to customers`, color: theme.info },
               { icon: CheckCircle, text: `${Math.round(stats.jobs / 5)} receipts + cover texts delivered`, color: theme.primary },
@@ -5832,7 +5836,7 @@ export default function TyreFitApp() {
             ].map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '8px 0', borderBottom: i < 4 ? `1px solid ${theme.border}` : 'none' }}>
                 <item.icon size={16} color={item.color} />
-                <span style={{ color: theme.textMuted, fontSize: '15px' }}>{item.text}</span>
+                <span style={{ color: theme.textMuted, fontSize: '16px' }}>{item.text}</span>
               </div>
             ))}
           </Card>
@@ -5840,8 +5844,8 @@ export default function TyreFitApp() {
           {/* WEEK PROGRESS */}
           <Card style={{ marginBottom: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>This week</h3>
-              <span style={{ color: theme.textMuted, fontSize: '15px' }}>{stats.jobs} jobs · £{stats.earned.toFixed(0)}</span>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>This week</h3>
+              <span style={{ color: theme.textMuted, fontSize: '16px' }}>{stats.jobs} jobs · £{stats.earned.toFixed(0)}</span>
             </div>
             <div style={{ display: 'flex', gap: '4px' }}>
               {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, i) => (
@@ -5849,7 +5853,7 @@ export default function TyreFitApp() {
                   <div style={{ height: '40px', backgroundColor: i < 3 ? `${theme.primary}30` : theme.bgInput, borderRadius: '6px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', marginBottom: '4px' }}>
                     {i < 3 && <div style={{ width: '100%', height: `${[70, 90, 60][i]}%`, backgroundColor: theme.primary, borderRadius: '6px' }} />}
                   </div>
-                  <span style={{ fontSize: '14px', color: i < 3 ? theme.text : theme.textMuted }}>{day}</span>
+                  <span style={{ fontSize: '15px', color: i < 3 ? theme.text : theme.textMuted }}>{day}</span>
                 </div>
               ))}
             </div>
@@ -5915,9 +5919,9 @@ export default function TyreFitApp() {
 
           {/* TEMP: +/- to preview collapsed state */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginBottom: '14px' }}>
-            <button onClick={() => setScanCount(Math.max(0, scanCount - 1))} style={{ width: '36px', height: '36px', borderRadius: '8px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '18px', fontWeight: '700', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
-            <span style={{ color: theme.textMuted, fontSize: '15px' }}>Scans: {scanCount} {scanCount < 4 ? `(collapses at 4)` : '(collapsed)'}</span>
-            <button onClick={() => { const n = scanCount + 1; setScanCount(n); if (n >= 4 && scannerExpanded) setScannerExpanded(false); }} style={{ width: '36px', height: '36px', borderRadius: '8px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '18px', fontWeight: '700', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
+            <button onClick={() => setScanCount(Math.max(0, scanCount - 1))} style={{ width: '36px', height: '36px', borderRadius: '8px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '19px', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
+            <span style={{ color: theme.textMuted, fontSize: '16px' }}>Scans: {scanCount} {scanCount < 4 ? `(collapses at 4)` : '(collapsed)'}</span>
+            <button onClick={() => { const n = scanCount + 1; setScanCount(n); if (n >= 4 && scannerExpanded) setScannerExpanded(false); }} style={{ width: '36px', height: '36px', borderRadius: '8px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '19px', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
           </div>
 
           {/* SCANNER — collapses after 4 uses, expandable */}
@@ -5925,21 +5929,21 @@ export default function TyreFitApp() {
             <Card style={{ borderColor: theme.primary, borderWidth: '2px', marginBottom: '16px' }}>
               {scanCount >= 4 && (
                 <button onClick={() => setScannerExpanded(false)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', background: 'none', border: 'none', cursor: 'pointer', padding: '0 0 8px 0', width: '100%' }}>
-                  <span style={{ fontSize: '14px', color: theme.textMuted }}>Collapse</span>
+                  <span style={{ fontSize: '15px', color: theme.textMuted }}>Collapse</span>
                   <Minus size={14} color={theme.textMuted} style={{ marginLeft: '4px' }} />
                 </button>
               )}
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '14px' }}>
                 <div style={{ width: '56px', height: '56px', backgroundColor: `${theme.primary}15`, borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Scan size={28} color={theme.primary} /></div>
                 <div style={{ flex: 1 }}>
-                  <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Scan Tyre to Add Stock</h3>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Point your camera at the <strong style={{ color: theme.text }}>tyre label first</strong>. If there's no label, scan the sidewall instead. TYRE-FIT reads the size, brand, and DOT code automatically.</p>
+                  <h3 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '17px' }}>Scan Tyre to Add Stock</h3>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Point your camera at the <strong style={{ color: theme.text }}>tyre label first</strong>. If there's no label, scan the sidewall instead. TYRE-FIT reads the size, brand, and DOT code automatically.</p>
                 </div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '14px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={15} color={theme.primary} /><span style={{ color: theme.text, fontSize: '15px' }}>Scans tyre label or sidewall (e.g. 205/55R16)</span></div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={15} color={theme.primary} /><span style={{ color: theme.text, fontSize: '15px' }}>Adds to your van or depot stock instantly</span></div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={15} color={theme.primary} /><span style={{ color: theme.text, fontSize: '15px' }}>Stock levels feed into quotes and route ETAs</span></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={15} color={theme.primary} /><span style={{ color: theme.text, fontSize: '16px' }}>Scans tyre label or sidewall (e.g. 205/55R16)</span></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={15} color={theme.primary} /><span style={{ color: theme.text, fontSize: '16px' }}>Adds to your van or depot stock instantly</span></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={15} color={theme.primary} /><span style={{ color: theme.text, fontSize: '16px' }}>Stock levels feed into quotes and route ETAs</span></div>
               </div>
               <Button onClick={handleScanClick} icon={Camera}>Scan a Tyre Now</Button>
             </Card>
@@ -5949,8 +5953,8 @@ export default function TyreFitApp() {
                 <button onClick={handleScanClick} style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: 1, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
                   <div style={{ width: '40px', height: '40px', backgroundColor: `${theme.primary}15`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Scan size={20} color={theme.primary} /></div>
                   <div style={{ flex: 1, textAlign: 'left' }}>
-                    <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Scan tyre label or sidewall</p>
-                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{scanCount} tyres scanned</p>
+                    <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Scan tyre label or sidewall</p>
+                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{scanCount} tyres scanned</p>
                   </div>
                   <Camera size={20} color={theme.primary} />
                 </button>
@@ -5962,14 +5966,14 @@ export default function TyreFitApp() {
           )}
 
           {/* STATS */}
-          <Card><div style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}><div><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Total Tyres</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '24px', fontWeight: '700' }}>26</p></div><div style={{ width: '1px', backgroundColor: theme.border }} /><div><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Fitted This Week</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '24px', fontWeight: '700' }}>23</p></div></div></Card>
+          <Card><div style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}><div><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Total Tyres</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '25px', fontWeight: '800' }}>26</p></div><div style={{ width: '1px', backgroundColor: theme.border }} /><div><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Fitted This Week</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '25px', fontWeight: '800' }}>23</p></div></div></Card>
         </div>
 
         {/* LOCATION FILTER + DOWNLOAD */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0 16px 12px' }}>
           <div style={{ display: 'flex', gap: '8px', flex: 1, overflowX: 'auto' }}>
             {['all', 'Van', 'East London Depot'].map(loc => (
-              <button key={loc} onClick={() => setStockLocation(loc)} style={{ padding: '10px 16px', backgroundColor: stockLocation === loc ? theme.primary : theme.bgInput, border: 'none', borderRadius: '8px', color: stockLocation === loc ? '#000' : theme.textMuted, fontWeight: '500', cursor: 'pointer', whiteSpace: 'nowrap' }}>{loc === 'all' ? 'All Stock' : loc}</button>
+              <button key={loc} onClick={() => setStockLocation(loc)} style={{ padding: '10px 16px', backgroundColor: stockLocation === loc ? theme.primary : theme.bgInput, border: 'none', borderRadius: '8px', color: stockLocation === loc ? '#000' : theme.textMuted, fontWeight: '600', cursor: 'pointer', whiteSpace: 'nowrap' }}>{loc === 'all' ? 'All Stock' : loc}</button>
             ))}
           </div>
           <button onClick={() => showToast('Stock list downloaded as PDF')} style={{ padding: '15px', backgroundColor: theme.bgInput, border: 'none', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Download size={18} color={theme.textMuted} /></button>
@@ -5982,19 +5986,19 @@ export default function TyreFitApp() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '14px' }}>
                 <div style={{ width: '40px', height: '40px', backgroundColor: `${theme.warning}15`, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Building size={20} color={theme.warning} /></div>
                 <div style={{ flex: 1 }}>
-                  <h3 style={{ margin: 0, color: theme.warning, fontWeight: '700', fontSize: '15px' }}>Depot Pickup Needed</h3>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{mockUpcomingBookingsNeedingStock.length} upcoming jobs need tyres from depot</p>
+                  <h3 style={{ margin: 0, color: theme.warning, fontWeight: '800', fontSize: '16px' }}>Depot Pickup Needed</h3>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{mockUpcomingBookingsNeedingStock.length} upcoming jobs need tyres from depot</p>
                 </div>
               </div>
               {mockUpcomingBookingsNeedingStock.map(b => (
                 <div key={b.id} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '10px 0', borderTop: `1px solid ${theme.border}` }}>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <span style={{ color: theme.text, fontWeight: '600', fontSize: '14px' }}>{b.customer}</span>
-                      <span style={{ color: theme.textMuted, fontSize: '14px' }}>• {b.plate}</span>
+                      <span style={{ color: theme.text, fontWeight: '700', fontSize: '15px' }}>{b.customer}</span>
+                      <span style={{ color: theme.textMuted, fontSize: '15px' }}>• {b.plate}</span>
                     </div>
-                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{b.tyreSize} x{b.qty} — <strong style={{ color: theme.warning }}>{b.location}</strong></p>
-                    <p style={{ margin: '2px 0 0 0', color: theme.textSubtle, fontSize: '14px' }}>{b.date}</p>
+                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{b.tyreSize} x{b.qty} — <strong style={{ color: theme.warning }}>{b.location}</strong></p>
+                    <p style={{ margin: '2px 0 0 0', color: theme.textSubtle, fontSize: '15px' }}>{b.date}</p>
                   </div>
                 </div>
               ))}
@@ -6015,45 +6019,45 @@ export default function TyreFitApp() {
             <Card style={{ maxWidth: '400px', width: '100%' }}>
               <div style={{ textAlign: 'center', marginBottom: '16px' }}>
                 <div style={{ width: '64px', height: '64px', backgroundColor: `${theme.warning}15`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><Building size={32} color={theme.warning} /></div>
-                <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '18px' }}>Add Depot to Your Route?</h3>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>{pendingDepotStop.name} — {pendingDepotStop.reason}</p>
+                <h3 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '19px' }}>Add Depot to Your Route?</h3>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>{pendingDepotStop.name} — {pendingDepotStop.reason}</p>
               </div>
 
               {/* What you're picking up */}
               <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '16px' }}>
-                <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px', fontWeight: '600', textTransform: 'uppercase' }}>Tyres to collect</p>
+                <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px', fontWeight: '700', textTransform: 'uppercase' }}>Tyres to collect</p>
                 {pendingDepotStop.tyres.map((t, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0' }}>
                     <Package size={14} color={theme.primary} />
-                    <span style={{ color: theme.text, fontSize: '15px' }}>{t}</span>
+                    <span style={{ color: theme.text, fontSize: '16px' }}>{t}</span>
                   </div>
                 ))}
               </div>
 
               {/* When to go */}
-              <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', fontWeight: '600', textTransform: 'uppercase' }}>When should you go?</p>
+              <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '16px', fontWeight: '700', textTransform: 'uppercase' }}>When should you go?</p>
 
               <button onClick={() => setPendingDepotStop({ ...pendingDepotStop, timing: 'before-first' })} style={{ width: '100%', padding: '14px 16px', backgroundColor: pendingDepotStop.timing === 'before-first' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${pendingDepotStop.timing === 'before-first' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '8px', textAlign: 'left' }}>
                 <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: `2px solid ${pendingDepotStop.timing === 'before-first' ? theme.primary : theme.border}`, backgroundColor: pendingDepotStop.timing === 'before-first' ? theme.primary : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{pendingDepotStop.timing === 'before-first' && <Check size={14} color="#000" />}</div>
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Before my first job</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Collect everything in one go. Leave a bit earlier.</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Before my first job</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Collect everything in one go. Leave a bit earlier.</p>
                 </div>
               </button>
 
               <button onClick={() => setPendingDepotStop({ ...pendingDepotStop, timing: 'before-needed' })} style={{ width: '100%', padding: '14px 16px', backgroundColor: pendingDepotStop.timing === 'before-needed' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${pendingDepotStop.timing === 'before-needed' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '8px', textAlign: 'left' }}>
                 <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: `2px solid ${pendingDepotStop.timing === 'before-needed' ? theme.primary : theme.border}`, backgroundColor: pendingDepotStop.timing === 'before-needed' ? theme.primary : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{pendingDepotStop.timing === 'before-needed' && <Check size={14} color="#000" />}</div>
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Before the job that needs it</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>AI slots depot stop just before Tom Harris (11:45). Route auto-adjusts.</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Before the job that needs it</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>AI slots depot stop just before Tom Harris (11:45). Route auto-adjusts.</p>
                 </div>
               </button>
 
               <button onClick={() => setPendingDepotStop({ ...pendingDepotStop, timing: 'manual' })} style={{ width: '100%', padding: '14px 16px', backgroundColor: pendingDepotStop.timing === 'manual' ? `${theme.primary}15` : theme.bgInput, border: `2px solid ${pendingDepotStop.timing === 'manual' ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px', textAlign: 'left' }}>
                 <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: `2px solid ${pendingDepotStop.timing === 'manual' ? theme.primary : theme.border}`, backgroundColor: pendingDepotStop.timing === 'manual' ? theme.primary : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{pendingDepotStop.timing === 'manual' && <Check size={14} color="#000" />}</div>
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Just open Maps for now</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Navigate to depot without updating your route.</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Just open Maps for now</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Navigate to depot without updating your route.</p>
                 </div>
               </button>
 
@@ -6067,7 +6071,7 @@ export default function TyreFitApp() {
               }} icon={pendingDepotStop.timing === 'manual' ? Navigation : Route}>
                 {pendingDepotStop.timing === 'manual' ? 'Open Google Maps' : 'Add Depot to Route'}
               </Button>
-              <button onClick={() => { setShowDepotRouteModal(false); setPendingDepotStop(null); }} style={{ width: '100%', padding: '14px', background: 'none', border: 'none', color: theme.textMuted, cursor: 'pointer', fontSize: '14px', marginTop: '8px' }}>Cancel</button>
+              <button onClick={() => { setShowDepotRouteModal(false); setPendingDepotStop(null); }} style={{ width: '100%', padding: '14px', background: 'none', border: 'none', color: theme.textMuted, cursor: 'pointer', fontSize: '15px', marginTop: '8px' }}>Cancel</button>
             </Card>
           </div>
         )}
@@ -6078,7 +6082,7 @@ export default function TyreFitApp() {
             <Card key={item.id} style={item.qty === 0 ? { borderColor: theme.danger } : item.needsRestock ? { borderColor: theme.warning } : {}}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{item.size}</h3>
+                  <h3 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '19px' }}>{item.size}</h3>
                   <p style={{ margin: '4px 0 8px 0', color: theme.textMuted }}>{item.brand}</p>
                   <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                     <Badge variant={item.location === 'Van' ? 'success' : 'info'}>{item.location}</Badge>
@@ -6087,19 +6091,19 @@ export default function TyreFitApp() {
                   </div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <p style={{ margin: 0, color: item.qty === 0 ? theme.danger : theme.text, fontSize: '32px', fontWeight: '700' }}>{item.qty}</p>
-                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>in stock</p>
+                  <p style={{ margin: 0, color: item.qty === 0 ? theme.danger : theme.text, fontSize: '33px', fontWeight: '800' }}>{item.qty}</p>
+                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>in stock</p>
                 </div>
               </div>
               {(item.qty === 0 || item.needsRestock) && (
                 <div style={{ marginTop: '15px', padding: '8px 10px', backgroundColor: theme.bgInput, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <Clock size={13} color={item.brand === 'Michelin' || item.brand === 'Continental' ? theme.warning : theme.primary} />
-                    <span style={{ color: theme.textMuted, fontSize: '14px' }}>
+                    <span style={{ color: theme.textMuted, fontSize: '15px' }}>
                       {item.brand === 'Michelin' || item.brand === 'Continental' ? 'Premium — 24hr order (weekdays)' : 'Budget/Mid — same day order'}
                     </span>
                   </div>
-                  <button onClick={() => openReorderFlow(item)} style={{ padding: '4px 10px', backgroundColor: theme.primary, border: 'none', borderRadius: '6px', cursor: 'pointer', color: '#000', fontSize: '14px', fontWeight: '600' }}>Reorder</button>
+                  <button onClick={() => openReorderFlow(item)} style={{ padding: '4px 10px', backgroundColor: theme.primary, border: 'none', borderRadius: '6px', cursor: 'pointer', color: '#000', fontSize: '15px', fontWeight: '700' }}>Reorder</button>
                 </div>
               )}
             </Card>
@@ -6110,8 +6114,8 @@ export default function TyreFitApp() {
             <button onClick={() => showToast('Full stock list downloaded as PDF')} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '14px', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
               <div style={{ width: '44px', height: '44px', backgroundColor: `${theme.info}15`, borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Download size={22} color={theme.info} /></div>
               <div style={{ flex: 1, textAlign: 'left' }}>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>Download Stock List</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>PDF with all sizes, quantities, and locations. Handy for booking prep or depot runs.</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Download Stock List</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>PDF with all sizes, quantities, and locations. Handy for booking prep or depot runs.</p>
               </div>
               <ChevronRight size={20} color={theme.textMuted} />
             </button>
@@ -6122,8 +6126,8 @@ export default function TyreFitApp() {
           <div style={{ position: 'fixed', inset: 0, backgroundColor: '#000', zIndex: 3000, display: 'flex', flexDirection: 'column' }}>
             {/* Top bar */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', paddingTop: '48px' }}>
-              <button onClick={() => setShowScannerOverlay(false)} style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '16px', fontWeight: '500' }}><X size={24} /> Close</button>
-              <span style={{ color: '#fff', fontSize: '14px', opacity: 0.7 }}>TYRE-FIT Scanner</span>
+              <button onClick={() => setShowScannerOverlay(false)} style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '17px', fontWeight: '600' }}><X size={24} /> Close</button>
+              <span style={{ color: '#fff', fontSize: '15px', opacity: 0.7 }}>TYRE-FIT Scanner</span>
             </div>
 
             {/* Viewfinder area */}
@@ -6147,21 +6151,21 @@ export default function TyreFitApp() {
                     <div style={{ width: '64px', height: '64px', border: '2px dashed rgba(255,255,255,0.3)', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
                       <Camera size={28} color="rgba(255,255,255,0.5)" />
                     </div>
-                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', margin: 0 }}>Position tyre label or sidewall in frame</p>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '15px', margin: 0 }}>Position tyre label or sidewall in frame</p>
                   </div>
                 )}
                 {scannerStep === 'scanning' && (
                   <div style={{ textAlign: 'center' }}>
                     <RefreshCw size={32} color="#10b981" style={{ animation: 'none' }} />
-                    <p style={{ color: '#10b981', fontSize: '14px', margin: '12px 0 0 0', fontWeight: '600' }}>Reading tyre info...</p>
+                    <p style={{ color: '#10b981', fontSize: '15px', margin: '12px 0 0 0', fontWeight: '700' }}>Reading tyre info...</p>
                   </div>
                 )}
                 {scannerStep === 'found' && (
                   <div style={{ textAlign: 'center', padding: '16px' }}>
                     <CheckCircle size={40} color="#10b981" />
-                    <p style={{ color: '#10b981', fontSize: '18px', margin: '12px 0 4px 0', fontWeight: '700' }}>205/55R16</p>
-                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', margin: 0 }}>Continental PremiumContact 6</p>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '14px', margin: '4px 0 0 0' }}>DOT 2425 • Added to Van stock</p>
+                    <p style={{ color: '#10b981', fontSize: '19px', margin: '12px 0 4px 0', fontWeight: '800' }}>205/55R16</p>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '15px', margin: 0 }}>Continental PremiumContact 6</p>
+                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '15px', margin: '4px 0 0 0' }}>DOT 2425 • Added to Van stock</p>
                   </div>
                 )}
               </div>
@@ -6172,8 +6176,8 @@ export default function TyreFitApp() {
               <div style={{ backgroundColor: 'rgba(16,185,129,0.15)', borderRadius: '14px', padding: '12px 16px', display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
                 <Info size={18} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <div>
-                  <p style={{ margin: 0, color: '#10b981', fontSize: '15px', fontWeight: '600' }}>Tip: Scan the label first</p>
-                  <p style={{ margin: '4px 0 0 0', color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: 1.5 }}>The sticker label on new tyres gives the cleanest read. Only use the sidewall if the label's been removed.</p>
+                  <p style={{ margin: 0, color: '#10b981', fontSize: '16px', fontWeight: '700' }}>Tip: Scan the label first</p>
+                  <p style={{ margin: '4px 0 0 0', color: 'rgba(255,255,255,0.5)', fontSize: '15px', lineHeight: 1.5 }}>The sticker label on new tyres gives the cleanest read. Only use the sidewall if the label's been removed.</p>
                 </div>
               </div>
             </div>
@@ -6186,7 +6190,7 @@ export default function TyreFitApp() {
                 </button>
               )}
               {scannerStep === 'ready' && (
-                <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.4)', fontSize: '14px', margin: 0 }}>Tap to scan • Adds to your stock automatically</p>
+                <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.4)', fontSize: '15px', margin: 0 }}>Tap to scan • Adds to your stock automatically</p>
               )}
             </div>
           </div>
@@ -6200,7 +6204,7 @@ export default function TyreFitApp() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
               {[{ icon: Scan, text: 'Read tyre size, brand & DOT from sidewall' }, { icon: Package, text: 'Add stock to van or depot instantly' }, { icon: Shield, text: 'Before/after photos for dispute protection' }].map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><item.icon size={16} color={theme.primary} /><span style={{ color: theme.text, fontSize: '14px' }}>{item.text}</span></div>
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><item.icon size={16} color={theme.primary} /><span style={{ color: theme.text, fontSize: '15px' }}>{item.text}</span></div>
               ))}
             </div>
             <div style={{ display: 'flex', gap: '14px' }}>
@@ -6213,17 +6217,17 @@ export default function TyreFitApp() {
           <Modal title="Reorder Stock" onClose={() => setReorderFlow({ open: false, item: null, step: 'create', supplier: '', qty: 0, status: 'draft' })}>
             {reorderFlow.step === 'create' && (
               <>
-                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700' }}>{reorderFlow.item.size} {reorderFlow.item.brand}</p>
-                <p style={{ margin: '0 0 14px 0', color: theme.textMuted, fontSize: '15px' }}>Step 1: create reorder request</p>
+                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800' }}>{reorderFlow.item.size} {reorderFlow.item.brand}</p>
+                <p style={{ margin: '0 0 14px 0', color: theme.textMuted, fontSize: '16px' }}>Step 1: create reorder request</p>
                 <Button onClick={() => setReorderFlow(prev => ({ ...prev, step: 'supplier' }))} icon={Plus}>Create Request</Button>
               </>
             )}
             {reorderFlow.step === 'supplier' && (
               <>
-                <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '15px' }}>Step 2: choose supplier</p>
+                <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '16px' }}>Step 2: choose supplier</p>
                 <div style={{ display: 'grid', gap: '8px', marginBottom: '14px' }}>
                   {['TYRE-FIT Supplier Hub', 'National Tyres Trade', 'Kwik Wholesale'].map(s => (
-                    <button key={s} onClick={() => setReorderFlow(prev => ({ ...prev, supplier: s }))} style={{ padding: '14px', borderRadius: '15px', border: `2px solid ${reorderFlow.supplier === s ? theme.primary : theme.border}`, backgroundColor: reorderFlow.supplier === s ? `${theme.primary}12` : theme.bgInput, color: reorderFlow.supplier === s ? theme.primary : theme.text, fontWeight: '600', cursor: 'pointer', textAlign: 'left' }}>{s}</button>
+                    <button key={s} onClick={() => setReorderFlow(prev => ({ ...prev, supplier: s }))} style={{ padding: '14px', borderRadius: '15px', border: `2px solid ${reorderFlow.supplier === s ? theme.primary : theme.border}`, backgroundColor: reorderFlow.supplier === s ? `${theme.primary}12` : theme.bgInput, color: reorderFlow.supplier === s ? theme.primary : theme.text, fontWeight: '700', cursor: 'pointer', textAlign: 'left' }}>{s}</button>
                   ))}
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
@@ -6234,11 +6238,11 @@ export default function TyreFitApp() {
             )}
             {reorderFlow.step === 'quantity' && (
               <>
-                <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '15px' }}>Step 3: confirm quantity</p>
+                <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '16px' }}>Step 3: confirm quantity</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '14px' }}>
-                  <button onClick={() => setReorderFlow(prev => ({ ...prev, qty: Math.max(1, prev.qty - 1) }))} style={{ width: '42px', height: '42px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '20px', cursor: 'pointer' }}>-</button>
-                  <span style={{ minWidth: '40px', textAlign: 'center', color: theme.text, fontSize: '24px', fontWeight: '800' }}>{reorderFlow.qty}</span>
-                  <button onClick={() => setReorderFlow(prev => ({ ...prev, qty: prev.qty + 1 }))} style={{ width: '42px', height: '42px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '20px', cursor: 'pointer' }}>+</button>
+                  <button onClick={() => setReorderFlow(prev => ({ ...prev, qty: Math.max(1, prev.qty - 1) }))} style={{ width: '42px', height: '42px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '21px', cursor: 'pointer' }}>-</button>
+                  <span style={{ minWidth: '40px', textAlign: 'center', color: theme.text, fontSize: '25px', fontWeight: '800' }}>{reorderFlow.qty}</span>
+                  <button onClick={() => setReorderFlow(prev => ({ ...prev, qty: prev.qty + 1 }))} style={{ width: '42px', height: '42px', borderRadius: '15px', border: `1px solid ${theme.border}`, backgroundColor: theme.bgInput, color: theme.text, fontSize: '21px', cursor: 'pointer' }}>+</button>
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <Button variant="secondary" onClick={() => setReorderFlow(prev => ({ ...prev, step: 'supplier' }))} fullWidth>Back</Button>
@@ -6248,11 +6252,11 @@ export default function TyreFitApp() {
             )}
             {reorderFlow.step === 'tracking' && (
               <>
-                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700' }}>Step 4: track status</p>
+                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800' }}>Step 4: track status</p>
                 <div style={{ padding: '15px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '14px' }}>
-                  <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px' }}>Request</p>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{stockReorders[0]?.id} · {stockReorders[0]?.supplier}</p>
-                  <p style={{ margin: '6px 0 0 0', color: theme.primary, fontWeight: '700', fontSize: '15px' }}>Status: Ordered → Processing → In transit</p>
+                  <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>Request</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{stockReorders[0]?.id} · {stockReorders[0]?.supplier}</p>
+                  <p style={{ margin: '6px 0 0 0', color: theme.primary, fontWeight: '800', fontSize: '16px' }}>Status: Ordered → Processing → In transit</p>
                 </div>
                 <Button onClick={() => setReorderFlow({ open: false, item: null, step: 'create', supplier: '', qty: 0, status: 'draft' })}>Done</Button>
               </>
@@ -6286,27 +6290,27 @@ export default function TyreFitApp() {
         {/* STATS */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px', marginBottom: '16px' }}>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Average Rating</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Average Rating</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
-              <span style={{ color: theme.text, fontSize: '28px', fontWeight: '700' }}>{avgRating}</span>
+              <span style={{ color: theme.text, fontSize: '29px', fontWeight: '800' }}>{avgRating}</span>
               <Star size={22} fill="#eab308" color="#eab308" />
             </div>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>127 total on Google</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>127 total on Google</p>
           </Card>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>This Month</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '28px', fontWeight: '700' }}>{thisMonth}</p>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>vs 4 last month</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>This Month</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '29px', fontWeight: '800' }}>{thisMonth}</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>vs 4 last month</p>
           </Card>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Response Rate</p>
-            <p style={{ margin: '4px 0 0 0', color: responseRate >= 80 ? theme.primary : theme.warning, fontSize: '28px', fontWeight: '700' }}>{responseRate}%</p>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Google ranks responders higher</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Response Rate</p>
+            <p style={{ margin: '4px 0 0 0', color: responseRate >= 80 ? theme.primary : theme.warning, fontSize: '29px', fontWeight: '800' }}>{responseRate}%</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Google ranks responders higher</p>
           </Card>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>5-Star Rate</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '28px', fontWeight: '700' }}>{Math.round((fiveStarCount / mockReviews.length) * 100)}%</p>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{fiveStarCount} of {mockReviews.length} reviews</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>5-Star Rate</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '29px', fontWeight: '800' }}>{Math.round((fiveStarCount / mockReviews.length) * 100)}%</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{fiveStarCount} of {mockReviews.length} reviews</p>
           </Card>
         </div>
         
@@ -6318,27 +6322,27 @@ export default function TyreFitApp() {
                 <MessageSquare size={22} color={theme.warning} />
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>{needsResponse} review{needsResponse > 1 ? 's' : ''} need{needsResponse === 1 ? 's' : ''} a response</p>
-                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Responding boosts your ranking and shows customers you care</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>{needsResponse} review{needsResponse > 1 ? 's' : ''} need{needsResponse === 1 ? 's' : ''} a response</p>
+                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Responding boosts your ranking and shows customers you care</p>
               </div>
             </div>
           </Card>
         )}
         {!gmbConnected && (
           <Card style={{ marginBottom: '16px', borderColor: theme.warning, borderWidth: '2px' }}>
-            <h4 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700' }}>Google Business not linked</h4>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Fallback mode is active: capture internal reviews now, then publish to Google later once you connect your Google Business Profile.</p>
+            <h4 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800' }}>Google Business not linked</h4>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Fallback mode is active: capture internal reviews now, then publish to Google later once you connect your Google Business Profile.</p>
             <Button size="small" variant="secondary" onClick={() => navigateTo('settings-google')} style={{ marginTop: '15px' }}>Link Google Business</Button>
           </Card>
         )}
 
         <Card style={{ marginBottom: '16px' }}>
-          <h4 style={{ margin: '0 0 10px 0', color: theme.text, fontWeight: '700' }}>Customers with no review yet</h4>
+          <h4 style={{ margin: '0 0 10px 0', color: theme.text, fontWeight: '800' }}>Customers with no review yet</h4>
           {nonReviewCustomers.slice(0, 4).map(c => (
             <div key={c.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: `1px solid ${theme.border}` }}>
               <div>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>{c.name}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{c.plate} · Cover {c.status}</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>{c.name}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{c.plate} · Cover {c.status}</p>
               </div>
               <Button size="small" variant="secondary" onClick={() => showToast(`Review link sent to ${c.name}`)}>Send Link</Button>
             </div>
@@ -6352,7 +6356,7 @@ export default function TyreFitApp() {
             { key: 'needs-response', label: `Needs Response (${needsResponse})` },
             { key: 'low', label: `Low Rating (${mockReviews.filter(r => r.rating <= 3).length})` }
           ].map(f => (
-            <button key={f.key} onClick={() => setReviewFilter(f.key)} style={{ padding: '8px 14px', backgroundColor: reviewFilter === f.key ? theme.primary : theme.bgInput, border: 'none', borderRadius: '20px', color: reviewFilter === f.key ? '#000' : theme.textMuted, fontWeight: '600', fontSize: '15px', cursor: 'pointer', whiteSpace: 'nowrap' }}>{f.label}</button>
+            <button key={f.key} onClick={() => setReviewFilter(f.key)} style={{ padding: '8px 14px', backgroundColor: reviewFilter === f.key ? theme.primary : theme.bgInput, border: 'none', borderRadius: '20px', color: reviewFilter === f.key ? '#000' : theme.textMuted, fontWeight: '700', fontSize: '16px', cursor: 'pointer', whiteSpace: 'nowrap' }}>{f.label}</button>
           ))}
         </div>
         
@@ -6361,19 +6365,19 @@ export default function TyreFitApp() {
           <Card key={r.id} style={{ marginBottom: '15px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
               <div>
-                <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{r.name}</h3>
-                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{r.date}</p>
+                <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{r.name}</h3>
+                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{r.date}</p>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
                 {[...Array(5)].map((_, i) => <Star key={i} size={16} fill={i < r.rating ? '#eab308' : 'none'} color={i < r.rating ? '#eab308' : theme.textMuted} />)}
               </div>
             </div>
-            <p style={{ margin: '0 0 12px 0', color: theme.text, lineHeight: '1.5', fontSize: '15px' }}>{r.text}</p>
+            <p style={{ margin: '0 0 12px 0', color: theme.text, lineHeight: '1.5', fontSize: '16px' }}>{r.text}</p>
             
             {r.responded && r.response && (
               <div style={{ padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px', marginBottom: '15px', borderLeft: `3px solid ${theme.primary}` }}>
-                <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px', fontWeight: '600' }}>Your Response</p>
-                <p style={{ margin: 0, color: theme.text, fontSize: '14px', lineHeight: 1.5 }}>{r.response}</p>
+                <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px', fontWeight: '700' }}>Your Response</p>
+                <p style={{ margin: 0, color: theme.text, fontSize: '15px', lineHeight: 1.5 }}>{r.response}</p>
               </div>
             )}
             
@@ -6389,14 +6393,14 @@ export default function TyreFitApp() {
         <Modal title="Respond to Review" onClose={() => setShowReviewModal(false)}>
           <div style={{ marginBottom: '16px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <span style={{ fontWeight: '600', color: theme.text }}>{selectedReview.name}</span>
+              <span style={{ fontWeight: '700', color: theme.text }}>{selectedReview.name}</span>
               <div style={{ display: 'flex' }}>{[...Array(5)].map((_, i) => <Star key={i} size={14} fill={i < selectedReview.rating ? '#eab308' : 'none'} color={i < selectedReview.rating ? '#eab308' : theme.textMuted} />)}</div>
             </div>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>{selectedReview.text}</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>{selectedReview.text}</p>
           </div>
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Your Response</label>
-            <textarea placeholder="Thank you for your feedback..." value={reviewResponse} onChange={(e) => setReviewResponse(e.target.value)} style={{ width: '100%', minHeight: '100px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: '16px', fontSize: '16px', color: theme.text, outline: 'none', boxSizing: 'border-box', resize: 'vertical', fontFamily: 'inherit' }} />
+            <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Your Response</label>
+            <textarea placeholder="Thank you for your feedback..." value={reviewResponse} onChange={(e) => setReviewResponse(e.target.value)} style={{ width: '100%', minHeight: '100px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: '16px', fontSize: '17px', color: theme.text, outline: 'none', boxSizing: 'border-box', resize: 'vertical', fontFamily: 'inherit' }} />
           </div>
           <div style={{ display: 'flex', gap: '14px' }}>
             <Button variant="secondary" onClick={() => setShowReviewModal(false)} fullWidth>Cancel</Button>
@@ -6447,19 +6451,19 @@ export default function TyreFitApp() {
                 <Zap size={20} color={theme.danger} />
               </div>
               <div style={{ flex: 1 }}>
-                <span style={{ fontSize: '15px', fontWeight: '700', color: theme.text }}>Cover Network Alerts</span>
-                <p style={{ margin: '2px 0 0 0', fontSize: '15px', color: theme.textMuted }}>Customers covered by TYRE-FIT need help nearby</p>
+                <span style={{ fontSize: '16px', fontWeight: '800', color: theme.text }}>Cover Network Alerts</span>
+                <p style={{ margin: '2px 0 0 0', fontSize: '16px', color: theme.textMuted }}>Customers covered by TYRE-FIT need help nearby</p>
               </div>
               <Badge variant="danger">{coverJobs.length}</Badge>
             </div>
             {coverJobs.map(cj => (
               <div key={cj.id} style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <span style={{ fontWeight: '600', color: theme.text, fontSize: '14px' }}>{cj.name} — {cj.plate}</span>
-                  <span style={{ fontSize: '14px', color: theme.textMuted }}>{cj.distance}</span>
+                  <span style={{ fontWeight: '700', color: theme.text, fontSize: '15px' }}>{cj.name} — {cj.plate}</span>
+                  <span style={{ fontSize: '15px', color: theme.textMuted }}>{cj.distance}</span>
                 </div>
-                <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>{cj.issue} — {cj.tyreSize}</p>
-                <p style={{ margin: '0 0 8px 0', fontSize: '14px', color: theme.primary, fontWeight: '500' }}>TYRE-FIT pays you directly</p>
+                <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '16px' }}>{cj.issue} — {cj.tyreSize}</p>
+                <p style={{ margin: '0 0 8px 0', fontSize: '15px', color: theme.primary, fontWeight: '600' }}>TYRE-FIT pays you directly</p>
                 <Button size="small" onClick={() => { setActiveCoverJob(cj); navigateTo('cover-quote'); }}>Accept & Quote</Button>
               </div>
             ))}
@@ -6477,15 +6481,15 @@ export default function TyreFitApp() {
                   <AlertTriangle size={20} color={theme.warning} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: '15px', fontWeight: '700', color: theme.text }}>Your Urgent Bookings</span>
-                  <p style={{ margin: '2px 0 0 0', fontSize: '15px', color: theme.textMuted }}>Same-day and emergency jobs you booked</p>
+                  <span style={{ fontSize: '16px', fontWeight: '800', color: theme.text }}>Your Urgent Bookings</span>
+                  <p style={{ margin: '2px 0 0 0', fontSize: '16px', color: theme.textMuted }}>Same-day and emergency jobs you booked</p>
                 </div>
                 <Badge variant="warning">{emergencyJobs.length}</Badge>
               </div>
               {emergencyJobs.map(j => (
                 <div key={j.id} style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '8px' }}>
-                  <span style={{ fontWeight: '600', color: theme.text, fontSize: '14px' }}>{j.customer} — {j.plate}</span>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{j.location} — {j.eta}</p>
+                  <span style={{ fontWeight: '700', color: theme.text, fontSize: '15px' }}>{j.customer} — {j.plate}</span>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{j.location} — {j.eta}</p>
                 </div>
               ))}
             </Card>
@@ -6495,24 +6499,24 @@ export default function TyreFitApp() {
         {/* STATS ROW */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px', marginBottom: '16px' }}>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Active Cover</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '28px', fontWeight: '700' }}>{activeCount + expiringCount}</p>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{expiringCount > 0 ? `${expiringCount} expiring soon` : 'All healthy'}</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Active Cover</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '29px', fontWeight: '800' }}>{activeCount + expiringCount}</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{expiringCount > 0 ? `${expiringCount} expiring soon` : 'All healthy'}</p>
           </Card>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Covered Vehicles</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '28px', fontWeight: '700' }}>{activeCoverCount}</p>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Auto-covered at job close</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Covered Vehicles</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '29px', fontWeight: '800' }}>{activeCoverCount}</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Auto-covered at job close</p>
           </Card>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Review Rate</p>
-            <p style={{ margin: '4px 0 0 0', color: reviewRate >= 60 ? theme.primary : theme.warning, fontSize: '28px', fontWeight: '700' }}>{reviewRate}%</p>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Left a Google review</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Review Rate</p>
+            <p style={{ margin: '4px 0 0 0', color: reviewRate >= 60 ? theme.primary : theme.warning, fontSize: '29px', fontWeight: '800' }}>{reviewRate}%</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Left a Google review</p>
           </Card>
           <Card style={{ marginBottom: 0 }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Cover Jobs</p>
-            <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '28px', fontWeight: '700' }}>{coverJobsTotal}</p>
-            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Emergency callouts handled</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Cover Jobs</p>
+            <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '29px', fontWeight: '800' }}>{coverJobsTotal}</p>
+            <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Emergency callouts handled</p>
           </Card>
         </div>
         
@@ -6524,8 +6528,8 @@ export default function TyreFitApp() {
                 <AlertTriangle size={22} color={theme.warning} />
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>{expiringCount} customer{expiringCount > 1 ? 's' : ''} expiring soon</p>
-                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.4 }}>Send a check-up offer before their cover runs out — great excuse to rebook</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>{expiringCount} customer{expiringCount > 1 ? 's' : ''} expiring soon</p>
+                <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.4 }}>Send a check-up offer before their cover runs out — great excuse to rebook</p>
               </div>
             </div>
           </Card>
@@ -6539,7 +6543,7 @@ export default function TyreFitApp() {
             { key: 'expiring', label: `Expiring (${expiringCount})` },
             { key: 'expired', label: `Expired (${expiredCount})` }
           ].map(f => (
-            <button key={f.key} onClick={() => setCoverFilter(f.key)} style={{ padding: '8px 16px', backgroundColor: coverFilter === f.key ? theme.primary : theme.bgInput, border: 'none', borderRadius: '20px', color: coverFilter === f.key ? '#000' : theme.textMuted, fontWeight: '600', fontSize: '15px', cursor: 'pointer', whiteSpace: 'nowrap' }}>{f.label}</button>
+            <button key={f.key} onClick={() => setCoverFilter(f.key)} style={{ padding: '8px 16px', backgroundColor: coverFilter === f.key ? theme.primary : theme.bgInput, border: 'none', borderRadius: '20px', color: coverFilter === f.key ? '#000' : theme.textMuted, fontWeight: '700', fontSize: '16px', cursor: 'pointer', whiteSpace: 'nowrap' }}>{f.label}</button>
           ))}
         </div>
         
@@ -6548,34 +6552,34 @@ export default function TyreFitApp() {
           <Card key={c.id} onClick={() => setSelectedCoverCustomer(c)} style={{ cursor: 'pointer', marginBottom: '15px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '15px' }}>
               <div>
-                <h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>{c.name}</h3>
-                <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{c.vehicle} — <span style={{ fontWeight: '700', letterSpacing: '0.5px' }}>{c.plate}</span></p>
+                <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '17px' }}>{c.name}</h3>
+                <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{c.vehicle} — <span style={{ fontWeight: '800', letterSpacing: '0.5px' }}>{c.plate}</span></p>
               </div>
               <Badge variant={c.status === 'active' ? 'success' : c.status === 'expiring' ? 'warning' : 'default'}>{statusLabel(c.status)}</Badge>
             </div>
             
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '15px' }}>
-              <div style={{ padding: '5px 10px', backgroundColor: theme.bgInput, borderRadius: '6px', fontSize: '14px', color: theme.textMuted }}>Fitted {c.fittedDate}</div>
-              <div style={{ padding: '5px 10px', backgroundColor: theme.bgInput, borderRadius: '6px', fontSize: '14px', color: theme.textMuted }}>Expires {c.expires}</div>
-              {c.tyreSize && <div style={{ padding: '5px 10px', backgroundColor: theme.bgInput, borderRadius: '6px', fontSize: '14px', color: theme.textMuted }}>{c.tyreSize}</div>}
+              <div style={{ padding: '5px 10px', backgroundColor: theme.bgInput, borderRadius: '6px', fontSize: '15px', color: theme.textMuted }}>Fitted {c.fittedDate}</div>
+              <div style={{ padding: '5px 10px', backgroundColor: theme.bgInput, borderRadius: '6px', fontSize: '15px', color: theme.textMuted }}>Expires {c.expires}</div>
+              {c.tyreSize && <div style={{ padding: '5px 10px', backgroundColor: theme.bgInput, borderRadius: '6px', fontSize: '15px', color: theme.textMuted }}>{c.tyreSize}</div>}
             </div>
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               {/* Cover Status */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                 <ShieldCheck size={14} color={statusColor(c.status)} />
-                <span style={{ fontSize: '14px', color: statusColor(c.status) }}>{statusLabel(c.status)}</span>
+                <span style={{ fontSize: '15px', color: statusColor(c.status) }}>{statusLabel(c.status)}</span>
               </div>
               {/* Review */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                 {c.reviewLeft ? <Star size={14} color="#eab308" /> : <Star size={14} color={theme.textMuted} />}
-                <span style={{ fontSize: '14px', color: c.reviewLeft ? '#eab308' : theme.textMuted }}>{c.reviewLeft ? `${c.reviewStars} stars` : 'No review'}</span>
+                <span style={{ fontSize: '15px', color: c.reviewLeft ? '#eab308' : theme.textMuted }}>{c.reviewLeft ? `${c.reviewStars} stars` : 'No review'}</span>
               </div>
               {/* Tyre condition */}
               {c.treadDepth && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <Activity size={14} color={conditionColor(c.tyreCondition)} />
-                  <span style={{ fontSize: '14px', color: conditionColor(c.tyreCondition) }}>{c.treadDepth}</span>
+                  <span style={{ fontSize: '15px', color: conditionColor(c.tyreCondition) }}>{c.treadDepth}</span>
                 </div>
               )}
               <ChevronRight size={16} color={theme.textMuted} style={{ marginLeft: 'auto' }} />
@@ -6596,20 +6600,20 @@ export default function TyreFitApp() {
         <div style={{ display: 'flex', gap: '8px' }}>
           <button onClick={() => showToast(`CSV downloaded — ${mockCoverCustomers.length} customers`)} style={{ flex: 1, padding: '14px', backgroundColor: theme.bgCard, border: `1px solid ${theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <Download size={16} color={theme.textMuted} />
-            <span style={{ color: theme.text, fontSize: '15px', fontWeight: '500' }}>Download List (CSV)</span>
+            <span style={{ color: theme.text, fontSize: '16px', fontWeight: '600' }}>Download List (CSV)</span>
           </button>
           <button onClick={() => setShowBulkMessage(true)} style={{ flex: 1, padding: '14px', backgroundColor: theme.primary, border: 'none', borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <MessageSquare size={16} color="#000" />
-            <span style={{ color: '#000', fontSize: '15px', fontWeight: '700' }}>Send Promotion</span>
+            <span style={{ color: '#000', fontSize: '16px', fontWeight: '800' }}>Send Promotion</span>
           </button>
         </div>
-        <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '14px', textAlign: 'center' }}>CSV includes: name, phone, reg, vehicle, cover status, expiry — GDPR compliant</p>
+        <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>CSV includes: name, phone, reg, vehicle, cover status, expiry — GDPR compliant</p>
       </div>
 
       {/* BULK MESSAGE POPUP */}
       {showBulkMessage && (
         <Modal title="Send Promotion to All Customers" onClose={() => setShowBulkMessage(false)}>
-          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px' }}>Choose a template to send to <strong style={{ color: theme.text }}>{mockCoverCustomers.length} covered customers</strong>:</p>
+          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px' }}>Choose a template to send to <strong style={{ color: theme.text }}>{mockCoverCustomers.length} covered customers</strong>:</p>
           
           {[
             { title: 'Seasonal Check Offer', Icon: RainAlert, msg: `Hi [NAME], winter's coming! Book a free tyre check with ${signUpData.businessName || "Dan's Mobile Tyres"} to make sure you're safe on the road: tyre-fit.co/b/[PLATE] — ${signUpData.fullName?.split(' ')[0] || 'Dan'}` },
@@ -6621,14 +6625,14 @@ export default function TyreFitApp() {
             <div key={i} style={{ marginBottom: '15px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}` }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <TmplIcon size={18} color={theme.primary} />
-                <span style={{ color: theme.text, fontWeight: '600', fontSize: '14px' }}>{tmpl.title}</span>
+                <span style={{ color: theme.text, fontWeight: '700', fontSize: '15px' }}>{tmpl.title}</span>
               </div>
-              <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5, fontStyle: 'italic' }}>{tmpl.msg}</p>
+              <p style={{ margin: '0 0 10px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5, fontStyle: 'italic' }}>{tmpl.msg}</p>
               <Button size="small" fullWidth onClick={() => { if (confirm(`Send "${tmpl.title}" to ${mockCoverCustomers.length} customers via SMS?`)) { setShowBulkMessage(false); showToast(`${tmpl.title} sent to ${mockCoverCustomers.length} customers`); } }} icon={Send}>Send to {mockCoverCustomers.length} Customers</Button>
             </div>
             );
           })}
-          <p style={{ margin: '12px 0 0 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>[NAME] and [PLATE] are replaced with each customer's details. Messages sent via SMS. Customers can opt out anytime.</p>
+          <p style={{ margin: '12px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>[NAME] and [PLATE] are replaced with each customer's details. Messages sent via SMS. Customers can opt out anytime.</p>
         </Modal>
       )}
 
@@ -6637,37 +6641,37 @@ export default function TyreFitApp() {
         <Modal title={selectedCoverCustomer.name} onClose={() => setSelectedCoverCustomer(null)}>
           <div style={{ marginBottom: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>{selectedCoverCustomer.vehicle}</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>{selectedCoverCustomer.vehicle}</p>
               <Badge variant={selectedCoverCustomer.status === 'active' ? 'success' : selectedCoverCustomer.status === 'expiring' ? 'warning' : 'default'}>{statusLabel(selectedCoverCustomer.status)}</Badge>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '16px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Plate</span><span style={{ color: theme.text, fontWeight: '600', letterSpacing: '0.5px' }}>{selectedCoverCustomer.plate}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Tyre Size</span><span style={{ color: theme.text }}>{selectedCoverCustomer.tyreSize}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Fitted</span><span style={{ color: theme.text }}>{selectedCoverCustomer.fittedDate}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Cover Expires</span><span style={{ color: statusColor(selectedCoverCustomer.status), fontWeight: '600' }}>{selectedCoverCustomer.expires}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Cover Status</span><span style={{ color: theme.primary, fontWeight: '500' }}>Auto-active from job close</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Branding</span><span style={{ color: theme.text, fontSize: '15px' }}>{signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Google Review</span><span style={{ color: selectedCoverCustomer.reviewLeft ? '#eab308' : theme.textMuted }}>{selectedCoverCustomer.reviewLeft ? `${selectedCoverCustomer.reviewStars} stars` : 'Not yet'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Plate</span><span style={{ color: theme.text, fontWeight: '700', letterSpacing: '0.5px' }}>{selectedCoverCustomer.plate}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Tyre Size</span><span style={{ color: theme.text }}>{selectedCoverCustomer.tyreSize}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Fitted</span><span style={{ color: theme.text }}>{selectedCoverCustomer.fittedDate}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Cover Expires</span><span style={{ color: statusColor(selectedCoverCustomer.status), fontWeight: '700' }}>{selectedCoverCustomer.expires}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Cover Status</span><span style={{ color: theme.primary, fontWeight: '600' }}>Auto-active from job close</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Branding</span><span style={{ color: theme.text, fontSize: '16px' }}>{signUpData.businessName || "Dan's Mobile Tyres"}, backed by TYRE-FIT</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Google Review</span><span style={{ color: selectedCoverCustomer.reviewLeft ? '#eab308' : theme.textMuted }}>{selectedCoverCustomer.reviewLeft ? `${selectedCoverCustomer.reviewStars} stars` : 'Not yet'}</span></div>
               {selectedCoverCustomer.treadDepth && (
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Tread Depth</span><span style={{ color: conditionColor(selectedCoverCustomer.tyreCondition), fontWeight: '600' }}>{selectedCoverCustomer.treadDepth} — {selectedCoverCustomer.tyreCondition}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Tread Depth</span><span style={{ color: conditionColor(selectedCoverCustomer.tyreCondition), fontWeight: '700' }}>{selectedCoverCustomer.treadDepth} — {selectedCoverCustomer.tyreCondition}</span></div>
               )}
               {selectedCoverCustomer.coverJobsDone > 0 && (
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Cover Jobs Done</span><span style={{ color: theme.primary, fontWeight: '600' }}>{selectedCoverCustomer.coverJobsDone}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Cover Jobs Done</span><span style={{ color: theme.primary, fontWeight: '700' }}>{selectedCoverCustomer.coverJobsDone}</span></div>
               )}
             </div>
             
             {/* TYRE BASELINE — from after photos OCR */}
             {selectedCoverCustomer.allTyres && selectedCoverCustomer.allTyres.length > 0 && (
               <div style={{ marginBottom: '16px' }}>
-                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '600', fontSize: '14px' }}>Tyre Baseline (from after photos)</p>
+                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '15px' }}>Tyre Baseline (from after photos)</p>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                   {selectedCoverCustomer.allTyres.map((t, i) => (
                     <div key={i} style={{ padding: '15px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
-                      <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>{t.pos === 'FL' ? 'Front Left' : t.pos === 'FR' ? 'Front Right' : t.pos === 'RL' ? 'Rear Left' : 'Rear Right'}</p>
-                      <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '15px', fontWeight: '500' }}>{t.size}</p>
-                      <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{t.brand} • DOT {t.dot}</p>
-                      <p style={{ margin: '2px 0 0 0', color: conditionColor(parseFloat(t.tread) > 4 ? 'Good' : parseFloat(t.tread) > 2.5 ? 'Fair' : 'Worn'), fontSize: '14px', fontWeight: '600' }}>Tread: {t.tread}</p>
+                      <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>{t.pos === 'FL' ? 'Front Left' : t.pos === 'FR' ? 'Front Right' : t.pos === 'RL' ? 'Rear Left' : 'Rear Right'}</p>
+                      <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '16px', fontWeight: '600' }}>{t.size}</p>
+                      <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{t.brand} • DOT {t.dot}</p>
+                      <p style={{ margin: '2px 0 0 0', color: conditionColor(parseFloat(t.tread) > 4 ? 'Good' : parseFloat(t.tread) > 2.5 ? 'Fair' : 'Worn'), fontSize: '15px', fontWeight: '700' }}>Tread: {t.tread}</p>
                     </div>
                   ))}
                 </div>
@@ -6679,9 +6683,9 @@ export default function TyreFitApp() {
               <div style={{ padding: '14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', border: `1px solid ${theme.danger}20`, marginBottom: '16px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                   <AlertTriangle size={16} color={theme.danger} />
-                  <span style={{ color: theme.danger, fontWeight: '600', fontSize: '14px' }}>Tyre Wear Alert</span>
+                  <span style={{ color: theme.danger, fontWeight: '700', fontSize: '15px' }}>Tyre Wear Alert</span>
                 </div>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Tread at {selectedCoverCustomer.treadDepth} — below 3mm. This customer likely needs new tyres soon. Great time to send an offer.</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Tread at {selectedCoverCustomer.treadDepth} — below 3mm. This customer likely needs new tyres soon. Great time to send an offer.</p>
               </div>
             )}
             
@@ -6690,9 +6694,9 @@ export default function TyreFitApp() {
               <div style={{ padding: '14px', backgroundColor: `#eab30810`, borderRadius: '15px', border: `1px solid #eab30820`, marginBottom: '16px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                   <Star size={16} color="#eab308" />
-                  <span style={{ color: '#eab308', fontWeight: '600', fontSize: '14px' }}>No Review Yet</span>
+                  <span style={{ color: '#eab308', fontWeight: '700', fontSize: '15px' }}>No Review Yet</span>
                 </div>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Customer hasn't left a Google review. Send a gentle reminder — more reviews means more bookings.</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Customer hasn't left a Google review. Send a gentle reminder — more reviews means more bookings.</p>
               </div>
             )}
           </div>
@@ -6704,8 +6708,8 @@ export default function TyreFitApp() {
                 <Button onClick={() => setCoverMessageType(coverMessageType === 'replacement' ? null : 'replacement')} icon={FileText}>Send Tyre Replacement Offer</Button>
                 {coverMessageType === 'replacement' && (
                   <div style={{ margin: '8px 0', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}` }}>
-                    <p style={{ margin: '0 0 4px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Customer will receive this text</p>
-                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6, fontStyle: 'italic' }}>Hi {selectedCoverCustomer.name.split(' ')[0]}, your rear tyres were at {selectedCoverCustomer.treadDepth || '2.1mm'} when we last checked — time for replacements before they become unsafe. Book here and we'll match your last price: <span style={{ color: theme.info, textDecoration: 'underline' }}>tyre-fit.co/q/{selectedCoverCustomer.plate?.replace(' ', '')}</span> — {signUpData.fullName?.split(' ')[0] || 'Dan'}, {signUpData.businessName || "Dan's Mobile Tyres"}</p>
+                    <p style={{ margin: '0 0 4px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '800' }}>Customer will receive this text</p>
+                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6, fontStyle: 'italic' }}>Hi {selectedCoverCustomer.name.split(' ')[0]}, your rear tyres were at {selectedCoverCustomer.treadDepth || '2.1mm'} when we last checked — time for replacements before they become unsafe. Book here and we'll match your last price: <span style={{ color: theme.info, textDecoration: 'underline' }}>tyre-fit.co/q/{selectedCoverCustomer.plate?.replace(' ', '')}</span> — {signUpData.fullName?.split(' ')[0] || 'Dan'}, {signUpData.businessName || "Dan's Mobile Tyres"}</p>
                     <div style={{ display: 'flex', gap: '8px', marginTop: '15px' }}>
                       <Button onClick={() => { setCoverMessageType(null); setSelectedCoverCustomer(null); showToast(`SMS sent to ${selectedCoverCustomer.name}`); }} fullWidth icon={Send} size="small">Send Now</Button>
                       <Button variant="secondary" onClick={() => setCoverMessageType(null)} fullWidth size="small">Cancel</Button>
@@ -6719,8 +6723,8 @@ export default function TyreFitApp() {
                 <Button onClick={() => setCoverMessageType(coverMessageType === 'checkup' ? null : 'checkup')} icon={Send}>Send Check-Up Offer</Button>
                 {coverMessageType === 'checkup' && (
                   <div style={{ margin: '8px 0', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}` }}>
-                    <p style={{ margin: '0 0 4px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Customer will receive this text</p>
-                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6, fontStyle: 'italic' }}>Hi {selectedCoverCustomer.name.split(' ')[0]}, your 30-day tyre cover from {signUpData.businessName || "Dan's Mobile Tyres"} expires on {selectedCoverCustomer.expires}. Book a free check-up to stay covered: <span style={{ color: theme.info, textDecoration: 'underline' }}>tyre-fit.co/b/{selectedCoverCustomer.plate?.replace(' ', '')}</span> — {signUpData.fullName?.split(' ')[0] || 'Dan'}</p>
+                    <p style={{ margin: '0 0 4px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '800' }}>Customer will receive this text</p>
+                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6, fontStyle: 'italic' }}>Hi {selectedCoverCustomer.name.split(' ')[0]}, your 30-day tyre cover from {signUpData.businessName || "Dan's Mobile Tyres"} expires on {selectedCoverCustomer.expires}. Book a free check-up to stay covered: <span style={{ color: theme.info, textDecoration: 'underline' }}>tyre-fit.co/b/{selectedCoverCustomer.plate?.replace(' ', '')}</span> — {signUpData.fullName?.split(' ')[0] || 'Dan'}</p>
                     <div style={{ display: 'flex', gap: '8px', marginTop: '15px' }}>
                       <Button onClick={() => { setCoverMessageType(null); setSelectedCoverCustomer(null); showToast(`Check-up offer sent to ${selectedCoverCustomer.name}`); }} fullWidth icon={Send} size="small">Send Now</Button>
                       <Button variant="secondary" onClick={() => setCoverMessageType(null)} fullWidth size="small">Cancel</Button>
@@ -6734,8 +6738,8 @@ export default function TyreFitApp() {
                 <Button variant="secondary" onClick={() => setCoverMessageType(coverMessageType === 'review' ? null : 'review')} icon={Star}>Send Review Reminder</Button>
                 {coverMessageType === 'review' && (
                   <div style={{ margin: '8px 0', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', border: `1px solid ${theme.border}` }}>
-                    <p style={{ margin: '0 0 4px 0', fontSize: '15px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '700' }}>Customer will receive this text</p>
-                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6, fontStyle: 'italic' }}>Hi {selectedCoverCustomer.name.split(' ')[0]}, hope the tyres are riding well! If you have a moment, a quick Google review would really help us out: <span style={{ color: theme.info, textDecoration: 'underline' }}>g.page/{(signUpData.businessName || 'dansmobiletyres').toLowerCase().replace(/[^a-z]/g, '')}/review</span> Thanks! — {signUpData.fullName?.split(' ')[0] || 'Dan'}</p>
+                    <p style={{ margin: '0 0 4px 0', fontSize: '16px', color: theme.textMuted, textTransform: 'uppercase', fontWeight: '800' }}>Customer will receive this text</p>
+                    <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6, fontStyle: 'italic' }}>Hi {selectedCoverCustomer.name.split(' ')[0]}, hope the tyres are riding well! If you have a moment, a quick Google review would really help us out: <span style={{ color: theme.info, textDecoration: 'underline' }}>g.page/{(signUpData.businessName || 'dansmobiletyres').toLowerCase().replace(/[^a-z]/g, '')}/review</span> Thanks! — {signUpData.fullName?.split(' ')[0] || 'Dan'}</p>
                     <div style={{ display: 'flex', gap: '8px', marginTop: '15px' }}>
                       <Button onClick={() => { setCoverMessageType(null); setSelectedCoverCustomer(null); showToast(`Review reminder sent to ${selectedCoverCustomer.name}`); }} fullWidth icon={Send} size="small">Send Now</Button>
                       <Button variant="secondary" onClick={() => setCoverMessageType(null)} fullWidth size="small">Cancel</Button>
@@ -6745,7 +6749,7 @@ export default function TyreFitApp() {
               </div>
             )}
             <Button variant="secondary" onClick={() => { setSelectedCoverCustomer(null); setQuoteData(prev => ({ ...prev, customerName: selectedCoverCustomer.name, mobile: selectedCoverCustomer.phone, numberPlate: selectedCoverCustomer.plate, isEmergency: false, isCoverQuote: false })); navigateTo('quote-customer'); }} icon={FileText}>New Quote for This Customer</Button>
-            <button onClick={() => { setSelectedCoverCustomer(null); showToast(`Calling ${selectedCoverCustomer.name}...`); }} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '15px', fontWeight: '500', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <button onClick={() => { setSelectedCoverCustomer(null); showToast(`Calling ${selectedCoverCustomer.name}...`); }} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '16px', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
               <Phone size={18} color={theme.textMuted} /> Call Customer
             </button>
           </div>
@@ -6784,7 +6788,7 @@ export default function TyreFitApp() {
         {/* UPCOMING / COMPLETED TOGGLE */}
         <div style={{ display: 'flex', gap: '4px', padding: '0 16px 16px', backgroundColor: theme.bgCard }}>
           {['upcoming', 'completed'].map(tab => (
-            <button key={tab} onClick={() => setBookingsTab(tab)} style={{ flex: 1, padding: '14px', backgroundColor: bookingsTab === tab ? theme.primary : theme.bgInput, border: 'none', borderRadius: '8px', color: bookingsTab === tab ? '#000' : theme.textMuted, fontWeight: '600', cursor: 'pointer', textTransform: 'capitalize', fontSize: '15px' }}>{tab}</button>
+            <button key={tab} onClick={() => setBookingsTab(tab)} style={{ flex: 1, padding: '14px', backgroundColor: bookingsTab === tab ? theme.primary : theme.bgInput, border: 'none', borderRadius: '8px', color: bookingsTab === tab ? '#000' : theme.textMuted, fontWeight: '700', cursor: 'pointer', textTransform: 'capitalize', fontSize: '16px' }}>{tab}</button>
           ))}
         </div>
         
@@ -6792,22 +6796,22 @@ export default function TyreFitApp() {
           <>
             <div style={{ display: 'flex', gap: '8px', padding: '0 16px 16px' }}>
               {['day', 'week', 'month'].map(view => (
-                <button key={view} onClick={() => setCalendarView(view)} style={{ flex: 1, padding: '15px', backgroundColor: calendarView === view ? `${theme.primary}20` : theme.bgInput, border: calendarView === view ? `1px solid ${theme.primary}` : `1px solid transparent`, borderRadius: '8px', color: calendarView === view ? theme.primary : theme.textMuted, fontWeight: '600', cursor: 'pointer', textTransform: 'capitalize', fontSize: '15px' }}>{view}</button>
+                <button key={view} onClick={() => setCalendarView(view)} style={{ flex: 1, padding: '15px', backgroundColor: calendarView === view ? `${theme.primary}20` : theme.bgInput, border: calendarView === view ? `1px solid ${theme.primary}` : `1px solid transparent`, borderRadius: '8px', color: calendarView === view ? theme.primary : theme.textMuted, fontWeight: '700', cursor: 'pointer', textTransform: 'capitalize', fontSize: '16px' }}>{view}</button>
               ))}
             </div>
             <div style={{ padding: '0 16px' }}>
               {calendarView === 'day' && (
                 <>
-                  <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '0 0 12px 0' }}>Wednesday, 4 Feb</h3>
+                  <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '0 0 12px 0' }}>Wednesday, 4 Feb</h3>
                   {timeSlots.map(time => {
                     const job = mockJobs.find(j => j.time === time.replace(':00', ':30'));
                     return (
                       <div key={time} style={{ display: 'flex', gap: '14px', marginBottom: '8px' }}>
-                        <div style={{ width: '50px', color: theme.textMuted, fontSize: '14px', paddingTop: '8px' }}>{time}</div>
+                        <div style={{ width: '50px', color: theme.textMuted, fontSize: '15px', paddingTop: '8px' }}>{time}</div>
                         {job ? (
                           <Card onClick={() => setSelectedBooking(job)} style={{ flex: 1, marginBottom: 0, backgroundColor: `${theme.primary}20`, borderColor: theme.primary, cursor: 'pointer' }}>
-                            <h4 style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '600' }}>{job.customer}</h4>
-                            <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px' }}>{job.plate} — {job.tyreQty}x {job.tyreSize}</p>
+                            <h4 style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '700' }}>{job.customer}</h4>
+                            <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px' }}>{job.plate} — {job.tyreQty}x {job.tyreSize}</p>
                             <div style={{ display: 'flex', gap: '6px' }}>
                               <Badge variant={job.depositPaid ? 'success' : 'warning'}>{job.depositPaid ? 'Confirmed' : 'Pending'}</Badge>
                               {job.stockOnVan && <Badge variant="success">On van</Badge>}
@@ -6826,20 +6830,20 @@ export default function TyreFitApp() {
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '4px', marginBottom: '16px' }}>
                     {days.map((day, i) => (
                       <div key={day} style={{ textAlign: 'center', padding: '8px 4px', backgroundColor: i === 2 ? theme.primary : 'transparent', borderRadius: '8px' }}>
-                        <p style={{ margin: 0, color: i === 2 ? '#000' : theme.textMuted, fontSize: '14px' }}>{day}</p>
-                        <p style={{ margin: '4px 0 0 0', color: i === 2 ? '#000' : theme.text, fontWeight: '600' }}>{3 + i}</p>
+                        <p style={{ margin: 0, color: i === 2 ? '#000' : theme.textMuted, fontSize: '15px' }}>{day}</p>
+                        <p style={{ margin: '4px 0 0 0', color: i === 2 ? '#000' : theme.text, fontWeight: '700' }}>{3 + i}</p>
                       </div>
                     ))}
                   </div>
-                  <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '0 0 12px 0' }}>Today's Jobs</h3>
+                  <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '0 0 12px 0' }}>Today's Jobs</h3>
                   {mockJobs.map(job => (
                     <Card key={job.id} onClick={() => setSelectedBooking(job)} style={{ cursor: 'pointer' }}>
                       <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
-                        <div style={{ textAlign: 'center', minWidth: '50px' }}><p style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{job.time}</p></div>
+                        <div style={{ textAlign: 'center', minWidth: '50px' }}><p style={{ margin: 0, color: theme.text, fontWeight: '800' }}>{job.time}</p></div>
                         <div style={{ flex: 1 }}>
-                          <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{job.customer}</h3>
-                          <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{job.plate} — {job.tyreQty}x {job.tyreSize}</p>
-                          <p style={{ margin: '2px 0 0 0', color: theme.textSubtle, fontSize: '15px' }}>{job.location}</p>
+                          <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{job.customer}</h3>
+                          <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{job.plate} — {job.tyreQty}x {job.tyreSize}</p>
+                          <p style={{ margin: '2px 0 0 0', color: theme.textSubtle, fontSize: '16px' }}>{job.location}</p>
                         </div>
                         <Badge variant={job.depositPaid ? 'success' : 'warning'}>{job.depositPaid ? 'Confirmed' : 'Pending'}</Badge>
                       </div>
@@ -6850,7 +6854,7 @@ export default function TyreFitApp() {
               {calendarView === 'month' && (
                 <>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '4px', marginBottom: '8px' }}>
-                    {days.map(day => <div key={day} style={{ textAlign: 'center', padding: '4px', color: theme.textMuted, fontSize: '14px' }}>{day}</div>)}
+                    {days.map(day => <div key={day} style={{ textAlign: 'center', padding: '4px', color: theme.textMuted, fontSize: '15px' }}>{day}</div>)}
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '4px' }}>
                     {[...Array(35)].map((_, i) => {
@@ -6860,7 +6864,7 @@ export default function TyreFitApp() {
                       const isToday = dayNum === 4;
                       return (
                         <div key={i} style={{ aspectRatio: '1', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: isToday ? theme.primary : hasJob ? `${theme.primary}20` : 'transparent', borderRadius: '8px', opacity: isCurrentMonth ? 1 : 0.3 }}>
-                          <span style={{ color: isToday ? '#000' : theme.text, fontSize: '14px', fontWeight: isToday ? '700' : '400' }}>{isCurrentMonth ? dayNum : ''}</span>
+                          <span style={{ color: isToday ? '#000' : theme.text, fontSize: '15px', fontWeight: isToday ? '700' : '400' }}>{isCurrentMonth ? dayNum : ''}</span>
                           {hasJob && !isToday && <div style={{ width: '4px', height: '4px', borderRadius: '2px', backgroundColor: theme.primary, marginTop: '2px' }} />}
                         </div>
                       );
@@ -6868,9 +6872,9 @@ export default function TyreFitApp() {
                   </div>
                   <Card style={{ marginTop: '16px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
-                      <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Bookings</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '24px', fontWeight: '700' }}>23</p></div>
+                      <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Bookings</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '25px', fontWeight: '800' }}>23</p></div>
                       <div style={{ width: '1px', backgroundColor: theme.border }} />
-                      <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Revenue</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '24px', fontWeight: '700' }}>£2.1k</p></div>
+                      <div><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Revenue</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '25px', fontWeight: '800' }}>£2.1k</p></div>
                     </div>
                   </Card>
                 </>
@@ -6886,18 +6890,18 @@ export default function TyreFitApp() {
             <Card style={{ marginBottom: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
                 <div>
-                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>This Month</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '24px', fontWeight: '700' }}>£{totalEarned.toFixed(0)}</p>
+                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>This Month</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '25px', fontWeight: '800' }}>£{totalEarned.toFixed(0)}</p>
                 </div>
                 <div style={{ width: '1px', backgroundColor: theme.border }} />
                 <div>
-                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Jobs Done</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '24px', fontWeight: '700' }}>{totalJobs}</p>
+                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Jobs Done</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '25px', fontWeight: '800' }}>{totalJobs}</p>
                 </div>
                 <div style={{ width: '1px', backgroundColor: theme.border }} />
                 <div>
-                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Avg Job</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '24px', fontWeight: '700' }}>£{(totalEarned / totalJobs).toFixed(0)}</p>
+                  <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Avg Job</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '25px', fontWeight: '800' }}>£{(totalEarned / totalJobs).toFixed(0)}</p>
                 </div>
               </div>
             </Card>
@@ -6907,12 +6911,12 @@ export default function TyreFitApp() {
               <Card key={j.id} style={{ marginBottom: '15px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                   <div>
-                    <h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '16px' }}>{j.customer}</h3>
-                    <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{j.plate} — {j.tyreQty}x {j.tyreSize}</p>
+                    <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '17px' }}>{j.customer}</h3>
+                    <p style={{ margin: '3px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{j.plate} — {j.tyreQty}x {j.tyreSize}</p>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '17px' }}>£{j.earned.toFixed(2)}</p>
-                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{j.date}</p>
+                    <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '18px' }}>£{j.earned.toFixed(2)}</p>
+                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{j.date}</p>
                   </div>
                 </div>
                 <div style={{ display: 'flex', gap: '6px' }}>
@@ -6928,14 +6932,14 @@ export default function TyreFitApp() {
         {selectedBooking && (
           <Modal title={selectedBooking.customer} onClose={() => setSelectedBooking(null)}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '16px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Plate</span><span style={{ color: theme.text, fontWeight: '600', letterSpacing: '0.5px' }}>{selectedBooking.plate}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Tyres</span><span style={{ color: theme.text }}>{selectedBooking.tyreQty}x {selectedBooking.tyreSize}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Time</span><span style={{ color: theme.text }}>{selectedBooking.time}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Location</span><span style={{ color: theme.text, textAlign: 'right', maxWidth: '60%' }}>{selectedBooking.location}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>ETA</span><span style={{ color: theme.primary, fontWeight: '600' }}>{selectedBooking.eta}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Deposit</span><span style={{ color: selectedBooking.depositPaid ? theme.primary : theme.warning, fontWeight: '600' }}>{selectedBooking.depositPaid ? 'Paid' : 'Pending'}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Stock</span><span style={{ color: selectedBooking.stockOnVan ? theme.primary : theme.warning }}>{selectedBooking.stockOnVan ? 'On van' : 'Depot pickup needed'}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '14px' }}>Cover</span><span style={{ color: theme.primary }}>{(mockCoverCustomers.find(c => c.plate === selectedBooking.plate)?.status || 'none').replace('-', ' ')}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Plate</span><span style={{ color: theme.text, fontWeight: '700', letterSpacing: '0.5px' }}>{selectedBooking.plate}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Tyres</span><span style={{ color: theme.text }}>{selectedBooking.tyreQty}x {selectedBooking.tyreSize}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Time</span><span style={{ color: theme.text }}>{selectedBooking.time}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Location</span><span style={{ color: theme.text, textAlign: 'right', maxWidth: '60%' }}>{selectedBooking.location}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>ETA</span><span style={{ color: theme.primary, fontWeight: '700' }}>{selectedBooking.eta}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Deposit</span><span style={{ color: selectedBooking.depositPaid ? theme.primary : theme.warning, fontWeight: '700' }}>{selectedBooking.depositPaid ? 'Paid' : 'Pending'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Stock</span><span style={{ color: selectedBooking.stockOnVan ? theme.primary : theme.warning }}>{selectedBooking.stockOnVan ? 'On van' : 'Depot pickup needed'}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Cover</span><span style={{ color: theme.primary }}>{(mockCoverCustomers.find(c => c.plate === selectedBooking.plate)?.status || 'none').replace('-', ' ')}</span></div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <Button onClick={() => { setSelectedBooking(null); setActiveJob(selectedBooking); setIsCoverJob(!!selectedBooking.isCoverJob); setBeforePhotos({}); setAfterPhotos({}); setCustomerSigned(false); navigateTo('job-enroute'); }} icon={Navigation} disabled={!selectedBooking.depositPaid && !selectedBooking.isCoverJob}>Start This Job</Button>
@@ -6984,14 +6988,14 @@ export default function TyreFitApp() {
     
     const renderMenuGroup = (title, items) => (
       <div style={{ marginBottom: '16px' }}>
-        <h3 style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.5px', paddingLeft: '4px' }}>{title}</h3>
+        <h3 style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', letterSpacing: '0.5px', paddingLeft: '4px' }}>{title}</h3>
         <div style={{ borderRadius: '14px', overflow: 'hidden', border: `1px solid ${theme.border}` }}>
           {items.filter(item => { if (item.show === false) return false; if (item.ownerOnly && userRole !== 'owner') return false; return true; }).map((item, i, arr) => (
             <button key={i} onClick={() => item.action ? item.action() : navigateTo(item.screen)} style={{ width: '100%', padding: '16px', backgroundColor: theme.bgCard, border: 'none', borderBottom: i < arr.length - 1 ? `1px solid ${theme.border}` : 'none', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' }}>
               <item.icon size={20} color={item.danger ? theme.danger : item.highlight ? theme.primary : theme.textMuted} />
               <div style={{ flex: 1 }}>
-                <span style={{ color: item.danger ? theme.danger : theme.text, fontWeight: '500', display: 'block' }}>{item.label}</span>
-                {item.desc && <span style={{ color: theme.textMuted, fontSize: '14px' }}>{item.desc}</span>}
+                <span style={{ color: item.danger ? theme.danger : theme.text, fontWeight: '600', display: 'block' }}>{item.label}</span>
+                {item.desc && <span style={{ color: theme.textMuted, fontSize: '15px' }}>{item.desc}</span>}
               </div>
               <ChevronRight size={18} color={theme.textMuted} />
             </button>
@@ -7006,43 +7010,43 @@ export default function TyreFitApp() {
         <div style={{ padding: '16px' }}>
           {userRole !== 'owner' && (
             <Card style={{ borderColor: theme.warning, marginBottom: '14px' }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Team fitter permissions: wallet withdrawals, business settings, and public review responses are owner-only.</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>Team fitter permissions: wallet withdrawals, business settings, and public review responses are owner-only.</p>
             </Card>
           )}
-          <Card onClick={() => navigateTo('settings-profile')}><div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}><div style={{ width: '64px', height: '64px', backgroundColor: theme.primary, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ fontSize: '24px', fontWeight: '700', color: '#000' }}>{(signUpData.fullName || 'Dan Smith').split(' ').map(n => n[0]).join('')}</span></div><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '18px' }}>{signUpData.fullName || 'Dan Smith'}</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted }}>{signUpData.businessName || "Dan's Mobile Tyres"}</p>{userRole === 'owner' && <Badge variant="success">Owner</Badge>}</div><ChevronRight size={20} color={theme.textMuted} /></div></Card>
+          <Card onClick={() => navigateTo('settings-profile')}><div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}><div style={{ width: '64px', height: '64px', backgroundColor: theme.primary, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ fontSize: '25px', fontWeight: '800', color: '#000' }}>{(signUpData.fullName || 'Dan Smith').split(' ').map(n => n[0]).join('')}</span></div><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '19px' }}>{signUpData.fullName || 'Dan Smith'}</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted }}>{signUpData.businessName || "Dan's Mobile Tyres"}</p>{userRole === 'owner' && <Badge variant="success">Owner</Badge>}</div><ChevronRight size={20} color={theme.textMuted} /></div></Card>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px', marginTop: '16px' }}>
-            <Card><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Jobs</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '20px', fontWeight: '700' }}>847</p></Card>
-            <Card><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Earnings</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '20px', fontWeight: '700' }}>£52k</p></Card>
-            <Card><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Rating</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '20px', fontWeight: '700' }}>4.8/5</p></Card>
+            <Card><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Jobs</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '21px', fontWeight: '800' }}>847</p></Card>
+            <Card><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Earnings</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '21px', fontWeight: '800' }}>£52k</p></Card>
+            <Card><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Rating</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '21px', fontWeight: '800' }}>4.8/5</p></Card>
           </div>
 
           <Card style={{ marginTop: '16px', borderColor: `${theme.primary}40` }} onClick={() => navigateTo('wallet')}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Next payout</p>
-                <p style={{ margin: '4px 0 0 0', color: theme.primary, fontWeight: '700', fontSize: '20px' }}>£847 → your bank Friday</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Next payout</p>
+                <p style={{ margin: '4px 0 0 0', color: theme.primary, fontWeight: '800', fontSize: '21px' }}>£847 → your bank Friday</p>
               </div>
               <ChevronRight size={20} color={theme.textMuted} />
             </div>
           </Card>
           
           <Card style={{ marginTop: '16px' }} onClick={() => setShowExportModal(true)}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}><FileDown size={20} color={theme.info} /><div style={{ flex: 1 }}><p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>Export Customer List</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Your data — download a CSV copy anytime</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}><FileDown size={20} color={theme.info} /><div style={{ flex: 1 }}><p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Export Customer List</p><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Your data — download a CSV copy anytime</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
           </Card>
           
           {showExportModal && (
             <Modal title="Export Customer List" onClose={() => setShowExportModal(false)}>
-              <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px' }}>This is your data and you're free to download it whenever you need to. We just look after it securely on your behalf.</p>
-              <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '15px' }}>The CSV includes customer names, phone numbers, and vehicles.</p>
-              <label style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', marginBottom: '24px' }}><input type="checkbox" checked={gdprChecked} onChange={(e) => setGdprChecked(e.target.checked)} style={{ marginTop: '4px' }} /><span style={{ color: theme.text, fontSize: '14px' }}>I'll handle this data responsibly in line with data protection laws</span></label>
+              <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px' }}>This is your data and you're free to download it whenever you need to. We just look after it securely on your behalf.</p>
+              <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '16px' }}>The CSV includes customer names, phone numbers, and vehicles.</p>
+              <label style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', marginBottom: '24px' }}><input type="checkbox" checked={gdprChecked} onChange={(e) => setGdprChecked(e.target.checked)} style={{ marginTop: '4px' }} /><span style={{ color: theme.text, fontSize: '15px' }}>I'll handle this data responsibly in line with data protection laws</span></label>
               <div style={{ display: 'flex', gap: '14px' }}><Button variant="secondary" onClick={() => setShowExportModal(false)} fullWidth>Cancel</Button><Button disabled={!gdprChecked} onClick={() => { setShowExportModal(false); showToast('CSV downloaded'); }} fullWidth icon={Download}>Export CSV</Button></div>
             </Modal>
           )}
           
           {showLogoutConfirm && (
             <Modal title="Log Out?" onClose={() => setShowLogoutConfirm(false)}>
-              <p style={{ margin: '0 0 24px 0', color: theme.textMuted, fontSize: '16px' }}>Are you sure you want to log out?</p>
+              <p style={{ margin: '0 0 24px 0', color: theme.textMuted, fontSize: '17px' }}>Are you sure you want to log out?</p>
               <div style={{ display: 'flex', gap: '14px' }}>
                 <Button variant="secondary" onClick={() => setShowLogoutConfirm(false)} fullWidth>Cancel</Button>
                 <Button variant="danger" onClick={() => { setShowLogoutConfirm(false); navigateTo('signin'); }} fullWidth icon={LogOut}>Yes, Log Out</Button>
@@ -7055,7 +7059,7 @@ export default function TyreFitApp() {
             {renderMenuGroup('My Business', myBusinessItems)}
             {renderMenuGroup('Preferences', preferencesItems)}
           </div>
-          <button onClick={() => { setViewMode('customer'); navigateTo('customer-booking'); }} style={{ marginTop: '20px', width: '100%', background: 'none', border: 'none', color: theme.textSubtle, fontSize: '14px', cursor: 'pointer' }}>
+          <button onClick={() => { setViewMode('customer'); navigateTo('customer-booking'); }} style={{ marginTop: '20px', width: '100%', background: 'none', border: 'none', color: theme.textSubtle, fontSize: '15px', cursor: 'pointer' }}>
             TYRE-FIT v6.0 — tap for customer demo
           </button>
         </div>
@@ -7075,17 +7079,17 @@ export default function TyreFitApp() {
         <div style={{ padding: '16px' }}>
           <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
             {['7d', '30d', '90d'].map(r => (
-              <button key={r} onClick={() => setAnalyticsRange(r)} style={{ padding: '10px 14px', backgroundColor: analyticsRange === r ? theme.primary : theme.bgInput, border: 'none', borderRadius: '15px', color: analyticsRange === r ? '#000' : theme.textMuted, fontWeight: '700', cursor: 'pointer' }}>{r.toUpperCase()}</button>
+              <button key={r} onClick={() => setAnalyticsRange(r)} style={{ padding: '10px 14px', backgroundColor: analyticsRange === r ? theme.primary : theme.bgInput, border: 'none', borderRadius: '15px', color: analyticsRange === r ? '#000' : theme.textMuted, fontWeight: '800', cursor: 'pointer' }}>{r.toUpperCase()}</button>
             ))}
           </div>
           <Card>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted }}>Total jobs</span><span style={{ color: theme.text, fontWeight: '700' }}>{completed}</span></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted }}>Total earnings</span><span style={{ color: theme.primary, fontWeight: '700' }}>£{walletBalance.toFixed(2)}</span></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Quote to paid conversion</span><span style={{ color: conversion >= 70 ? theme.primary : theme.warning, fontWeight: '700' }}>{conversion}%</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted }}>Total jobs</span><span style={{ color: theme.text, fontWeight: '800' }}>{completed}</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted }}>Total earnings</span><span style={{ color: theme.primary, fontWeight: '800' }}>£{walletBalance.toFixed(2)}</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Quote to paid conversion</span><span style={{ color: conversion >= 70 ? theme.primary : theme.warning, fontWeight: '800' }}>{conversion}%</span></div>
           </Card>
           <Card style={{ borderColor: `${theme.info}30` }}>
-            <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700' }}>How numbers are calculated</p>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>`Total jobs` from jobs table, `Total earnings` from wallet transactions net values, `Conversion` from quote sent vs deposit paid. Date filter applies to all three cards.</p>
+            <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800' }}>How numbers are calculated</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>`Total jobs` from jobs table, `Total earnings` from wallet transactions net values, `Conversion` from quote sent vs deposit paid. Date filter applies to all three cards.</p>
           </Card>
         </div>
       </div>
@@ -7115,7 +7119,7 @@ export default function TyreFitApp() {
       <div style={{ padding: '16px' }}>
 
         {/* BUSINESS IDENTITY */}
-        <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Business identity</p>
+        <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Business identity</p>
         <Input label="Business Name" value={signUpData.businessName || "Dan's Mobile Tyres"} onChange={(v) => setSignUpData({...signUpData, businessName: v})} />
         <Input label="Business Phone" value={signUpData.businessPhone || '07700 900123'} onChange={(v) => setSignUpData({...signUpData, businessPhone: v})} />
         <Input label="Business Email" value={signUpData.businessEmail || 'info@dansmobiletyres.co.uk'} onChange={(v) => setSignUpData({...signUpData, businessEmail: v})} />
@@ -7127,31 +7131,31 @@ export default function TyreFitApp() {
         
         {/* LOGO */}
         <div style={{ marginBottom: '16px' }}>
-          <label style={{ display: 'block', fontSize: '14px', color: theme.textMuted, marginBottom: '8px' }}>Business Logo</label>
+          <label style={{ display: 'block', fontSize: '15px', color: theme.textMuted, marginBottom: '8px' }}>Business Logo</label>
           <button onClick={() => { setShowLogo(!showLogo); setSignUpData({...signUpData, logoUploaded: !showLogo}); showToast(showLogo ? 'Logo removed' : 'Logo uploaded'); }} style={{ width: '100%', padding: showLogo ? '14px' : '24px', backgroundColor: showLogo ? `${theme.primary}10` : theme.bgInput, border: `2px ${showLogo ? 'solid' : 'dashed'} ${showLogo ? theme.primary : theme.border}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
             {showLogo ? (
-              <><div style={{ width: '48px', height: '48px', borderRadius: '15px', backgroundColor: theme.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: '#000', fontWeight: '700', fontSize: '16px' }}>{(signUpData.businessName || 'DM')[0]}{(signUpData.businessName || 'DM').split(' ')[1]?.[0] || 'T'}</span></div><span style={{ color: theme.primary, fontWeight: '500', fontSize: '14px' }}>Logo uploaded — tap to change</span></>
+              <><div style={{ width: '48px', height: '48px', borderRadius: '15px', backgroundColor: theme.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: '#000', fontWeight: '800', fontSize: '17px' }}>{(signUpData.businessName || 'DM')[0]}{(signUpData.businessName || 'DM').split(' ')[1]?.[0] || 'T'}</span></div><span style={{ color: theme.primary, fontWeight: '600', fontSize: '15px' }}>Logo uploaded — tap to change</span></>
             ) : (
-              <><Upload size={24} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '14px' }}>Upload logo</span></>
+              <><Upload size={24} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '15px' }}>Upload logo</span></>
             )}
           </button>
         </div>
 
         {/* TAX & LEGAL */}
-        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Tax & legal</p>
+        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Tax & legal</p>
         <Input label="VAT Number (if registered)" value={signUpData.vatNumber || ''} onChange={(v) => setSignUpData({...signUpData, vatNumber: v})} placeholder="GB123456789 — leave blank if not VAT registered" />
         <Input label="Company Registration Number (optional)" value={signUpData.companyNumber || ''} onChange={(v) => setSignUpData({...signUpData, companyNumber: v})} placeholder="If registered as a limited company" />
         
         <Card style={{ marginBottom: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '8px' }}>
             <Info size={16} color={theme.info} />
-            <span style={{ color: theme.text, fontWeight: '600', fontSize: '14px' }}>Tax status</span>
+            <span style={{ color: theme.text, fontWeight: '700', fontSize: '15px' }}>Tax status</span>
           </div>
-          <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>{signUpData.vatNumber ? 'VAT registered — invoices will include 20% VAT automatically.' : 'Not VAT registered — invoices show totals without VAT. If you register later, update your VAT number above.'}</p>
+          <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>{signUpData.vatNumber ? 'VAT registered — invoices will include 20% VAT automatically.' : 'Not VAT registered — invoices show totals without VAT. If you register later, update your VAT number above.'}</p>
         </Card>
 
         {/* SERVICES OFFERED */}
-        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Services you offer</p>
+        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Services you offer</p>
         <Card style={{ marginBottom: '14px' }}>
           <Toggle label="Tyre Fitting (replace)" checked={signUpData.services?.tyreFitting !== false} onChange={() => setSignUpData({...signUpData, services: {...signUpData.services, tyreFitting: !signUpData.services?.tyreFitting}})} />
           <Toggle label="Puncture Repairs" checked={signUpData.services?.punctureRepairs !== false} onChange={() => setSignUpData({...signUpData, services: {...signUpData.services, punctureRepairs: !signUpData.services?.punctureRepairs}})} />
@@ -7163,7 +7167,7 @@ export default function TyreFitApp() {
         </Card>
 
         {/* PRICING DEFAULTS */}
-        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Default pricing (used in quotes)</p>
+        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Default pricing (used in quotes)</p>
         <Card style={{ marginBottom: '14px' }}>
           <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
             <div style={{ flex: 1 }}><Input label="Emergency Callout Fee" value={signUpData.pricing?.calloutFee || '25'} onChange={(v) => setSignUpData({...signUpData, pricing: {...signUpData.pricing, calloutFee: v}})} placeholder="£" /></div>
@@ -7172,30 +7176,30 @@ export default function TyreFitApp() {
           <Toggle label="Digital balancing — free" checked={signUpData.pricing?.digitalBalancingFree !== false} onChange={() => setSignUpData({...signUpData, pricing: {...signUpData.pricing, digitalBalancingFree: !signUpData.pricing?.digitalBalancingFree}})} />
           <Toggle label="New valves — free" checked={signUpData.pricing?.newValvesFree !== false} onChange={() => setSignUpData({...signUpData, pricing: {...signUpData.pricing, newValvesFree: !signUpData.pricing?.newValvesFree}})} />
           <Toggle label="Old tyre disposal — free" checked={signUpData.pricing?.disposalFree !== false} onChange={() => setSignUpData({...signUpData, pricing: {...signUpData.pricing, disposalFree: !signUpData.pricing?.disposalFree}})} />
-          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>These defaults appear in Quick Quote and Full Quote. You can override them per quote.</p>
+          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>These defaults appear in Quick Quote and Full Quote. You can override them per quote.</p>
         </Card>
 
         {/* OPERATING HOURS */}
-        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Operating hours</p>
+        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Operating hours</p>
         <Card style={{ marginBottom: '14px' }}>
           {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day, i) => (
             <div key={day} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: i < 6 ? `1px solid ${theme.border}` : 'none' }}>
-              <span style={{ color: theme.text, fontSize: '14px', fontWeight: '500', width: '100px' }}>{day}</span>
-              <span style={{ color: i < 6 ? theme.textMuted : theme.danger, fontSize: '15px' }}>{i < 5 ? '8:00 — 18:00' : i === 5 ? '9:00 — 14:00' : 'Closed'}</span>
+              <span style={{ color: theme.text, fontSize: '15px', fontWeight: '600', width: '100px' }}>{day}</span>
+              <span style={{ color: i < 6 ? theme.textMuted : theme.danger, fontSize: '16px' }}>{i < 5 ? '8:00 — 18:00' : i === 5 ? '9:00 — 14:00' : 'Closed'}</span>
             </div>
           ))}
-          <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Customers see these on your booking page. Emergency callouts operate outside these hours.</p>
+          <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Customers see these on your booking page. Emergency callouts operate outside these hours.</p>
         </Card>
 
         {/* COVER RADIUS */}
-        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Cover job radius</p>
+        <p style={{ margin: '16px 0 8px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Cover job radius</p>
         <Card style={{ marginBottom: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span style={{ color: theme.text, fontWeight: '600' }}>Maximum distance for cover jobs</span>
-            <span style={{ color: theme.primary, fontWeight: '700', fontSize: '18px' }}>15 miles</span>
+            <span style={{ color: theme.text, fontWeight: '700' }}>Maximum distance for cover jobs</span>
+            <span style={{ color: theme.primary, fontWeight: '800', fontSize: '19px' }}>15 miles</span>
           </div>
           <input type="range" min="5" max="30" defaultValue="15" style={{ width: '100%', accentColor: theme.primary }} />
-          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>TYRE-FIT will only alert you to cover jobs within this radius. Wider radius = more jobs but more driving.</p>
+          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>TYRE-FIT will only alert you to cover jobs within this radius. Wider radius = more jobs but more driving.</p>
         </Card>
 
         <Button onClick={() => { showToast('Business settings saved'); goBack(); }}>Save Changes</Button>
@@ -7210,23 +7214,23 @@ export default function TyreFitApp() {
       <Header title="Payments Setup" subtitle="Connect Stripe or skip for now" />
       <div style={{ padding: '16px' }}>
         <Card style={{ marginBottom: '14px', borderColor: `${theme.primary}40` }}>
-          <h3 style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '16px', fontWeight: '700' }}>What you get with Stripe connected</h3>
+          <h3 style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '17px', fontWeight: '800' }}>What you get with Stripe connected</h3>
           {['QR code payments', 'Tap to Pay on iPhone', 'Auto receipts + cover links', 'Pay Now invoice links', 'Wallet transfer to bank'].map((item) => (
             <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <CheckCircle size={16} color={theme.primary} />
-              <span style={{ color: theme.text, fontSize: '14px' }}>{item}</span>
+              <span style={{ color: theme.text, fontSize: '15px' }}>{item}</span>
             </div>
           ))}
         </Card>
         <Card style={{ marginBottom: '14px' }}>
-          <h3 style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '16px', fontWeight: '700' }}>What works without Stripe</h3>
-          <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>
+          <h3 style={{ margin: '0 0 10px 0', color: theme.text, fontSize: '17px', fontWeight: '800' }}>What works without Stripe</h3>
+          <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>
             You can still send quotes, run jobs, take photos, create condition reports, use cover, track stock, and send invoices. You just won't take card payments in-app.
           </p>
         </Card>
         <Card style={{ marginBottom: '16px' }}>
-          <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '15px' }}>Cost</p>
-          <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>1.5% + 20p per card transaction. No monthly fee.</p>
+          <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800', fontSize: '16px' }}>Cost</p>
+          <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>1.5% + 20p per card transaction. No monthly fee.</p>
         </Card>
         <div style={{ display: 'flex', gap: '8px' }}>
           <Button onClick={() => { setStripeConnected(true); showToast('Stripe connected'); }} fullWidth>Connect Stripe</Button>
@@ -7260,12 +7264,12 @@ export default function TyreFitApp() {
               <AlertTriangle size={20} color={theme.danger} />
             </div>
             <div>
-              <h4 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>Emergency Cover Alerts</h4>
-              <p style={{ margin: '2px 0 0 0', color: theme.danger, fontSize: '15px', fontWeight: '500' }}>High priority — sounds like a text message</p>
+              <h4 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '17px' }}>Emergency Cover Alerts</h4>
+              <p style={{ margin: '2px 0 0 0', color: theme.danger, fontSize: '16px', fontWeight: '600' }}>High priority — sounds like a text message</p>
             </div>
           </div>
           <div style={{ padding: '14px', backgroundColor: `${theme.danger}08`, borderRadius: '15px', marginBottom: '14px' }}>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>When a covered customer needs emergency help nearby, you'll get an urgent alert with a loud notification sound — just like receiving a text. The job needs a fast response so the customer isn't left waiting.</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>When a covered customer needs emergency help nearby, you'll get an urgent alert with a loud notification sound — just like receiving a text. The job needs a fast response so the customer isn't left waiting.</p>
           </div>
           <Toggle label="Emergency cover job alerts" checked={prefs.emergencyAlerts} onChange={(v) => setPref('emergencyAlerts', v)} />
           <Toggle label="Urgent sound (loud ding)" checked={prefs.emergencySound} onChange={(v) => setPref('emergencySound', v)} />
@@ -7274,14 +7278,14 @@ export default function TyreFitApp() {
           <div style={{ marginTop: '14px', padding: '10px 12px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Info size={14} color={theme.textMuted} />
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>Emergency alerts override Do Not Disturb to ensure you never miss a nearby customer in need</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Emergency alerts override Do Not Disturb to ensure you never miss a nearby customer in need</p>
             </div>
           </div>
         </Card>
         
         {/* BOOKING & PAYMENT ALERTS */}
         <Card style={{ marginBottom: '14px' }}>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Quotes, Bookings & Payments</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Quotes, Bookings & Payments</h4>
           <Toggle label="Quote sent confirmation" checked={prefs.quoteSent} onChange={(v) => setPref('quoteSent', v)} />
           <Toggle label="Quote send failed / retry needed" checked={prefs.quoteFailed} onChange={(v) => setPref('quoteFailed', v)} />
           <Toggle label="New booking confirmed" checked={prefs.bookingNew} onChange={(v) => setPref('bookingNew', v)} />
@@ -7293,7 +7297,7 @@ export default function TyreFitApp() {
         
         {/* REVIEWS & REPUTATION */}
         <Card style={{ marginBottom: '14px' }}>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Reviews & Reputation</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Reviews & Reputation</h4>
           <Toggle label="New Google review received" checked={prefs.reviewNew} onChange={(v) => setPref('reviewNew', v)} />
           <Toggle label="Review response reminders" checked={prefs.reviewReminder} onChange={(v) => setPref('reviewReminder', v)} />
           <Toggle label="Low rating alert (3 stars or below)" checked={prefs.reviewLowRating} onChange={(v) => setPref('reviewLowRating', v)} />
@@ -7301,7 +7305,7 @@ export default function TyreFitApp() {
         
         {/* CUSTOMER COVER */}
         <Card style={{ marginBottom: '14px' }}>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Customer Cover</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Customer Cover</h4>
           <Toggle label="Auto-cover on job complete (30 days)" checked={prefs.coverAuto} onChange={(v) => setPref('coverAuto', v)} />
           <Toggle label="Cover expiring soon" checked={prefs.coverExpiring} onChange={(v) => setPref('coverExpiring', v)} />
           <Toggle label="Tyre wear alerts (AI monitoring)" checked={prefs.coverWear} onChange={(v) => setPref('coverWear', v)} />
@@ -7309,20 +7313,20 @@ export default function TyreFitApp() {
         
         {/* STOCK */}
         <Card style={{ marginBottom: '14px' }}>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Stock & Route</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Stock & Route</h4>
           <Toggle label="Low stock warning" checked={prefs.stockLow} onChange={(v) => setPref('stockLow', v)} />
           <Toggle label="Depot pickup reminders" checked={prefs.stockDepot} onChange={(v) => setPref('stockDepot', v)} />
           <Toggle label="Route changes" checked={prefs.stockRoute} onChange={(v) => setPref('stockRoute', v)} />
         </Card>
         <Card style={{ marginBottom: '14px' }}>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Payouts</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Payouts</h4>
           <Toggle label="Withdrawal submitted" checked={prefs.payoutSent} onChange={(v) => setPref('payoutSent', v)} />
           <Toggle label="Withdrawal failed" checked={prefs.payoutFailed} onChange={(v) => setPref('payoutFailed', v)} />
         </Card>
         
         {/* EMAIL SUMMARIES */}
         <Card style={{ marginBottom: '14px' }}>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Email Reports</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Email Reports</h4>
           <Toggle label="Daily summary" checked={prefs.emailDaily} onChange={(v) => setPref('emailDaily', v)} />
           <Toggle label="Weekly performance report" checked={prefs.emailWeekly} onChange={(v) => setPref('emailWeekly', v)} />
           <Toggle label="Monthly earnings breakdown" checked={prefs.emailMonthly} onChange={(v) => setPref('emailMonthly', v)} />
@@ -7340,19 +7344,19 @@ export default function TyreFitApp() {
       <Header title="Help & Support" />
       <div style={{ padding: '24px' }}>
         <Card onClick={() => showToast('Opening help.tyre-fit.co in browser...')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><HelpCircle size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Help Center</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>FAQs and guides</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><HelpCircle size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Help Center</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>FAQs and guides</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => showToast('Live chat opening — avg response: 2 mins')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><MessageSquare size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Live Chat</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Chat with support</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><MessageSquare size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Live Chat</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Chat with support</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => showToast('Calling 0330 633 1247...')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Phone size={24} color={theme.warning} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Phone Support</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>0330 633 1247</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Phone size={24} color={theme.warning} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Phone Support</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>0330 633 1247</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => { navigateTo('dashboard'); }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Navigation size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Replay Feature Tour</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>See how TYRE-FIT works</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Navigation size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Replay Feature Tour</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>See how TYRE-FIT works</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => navigateTo('practice-mode')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Play size={24} color={theme.warning} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Practice Mode</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Try a fake job flow — risk free</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Play size={24} color={theme.warning} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Practice Mode</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Try a fake job flow — risk free</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
       </div>
     </div>
@@ -7372,7 +7376,7 @@ export default function TyreFitApp() {
               <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
             </div>
             <div style={{ flex: 1 }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Dan's Mobile Tyres</h3>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Dan's Mobile Tyres</h3>
               <Badge variant={gmbConnected ? 'success' : 'warning'}>{gmbConnected ? 'Connected' : 'Disconnected'}</Badge>
             </div>
           </div>
@@ -7382,14 +7386,14 @@ export default function TyreFitApp() {
           </div>
         </Card>
         <Card>
-          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>Sync Settings</h4>
+          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>Sync Settings</h4>
           <Toggle label="Auto-request reviews" checked={syncSettings.autoRequest} onChange={(v) => setSync('autoRequest', v)} />
           <Toggle label="Sync business hours" checked={syncSettings.syncHours} onChange={(v) => setSync('syncHours', v)} />
           <Toggle label="Reply notifications" checked={syncSettings.replyAlerts} onChange={(v) => setSync('replyAlerts', v)} />
         </Card>
         <Card>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted }}>Reviews synced</span><span style={{ color: theme.text, fontWeight: '600' }}>127</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Last sync</span><span style={{ color: theme.text, fontWeight: '600' }}>2 mins ago</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted }}>Reviews synced</span><span style={{ color: theme.text, fontWeight: '700' }}>127</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: theme.textMuted }}>Last sync</span><span style={{ color: theme.text, fontWeight: '700' }}>2 mins ago</span></div>
         </Card>
         <Button onClick={() => { showToast('Syncing now...'); }} variant="outline" style={{ marginTop: '16px' }} icon={RefreshCw}>Sync Now</Button>
       </div>
@@ -7430,36 +7434,36 @@ export default function TyreFitApp() {
         <div style={{ padding: '24px' }}>
           {/* BALANCE */}
           <Card highlight style={{ background: `linear-gradient(135deg, ${theme.primary}, #059669)` }}>
-            <p style={{ margin: '0 0 8px 0', color: '#000', opacity: 0.7, fontSize: '14px' }}>Available Balance</p>
-            <p style={{ margin: '0 0 16px 0', color: '#000', fontSize: '40px', fontWeight: '700' }}>{'\u00A3'}{walletBalance.toFixed(2)}</p>
+            <p style={{ margin: '0 0 8px 0', color: '#000', opacity: 0.7, fontSize: '15px' }}>Available Balance</p>
+            <p style={{ margin: '0 0 16px 0', color: '#000', fontSize: '41px', fontWeight: '800' }}>{'\u00A3'}{walletBalance.toFixed(2)}</p>
             <Button onClick={() => navigateTo('wallet-withdraw')} style={{ backgroundColor: '#000', color: '#fff' }} disabled={userRole !== 'owner'}>{userRole === 'owner' ? 'Transfer to Bank' : 'Owner Only'}</Button>
           </Card>
           {userRole !== 'owner' && (
             <Card style={{ marginTop: '14px', borderColor: theme.warning }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>You can view earnings, but only the account owner can withdraw or change payout settings.</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>You can view earnings, but only the account owner can withdraw or change payout settings.</p>
             </Card>
           )}
           {withdrawalState !== 'idle' && (
             <Card style={{ marginTop: '14px', borderColor: withdrawalState === 'failed' ? theme.danger : `${theme.primary}40` }}>
-              <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '14px' }}>Last withdrawal status</p>
-              <p style={{ margin: '4px 0 0 0', color: withdrawalState === 'failed' ? theme.danger : theme.primary, fontWeight: '700', fontSize: '14px', textTransform: 'capitalize' }}>{withdrawalState}</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>States tracked: pending, processing, failed, completed.</p>
+              <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '15px' }}>Last withdrawal status</p>
+              <p style={{ margin: '4px 0 0 0', color: withdrawalState === 'failed' ? theme.danger : theme.primary, fontWeight: '800', fontSize: '15px', textTransform: 'capitalize' }}>{withdrawalState}</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>States tracked: pending, processing, failed, completed.</p>
             </Card>
           )}
           
           {/* SUMMARY ROW */}
           <div style={{ display: 'flex', gap: '14px', marginTop: '16px' }}>
             <Card style={{ flex: 1 }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>This Week</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '20px', fontWeight: '700' }}>+{'\u00A3'}448</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>This Week</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '21px', fontWeight: '800' }}>+{'\u00A3'}448</p>
             </Card>
             <Card style={{ flex: 1 }}>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>This Month</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '20px', fontWeight: '700' }}>{'\u00A3'}2,147</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>This Month</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '21px', fontWeight: '800' }}>{'\u00A3'}2,147</p>
             </Card>
             <Card style={{ flex: 1, backgroundColor: `${theme.primary}10`, borderColor: `${theme.primary}30` }}>
-              <p style={{ margin: 0, color: theme.primary, fontSize: '14px' }}>Cover Jobs</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '20px', fontWeight: '700' }}>+{'\u00A3'}150</p>
+              <p style={{ margin: 0, color: theme.primary, fontSize: '15px' }}>Cover Jobs</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '21px', fontWeight: '800' }}>+{'\u00A3'}150</p>
             </Card>
           </div>
 
@@ -7468,8 +7472,8 @@ export default function TyreFitApp() {
             <Card style={{ marginTop: '16px', borderColor: `${theme.warning}50`, borderWidth: '2px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
                 <div>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Money owed to you</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.warning, fontWeight: '700', fontSize: '22px' }}>{'\u00A3'}{totalPending.toFixed(2)}</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '16px' }}>Money owed to you</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.warning, fontWeight: '800', fontSize: '23px' }}>{'\u00A3'}{totalPending.toFixed(2)}</p>
                 </div>
                 <Badge variant={pendingInvoices.some(i => i.status === 'overdue') ? 'danger' : 'warning'}>
                   {pendingInvoices.filter(i => i.status === 'overdue').length > 0 
@@ -7480,23 +7484,23 @@ export default function TyreFitApp() {
               {pendingInvoices.map(inv => (
                 <div key={inv.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 0', borderTop: `1px solid ${theme.border}` }}>
                   <div>
-                    <p style={{ margin: 0, color: theme.text, fontWeight: '500', fontSize: '14px' }}>{inv.customer}</p>
-                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{inv.id} · {inv.plate} · Sent {inv.sent}</p>
+                    <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>{inv.customer}</p>
+                    <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{inv.id} · {inv.plate} · Sent {inv.sent}</p>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <p style={{ margin: 0, color: inv.status === 'overdue' ? theme.danger : theme.text, fontWeight: '700', fontSize: '15px' }}>{'\u00A3'}{inv.amount.toFixed(2)}</p>
-                    <p style={{ margin: '2px 0 0 0', color: inv.status === 'overdue' ? theme.danger : theme.warning, fontSize: '14px', fontWeight: '600', textTransform: 'uppercase' }}>{inv.status === 'overdue' ? 'Overdue' : 'Awaiting payment'}</p>
+                    <p style={{ margin: 0, color: inv.status === 'overdue' ? theme.danger : theme.text, fontWeight: '800', fontSize: '16px' }}>{'\u00A3'}{inv.amount.toFixed(2)}</p>
+                    <p style={{ margin: '2px 0 0 0', color: inv.status === 'overdue' ? theme.danger : theme.warning, fontSize: '15px', fontWeight: '700', textTransform: 'uppercase' }}>{inv.status === 'overdue' ? 'Overdue' : 'Awaiting payment'}</p>
                   </div>
                 </div>
               ))}
-              <button onClick={() => navigateTo('invoices')} style={{ width: '100%', marginTop: '14px', padding: '15px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '15px', fontWeight: '600', cursor: 'pointer' }}>Manage Invoices</button>
+              <button onClick={() => navigateTo('invoices')} style={{ width: '100%', marginTop: '14px', padding: '15px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '8px', color: theme.text, fontSize: '16px', fontWeight: '700', cursor: 'pointer' }}>Manage Invoices</button>
             </Card>
           )}
 
           {/* TABS: Activity / Recently Paid */}
           <div style={{ display: 'flex', gap: '4px', marginTop: '20px', marginBottom: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', padding: '4px' }}>
             {['activity', 'invoices'].map(tab => (
-              <button key={tab} onClick={() => setWalletTab(tab)} style={{ flex: 1, padding: '15px', borderRadius: '8px', border: 'none', backgroundColor: walletTab === tab ? theme.bgCard : 'transparent', color: walletTab === tab ? theme.text : theme.textMuted, fontWeight: walletTab === tab ? '600' : '400', fontSize: '14px', cursor: 'pointer', boxShadow: walletTab === tab ? '0 1px 3px rgba(0,0,0,0.1)' : 'none' }}>
+              <button key={tab} onClick={() => setWalletTab(tab)} style={{ flex: 1, padding: '15px', borderRadius: '8px', border: 'none', backgroundColor: walletTab === tab ? theme.bgCard : 'transparent', color: walletTab === tab ? theme.text : theme.textMuted, fontWeight: walletTab === tab ? '600' : '400', fontSize: '15px', cursor: 'pointer', boxShadow: walletTab === tab ? '0 1px 3px rgba(0,0,0,0.1)' : 'none' }}>
                 {tab === 'activity' ? 'Recent Activity' : 'Paid Invoices'}
               </button>
             ))}
@@ -7510,14 +7514,14 @@ export default function TyreFitApp() {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>{t.desc}</p>
+                    <p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{t.desc}</p>
                     {t.isCover && <Badge variant="success">Cover</Badge>}
                   </div>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{t.date}{t.fee > 0 ? ` · Fee: ${'\u00A3'}${t.fee.toFixed(2)}` : t.isCover ? ' · No fee — TYRE-FIT paid direct' : t.type === 'out' ? ' · Free' : ''}</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{t.date}{t.fee > 0 ? ` · Fee: ${'\u00A3'}${t.fee.toFixed(2)}` : t.isCover ? ' · No fee — TYRE-FIT paid direct' : t.type === 'out' ? ' · Free' : ''}</p>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <p style={{ margin: 0, color: t.type === 'in' ? theme.primary : theme.text, fontWeight: '700', fontSize: '16px' }}>{t.type === 'in' ? '+' : '-'}{'\u00A3'}{t.amount.toFixed(2)}</p>
-                  {t.gross && <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px', textDecoration: 'line-through' }}>{'\u00A3'}{t.gross.toFixed(2)}</p>}
+                  <p style={{ margin: 0, color: t.type === 'in' ? theme.primary : theme.text, fontWeight: '800', fontSize: '17px' }}>{t.type === 'in' ? '+' : '-'}{'\u00A3'}{t.amount.toFixed(2)}</p>
+                  {t.gross && <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px', textDecoration: 'line-through' }}>{'\u00A3'}{t.gross.toFixed(2)}</p>}
                 </div>
               </div>
             </Card>
@@ -7530,10 +7534,10 @@ export default function TyreFitApp() {
                   <CheckCircle size={20} color={theme.primary} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>{inv.customer}</p>
-                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{inv.id} · {inv.plate} · Paid {inv.paid}</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{inv.customer}</p>
+                  <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{inv.id} · {inv.plate} · Paid {inv.paid}</p>
                 </div>
-                <p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '16px' }}>+{'\u00A3'}{inv.amount.toFixed(2)}</p>
+                <p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '17px' }}>+{'\u00A3'}{inv.amount.toFixed(2)}</p>
               </div>
             </Card>
           ))}
@@ -7572,31 +7576,31 @@ export default function TyreFitApp() {
       <Header title="Transfer to Bank" />
       <div style={{ padding: '24px' }}>
         <Card>
-          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px' }}>Available to Transfer</p>
-          <p style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '32px', fontWeight: '700' }}>£{walletBalance.toFixed(2)}</p>
+          <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px' }}>Available to Transfer</p>
+          <p style={{ margin: '0 0 16px 0', color: theme.text, fontSize: '33px', fontWeight: '800' }}>£{walletBalance.toFixed(2)}</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '8px' }}>
             <CreditCard size={20} color={theme.textMuted} />
             <span style={{ color: theme.text }}>Lloyds Bank ****4521</span>
-            <button onClick={() => navigateTo('settings-bank')} style={{ marginLeft: 'auto', background: 'none', border: 'none', color: theme.primary, cursor: 'pointer', fontWeight: '500' }}>Change</button>
+            <button onClick={() => navigateTo('settings-bank')} style={{ marginLeft: 'auto', background: 'none', border: 'none', color: theme.primary, cursor: 'pointer', fontWeight: '600' }}>Change</button>
           </div>
         </Card>
         
-        <h3 style={{ fontSize: '16px', fontWeight: '600', color: theme.text, margin: '24px 0 12px 0' }}>How much?</h3>
+        <h3 style={{ fontSize: '17px', fontWeight: '700', color: theme.text, margin: '24px 0 12px 0' }}>How much?</h3>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px', marginBottom: '16px' }}>
           {[50, 100, 250].map(amt => (
-            <button key={amt} onClick={() => setSelectedAmount(amt)} style={{ padding: '16px', backgroundColor: selectedAmount === amt ? `${theme.primary}20` : theme.bgCard, border: `2px solid ${selectedAmount === amt ? theme.primary : theme.border}`, borderRadius: '14px', color: selectedAmount === amt ? theme.primary : theme.text, fontWeight: '600', fontSize: '18px', cursor: 'pointer' }}>£{amt}</button>
+            <button key={amt} onClick={() => setSelectedAmount(amt)} style={{ padding: '16px', backgroundColor: selectedAmount === amt ? `${theme.primary}20` : theme.bgCard, border: `2px solid ${selectedAmount === amt ? theme.primary : theme.border}`, borderRadius: '14px', color: selectedAmount === amt ? theme.primary : theme.text, fontWeight: '700', fontSize: '19px', cursor: 'pointer' }}>£{amt}</button>
           ))}
         </div>
         
-        <button onClick={() => setSelectedAmount('all')} style={{ width: '100%', padding: '16px', backgroundColor: selectedAmount === 'all' ? theme.primary : theme.bgCard, border: selectedAmount === 'all' ? 'none' : `1px solid ${theme.border}`, borderRadius: '14px', color: selectedAmount === 'all' ? '#000' : theme.text, fontWeight: '600', fontSize: '18px', cursor: 'pointer', marginBottom: '16px' }}>All £{walletBalance.toFixed(2)}</button>
+        <button onClick={() => setSelectedAmount('all')} style={{ width: '100%', padding: '16px', backgroundColor: selectedAmount === 'all' ? theme.primary : theme.bgCard, border: selectedAmount === 'all' ? 'none' : `1px solid ${theme.border}`, borderRadius: '14px', color: selectedAmount === 'all' ? '#000' : theme.text, fontWeight: '700', fontSize: '19px', cursor: 'pointer', marginBottom: '16px' }}>All £{walletBalance.toFixed(2)}</button>
         
         <Card>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Clock size={16} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '14px' }}>Transfers arrive within 2 hours (UK bank days)</span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Clock size={16} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '15px' }}>Transfers arrive within 2 hours (UK bank days)</span></div>
         </Card>
         <label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '15px', cursor: 'pointer' }}>
           <input type="checkbox" checked={simulateFail} onChange={(e) => setSimulateFail(e.target.checked)} style={{ width: '16px', height: '16px', accentColor: theme.warning }} />
-          <span style={{ color: theme.textMuted, fontSize: '14px' }}>Simulate failed payout (demo)</span>
+          <span style={{ color: theme.textMuted, fontSize: '15px' }}>Simulate failed payout (demo)</span>
         </label>
         
         <Button onClick={() => setShowConfirm(true)} style={{ marginTop: '24px' }} disabled={!selectedAmount}>Transfer Now</Button>
@@ -7605,9 +7609,9 @@ export default function TyreFitApp() {
       {showConfirm && (
         <Modal title="Confirm Transfer" onClose={() => setShowConfirm(false)}>
           <div style={{ textAlign: 'center', padding: '8px 0 16px' }}>
-            <p style={{ color: theme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>You're transferring</p>
-            <p style={{ color: theme.text, fontSize: '36px', fontWeight: '700', margin: '0 0 8px 0' }}>£{transferAmt.toFixed(2)}</p>
-            <p style={{ color: theme.textMuted, fontSize: '14px', margin: '0 0 24px 0' }}>to Lloyds Bank ****4521</p>
+            <p style={{ color: theme.textMuted, fontSize: '16px', margin: '0 0 16px 0' }}>You're transferring</p>
+            <p style={{ color: theme.text, fontSize: '37px', fontWeight: '800', margin: '0 0 8px 0' }}>£{transferAmt.toFixed(2)}</p>
+            <p style={{ color: theme.textMuted, fontSize: '15px', margin: '0 0 24px 0' }}>to Lloyds Bank ****4521</p>
           </div>
           <div style={{ display: 'flex', gap: '14px' }}>
             <Button variant="secondary" onClick={() => setShowConfirm(false)} fullWidth>Cancel</Button>
@@ -7622,16 +7626,16 @@ export default function TyreFitApp() {
             <div style={{ width: '72px', height: '72px', backgroundColor: `${theme.primary}20`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
               <CheckCircle size={40} color={theme.primary} />
             </div>
-            <h2 style={{ color: theme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 8px 0' }}>Transfer Submitted</h2>
-            <p style={{ color: theme.text, fontSize: '28px', fontWeight: '700', margin: '0 0 16px 0' }}>£{transferAmt.toFixed(2)}</p>
+            <h2 style={{ color: theme.text, fontSize: '23px', fontWeight: '800', margin: '0 0 8px 0' }}>Transfer Submitted</h2>
+            <p style={{ color: theme.text, fontSize: '29px', fontWeight: '800', margin: '0 0 16px 0' }}>£{transferAmt.toFixed(2)}</p>
             <div style={{ padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px', marginBottom: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                 <Clock size={16} color={theme.warning} />
-                <span style={{ color: theme.text, fontSize: '14px', fontWeight: '500' }}>Transfers can take up to 2 hours</span>
+                <span style={{ color: theme.text, fontSize: '15px', fontWeight: '600' }}>Transfers can take up to 2 hours</span>
               </div>
-              <p style={{ color: theme.textMuted, fontSize: '15px', margin: '6px 0 0 0' }}>UK bank working days, Mon–Fri. Weekend transfers process on the next working day.</p>
+              <p style={{ color: theme.textMuted, fontSize: '16px', margin: '6px 0 0 0' }}>UK bank working days, Mon–Fri. Weekend transfers process on the next working day.</p>
             </div>
-            <p style={{ color: theme.textMuted, fontSize: '15px', margin: '0 0 20px 0' }}>Lloyds Bank ****4521</p>
+            <p style={{ color: theme.textMuted, fontSize: '16px', margin: '0 0 20px 0' }}>Lloyds Bank ****4521</p>
             <Button onClick={() => { setTransferDone(false); goBack(); }} fullWidth>Done</Button>
           </div>
         </Modal>
@@ -7652,10 +7656,10 @@ export default function TyreFitApp() {
         <Card highlight>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
             <div style={{ width: '48px', height: '48px', backgroundColor: '#1a472a', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#fff', fontWeight: '700', fontSize: '16px' }}>LB</span>
+              <span style={{ color: '#fff', fontWeight: '800', fontSize: '17px' }}>LB</span>
             </div>
             <div style={{ flex: 1 }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Lloyds Bank</h3>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Lloyds Bank</h3>
               <p style={{ margin: '4px 0 0 0', color: theme.textMuted }}>Account ending ****4521</p>
             </div>
             <Badge variant="success">Active</Badge>
@@ -7663,7 +7667,7 @@ export default function TyreFitApp() {
         </Card>
         
         <Card>
-          <h4 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '600' }}>Account Details</h4>
+          <h4 style={{ margin: '0 0 16px 0', color: theme.text, fontWeight: '700' }}>Account Details</h4>
           <Input label="Account Holder Name" value={accountHolder} onChange={setAccountHolder} />
           <Input label="Sort Code" value={sortCode} onChange={setSortCode} />
           <Input label="Account Number" value={accountNumber} onChange={setAccountNumber} />
@@ -7673,8 +7677,8 @@ export default function TyreFitApp() {
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
             <Shield size={20} color={theme.primary} />
             <div>
-              <p style={{ margin: 0, color: theme.text, fontWeight: '500' }}>Your money is safe</p>
-              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Transfers are protected by bank-level security. Money from your Wallet goes directly to this account.</p>
+              <p style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Your money is safe</p>
+              <p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Transfers are protected by bank-level security. Money from your Wallet goes directly to this account.</p>
             </div>
           </div>
         </Card>
@@ -7698,11 +7702,11 @@ export default function TyreFitApp() {
         {signUpData.depots.map((depot, i) => (
           <Card key={i}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{depot.name || 'Main Depot'}</h3>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{depot.name || 'Main Depot'}</h3>
               <Badge variant={i === 0 ? 'success' : 'info'}>{i === 0 ? 'Primary' : 'Secondary'}</Badge>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}><MapPin size={16} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '14px' }}>{depot.address || '123 Main Street, London E1 4QJ'}</span></div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Navigation size={16} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '14px' }}>{depot.radius || 15} mile radius</span></div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}><MapPin size={16} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '15px' }}>{depot.address || '123 Main Street, London E1 4QJ'}</span></div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Navigation size={16} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '15px' }}>{depot.radius || 15} mile radius</span></div>
             {editingDepot === i ? (
               <div style={{ marginTop: '14px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px' }}>
                 <Input label="Depot Name" value={depotName} onChange={setDepotName} placeholder="e.g. Main Depot" />
@@ -7740,20 +7744,20 @@ export default function TyreFitApp() {
       <Header title="Invoice Settings" />
       <div style={{ padding: '24px' }}>
         <Card>
-          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>Invoice Details</h4>
+          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>Invoice Details</h4>
           <Input label="Business Name" value={invoiceBusinessName} onChange={setInvoiceBusinessName} />
           <Input label="VAT Number" value={invoiceVatNumber} onChange={setInvoiceVatNumber} />
           <Input label="Invoice Prefix" value={invoicePrefix} onChange={setInvoicePrefix} />
         </Card>
         <Card>
-          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>Payment Terms</h4>
+          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>Payment Terms</h4>
           <Input label="Due date (days)" value={dueDays} onChange={setDueDays} />
           <Toggle label="Include VAT breakdown" checked={includeVat} onChange={setIncludeVat} />
           <Toggle label="Auto-send reminders" checked={autoRemind} onChange={setAutoRemind} />
         </Card>
         <Card>
-          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>Footer Text</h4>
-          <textarea value={footerText} onChange={(e) => setFooterText(e.target.value)} placeholder="Thank you for your business!" style={{ width: '100%', minHeight: '80px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: '14px', fontSize: '14px', color: theme.text, resize: 'vertical', boxSizing: 'border-box' }} />
+          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>Footer Text</h4>
+          <textarea value={footerText} onChange={(e) => setFooterText(e.target.value)} placeholder="Thank you for your business!" style={{ width: '100%', minHeight: '80px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', padding: '14px', fontSize: '15px', color: theme.text, resize: 'vertical', boxSizing: 'border-box' }} />
         </Card>
         <Button onClick={() => { showToast('Invoice settings saved'); goBack(); }} style={{ marginTop: '16px' }}>Save Changes</Button>
       </div>
@@ -7778,8 +7782,8 @@ export default function TyreFitApp() {
           <div style={{ display: 'flex', gap: '14px' }}>
             <Info size={20} color={theme.info} style={{ flexShrink: 0, marginTop: '2px' }} />
             <div>
-              <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>This is optional</p>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>TYRE-FIT already manages your bookings and schedule. Calendar sync copies your jobs to Google or Apple Calendar so you can see them alongside personal events. You don't need it to use TYRE-FIT.</p>
+              <p style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>This is optional</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>TYRE-FIT already manages your bookings and schedule. Calendar sync copies your jobs to Google or Apple Calendar so you can see them alongside personal events. You don't need it to use TYRE-FIT.</p>
             </div>
           </div>
         </Card>
@@ -7791,10 +7795,10 @@ export default function TyreFitApp() {
               <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
             </div>
             <div style={{ flex: 1 }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Google Calendar</h3>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Google Calendar</h3>
               <Badge variant={googleConnected ? 'success' : 'default'}>{googleConnected ? 'Connected' : 'Not connected'}</Badge>
             </div>
-            <button onClick={() => { setGoogleConnected(!googleConnected); showToast(googleConnected ? 'Google Calendar disconnected' : 'Google Calendar connected'); }} style={{ background: 'none', border: `1px solid ${theme.border}`, borderRadius: '8px', padding: '6px 12px', color: theme.textMuted, fontSize: '15px', cursor: 'pointer' }}>{googleConnected ? 'Disconnect' : 'Connect'}</button>
+            <button onClick={() => { setGoogleConnected(!googleConnected); showToast(googleConnected ? 'Google Calendar disconnected' : 'Google Calendar connected'); }} style={{ background: 'none', border: `1px solid ${theme.border}`, borderRadius: '8px', padding: '6px 12px', color: theme.textMuted, fontSize: '16px', cursor: 'pointer' }}>{googleConnected ? 'Disconnect' : 'Connect'}</button>
           </div>
         </Card>
         
@@ -7805,7 +7809,7 @@ export default function TyreFitApp() {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
             </div>
             <div style={{ flex: 1 }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Apple Calendar</h3>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Apple Calendar</h3>
               <Badge variant={appleConnected ? 'success' : 'default'}>{appleConnected ? 'Connected' : 'Not connected'}</Badge>
             </div>
             <Button variant="secondary" size="small" fullWidth={false} onClick={() => { setAppleConnected(!appleConnected); showToast(appleConnected ? 'Apple Calendar disconnected' : 'Apple Calendar connected'); }}>{appleConnected ? 'Disconnect' : 'Connect'}</Button>
@@ -7814,7 +7818,7 @@ export default function TyreFitApp() {
         
         {/* SYNC OPTIONS */}
         <Card style={{ marginBottom: '14px' }}>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>What gets synced</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>What gets synced</h4>
           <Toggle label="Confirmed bookings" checked={syncOptions.confirmed} onChange={(v) => setSyncOption('confirmed', v)} />
           <Toggle label="Include customer name & plate" checked={syncOptions.customerPlate} onChange={(v) => setSyncOption('customerPlate', v)} />
           <Toggle label="Include location/address" checked={syncOptions.location} onChange={(v) => setSyncOption('location', v)} />
@@ -7823,22 +7827,22 @@ export default function TyreFitApp() {
         </Card>
         
         <Card>
-          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Sync direction</h4>
+          <h4 style={{ margin: '0 0 14px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Sync direction</h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <button onClick={() => setSyncDirection('one_way')} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '15px', padding: '14px', backgroundColor: syncDirection === 'one_way' ? `${theme.primary}10` : theme.bgInput, borderRadius: '15px', border: `1px solid ${syncDirection === 'one_way' ? theme.primary + '30' : theme.border}`, cursor: 'pointer', textAlign: 'left' }}>
               <div style={{ width: '20px', height: '20px', borderRadius: '50%', border: `2px solid ${theme.primary}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {syncDirection === 'one_way' && <div style={{ width: '15px', height: '15px', borderRadius: '50%', backgroundColor: theme.primary }} />}
               </div>
               <div>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>One-way (recommended)</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>TYRE-FIT pushes jobs to your calendar</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>One-way (recommended)</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>TYRE-FIT pushes jobs to your calendar</p>
               </div>
             </button>
             <button onClick={() => setSyncDirection('two_way')} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '15px', padding: '14px', backgroundColor: syncDirection === 'two_way' ? `${theme.primary}10` : theme.bgInput, borderRadius: '15px', border: `1px solid ${syncDirection === 'two_way' ? theme.primary + '30' : theme.border}`, cursor: 'pointer', textAlign: 'left' }}>
               <div style={{ width: '20px', height: '20px', borderRadius: '50%', border: `2px solid ${theme.textMuted}` }} />
               <div>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '14px' }}>Two-way</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Changes in either calendar update both — blocks personal events as busy time</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '15px' }}>Two-way</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Changes in either calendar update both — blocks personal events as busy time</p>
               </div>
             </button>
           </div>
@@ -7873,28 +7877,28 @@ export default function TyreFitApp() {
               report on sign-ups and commission earned. This is a KEY secondary revenue stream. */}
 
           {/* CSV EXPORT — Available now */}
-          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Available now</p>
+          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Available now</p>
           <Card style={{ marginBottom: '16px', borderColor: `${theme.primary}30` }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '14px', backgroundColor: `${theme.primary}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <FileDown size={24} color={theme.primary} />
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>CSV Export</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Download jobs, invoices, mileage, and payments as a CSV. Send to your accountant or import into any software.</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>CSV Export</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>Download jobs, invoices, mileage, and payments as a CSV. Send to your accountant or import into any software.</p>
               </div>
             </div>
             <Button style={{ marginTop: '14px' }} onClick={() => showToast('CSV exported — check your downloads')} icon={Download} fullWidth>Export All Data</Button>
           </Card>
 
-          <p style={{ margin: '16px 0 12px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>Direct sync</p>
+          <p style={{ margin: '16px 0 12px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>Direct sync</p>
           
           <Card style={{ marginBottom: '16px', backgroundColor: `${theme.primary}08`, borderColor: `${theme.primary}20` }}>
             <div style={{ display: 'flex', gap: '14px' }}>
               <RefreshCw size={22} color={theme.primary} style={{ flexShrink: 0 }} />
               <div>
-                <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '700', fontSize: '15px' }}>What will sync automatically</h3>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Every completed job, invoice, payment, and mileage claim sent straight to your accounting software. No manual data entry.</p>
+                <h3 style={{ margin: '0 0 6px 0', color: theme.text, fontWeight: '800', fontSize: '16px' }}>What will sync automatically</h3>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>Every completed job, invoice, payment, and mileage claim sent straight to your accounting software. No manual data entry.</p>
               </div>
             </div>
           </Card>
@@ -7903,11 +7907,11 @@ export default function TyreFitApp() {
             <Card key={app.id} style={{ marginBottom: '15px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '14px', backgroundColor: `${app.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <span style={{ fontWeight: '700', fontSize: '14px', color: app.color }}>{app.name[0]}{app.name[1]}</span>
+                  <span style={{ fontWeight: '800', fontSize: '15px', color: app.color }}>{app.name[0]}{app.name[1]}</span>
                 </div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, color: theme.text, fontWeight: '600', fontSize: '15px' }}>{app.name}</p>
-                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{app.desc}</p>
+                  <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>{app.name}</p>
+                  <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '16px' }}>{app.desc}</p>
                 </div>
                 <Badge variant={connections[app.id] ? 'success' : 'default'}>{connections[app.id] ? 'Connected' : 'Not connected'}</Badge>
               </div>
@@ -7937,39 +7941,39 @@ export default function TyreFitApp() {
           ))}
 
           {/* NO SOFTWARE YET — Affiliate sign-up links */}
-          <p style={{ margin: '24px 0 12px 0', color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600', letterSpacing: '0.5px' }}>No accounting software yet?</p>
+          <p style={{ margin: '24px 0 12px 0', color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700', letterSpacing: '0.5px' }}>No accounting software yet?</p>
           <Card style={{ backgroundColor: `${theme.info}08`, borderColor: `${theme.info}20` }}>
             <div style={{ display: 'flex', gap: '14px' }}>
               <Info size={22} color={theme.info} style={{ flexShrink: 0, marginTop: '2px' }} />
               <div>
-                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '600', fontSize: '15px' }}>Automate your tax and bookkeeping</p>
-                <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Accounting software tracks your income, expenses, mileage, and VAT automatically. No more spreadsheets or shoeboxes of receipts. When direct sync launches, TYRE-FIT will send everything straight to it.</p>
+                <p style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '16px' }}>Automate your tax and bookkeeping</p>
+                <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>Accounting software tracks your income, expenses, mileage, and VAT automatically. No more spreadsheets or shoeboxes of receipts. When direct sync launches, TYRE-FIT will send everything straight to it.</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {apps.map(app => (
                     <button key={app.id} onClick={() => showToast(`Opening ${app.name} sign-up page...`)} style={{ padding: '12px 14px', backgroundColor: app.color, border: 'none', borderRadius: '15px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ color: '#fff', fontWeight: '600', fontSize: '14px' }}>Sign up to {app.name}</span>
+                      <span style={{ color: '#fff', fontWeight: '700', fontSize: '15px' }}>Sign up to {app.name}</span>
                       <ChevronRight size={18} color="#fff" />
                     </button>
                   ))}
                 </div>
-                <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>All three offer free trials. You can connect any of them now and start syncing jobs and invoices.</p>
+                <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>All three offer free trials. You can connect any of them now and start syncing jobs and invoices.</p>
               </div>
             </div>
           </Card>
 
           <Card style={{ marginTop: '16px' }}>
-            <h4 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '600', fontSize: '14px' }}>What will sync</h4>
+            <h4 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '15px' }}>What will sync</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {['Completed jobs \u2192 Sales invoices', 'Card/QR payments \u2192 Bank receipts', 'Cash payments \u2192 Cash income entries', 'TYRE-FIT fees \u2192 Business expenses', 'Tyre purchases \u2192 Stock/cost entries', 'Wallet withdrawals \u2192 Bank transfers', 'Mileage \u2192 HMRC rate expense claims'].map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={14} color={theme.primary} />
-                  <span style={{ color: theme.textMuted, fontSize: '15px' }}>{item}</span>
+                  <span style={{ color: theme.textMuted, fontSize: '16px' }}>{item}</span>
                 </div>
               ))}
             </div>
           </Card>
 
-          <p style={{ margin: '16px 0 0 0', color: theme.textMuted, fontSize: '14px', textAlign: 'center', lineHeight: 1.5 }}>CSV export and direct sync are both available in this demo.</p>
+          <p style={{ margin: '16px 0 0 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center', lineHeight: 1.5 }}>CSV export and direct sync are both available in this demo.</p>
         </div>
       </div>
     );
@@ -7986,48 +7990,48 @@ export default function TyreFitApp() {
       <Header title="Terms & Privacy" />
       <div style={{ padding: '24px' }}>
         <Card onClick={() => setActiveLegalDoc('terms')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><FileCheck size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Terms of Service</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Last updated: 1 Feb 2026</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><FileCheck size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Terms of Service</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Last updated: 1 Feb 2026</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => setActiveLegalDoc('privacy')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Shield size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Privacy Policy</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>How we look after your data</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Shield size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Privacy Policy</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>How we look after your data</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => setActiveLegalDoc('cookies')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Info size={24} color={theme.warning} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Cookie Policy</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Minimal cookies to keep things running</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Info size={24} color={theme.warning} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Cookie Policy</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Minimal cookies to keep things running</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => setActiveLegalDoc('customerdata')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Users size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Customer Data</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Your data, your control — how we look after it</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Users size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Customer Data</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Your data, your control — how we look after it</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card onClick={() => setActiveLegalDoc('fees')}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><PoundSterling size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Where the £5.95 Goes</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Full breakdown of the booking fee</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><PoundSterling size={24} color={theme.primary} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Where the £5.95 Goes</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Full breakdown of the booking fee</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         
         <Card>
-          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>Privacy Controls</h4>
+          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>Privacy Controls</h4>
           <Toggle label="Analytics" checked={privacyPrefs.analytics} onChange={(v) => setPrivacyPrefs(prev => ({ ...prev, analytics: v }))} />
           <Toggle label="Marketing emails" checked={privacyPrefs.marketing} onChange={(v) => setPrivacyPrefs(prev => ({ ...prev, marketing: v }))} />
           <Toggle label="Product updates" checked={privacyPrefs.updates} onChange={(v) => setPrivacyPrefs(prev => ({ ...prev, updates: v }))} />
         </Card>
 
         <Card>
-          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '600' }}>GDPR Toolkit</h4>
-          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>Template privacy notices for your customers and a Data Processing Agreement for your records.</p>
+          <h4 style={{ margin: '0 0 12px 0', color: theme.text, fontWeight: '700' }}>GDPR Toolkit</h4>
+          <p style={{ margin: '0 0 12px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Template privacy notices for your customers and a Data Processing Agreement for your records.</p>
           <Button variant="outline" size="small" onClick={() => { showToast('GDPR toolkit downloaded — check your downloads'); }}>Download GDPR Toolkit</Button>
-          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>Includes: Customer Privacy Notice template, Data Processing Agreement (DPA), and consent form templates. All editable .docx files.</p>
+          <p style={{ margin: '8px 0 0 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>Includes: Customer Privacy Notice template, Data Processing Agreement (DPA), and consent form templates. All editable .docx files.</p>
         </Card>
         
         <Card onClick={() => setShowDataExport(true)} style={{ cursor: 'pointer' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Download size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>Download My Data</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>It's your data — get a full copy anytime</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Download size={24} color={theme.info} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>Download My Data</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>It's your data — get a full copy anytime</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         <Card style={{ marginBottom: '15px', borderColor: `${theme.info}30` }}>
-          <h4 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '700', fontSize: '14px' }}>Turnaround and confirmation</h4>
-          <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Data export: available instantly in-app + emailed within 24 hours. Delete account: 2-step confirm + final email confirmation + 30-day reversible hold before permanent deletion.</p>
+          <h4 style={{ margin: '0 0 8px 0', color: theme.text, fontWeight: '800', fontSize: '15px' }}>Turnaround and confirmation</h4>
+          <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>Data export: available instantly in-app + emailed within 24 hours. Delete account: 2-step confirm + final email confirmation + 30-day reversible hold before permanent deletion.</p>
         </Card>
         
         <Card onClick={() => setShowDeleteConfirm(true)} style={{ borderColor: theme.danger, cursor: 'pointer' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Trash2 size={24} color={theme.danger} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.danger, fontWeight: '600' }}>Delete My Account & Data</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Permanent. Wallet balance transferred to bank first.</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}><Trash2 size={24} color={theme.danger} /><div style={{ flex: 1 }}><h3 style={{ margin: 0, color: theme.danger, fontWeight: '700' }}>Delete My Account & Data</h3><p style={{ margin: '4px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Permanent. Wallet balance transferred to bank first.</p></div><ChevronRight size={20} color={theme.textMuted} /></div>
         </Card>
         
-        <p style={{ color: theme.textMuted, fontSize: '14px', textAlign: 'center', marginTop: '24px', lineHeight: 1.6 }}>TYRE-FIT Ltd · Registered in England & Wales · ICO Registered<br />TYRE-FIT v3.0.1 · © 2026 TYRE-FIT Ltd</p>
+        <p style={{ color: theme.textMuted, fontSize: '15px', textAlign: 'center', marginTop: '24px', lineHeight: 1.6 }}>TYRE-FIT Ltd · Registered in England & Wales · ICO Registered<br />TYRE-FIT v3.0.1 · © 2026 TYRE-FIT Ltd</p>
 
         {/* DELETE ACCOUNT CONFIRMATION */}
         {showDeleteConfirm && (
@@ -8035,34 +8039,34 @@ export default function TyreFitApp() {
             <div style={{ padding: '14px', backgroundColor: `${theme.danger}10`, borderRadius: '15px', border: `1px solid ${theme.danger}30`, marginBottom: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <AlertTriangle size={20} color={theme.danger} />
-                <span style={{ color: theme.danger, fontWeight: '700' }}>This cannot be undone</span>
+                <span style={{ color: theme.danger, fontWeight: '800' }}>This cannot be undone</span>
               </div>
-              <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>This will permanently delete your account, all customer data, job history, photos, condition reports, and payment records. Your wallet balance of <strong style={{ color: theme.text }}>£{walletBalance.toFixed(2)}</strong> will be transferred to your bank first.</p>
+              <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>This will permanently delete your account, all customer data, job history, photos, condition reports, and payment records. Your wallet balance of <strong style={{ color: theme.text }}>£{walletBalance.toFixed(2)}</strong> will be transferred to your bank first.</p>
             </div>
-            <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '14px' }}>Step 1: submit delete request. Step 2: confirm from email. Final deletion runs after 30 days.</p>
-            <p style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '14px' }}>Type <strong>DELETE</strong> to confirm:</p>
-            <input value={deleteTyped} onChange={(e) => setDeleteTyped(e.target.value.toUpperCase())} placeholder="Type DELETE" style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${deleteTyped === 'DELETE' ? theme.danger : theme.border}`, borderRadius: '14px', fontSize: '16px', color: theme.text, outline: 'none', boxSizing: 'border-box', letterSpacing: '2px', textAlign: 'center' }} />
+            <p style={{ margin: '0 0 8px 0', color: theme.textMuted, fontSize: '15px' }}>Step 1: submit delete request. Step 2: confirm from email. Final deletion runs after 30 days.</p>
+            <p style={{ margin: '0 0 8px 0', color: theme.text, fontSize: '15px' }}>Type <strong>DELETE</strong> to confirm:</p>
+            <input value={deleteTyped} onChange={(e) => setDeleteTyped(e.target.value.toUpperCase())} placeholder="Type DELETE" style={{ width: '100%', padding: '14px', backgroundColor: theme.bgInput, border: `1px solid ${deleteTyped === 'DELETE' ? theme.danger : theme.border}`, borderRadius: '14px', fontSize: '17px', color: theme.text, outline: 'none', boxSizing: 'border-box', letterSpacing: '2px', textAlign: 'center' }} />
             <div style={{ display: 'flex', gap: '14px', marginTop: '16px' }}>
               <Button variant="secondary" onClick={() => { setShowDeleteConfirm(false); setDeleteTyped(''); }} fullWidth>Cancel</Button>
-              <button onClick={() => { setShowDeleteConfirm(false); setDeleteTyped(''); showToast('Account deletion requested — you have 30 days to cancel'); }} disabled={deleteTyped !== 'DELETE'} style={{ flex: 1, padding: '14px', backgroundColor: deleteTyped === 'DELETE' ? theme.danger : theme.bgInput, border: 'none', borderRadius: '14px', color: deleteTyped === 'DELETE' ? '#fff' : theme.textMuted, fontWeight: '600', cursor: deleteTyped === 'DELETE' ? 'pointer' : 'not-allowed', fontSize: '15px' }}>Delete My Account</button>
+              <button onClick={() => { setShowDeleteConfirm(false); setDeleteTyped(''); showToast('Account deletion requested — you have 30 days to cancel'); }} disabled={deleteTyped !== 'DELETE'} style={{ flex: 1, padding: '14px', backgroundColor: deleteTyped === 'DELETE' ? theme.danger : theme.bgInput, border: 'none', borderRadius: '14px', color: deleteTyped === 'DELETE' ? '#fff' : theme.textMuted, fontWeight: '700', cursor: deleteTyped === 'DELETE' ? 'pointer' : 'not-allowed', fontSize: '16px' }}>Delete My Account</button>
             </div>
-            <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>Instant download is generated now. Email copy lands within 24 hours.</p>
+            <p style={{ margin: '10px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>Instant download is generated now. Email copy lands within 24 hours.</p>
           </Modal>
         )}
 
         {/* DATA EXPORT CONFIRMATION */}
         {showDataExport && (
           <Modal title="Download My Data" onClose={() => setShowDataExport(false)}>
-            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>We'll prepare a complete export of all your data and email it as a ZIP file. This includes:</p>
+            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>We'll prepare a complete export of all your data and email it as a ZIP file. This includes:</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '16px' }}>
               {['Customer records & contact details', 'Job history with photos & GPS data', 'Tyre condition reports', 'Invoice history', 'Payment & wallet transactions', 'Review history & responses', 'Business profile & settings'].map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={14} color={theme.primary} />
-                  <span style={{ color: theme.text, fontSize: '15px' }}>{item}</span>
+                  <span style={{ color: theme.text, fontSize: '16px' }}>{item}</span>
                 </div>
               ))}
             </div>
-            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '15px' }}>The export will be sent to <strong style={{ color: theme.text }}>{signUpData.email || 'dan@example.com'}</strong> within 24 hours.</p>
+            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '16px' }}>The export will be sent to <strong style={{ color: theme.text }}>{signUpData.email || 'dan@example.com'}</strong> within 24 hours.</p>
             <div style={{ display: 'flex', gap: '14px' }}>
               <Button variant="secondary" onClick={() => setShowDataExport(false)} fullWidth>Cancel</Button>
               <Button onClick={() => { setShowDataExport(false); showToast('Data export requested — check your email within 24 hours'); }} fullWidth icon={Download}>Request Export</Button>
@@ -8089,7 +8093,7 @@ export default function TyreFitApp() {
       <div style={{ height: '200px', backgroundColor: theme.bgInput, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0.3 }}><Map size={48} color={theme.textMuted} /></div>
         <div style={{ position: 'absolute', left: '14px', top: '14px', padding: '6px 10px', borderRadius: '20px', backgroundColor: `${theme.primary}15`, border: `1px solid ${theme.primary}30` }}>
-          <p style={{ margin: 0, color: theme.primary, fontSize: '14px', fontWeight: '700' }}>Live map demo</p>
+          <p style={{ margin: 0, color: theme.primary, fontSize: '15px', fontWeight: '800' }}>Live map demo</p>
         </div>
         {mockTeamFitters.filter(f => f.status === 'active').map((fitter, i) => (
           <div key={fitter.id} style={{ position: 'absolute', top: `${30 + i * 40}%`, left: `${20 + i * 30}%`, width: '40px', height: '40px', backgroundColor: theme.primary, borderRadius: '50%', border: '3px solid #fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Truck size={20} color="#000" /></div>
@@ -8098,14 +8102,14 @@ export default function TyreFitApp() {
       <div style={{ padding: '16px' }}>
         {/* STATS */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '15px', marginBottom: '16px' }}>
-          <Card style={{ marginBottom: 0 }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Active</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '24px', fontWeight: '700' }}>{mockTeamFitters.filter(f => f.status === 'active').length}</p></Card>
-          <Card style={{ marginBottom: 0 }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Jobs Today</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '24px', fontWeight: '700' }}>{mockTeamFitters.reduce((s, f) => s + f.jobsToday, 0)}</p></Card>
-          <Card style={{ marginBottom: 0 }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Revenue</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '24px', fontWeight: '700' }}>£485</p></Card>
+          <Card style={{ marginBottom: 0 }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Active</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '25px', fontWeight: '800' }}>{mockTeamFitters.filter(f => f.status === 'active').length}</p></Card>
+          <Card style={{ marginBottom: 0 }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Jobs Today</p><p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '25px', fontWeight: '800' }}>{mockTeamFitters.reduce((s, f) => s + f.jobsToday, 0)}</p></Card>
+          <Card style={{ marginBottom: 0 }}><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Revenue</p><p style={{ margin: '4px 0 0 0', color: theme.primary, fontSize: '25px', fontWeight: '800' }}>£485</p></Card>
         </div>
         
         <Button onClick={() => navigateTo('quote-customer')} icon={Plus} style={{ marginBottom: '16px' }}>Create Quote & Assign to Fitter</Button>
         
-        <h3 style={{ fontSize: '14px', fontWeight: '600', color: theme.textMuted, margin: '0 0 12px 0', textTransform: 'uppercase' }}>Your Fitters</h3>
+        <h3 style={{ fontSize: '15px', fontWeight: '700', color: theme.textMuted, margin: '0 0 12px 0', textTransform: 'uppercase' }}>Your Fitters</h3>
         {mockTeamFitters.map(f => (
           <Card key={f.id} style={{ marginBottom: '15px' }}>
             <button onClick={() => setShowFitterDetail(showFitterDetail === f.id ? null : f.id)} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '14px', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
@@ -8114,22 +8118,22 @@ export default function TyreFitApp() {
                 <div style={{ position: 'absolute', bottom: '-2px', right: '-2px', width: '14px', height: '14px', borderRadius: '50%', backgroundColor: f.status === 'active' ? theme.primary : theme.textMuted, border: `2px solid ${theme.bgCard}` }} />
               </div>
               <div style={{ flex: 1, textAlign: 'left' }}>
-                <h3 style={{ margin: 0, color: theme.text, fontWeight: '600' }}>{f.name}</h3>
-                <p style={{ margin: '4px 0 0 0', color: f.status === 'active' ? theme.primary : theme.textMuted, fontSize: '14px', fontWeight: '500' }}>{f.currentJob || 'Offline'}</p>
+                <h3 style={{ margin: 0, color: theme.text, fontWeight: '700' }}>{f.name}</h3>
+                <p style={{ margin: '4px 0 0 0', color: f.status === 'active' ? theme.primary : theme.textMuted, fontSize: '15px', fontWeight: '600' }}>{f.currentJob || 'Offline'}</p>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>{f.jobsToday}</p>
-                <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px' }}>jobs today</p>
+                <p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '19px' }}>{f.jobsToday}</p>
+                <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>jobs today</p>
               </div>
             </button>
             {showFitterDetail === f.id && (
               <div style={{ marginTop: '14px', padding: '14px', backgroundColor: theme.bgInput, borderRadius: '15px' }}>
                 {/* FITTER PERFORMANCE STATS */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginBottom: '14px' }}>
-                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>{f.jobsToday}</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Today</p></div>
-                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: theme.primary, fontWeight: '700', fontSize: '16px' }}>£{(f.jobsToday * 95).toFixed(0)}</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Earned</p></div>
-                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: '#eab308', fontWeight: '700', fontSize: '16px' }}>4.9/5</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Rating</p></div>
-                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '16px' }}>0</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '15px' }}>Disputes</p></div>
+                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '17px' }}>{f.jobsToday}</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Today</p></div>
+                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: theme.primary, fontWeight: '800', fontSize: '17px' }}>£{(f.jobsToday * 95).toFixed(0)}</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Earned</p></div>
+                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: '#eab308', fontWeight: '800', fontSize: '17px' }}>4.9/5</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Rating</p></div>
+                  <div style={{ textAlign: 'center' }}><p style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '17px' }}>0</p><p style={{ margin: 0, color: theme.textMuted, fontSize: '16px' }}>Disputes</p></div>
                 </div>
                 {f.currentJob && (
                   <div style={{ display: 'flex', gap: '8px' }}>
@@ -8137,7 +8141,7 @@ export default function TyreFitApp() {
                     <Button size="small" variant="secondary" fullWidth onClick={() => showToast(`Reassign modal would show list of available fitters to take ${f.name}'s remaining jobs`)}>Reassign Jobs</Button>
                   </div>
                 )}
-                {!f.currentJob && <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>{f.name} is offline — no active jobs</p>}
+                {!f.currentJob && <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', textAlign: 'center' }}>{f.name} is offline — no active jobs</p>}
               </div>
             )}
           </Card>
@@ -8151,14 +8155,14 @@ export default function TyreFitApp() {
         <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 200, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
           <div style={{ width: '100%', maxWidth: '500px', backgroundColor: theme.bgCard, borderRadius: '20px 20px 0 0', padding: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-              <h3 style={{ margin: 0, color: theme.text, fontWeight: '700', fontSize: '18px' }}>Invite a Fitter</h3>
+              <h3 style={{ margin: 0, color: theme.text, fontWeight: '800', fontSize: '19px' }}>Invite a Fitter</h3>
               <button onClick={() => setShowInvite(false)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}><X size={24} color={theme.textMuted} /></button>
             </div>
-            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>They'll get a text with a link to download TYRE-FIT and join your team. No app store search needed.</p>
+            <p style={{ margin: '0 0 16px 0', color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>They'll get a text with a link to download TYRE-FIT and join your team. No app store search needed.</p>
             <Input label="Their Name" placeholder="e.g. Jake" value={inviteName} onChange={setInviteName} />
             <Input label="Their Mobile" placeholder="07700 900456" value={inviteMobile} onChange={setInviteMobile} type="tel" />
             <Button onClick={() => { setShowInvite(false); setInviteMobile(''); setInviteName(''); showToast(`Invite sent to ${inviteName || 'fitter'} — they'll get a text with a download link`); }} disabled={!inviteMobile} icon={Send}>Send Invite via SMS</Button>
-            <p style={{ margin: '12px 0 0 0', color: theme.textMuted, fontSize: '14px', textAlign: 'center' }}>They'll appear in your team once they accept</p>
+            <p style={{ margin: '12px 0 0 0', color: theme.textMuted, fontSize: '15px', textAlign: 'center' }}>They'll appear in your team once they accept</p>
           </div>
         </div>
       )}
@@ -8179,7 +8183,7 @@ export default function TyreFitApp() {
     border: '#E5E7EB', danger: '#EF4444', warning: '#F59E0B', info: '#3B82F6'
   };
   const CustCard = function(props) { return <div style={{ backgroundColor: '#fff', borderRadius: '14px', padding: '16px', border: '1px solid #e5e7eb', marginBottom: '14px', ...(props.style || {}) }}>{props.children}</div>; };
-  const CustUrlBar = function(props) { return <div style={{ padding: '8px 16px', backgroundColor: '#F0F2F5', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #e5e7eb' }}><Lock size={12} color="#00C853" /><div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '14px', color: '#666', fontFamily: 'monospace' }}>{props.url}</div></div>; };
+  const CustUrlBar = function(props) { return <div style={{ padding: '8px 16px', backgroundColor: '#F0F2F5', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid #e5e7eb' }}><Lock size={12} color="#00C853" /><div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '15px', color: '#666', fontFamily: 'monospace' }}>{props.url}</div></div>; };
 
   const CustomerBookingScreen = () => {
     const [agreed, setAgreed] = useState(false);
@@ -8222,19 +8226,19 @@ export default function TyreFitApp() {
           <CustUrlBar url={`tyre-fit.co/q/${(quoteData.numberPlate || 'AB12CDE').replace(/\s/g, '').toLowerCase()}`} />
           <div style={{ padding: '24px' }}>
             <CustCard style={{ borderColor: custTheme.danger }}>
-              <h2 style={{ margin: '0 0 8px 0', color: custTheme.danger, fontSize: '22px', fontWeight: '800' }}>
+              <h2 style={{ margin: '0 0 8px 0', color: custTheme.danger, fontSize: '23px', fontWeight: '800' }}>
                 {customerTokenState === 'expired' ? 'Quote link expired' : 'Invalid quote link'}
               </h2>
-              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>
+              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>
                 {customerTokenState === 'expired'
                   ? 'This quote has timed out. Ask your fitter to resend a fresh link.'
                   : 'This link cannot be validated. Please request a new quote link from your fitter.'}
               </p>
             </CustCard>
-            <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '15px', cursor: 'pointer', marginBottom: '15px' }}>
+            <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '800', fontSize: '16px', cursor: 'pointer', marginBottom: '15px' }}>
               Call support: 0330 633 1247
             </button>
-            <button onClick={() => { setCustomerTokenState('valid'); setQuoteExpirySeconds(5 * 60); }} style={{ width: '100%', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
+            <button onClick={() => { setCustomerTokenState('valid'); setQuoteExpirySeconds(5 * 60); }} style={{ width: '100%', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '800', fontSize: '16px', cursor: 'pointer' }}>
               I got a new link
             </button>
           </div>
@@ -8247,21 +8251,21 @@ export default function TyreFitApp() {
         <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
           <div style={{ padding: '8px 16px', backgroundColor: '#F0F2F5', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: `1px solid ${custTheme.border}` }}>
             <Lock size={12} color="#00C853" />
-            <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '14px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/booking/confirmed</div>
+            <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '15px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/booking/confirmed</div>
           </div>
           <div style={{ padding: '24px', textAlign: 'center', paddingTop: '40px' }}>
             <div style={{ width: '100px', height: '100px', backgroundColor: '#00C85320', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
               <CheckCircle size={50} color={custTheme.primary} />
             </div>
-            <h1 style={{ color: custTheme.text, fontSize: '26px', fontWeight: '700', margin: '0 0 8px 0' }}>Booking Confirmed!</h1>
-            <p style={{ color: custTheme.textMuted, fontSize: '16px', margin: '0 0 32px 0' }}>Your slot with {fitterName} is locked in.</p>
+            <h1 style={{ color: custTheme.text, fontSize: '27px', fontWeight: '800', margin: '0 0 8px 0' }}>Booking Confirmed!</h1>
+            <p style={{ color: custTheme.textMuted, fontSize: '17px', margin: '0 0 32px 0' }}>Your slot with {fitterName} is locked in.</p>
 
             <CustCard>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Date</span><span style={{ color: custTheme.text, fontWeight: '600' }}>{quoteData.bookingDate || 'Tue 18 Feb'}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Arrival Window</span><span style={{ color: custTheme.text, fontWeight: '600' }}>{quoteData.bookingTime || '10:00-12:00'} window</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '600' }}>{quoteData.numberPlate || 'AB12 CDE'}</span></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Fitter</span><span style={{ color: custTheme.text, fontWeight: '600' }}>{fitterName}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Date</span><span style={{ color: custTheme.text, fontWeight: '700' }}>{quoteData.bookingDate || 'Tue 18 Feb'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Arrival Window</span><span style={{ color: custTheme.text, fontWeight: '700' }}>{quoteData.bookingTime || '10:00-12:00'} window</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '700' }}>{quoteData.numberPlate || 'AB12 CDE'}</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Fitter</span><span style={{ color: custTheme.text, fontWeight: '700' }}>{fitterName}</span></div>
               </div>
             </CustCard>
 
@@ -8269,19 +8273,19 @@ export default function TyreFitApp() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <Shield size={28} color={custTheme.primary} />
                 <div style={{ textAlign: 'left' }}>
-                  <p style={{ margin: 0, color: custTheme.primary, fontWeight: '700', fontSize: '15px' }}>30-Day Emergency Cover — FREE</p>
-                  <p style={{ margin: '4px 0 0 0', color: custTheme.textMuted, fontSize: '15px' }}>Up to £300 repair or replacement, nationwide</p>
+                  <p style={{ margin: 0, color: custTheme.primary, fontWeight: '800', fontSize: '16px' }}>30-Day Emergency Cover — FREE</p>
+                  <p style={{ margin: '4px 0 0 0', color: custTheme.textMuted, fontSize: '16px' }}>Up to £300 repair or replacement, nationwide</p>
                 </div>
               </div>
             </CustCard>
 
-            <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '16px 0' }}>You'll get a text when your fitter is on the way.</p>
+            <p style={{ color: custTheme.textMuted, fontSize: '16px', margin: '16px 0' }}>You'll get a text when your fitter is on the way.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <button onClick={() => navigateTo('customer-receipt')} style={{ width: '100%', padding: '16px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '14px', color: '#6D28D9', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>View Receipt</button>
-              <button onClick={() => navigateTo('customer-eta-tracking')} style={{ width: '100%', padding: '16px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '14px', color: '#1D4ED8', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>Track Fitter ETA</button>
-              <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>View Your Cover</button>
-              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '16px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '14px', color: '#991B1B', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>Call support</button>
-              <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '16px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '14px', color: '#92400E', fontWeight: '700', fontSize: '16px', cursor: 'pointer' }}>Leave a Google Review</button>
+              <button onClick={() => navigateTo('customer-receipt')} style={{ width: '100%', padding: '16px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '14px', color: '#6D28D9', fontWeight: '800', fontSize: '17px', cursor: 'pointer' }}>View Receipt</button>
+              <button onClick={() => navigateTo('customer-eta-tracking')} style={{ width: '100%', padding: '16px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '14px', color: '#1D4ED8', fontWeight: '800', fontSize: '17px', cursor: 'pointer' }}>Track Fitter ETA</button>
+              <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '800', fontSize: '17px', cursor: 'pointer' }}>View Your Cover</button>
+              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '16px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '14px', color: '#991B1B', fontWeight: '800', fontSize: '17px', cursor: 'pointer' }}>Call support</button>
+              <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '16px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '14px', color: '#92400E', fontWeight: '800', fontSize: '17px', cursor: 'pointer' }}>Leave a Google Review</button>
             </div>
           </div>
         </div>
@@ -8293,60 +8297,60 @@ export default function TyreFitApp() {
       {/* BROWSER URL BAR — shows this is a web page, not an app */}
       <div style={{ padding: '8px 16px', backgroundColor: '#F0F2F5', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: `1px solid ${custTheme.border}` }}>
         <Lock size={12} color="#00C853" />
-        <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '14px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/q/{(quoteData.numberPlate || 'AB12CDE').replace(/\s/g, '').toLowerCase()}</div>
+        <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '15px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/q/{(quoteData.numberPlate || 'AB12CDE').replace(/\s/g, '').toLowerCase()}</div>
       </div>
       {/* HEADER */}
       <div style={{ padding: '20px 20px 0', borderBottom: `1px solid ${custTheme.border}` }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '16px' }}>
           <div style={{ width: '44px', height: '44px', backgroundColor: custTheme.primary, borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: '#fff', fontWeight: '800', fontSize: '16px' }}>TF</span>
+            <span style={{ color: '#fff', fontWeight: '800', fontSize: '17px' }}>TF</span>
           </div>
           <div>
-            <p style={{ margin: 0, color: custTheme.text, fontWeight: '700', fontSize: '17px' }}>{fitterName}</p>
-            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px' }}>via TYRE-FIT • No app needed</p>
+            <p style={{ margin: 0, color: custTheme.text, fontWeight: '800', fontSize: '18px' }}>{fitterName}</p>
+            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px' }}>via TYRE-FIT • No app needed</p>
           </div>
         </div>
       </div>
 
       <div style={{ padding: '20px' }}>
-        <h1 style={{ color: custTheme.text, fontSize: '28px', fontWeight: '800', margin: '0 0 4px 0' }}>Your Quote</h1>
-        <p style={{ color: custTheme.textMuted, fontSize: '17px', margin: '0 0 20px 0' }}>Total price <strong style={{ color: custTheme.text }}>£{customerTotal.toFixed(2)}</strong> includes the £5.95 booking fee.</p>
+        <h1 style={{ color: custTheme.text, fontSize: '29px', fontWeight: '800', margin: '0 0 4px 0' }}>Your Quote</h1>
+        <p style={{ color: custTheme.textMuted, fontSize: '18px', margin: '0 0 20px 0' }}>Total price <strong style={{ color: custTheme.text }}>£{customerTotal.toFixed(2)}</strong> includes the £5.95 booking fee.</p>
         <CustCard style={{ borderColor: '#F59E0B' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <p style={{ margin: 0, color: custTheme.text, fontWeight: '700', fontSize: '15px' }}>Quote expires in</p>
-            <p style={{ margin: 0, color: '#B45309', fontWeight: '800', fontSize: '20px' }}>{fmtExpiry}</p>
+            <p style={{ margin: 0, color: custTheme.text, fontWeight: '800', fontSize: '16px' }}>Quote expires in</p>
+            <p style={{ margin: 0, color: '#B45309', fontWeight: '800', fontSize: '21px' }}>{fmtExpiry}</p>
           </div>
-          <p style={{ margin: '6px 0 0 0', color: custTheme.textMuted, fontSize: '14px' }}>After payment: booking is confirmed, receipt + cover link are sent by text immediately.</p>
+          <p style={{ margin: '6px 0 0 0', color: custTheme.textMuted, fontSize: '15px' }}>After payment: booking is confirmed, receipt + cover link are sent by text immediately.</p>
         </CustCard>
 
         {/* QUOTE BREAKDOWN */}
         <CustCard>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
             <span style={{ color: custTheme.textMuted }}>Vehicle</span>
-            <span style={{ color: custTheme.text, fontWeight: '600' }}>{quoteData.numberPlate || 'AB12 CDE'} — 2019 Ford Focus</span>
+            <span style={{ color: custTheme.text, fontWeight: '700' }}>{quoteData.numberPlate || 'AB12 CDE'} — 2019 Ford Focus</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
             <span style={{ color: custTheme.textMuted }}>Service</span>
-            <span style={{ color: custTheme.text, fontWeight: '600' }}>2x 205/55R16 Continental</span>
+            <span style={{ color: custTheme.text, fontWeight: '700' }}>2x 205/55R16 Continental</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '14px' }}>
             <span style={{ color: custTheme.textMuted }}>Appointment</span>
-            <span style={{ color: custTheme.text, fontWeight: '700', fontSize: '16px' }}>{quoteData.bookingDate || 'Tue 18 Feb'} · {quoteData.bookingTime || '10:00-12:00'} window</span>
+            <span style={{ color: custTheme.text, fontWeight: '800', fontSize: '17px' }}>{quoteData.bookingDate || 'Tue 18 Feb'} · {quoteData.bookingTime || '10:00-12:00'} window</span>
           </div>
           <div style={{ borderTop: `1px solid ${custTheme.border}`, paddingTop: '14px', marginTop: '4px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ color: custTheme.textMuted }}>Total price</span>
-              <span style={{ color: custTheme.text, fontWeight: '700', fontSize: '22px' }}>£{customerTotal.toFixed(2)}</span>
+              <span style={{ color: custTheme.text, fontWeight: '800', fontSize: '23px' }}>£{customerTotal.toFixed(2)}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ color: custTheme.textMuted }}>Pay now</span>
-              <span style={{ color: custTheme.primary, fontWeight: '700' }}>£{bookingFee.toFixed(2)}</span>
+              <span style={{ color: custTheme.primary, fontWeight: '800' }}>£{bookingFee.toFixed(2)}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ color: custTheme.textMuted }}>Pay fitter after fitting</span>
-              <span style={{ color: custTheme.text, fontWeight: '700' }}>£{quotePrice.toFixed(2)}</span>
+              <span style={{ color: custTheme.text, fontWeight: '800' }}>£{quotePrice.toFixed(2)}</span>
             </div>
-            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px' }}>All bookings include 30-day emergency tyre cover.</p>
+            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px' }}>All bookings include 30-day emergency tyre cover.</p>
           </div>
         </CustCard>
 
@@ -8354,28 +8358,28 @@ export default function TyreFitApp() {
         <CustCard style={{ backgroundColor: '#00C85308', borderColor: '#00C85340' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
             <Shield size={22} color={custTheme.primary} />
-            <span style={{ color: custTheme.primary, fontWeight: '700', fontSize: '15px' }}>Included FREE: 30-Day Emergency Cover</span>
+            <span style={{ color: custTheme.primary, fontWeight: '800', fontSize: '16px' }}>Included FREE: 30-Day Emergency Cover</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {['Up to £200 replacement if you get a flat', 'Up to £85 puncture repair, anywhere in the UK', 'Up to £100 safe tow from unsafe locations', 'Up to £50 locking wheel nut removal', 'No excess. No hidden costs. Max £300 per claim.'].map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle size={14} color={custTheme.primary} />
-                <span style={{ color: custTheme.text, fontSize: '15px' }}>{item}</span>
+                <span style={{ color: custTheme.text, fontSize: '16px' }}>{item}</span>
               </div>
             ))}
           </div>
-          <button onClick={() => navigateTo('customer-cover-terms')} style={{ marginTop: '15px', background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, textDecoration: 'underline' }}>Read full cover terms →</button>
+          <button onClick={() => navigateTo('customer-cover-terms')} style={{ marginTop: '15px', background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, textDecoration: 'underline' }}>Read full cover terms →</button>
         </CustCard>
 
         {/* BOOKING FEE */}
         <CustCard style={{ textAlign: 'center' }}>
-          <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '15px' }}>Pay now to secure booking</p>
-          <p style={{ margin: '0 0 12px 0', color: custTheme.text, fontSize: '36px', fontWeight: '800' }}>£5.95</p>
+          <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '16px' }}>Pay now to secure booking</p>
+          <p style={{ margin: '0 0 12px 0', color: custTheme.text, fontSize: '37px', fontWeight: '800' }}>£5.95</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center', marginBottom: '14px' }}>
             <Lock size={12} color={custTheme.textMuted} />
-            <span style={{ color: custTheme.textMuted, fontSize: '14px' }}>Secured by Stripe</span>
+            <span style={{ color: custTheme.textMuted, fontSize: '15px' }}>Secured by Stripe</span>
           </div>
-          <p style={{ margin: '0 0 8px 0', color: custTheme.text, fontSize: '15px', fontWeight: '600' }}>Choose payment method</p>
+          <p style={{ margin: '0 0 8px 0', color: custTheme.text, fontSize: '16px', fontWeight: '700' }}>Choose payment method</p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '14px' }}>
             {[
               { id: 'apple_pay', label: 'Apple Pay' },
@@ -8392,8 +8396,8 @@ export default function TyreFitApp() {
                   border: `2px solid ${customerPayMethod === m.id ? custTheme.primary : custTheme.border}`,
                   backgroundColor: customerPayMethod === m.id ? '#00C85312' : '#fff',
                   color: customerPayMethod === m.id ? custTheme.primary : custTheme.text,
-                  fontSize: '15px',
-                  fontWeight: '700',
+                  fontSize: '16px',
+                  fontWeight: '800',
                   cursor: 'pointer'
                 }}
               >
@@ -8401,38 +8405,38 @@ export default function TyreFitApp() {
               </button>
             ))}
           </div>
-          <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '14px', border: '1px solid #A7F3D0', backgroundColor: '#ECFDF5', borderRadius: '15px', color: '#065F46', fontWeight: '700', fontSize: '15px', cursor: 'pointer', marginBottom: '14px' }}>
+          <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '14px', border: '1px solid #A7F3D0', backgroundColor: '#ECFDF5', borderRadius: '15px', color: '#065F46', fontWeight: '800', fontSize: '16px', cursor: 'pointer', marginBottom: '14px' }}>
             View what your 30-day cover includes
           </button>
           <div ref={authSectionRef} style={{ padding: '15px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', marginBottom: '14px', textAlign: 'left' }}>
-            <p style={{ margin: '0 0 6px 0', color: '#6D28D9', fontSize: '14px', fontWeight: '700', textTransform: 'uppercase' }}>Customer authentication</p>
+            <p style={{ margin: '0 0 6px 0', color: '#6D28D9', fontSize: '15px', fontWeight: '800', textTransform: 'uppercase' }}>Customer authentication</p>
             {!customerAuthenticated ? (
               <>
-                <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '14px' }}>Verify your mobile before paying so cover data is linked to your profile.</p>
+                <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px' }}>Verify your mobile before paying so cover data is linked to your profile.</p>
                 {!otpSent ? (
-                  <button onClick={() => { setOtpSent(true); showToast('OTP sent to your mobile'); }} style={{ width: '100%', padding: '15px', backgroundColor: '#fff', border: '1px solid #C4B5FD', borderRadius: '8px', color: '#6D28D9', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
+                  <button onClick={() => { setOtpSent(true); showToast('OTP sent to your mobile'); }} style={{ width: '100%', padding: '15px', backgroundColor: '#fff', border: '1px solid #C4B5FD', borderRadius: '8px', color: '#6D28D9', fontWeight: '800', fontSize: '16px', cursor: 'pointer' }}>
                     Send OTP
                   </button>
                 ) : (
                   <div style={{ display: 'flex', gap: '8px' }}>
-                    <input ref={otpInputRef} value={otpCode} onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} placeholder="Enter 6-digit code" style={{ flex: 1, padding: '15px', borderRadius: '8px', border: '1px solid #C4B5FD', fontSize: '15px' }} />
-                    <button onClick={() => { if (otpCode.length === 6) { setCustomerAuthenticated(true); showToast('Number verified'); } }} style={{ padding: '10px 12px', backgroundColor: '#6D28D9', border: 'none', borderRadius: '8px', color: '#fff', fontWeight: '700', fontSize: '14px', cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed', opacity: otpCode.length === 6 ? 1 : 0.5 }}>
+                    <input ref={otpInputRef} value={otpCode} onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} placeholder="Enter 6-digit code" style={{ flex: 1, padding: '15px', borderRadius: '8px', border: '1px solid #C4B5FD', fontSize: '16px' }} />
+                    <button onClick={() => { if (otpCode.length === 6) { setCustomerAuthenticated(true); showToast('Number verified'); } }} style={{ padding: '10px 12px', backgroundColor: '#6D28D9', border: 'none', borderRadius: '8px', color: '#fff', fontWeight: '800', fontSize: '15px', cursor: otpCode.length === 6 ? 'pointer' : 'not-allowed', opacity: otpCode.length === 6 ? 1 : 0.5 }}>
                       Verify
                     </button>
                   </div>
                 )}
               </>
-            ) : <p style={{ margin: 0, color: '#059669', fontWeight: '700', fontSize: '15px' }}>Verified. Payment and cover can be linked.</p>}
+            ) : <p style={{ margin: 0, color: '#059669', fontWeight: '800', fontSize: '16px' }}>Verified. Payment and cover can be linked.</p>}
           </div>
           <label style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', textAlign: 'left', cursor: 'pointer', marginBottom: '16px' }}>
             <input type="checkbox" checked={agreed} onChange={() => setAgreed(!agreed)} style={{ marginTop: '3px', width: '18px', height: '18px', accentColor: custTheme.primary }} />
-            <span style={{ color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>
+            <span style={{ color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
               I agree to the{' '}
-              <button onClick={(e) => { e.preventDefault(); navigateTo('customer-booking-terms'); }} style={{ background: 'none', border: 'none', color: custTheme.info, textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: '14px' }}>
+              <button onClick={(e) => { e.preventDefault(); navigateTo('customer-booking-terms'); }} style={{ background: 'none', border: 'none', color: custTheme.info, textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: '15px' }}>
                 booking terms
               </button>{' '}
               and{' '}
-              <button onClick={(e) => { e.preventDefault(); navigateTo('customer-cover-terms'); }} style={{ background: 'none', border: 'none', color: custTheme.info, textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: '14px' }}>
+              <button onClick={(e) => { e.preventDefault(); navigateTo('customer-cover-terms'); }} style={{ background: 'none', border: 'none', color: custTheme.info, textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: '15px' }}>
                 cover terms
               </button>
               . I understand the £5.95 booking fee is non-refundable and includes 30 days emergency tyre cover.
@@ -8447,17 +8451,17 @@ export default function TyreFitApp() {
               showToast('Demo mode: continuing to next page');
               navigateTo('customer-cover-dashboard');
             }}
-            style={{ width: '100%', padding: '18px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '17px', cursor: 'pointer' }}
+            style={{ width: '100%', padding: '18px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '800', fontSize: '18px', cursor: 'pointer' }}
           >
             {!agreed ? 'Accept terms to continue' : 'Continue to next screen (demo)'}
           </button>
           {skipOtpForUiReview && !customerAuthenticated && (
-            <p style={{ margin: '8px 0 0 0', color: '#065F46', fontSize: '13px', fontWeight: '600' }}>Demo mode active: OTP is bypassed for UI/UX review.</p>
+            <p style={{ margin: '8px 0 0 0', color: '#065F46', fontSize: '14px', fontWeight: '700' }}>Demo mode active: OTP is bypassed for UI/UX review.</p>
           )}
           {!customerAuthenticated && otpSent && (
             <div style={{ marginTop: '10px', padding: '10px', borderRadius: '10px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE' }}>
-              <p style={{ margin: 0, color: '#6D28D9', fontSize: '13px', fontWeight: '600' }}>OTP sent. Enter your 6-digit code in the purple box above.</p>
-              <button onClick={focusOtpField} style={{ marginTop: '6px', background: 'none', border: 'none', color: '#6D28D9', textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: '13px', fontWeight: '700' }}>
+              <p style={{ margin: 0, color: '#6D28D9', fontSize: '14px', fontWeight: '700' }}>OTP sent. Enter your 6-digit code in the purple box above.</p>
+              <button onClick={focusOtpField} style={{ marginTop: '6px', background: 'none', border: 'none', color: '#6D28D9', textDecoration: 'underline', cursor: 'pointer', padding: 0, fontSize: '14px', fontWeight: '800' }}>
                 Jump to OTP field
               </button>
             </div>
@@ -8472,17 +8476,17 @@ export default function TyreFitApp() {
     <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
       <div style={{ padding: '8px 16px', backgroundColor: '#F0F2F5', display: 'flex', alignItems: 'center', gap: '8px', borderBottom: `1px solid ${custTheme.border}` }}>
         <Lock size={12} color="#00C853" />
-        <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '14px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/cover-terms</div>
+        <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '15px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/cover-terms</div>
       </div>
       <div style={{ padding: '20px', borderBottom: `1px solid ${custTheme.border}` }}>
-        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-        <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: 0 }}>Emergency Tyre Cover</h1>
-        <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '4px 0 0 0' }}>What's included with your booking</p>
+        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+        <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: 0 }}>Emergency Tyre Cover</h1>
+        <p style={{ color: custTheme.textMuted, fontSize: '16px', margin: '4px 0 0 0' }}>What's included with your booking</p>
       </div>
       <div style={{ padding: '20px' }}>
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0' }}>Cover Limits</h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 12px 0' }}>Cover Limits</h3>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '15px' }}>
             <tbody>
               {[
                 ['Tyre replacement', 'Up to £200'],
@@ -8493,36 +8497,36 @@ export default function TyreFitApp() {
               ].map(([service, limit], i) => (
                 <tr key={i} style={{ borderBottom: i < 4 ? `1px solid ${custTheme.border}` : 'none' }}>
                   <td style={{ padding: '10px 0', color: custTheme.text }}>{service}</td>
-                  <td style={{ padding: '10px 0', color: custTheme.primary, fontWeight: '600', textAlign: 'right' }}>{limit}</td>
+                  <td style={{ padding: '10px 0', color: custTheme.primary, fontWeight: '700', textAlign: 'right' }}>{limit}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <p style={{ margin: '12px 0 0 0', color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>If the repair or replacement costs more than the limit, you pay the difference. No excess on any claim.</p>
+          <p style={{ margin: '12px 0 0 0', color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>If the repair or replacement costs more than the limit, you pay the difference. No excess on any claim.</p>
         </CustCard>
 
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0' }}>What's Covered</h3>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 12px 0' }}>What's Covered</h3>
           {['Punctures, blowouts, and unexpected tyre damage', 'All 4 tyres checked during your service', 'Tyres that were LEGAL at time of service', 'Any location in the UK mainland', '30 days from your service date'].map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <CheckCircle size={16} color={custTheme.primary} />
-              <span style={{ color: custTheme.text, fontSize: '15px' }}>{item}</span>
+              <span style={{ color: custTheme.text, fontSize: '16px' }}>{item}</span>
             </div>
           ))}
         </CustCard>
 
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0' }}>What's NOT Covered</h3>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 12px 0' }}>What's NOT Covered</h3>
           {['Tyres that were illegal at time of service (below 1.6mm tread)', 'Tyres with serious pre-existing damage noted in your condition report', 'Deliberate damage or racing', 'Claims outside the 30-day window', 'Cosmetic damage only (no functional impact)'].map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <X size={16} color={custTheme.danger} />
-              <span style={{ color: custTheme.text, fontSize: '15px' }}>{item}</span>
+              <span style={{ color: custTheme.text, fontSize: '16px' }}>{item}</span>
             </div>
           ))}
         </CustCard>
 
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0' }}>How to Claim</h3>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 12px 0' }}>How to Claim</h3>
           {[
             { step: '1', title: 'Call us or tap "I need help"', desc: 'Our AI helpline answers immediately — no hold, no queue' },
             { step: '2', title: 'Upload photos', desc: 'We\'ll text you a link to photograph the damage and your plate' },
@@ -8531,19 +8535,19 @@ export default function TyreFitApp() {
           ].map((s, i) => (
             <div key={i} style={{ display: 'flex', gap: '14px', marginBottom: i < 3 ? '14px' : 0 }}>
               <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: custTheme.primary, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <span style={{ color: '#fff', fontWeight: '700', fontSize: '15px' }}>{s.step}</span>
+                <span style={{ color: '#fff', fontWeight: '800', fontSize: '16px' }}>{s.step}</span>
               </div>
               <div>
-                <p style={{ margin: 0, color: custTheme.text, fontWeight: '600', fontSize: '14px' }}>{s.title}</p>
-                <p style={{ margin: '2px 0 0 0', color: custTheme.textMuted, fontSize: '14px' }}>{s.desc}</p>
+                <p style={{ margin: 0, color: custTheme.text, fontWeight: '700', fontSize: '15px' }}>{s.title}</p>
+                <p style={{ margin: '2px 0 0 0', color: custTheme.textMuted, fontSize: '15px' }}>{s.desc}</p>
               </div>
             </div>
           ))}
         </CustCard>
 
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 8px 0' }}>£50 Call-Out Fee</h3>
-          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>If a fitter arrives and finds no fault with your tyre, a £50 call-out fee applies. This covers the fitter's time and travel.</p>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 8px 0' }}>£50 Call-Out Fee</h3>
+          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>If a fitter arrives and finds no fault with your tyre, a £50 call-out fee applies. This covers the fitter's time and travel.</p>
         </CustCard>
       </div>
     </div>
@@ -8553,25 +8557,25 @@ export default function TyreFitApp() {
     <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
       <CustUrlBar url="tyre-fit.co/booking-terms" />
       <div style={{ padding: '20px', borderBottom: `1px solid ${custTheme.border}` }}>
-        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-        <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: 0 }}>Booking Terms</h1>
-        <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '4px 0 0 0' }}>Before you pay the £5.95 booking fee</p>
+        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+        <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: 0 }}>Booking Terms</h1>
+        <p style={{ color: custTheme.textMuted, fontSize: '16px', margin: '4px 0 0 0' }}>Before you pay the £5.95 booking fee</p>
       </div>
       <div style={{ padding: '20px' }}>
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0' }}>What the £5.95 does</h3>
-          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>It locks your booking slot and activates your 30-day emergency tyre cover after the job is completed.</p>
-          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>This fee is paid to TYRE-FIT to run the platform and cover service.</p>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 12px 0' }}>What the £5.95 does</h3>
+          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>It locks your booking slot and activates your 30-day emergency tyre cover after the job is completed.</p>
+          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>This fee is paid to TYRE-FIT to run the platform and cover service.</p>
         </CustCard>
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0' }}>Refund rule</h3>
-          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px' }}>If cancellation happens within 5 minutes, the £5.95 can be refunded.</p>
-          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px' }}>After 5 minutes, the £5.95 is non-refundable.</p>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 12px 0' }}>Refund rule</h3>
+          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '16px' }}>If cancellation happens within 5 minutes, the £5.95 can be refunded.</p>
+          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '16px' }}>After 5 minutes, the £5.95 is non-refundable.</p>
         </CustCard>
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0' }}>Reschedule and no-shows</h3>
-          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px' }}>You can request rescheduling by replying to the booking text or calling your fitter.</p>
-          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px' }}>If the fitter arrives and work cannot proceed due to customer no-show, the booking fee is not refunded.</p>
+          <h3 style={{ color: custTheme.text, fontSize: '17px', fontWeight: '800', margin: '0 0 12px 0' }}>Reschedule and no-shows</h3>
+          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '16px' }}>You can request rescheduling by replying to the booking text or calling your fitter.</p>
+          <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '16px' }}>If the fitter arrives and work cannot proceed due to customer no-show, the booking fee is not refunded.</p>
         </CustCard>
       </div>
     </div>
@@ -8585,18 +8589,18 @@ export default function TyreFitApp() {
     <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
       <div style={{ padding: '8px 16px', backgroundColor: '#F0F2F5', display: 'flex', alignItems: 'center', gap: '8px' }}>
         <Lock size={12} color="#00C853" />
-        <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '14px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/cover/ab12cde</div>
+        <div style={{ flex: 1, padding: '6px 12px', backgroundColor: '#fff', borderRadius: '8px', fontSize: '15px', color: '#666', fontFamily: 'monospace' }}>tyre-fit.co/cover/ab12cde</div>
       </div>
       <div style={{ padding: '24px', background: `linear-gradient(135deg, ${custTheme.primary}, #00A843)`, color: '#fff' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
           <Shield size={28} color="#fff" />
-          <span style={{ fontSize: '18px', fontWeight: '700' }}>Your Tyre Cover</span>
+          <span style={{ fontSize: '19px', fontWeight: '800' }}>Your Tyre Cover</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '6px' }}>
-          <span style={{ fontSize: '48px', fontWeight: '800' }}>{daysLeft}</span>
-          <span style={{ fontSize: '18px', fontWeight: '500' }}>days left</span>
+          <span style={{ fontSize: '49px', fontWeight: '800' }}>{daysLeft}</span>
+          <span style={{ fontSize: '19px', fontWeight: '600' }}>days left</span>
         </div>
-        <p style={{ margin: 0, fontSize: '14px', opacity: 0.85 }}>Expires {expiryDate}</p>
+        <p style={{ margin: 0, fontSize: '15px', opacity: 0.85 }}>Expires {expiryDate}</p>
         {/* Progress bar */}
         <div style={{ marginTop: '16px', height: '6px', backgroundColor: 'rgba(255,255,255,0.3)', borderRadius: '3px' }}>
           <div style={{ width: `${(daysLeft / 30) * 100}%`, height: '100%', backgroundColor: '#fff', borderRadius: '3px' }} />
@@ -8606,11 +8610,11 @@ export default function TyreFitApp() {
       <div style={{ padding: '20px' }}>
         <button onClick={() => navigateTo('customer-claim')} style={{ width: '100%', padding: '20px', backgroundColor: '#EF444415', border: `2px solid ${custTheme.danger}`, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px', marginBottom: '16px' }}>
           <AlertTriangle size={22} color={custTheme.danger} />
-          <span style={{ color: custTheme.danger, fontWeight: '700', fontSize: '17px' }}>I Need Help — Claim Now</span>
+          <span style={{ color: custTheme.danger, fontWeight: '800', fontSize: '18px' }}>I Need Help — Claim Now</span>
         </button>
 
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '15px', fontWeight: '700', margin: '0 0 12px 0' }}>What You're Covered For</h3>
+          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '800', margin: '0 0 12px 0' }}>What You're Covered For</h3>
           {[
             { label: 'Replacement', limit: '£200', icon: '🔧' },
             { label: 'Repair', limit: '£85', icon: '🩹' },
@@ -8619,63 +8623,63 @@ export default function TyreFitApp() {
           ].map((c, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: i < 3 ? `1px solid ${custTheme.border}` : 'none' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '16px' }}>{c.icon}</span>
-                <span style={{ color: custTheme.text, fontSize: '14px' }}>{c.label}</span>
+                <span style={{ fontSize: '17px' }}>{c.icon}</span>
+                <span style={{ color: custTheme.text, fontSize: '15px' }}>{c.label}</span>
               </div>
-              <span style={{ color: custTheme.primary, fontWeight: '600', fontSize: '14px' }}>Up to {c.limit}</span>
+              <span style={{ color: custTheme.primary, fontWeight: '700', fontSize: '15px' }}>Up to {c.limit}</span>
             </div>
           ))}
-          <p style={{ margin: '10px 0 0 0', color: custTheme.textMuted, fontSize: '14px' }}>Max £300 per claim. You pay any difference over the limit.</p>
+          <p style={{ margin: '10px 0 0 0', color: custTheme.textMuted, fontSize: '15px' }}>Max £300 per claim. You pay any difference over the limit.</p>
         </CustCard>
 
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '15px', fontWeight: '700', margin: '0 0 8px 0' }}>Your Service</h3>
+          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '800', margin: '0 0 8px 0' }}>Your Service</h3>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-            <span style={{ color: custTheme.textMuted, fontSize: '15px' }}>Date</span>
-            <span style={{ color: custTheme.text, fontSize: '15px', fontWeight: '500' }}>{serviceDate}</span>
+            <span style={{ color: custTheme.textMuted, fontSize: '16px' }}>Date</span>
+            <span style={{ color: custTheme.text, fontSize: '16px', fontWeight: '600' }}>{serviceDate}</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-            <span style={{ color: custTheme.textMuted, fontSize: '15px' }}>Fitter</span>
-            <span style={{ color: custTheme.text, fontSize: '15px', fontWeight: '500' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</span>
+            <span style={{ color: custTheme.textMuted, fontSize: '16px' }}>Fitter</span>
+            <span style={{ color: custTheme.text, fontSize: '16px', fontWeight: '600' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-            <span style={{ color: custTheme.textMuted, fontSize: '15px' }}>Vehicle</span>
-            <span style={{ color: custTheme.text, fontSize: '15px', fontWeight: '500' }}>AB12 CDE — Ford Focus</span>
+            <span style={{ color: custTheme.textMuted, fontSize: '16px' }}>Vehicle</span>
+            <span style={{ color: custTheme.text, fontSize: '16px', fontWeight: '600' }}>AB12 CDE — Ford Focus</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span style={{ color: custTheme.textMuted, fontSize: '15px' }}>Tyres checked</span>
-            <span style={{ color: custTheme.text, fontSize: '15px', fontWeight: '500' }}>4 of 4</span>
+            <span style={{ color: custTheme.textMuted, fontSize: '16px' }}>Tyres checked</span>
+            <span style={{ color: custTheme.text, fontSize: '16px', fontWeight: '600' }}>4 of 4</span>
           </div>
         </CustCard>
 
         <CustCard>
-          <h3 style={{ color: custTheme.text, fontSize: '15px', fontWeight: '700', margin: '0 0 8px 0' }}>Your Condition Report</h3>
-          <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '15px' }}>Taken by your fitter at time of service</p>
+          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '800', margin: '0 0 8px 0' }}>Your Condition Report</h3>
+          <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '16px' }}>Taken by your fitter at time of service</p>
           {['Front Left — Legal (5.2mm) ✅', 'Front Right — Legal (2.1mm) — Replace soon ⚠️', 'Rear Left — Legal (4.8mm) ✅', 'Rear Right — Legal (3.0mm) — Minor kerb scuff ✅'].map((t, i) => (
-            <p key={i} style={{ margin: '0 0 6px 0', color: custTheme.text, fontSize: '14px', padding: '6px 10px', backgroundColor: custTheme.bgInput, borderRadius: '6px' }}>{t}</p>
+            <p key={i} style={{ margin: '0 0 6px 0', color: custTheme.text, fontSize: '15px', padding: '6px 10px', backgroundColor: custTheme.bgInput, borderRadius: '6px' }}>{t}</p>
           ))}
         </CustCard>
 
         <CustCard style={{ borderColor: '#10B98140', backgroundColor: '#10B98108' }}>
-          <h3 style={{ color: custTheme.text, fontSize: '15px', fontWeight: '700', margin: '0 0 8px 0' }}>Keep this cover running</h3>
-          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
+          <h3 style={{ color: custTheme.text, fontSize: '16px', fontWeight: '800', margin: '0 0 8px 0' }}>Keep this cover running</h3>
+          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>
             Upgrade to ongoing cover for £7.99/month. Cancel anytime.
           </p>
-          <button onClick={() => showToast('Opening £7.99/month upgrade checkout...')} style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
+          <button onClick={() => showToast('Opening £7.99/month upgrade checkout...')} style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '800', fontSize: '16px', cursor: 'pointer' }}>
             Upgrade to £7.99/month
           </button>
         </CustCard>
 
         <div style={{ textAlign: 'center', marginTop: '8px' }}>
           <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
-            <button onClick={() => navigateTo('customer-eta-tracking')} style={{ flex: 1, padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Track ETA</button>
-            <button onClick={() => navigateTo('customer-receipt')} style={{ flex: 1, padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Receipt</button>
-            <button onClick={() => navigateTo('customer-pay-invoice')} style={{ flex: 1, padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Pay Invoice</button>
+            <button onClick={() => navigateTo('customer-eta-tracking')} style={{ flex: 1, padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Track ETA</button>
+            <button onClick={() => navigateTo('customer-receipt')} style={{ flex: 1, padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Receipt</button>
+            <button onClick={() => navigateTo('customer-pay-invoice')} style={{ flex: 1, padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Pay Invoice</button>
           </div>
-          <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '15px', color: '#92400E', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '8px' }}>Leave a Google Review</button>
-          <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '15px', color: '#991B1B', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '8px' }}>Call support 0330 633 1247</button>
-          <button onClick={() => navigateTo('customer-cover-terms')} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', textDecoration: 'underline' }}>View full cover terms</button>
-          <p style={{ color: custTheme.textMuted, fontSize: '14px', marginTop: '8px' }}>AI-powered helpline, no queue.</p>
+          <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '15px', color: '#92400E', fontWeight: '800', fontSize: '15px', cursor: 'pointer', marginBottom: '8px' }}>Leave a Google Review</button>
+          <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '15px', color: '#991B1B', fontWeight: '800', fontSize: '15px', cursor: 'pointer', marginBottom: '8px' }}>Call support 0330 633 1247</button>
+          <button onClick={() => navigateTo('customer-cover-terms')} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', textDecoration: 'underline' }}>View full cover terms</button>
+          <p style={{ color: custTheme.textMuted, fontSize: '15px', marginTop: '8px' }}>AI-powered helpline, no queue.</p>
         </div>
       </div>
     </div>
@@ -8701,12 +8705,12 @@ export default function TyreFitApp() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', minHeight: 'calc(100vh - 44px)' }}>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '80px', height: '80px', borderRadius: '50%', border: '4px solid ' + custTheme.primary, borderTopColor: 'transparent', margin: '0 auto 24px', animation: 'spin 1s linear infinite' }} />
-              <h2 style={{ color: custTheme.text, fontSize: '20px', fontWeight: '700', margin: '0 0 8px 0' }}>Verifying Your Claim</h2>
-              <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 6px 0' }}>Checking against your condition report and location...</p>
-              <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: 0 }}>This usually takes under 2 minutes</p>
+              <h2 style={{ color: custTheme.text, fontSize: '21px', fontWeight: '800', margin: '0 0 8px 0' }}>Verifying Your Claim</h2>
+              <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 6px 0' }}>Checking against your condition report and location...</p>
+              <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: 0 }}>This usually takes under 2 minutes</p>
               <div style={{ marginTop: '14px', padding: '15px', backgroundColor: '#fff', border: `1px solid ${custTheme.border}`, borderRadius: '15px', textAlign: 'left' }}>
-                <p style={{ margin: '0 0 4px 0', color: custTheme.text, fontSize: '14px', fontWeight: '700' }}>Response and escalation</p>
-                <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>0-2 mins: verify claim. 2-5 mins: assign nearest fitter. If no acceptance by 5 mins, we escalate to wider network and keep you updated by SMS.</p>
+                <p style={{ margin: '0 0 4px 0', color: custTheme.text, fontSize: '15px', fontWeight: '800' }}>Response and escalation</p>
+                <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>0-2 mins: verify claim. 2-5 mins: assign nearest fitter. If no acceptance by 5 mins, we escalate to wider network and keep you updated by SMS.</p>
               </div>
             </div>
           </div>
@@ -8724,14 +8728,14 @@ export default function TyreFitApp() {
             <div style={{ width: '100px', height: '100px', backgroundColor: '#00C85320', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
               <CheckCircle size={50} color={custTheme.primary} />
             </div>
-            <h1 style={{ color: custTheme.text, fontSize: '24px', fontWeight: '700', margin: '0 0 8px 0' }}>Claim Approved</h1>
-            <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 24px 0' }}>A fitter is being contacted now</p>
+            <h1 style={{ color: custTheme.text, fontSize: '25px', fontWeight: '800', margin: '0 0 8px 0' }}>Claim Approved</h1>
+            <p style={{ color: custTheme.textMuted, fontSize: '16px', margin: '0 0 24px 0' }}>A fitter is being contacted now</p>
             <CustCard style={{ marginBottom: '14px', textAlign: 'left' }}>
-              <p style={{ margin: '0 0 4px 0', color: custTheme.text, fontWeight: '700', fontSize: '15px' }}>While you wait</p>
-              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>You will see status updates every minute: "Finding fitter", "Fitter invited", "Fitter accepted", and "On the way". If no one accepts in 5 minutes, escalation starts automatically.</p>
+              <p style={{ margin: '0 0 4px 0', color: custTheme.text, fontWeight: '800', fontSize: '16px' }}>While you wait</p>
+              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>You will see status updates every minute: "Finding fitter", "Fitter invited", "Fitter accepted", and "On the way". If no one accepts in 5 minutes, escalation starts automatically.</p>
             </CustCard>
             <CustCard style={{ textAlign: 'left' }}>
-              <h3 style={{ margin: '0 0 12px 0', color: custTheme.text, fontSize: '15px', fontWeight: '700' }}>What happens next</h3>
+              <h3 style={{ margin: '0 0 12px 0', color: custTheme.text, fontSize: '16px', fontWeight: '800' }}>What happens next</h3>
               {[
                 { step: '1', text: 'We are contacting the nearest available fitter', done: true },
                 { step: '2', text: 'You will get a text with their name and ETA', done: false },
@@ -8740,20 +8744,20 @@ export default function TyreFitApp() {
               ].map((s, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: i < 3 ? '15px' : 0 }}>
                   <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: s.done ? custTheme.primary : custTheme.bgInput, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    {s.done ? <Check size={14} color="#fff" /> : <span style={{ color: custTheme.textMuted, fontSize: '14px', fontWeight: '600' }}>{s.step}</span>}
+                    {s.done ? <Check size={14} color="#fff" /> : <span style={{ color: custTheme.textMuted, fontSize: '15px', fontWeight: '700' }}>{s.step}</span>}
                   </div>
-                  <span style={{ color: s.done ? custTheme.text : custTheme.textMuted, fontSize: '15px', fontWeight: s.done ? '600' : '400' }}>{s.text}</span>
+                  <span style={{ color: s.done ? custTheme.text : custTheme.textMuted, fontSize: '16px', fontWeight: s.done ? '600' : '400' }}>{s.text}</span>
                 </div>
               ))}
             </CustCard>
             <CustCard>
-              <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Your cover pays</p>
-              <p style={{ margin: '0 0 4px 0', color: custTheme.primary, fontSize: '24px', fontWeight: '800' }}>Up to £200</p>
-              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px' }}>If the quote is under £200, you pay nothing. If over, you pay the difference.</p>
+              <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Your cover pays</p>
+              <p style={{ margin: '0 0 4px 0', color: custTheme.primary, fontSize: '25px', fontWeight: '800' }}>Up to £200</p>
+              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px' }}>If the quote is under £200, you pay nothing. If over, you pay the difference.</p>
             </CustCard>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '14px' }}>
-              <button onClick={() => navigateTo('customer-eta-tracking')} style={{ width: '100%', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Track Fitter ETA</button>
-              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Need to cancel? Call support</button>
+              <button onClick={() => navigateTo('customer-eta-tracking')} style={{ width: '100%', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Track Fitter ETA</button>
+              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Need to cancel? Call support</button>
             </div>
           </div>
         </div>
@@ -8769,27 +8773,27 @@ export default function TyreFitApp() {
             <div style={{ width: '100px', height: '100px', backgroundColor: '#EF444420', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
               <X size={50} color={custTheme.danger} />
             </div>
-            <h1 style={{ color: custTheme.danger, fontSize: '24px', fontWeight: '700', margin: '0 0 8px 0' }}>Claim Not Covered</h1>
-            <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 24px 0' }}>This tyre is not eligible for cover</p>
+            <h1 style={{ color: custTheme.danger, fontSize: '25px', fontWeight: '800', margin: '0 0 8px 0' }}>Claim Not Covered</h1>
+            <p style={{ color: custTheme.textMuted, fontSize: '16px', margin: '0 0 24px 0' }}>This tyre is not eligible for cover</p>
             <CustCard style={{ borderColor: custTheme.danger, textAlign: 'left' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '15px' }}>
                 <AlertTriangle size={18} color={custTheme.danger} />
-                <span style={{ color: custTheme.danger, fontWeight: '700', fontSize: '14px' }}>Reason: Illegal tyre at time of service</span>
+                <span style={{ color: custTheme.danger, fontWeight: '800', fontSize: '15px' }}>Reason: Illegal tyre at time of service</span>
               </div>
-              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>Your condition report from 06 Feb shows the Front Left tyre had a tread depth of 1.4mm — below the legal minimum of 1.6mm. Tyres that were already illegal at time of service are not covered.</p>
+              <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '16px', lineHeight: 1.6 }}>Your condition report from 06 Feb shows the Front Left tyre had a tread depth of 1.4mm — below the legal minimum of 1.6mm. Tyres that were already illegal at time of service are not covered.</p>
             </CustCard>
             <CustCard style={{ textAlign: 'left' }}>
-              <h3 style={{ margin: '0 0 8px 0', color: custTheme.text, fontSize: '15px', fontWeight: '700' }}>We can still help</h3>
-              <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '15px' }}>A fitter can come to you — you will pay the full price for repair or replacement.</p>
-              <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '600' }}>Estimated price</p>
-              <p style={{ margin: '0 0 16px 0', color: custTheme.text, fontSize: '22px', fontWeight: '700' }}>£75 — £200</p>
+              <h3 style={{ margin: '0 0 8px 0', color: custTheme.text, fontSize: '16px', fontWeight: '800' }}>We can still help</h3>
+              <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '16px' }}>A fitter can come to you — you will pay the full price for repair or replacement.</p>
+              <p style={{ margin: '0 0 4px 0', color: custTheme.textMuted, fontSize: '15px', textTransform: 'uppercase', fontWeight: '700' }}>Estimated price</p>
+              <p style={{ margin: '0 0 16px 0', color: custTheme.text, fontSize: '23px', fontWeight: '800' }}>£75 — £200</p>
               <label style={{ display: 'flex', alignItems: 'flex-start', gap: '15px', marginBottom: '16px', cursor: 'pointer' }}>
                 <input type="checkbox" style={{ marginTop: '3px', width: '18px', height: '18px', accentColor: custTheme.primary }} />
-                <span style={{ color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.5 }}>I understand this is not covered by my emergency cover and I agree to pay the full price for repair or replacement.</span>
+                <span style={{ color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>I understand this is not covered by my emergency cover and I agree to pay the full price for repair or replacement.</span>
               </label>
-              <button style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>Accept and Send Fitter</button>
-              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '14px', color: '#991B1B', fontSize: '14px', fontWeight: '700', cursor: 'pointer', marginTop: '8px' }}>Call support</button>
-              <button onClick={goBack} style={{ width: '100%', padding: '14px', background: 'none', border: '1px solid ' + custTheme.border, borderRadius: '14px', color: custTheme.textMuted, fontSize: '14px', cursor: 'pointer', marginTop: '8px' }}>Cancel</button>
+              <button style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '800', fontSize: '16px', cursor: 'pointer' }}>Accept and Send Fitter</button>
+              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '14px', color: '#991B1B', fontSize: '15px', fontWeight: '800', cursor: 'pointer', marginTop: '8px' }}>Call support</button>
+              <button onClick={goBack} style={{ width: '100%', padding: '14px', background: 'none', border: '1px solid ' + custTheme.border, borderRadius: '14px', color: custTheme.textMuted, fontSize: '15px', cursor: 'pointer', marginTop: '8px' }}>Cancel</button>
             </CustCard>
           </div>
         </div>
@@ -8800,14 +8804,14 @@ export default function TyreFitApp() {
       <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
         <CustUrlBar url="tyre-fit.co/claim/ab12cde" />
         <div style={{ padding: '20px', borderBottom: '1px solid ' + custTheme.border }}>
-          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-          <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: 0 }}>Emergency Claim</h1>
-          <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '4px 0 0 0' }}>Upload photos so we can verify and send a fitter</p>
+          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+          <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: 0 }}>Emergency Claim</h1>
+          <p style={{ color: custTheme.textMuted, fontSize: '16px', margin: '4px 0 0 0' }}>Upload photos so we can verify and send a fitter</p>
         </div>
         <div style={{ padding: '20px' }}>
           {!claimType && (
             <div>
-              <p style={{ color: custTheme.text, fontWeight: '600', fontSize: '15px', margin: '0 0 12px 0' }}>What happened?</p>
+              <p style={{ color: custTheme.text, fontWeight: '700', fontSize: '16px', margin: '0 0 12px 0' }}>What happened?</p>
               {[
                 { id: 'flat', label: 'Flat tyre / puncture', icon: String.fromCodePoint(0x1F4A8) },
                 { id: 'blowout', label: 'Blowout / tyre damage', icon: String.fromCodePoint(0x1F4A5) },
@@ -8815,8 +8819,8 @@ export default function TyreFitApp() {
                 { id: 'tow', label: 'Need a tow (unsafe location)', icon: String.fromCodePoint(0x1F697) }
               ].map(function(c) { return (
                 <button key={c.id} onClick={function() { setClaimType(c.id); }} style={{ width: '100%', padding: '16px', marginBottom: '8px', backgroundColor: custTheme.bgCard, border: '1px solid ' + custTheme.border, borderRadius: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '14px', textAlign: 'left' }}>
-                  <span style={{ fontSize: '20px' }}>{c.icon}</span>
-                  <span style={{ color: custTheme.text, fontSize: '15px', fontWeight: '500' }}>{c.label}</span>
+                  <span style={{ fontSize: '21px' }}>{c.icon}</span>
+                  <span style={{ color: custTheme.text, fontSize: '16px', fontWeight: '600' }}>{c.label}</span>
                   <ChevronRight size={18} color={custTheme.textMuted} style={{ marginLeft: 'auto' }} />
                 </button>
               ); })}
@@ -8827,20 +8831,20 @@ export default function TyreFitApp() {
               <CustCard style={{ backgroundColor: '#3B82F610', borderColor: custTheme.info }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Info size={16} color={custTheme.info} />
-                  <span style={{ color: custTheme.info, fontSize: '15px', fontWeight: '600' }}>We need 2 photos to verify your claim</span>
+                  <span style={{ color: custTheme.info, fontSize: '16px', fontWeight: '700' }}>We need 2 photos to verify your claim</span>
                 </div>
               </CustCard>
               <button onClick={function() { setCustomerClaimPhotos(function(p) { return Object.assign({}, p, { tyre: true }); }); }} style={{ width: '100%', padding: '24px', marginBottom: '14px', backgroundColor: customerClaimPhotos.tyre ? '#00C85310' : custTheme.bgCard, border: '2px dashed ' + (customerClaimPhotos.tyre ? custTheme.primary : custTheme.border), borderRadius: '14px', cursor: 'pointer', textAlign: 'center' }}>
                 {customerClaimPhotos.tyre ? (
                   <div>
                     <CheckCircle size={32} color={custTheme.primary} />
-                    <p style={{ margin: '8px 0 0 0', color: custTheme.primary, fontWeight: '600', fontSize: '14px' }}>Tyre photo uploaded</p>
+                    <p style={{ margin: '8px 0 0 0', color: custTheme.primary, fontWeight: '700', fontSize: '15px' }}>Tyre photo uploaded</p>
                   </div>
                 ) : (
                   <div>
                     <Camera size={32} color={custTheme.textMuted} />
-                    <p style={{ margin: '8px 0 0 0', color: custTheme.text, fontWeight: '600', fontSize: '15px' }}>Photo of damaged tyre</p>
-                    <p style={{ margin: '4px 0 0 0', color: custTheme.textMuted, fontSize: '14px' }}>Show the damage clearly</p>
+                    <p style={{ margin: '8px 0 0 0', color: custTheme.text, fontWeight: '700', fontSize: '16px' }}>Photo of damaged tyre</p>
+                    <p style={{ margin: '4px 0 0 0', color: custTheme.textMuted, fontSize: '15px' }}>Show the damage clearly</p>
                   </div>
                 )}
               </button>
@@ -8848,27 +8852,27 @@ export default function TyreFitApp() {
                 {customerClaimPhotos.plate ? (
                   <div>
                     <CheckCircle size={32} color={custTheme.primary} />
-                    <p style={{ margin: '8px 0 0 0', color: custTheme.primary, fontWeight: '600', fontSize: '14px' }}>Plate photo uploaded</p>
+                    <p style={{ margin: '8px 0 0 0', color: custTheme.primary, fontWeight: '700', fontSize: '15px' }}>Plate photo uploaded</p>
                   </div>
                 ) : (
                   <div>
                     <Car size={32} color={custTheme.textMuted} />
-                    <p style={{ margin: '8px 0 0 0', color: custTheme.text, fontWeight: '600', fontSize: '15px' }}>Photo of your number plate</p>
-                    <p style={{ margin: '4px 0 0 0', color: custTheme.textMuted, fontSize: '14px' }}>So we can match your vehicle</p>
+                    <p style={{ margin: '8px 0 0 0', color: custTheme.text, fontWeight: '700', fontSize: '16px' }}>Photo of your number plate</p>
+                    <p style={{ margin: '4px 0 0 0', color: custTheme.textMuted, fontSize: '15px' }}>So we can match your vehicle</p>
                   </div>
                 )}
               </button>
               <CustCard style={{ marginBottom: '14px' }}>
-                <p style={{ margin: '0 0 8px 0', color: custTheme.text, fontSize: '14px', fontWeight: '600' }}>Where are you now?</p>
-                <input value={claimLocation} onChange={(e) => setClaimLocation(e.target.value)} placeholder="Postcode or address" style={{ width: '100%', padding: '14px', backgroundColor: custTheme.bgInput, border: '1px solid ' + custTheme.border, borderRadius: '15px', color: custTheme.text, fontSize: '14px', boxSizing: 'border-box', marginBottom: '8px' }} />
-                <button onClick={() => { setClaimLocation('A12 Layby, near Stratford, E15'); setLocationCaptured(true); showToast('Location captured'); }} style={{ width: '100%', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
+                <p style={{ margin: '0 0 8px 0', color: custTheme.text, fontSize: '15px', fontWeight: '700' }}>Where are you now?</p>
+                <input value={claimLocation} onChange={(e) => setClaimLocation(e.target.value)} placeholder="Postcode or address" style={{ width: '100%', padding: '14px', backgroundColor: custTheme.bgInput, border: '1px solid ' + custTheme.border, borderRadius: '15px', color: custTheme.text, fontSize: '15px', boxSizing: 'border-box', marginBottom: '8px' }} />
+                <button onClick={() => { setClaimLocation('A12 Layby, near Stratford, E15'); setLocationCaptured(true); showToast('Location captured'); }} style={{ width: '100%', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '800', fontSize: '16px', cursor: 'pointer' }}>
                   Use my current location
                 </button>
-                {(claimLocation || locationCaptured) && <p style={{ margin: '8px 0 0 0', color: custTheme.primary, fontSize: '14px' }}>Location ready for dispatch</p>}
+                {(claimLocation || locationCaptured) && <p style={{ margin: '8px 0 0 0', color: custTheme.primary, fontSize: '15px' }}>Location ready for dispatch</p>}
               </CustCard>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '15px' }}>
                 <input id="simulate-denied" type="checkbox" checked={forceDenied} onChange={(e) => setForceDenied(e.target.checked)} style={{ width: '16px', height: '16px', accentColor: custTheme.warning }} />
-                <label htmlFor="simulate-denied" style={{ color: custTheme.textMuted, fontSize: '14px', cursor: 'pointer' }}>Simulate denied claim (demo only)</label>
+                <label htmlFor="simulate-denied" style={{ color: custTheme.textMuted, fontSize: '15px', cursor: 'pointer' }}>Simulate denied claim (demo only)</label>
               </div>
               <button
                 disabled={!customerClaimPhotos.tyre || !customerClaimPhotos.plate || !(claimLocation || locationCaptured)}
@@ -8877,11 +8881,11 @@ export default function TyreFitApp() {
                   setCustomerClaimStep('checking');
                   setTimeout(() => setCustomerClaimStep(forceDenied ? 'denied' : 'approved'), 2500);
                 }}
-                style={{ width: '100%', padding: '16px', backgroundColor: (!customerClaimPhotos.tyre || !customerClaimPhotos.plate || !(claimLocation || locationCaptured)) ? '#9CA3AF' : custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '15px', cursor: (!customerClaimPhotos.tyre || !customerClaimPhotos.plate || !(claimLocation || locationCaptured)) ? 'default' : 'pointer' }}
+                style={{ width: '100%', padding: '16px', backgroundColor: (!customerClaimPhotos.tyre || !customerClaimPhotos.plate || !(claimLocation || locationCaptured)) ? '#9CA3AF' : custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '800', fontSize: '16px', cursor: (!customerClaimPhotos.tyre || !customerClaimPhotos.plate || !(claimLocation || locationCaptured)) ? 'default' : 'pointer' }}
               >
                 Submit Claim
               </button>
-              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginTop: '8px' }}>
+              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '800', fontSize: '15px', cursor: 'pointer', marginTop: '8px' }}>
                 Need help now? Call support
               </button>
             </div>
@@ -8895,19 +8899,19 @@ export default function TyreFitApp() {
     <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
       <CustUrlBar url="tyre-fit.co/t/job_8742" />
       <div style={{ padding: '20px' }}>
-        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-        <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 6px 0' }}>Fitter on the way</h1>
-        <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>Live ETA updates</p>
+        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+        <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: '0 0 6px 0' }}>Fitter on the way</h1>
+        <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>Live ETA updates</p>
         <CustCard>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Fitter</span><span style={{ color: custTheme.text, fontWeight: '600' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '600' }}>AB12 CDE</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>ETA</span><span style={{ color: custTheme.primary, fontWeight: '700' }}>12 mins</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Fitter</span><span style={{ color: custTheme.text, fontWeight: '700' }}>{signUpData.businessName || "Dan's Mobile Tyres"}</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '700' }}>AB12 CDE</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>ETA</span><span style={{ color: custTheme.primary, fontWeight: '800' }}>12 mins</span></div>
         </CustCard>
         <div style={{ height: '260px', backgroundColor: '#EEF2F7', border: '1px solid #E5E7EB', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-          <span style={{ color: custTheme.textMuted, fontSize: '14px' }}>Live map tracking view</span>
+          <span style={{ color: custTheme.textMuted, fontSize: '15px' }}>Live map tracking view</span>
         </div>
-        <button onClick={() => showToast('Calling fitter...')} style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '15px', cursor: 'pointer', marginBottom: '8px' }}>Call Fitter</button>
-        <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Call support</button>
+        <button onClick={() => showToast('Calling fitter...')} style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '800', fontSize: '16px', cursor: 'pointer', marginBottom: '8px' }}>Call Fitter</button>
+        <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Call support</button>
       </div>
     </div>
   );
@@ -8919,16 +8923,16 @@ export default function TyreFitApp() {
       <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
         <CustUrlBar url="tyre-fit.co/pay/inv_1021" />
         <div style={{ padding: '20px' }}>
-          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-          <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 6px 0' }}>Pay Invoice</h1>
-          <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>Secure card payment</p>
+          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+          <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: '0 0 6px 0' }}>Pay Invoice</h1>
+          <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>Secure card payment</p>
           <CustCard>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Invoice</span><span style={{ color: custTheme.text, fontWeight: '600' }}>#1021</span></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '600' }}>AB12 CDE</span></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Amount due</span><span style={{ color: custTheme.primary, fontWeight: '700', fontSize: '20px' }}>{paid ? 'Paid' : '£124.99'}</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Invoice</span><span style={{ color: custTheme.text, fontWeight: '700' }}>#1021</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '700' }}>AB12 CDE</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Amount due</span><span style={{ color: custTheme.primary, fontWeight: '800', fontSize: '21px' }}>{paid ? 'Paid' : '£124.99'}</span></div>
           </CustCard>
-          <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '14px' }}>This opens a secure Stripe Payment Link: `tyre-fit.co/pay/inv_1021`</p>
-          <button disabled={paid || paying} onClick={() => { showToast('Opening secure Stripe Payment Link...'); setPaying(true); setTimeout(() => { setPaying(false); setPaid(true); }, 1500); }} style={{ width: '100%', padding: '16px', backgroundColor: paid ? '#9CA3AF' : custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '700', fontSize: '16px', cursor: paid ? 'default' : 'pointer' }}>
+          <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '15px' }}>This opens a secure Stripe Payment Link: `tyre-fit.co/pay/inv_1021`</p>
+          <button disabled={paid || paying} onClick={() => { showToast('Opening secure Stripe Payment Link...'); setPaying(true); setTimeout(() => { setPaying(false); setPaid(true); }, 1500); }} style={{ width: '100%', padding: '16px', backgroundColor: paid ? '#9CA3AF' : custTheme.primary, border: 'none', borderRadius: '14px', color: '#fff', fontWeight: '800', fontSize: '17px', cursor: paid ? 'default' : 'pointer' }}>
             {paid ? 'Payment Complete' : paying ? 'Processing...' : 'Pay Securely by Card'}
           </button>
         </div>
@@ -8940,48 +8944,48 @@ const CustomerReceiptScreen = () => (
     <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
       <CustUrlBar url="tyre-fit.co/r/job_8742" />
       <div style={{ padding: '20px' }}>
-        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-        <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 6px 0' }}>Receipt</h1>
-        <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>Payment confirmed and cover active</p>
+        <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+        <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: '0 0 6px 0' }}>Receipt</h1>
+        <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>Payment confirmed and cover active</p>
         <CustCard>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Service</span><span style={{ color: custTheme.text, fontWeight: '600' }}>2x 205/55R16 fitted</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '600' }}>AB12 CDE</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Paid</span><span style={{ color: custTheme.primary, fontWeight: '700' }}>£89.99</span></div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Cover</span><span style={{ color: custTheme.primary, fontWeight: '700' }}>Active until 08 Mar 2026</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Service</span><span style={{ color: custTheme.text, fontWeight: '700' }}>2x 205/55R16 fitted</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Vehicle</span><span style={{ color: custTheme.text, fontWeight: '700' }}>AB12 CDE</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: custTheme.textMuted }}>Paid</span><span style={{ color: custTheme.primary, fontWeight: '800' }}>£89.99</span></div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ color: custTheme.textMuted }}>Cover</span><span style={{ color: custTheme.primary, fontWeight: '800' }}>Active until 08 Mar 2026</span></div>
         </CustCard>
         <CustCard>
-          <h3 style={{ margin: '0 0 10px 0', color: custTheme.text, fontSize: '15px', fontWeight: '700' }}>Your Condition Report</h3>
+          <h3 style={{ margin: '0 0 10px 0', color: custTheme.text, fontSize: '16px', fontWeight: '800' }}>Your Condition Report</h3>
           {[
             'Front Left — Legal (5.2mm)',
             'Front Right — Legal (2.1mm) — Replace soon',
             'Rear Left — Legal (4.8mm)',
             'Rear Right — Legal (3.0mm)'
           ].map((line, i) => (
-            <p key={i} style={{ margin: '0 0 6px 0', color: custTheme.text, fontSize: '14px', padding: '6px 10px', backgroundColor: custTheme.bgInput, borderRadius: '6px' }}>{line}</p>
+            <p key={i} style={{ margin: '0 0 6px 0', color: custTheme.text, fontSize: '15px', padding: '6px 10px', backgroundColor: custTheme.bgInput, borderRadius: '6px' }}>{line}</p>
           ))}
-          <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', marginTop: '8px', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
+          <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', marginTop: '8px', padding: '14px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '15px', color: '#1D4ED8', fontWeight: '800', fontSize: '16px', cursor: 'pointer' }}>
             Open full report and cover dashboard
           </button>
         </CustCard>
         <CustCard style={{ borderColor: '#FCA5A5', backgroundColor: '#FEF2F2' }}>
-          <h3 style={{ margin: '0 0 10px 0', color: '#991B1B', fontSize: '15px', fontWeight: '700' }}>Need to claim?</h3>
-          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px' }}>1. Tap claim in your cover dashboard.</p>
-          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px' }}>2. Upload tyre + plate photos and location.</p>
-          <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '15px' }}>3. We verify and dispatch the nearest fitter.</p>
-          <button onClick={() => navigateTo('customer-claim')} style={{ width: '100%', padding: '14px', backgroundColor: '#EF4444', border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '15px', cursor: 'pointer', marginBottom: '8px' }}>
+          <h3 style={{ margin: '0 0 10px 0', color: '#991B1B', fontSize: '16px', fontWeight: '800' }}>Need to claim?</h3>
+          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '16px' }}>1. Tap claim in your cover dashboard.</p>
+          <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '16px' }}>2. Upload tyre + plate photos and location.</p>
+          <p style={{ margin: '0 0 12px 0', color: custTheme.textMuted, fontSize: '16px' }}>3. We verify and dispatch the nearest fitter.</p>
+          <button onClick={() => navigateTo('customer-claim')} style={{ width: '100%', padding: '14px', backgroundColor: '#EF4444', border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '800', fontSize: '16px', cursor: 'pointer', marginBottom: '8px' }}>
             Start a claim
           </button>
-          <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: '#fff', border: '1px solid #FCA5A5', borderRadius: '15px', color: '#991B1B', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
+          <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '14px', backgroundColor: '#fff', border: '1px solid #FCA5A5', borderRadius: '15px', color: '#991B1B', fontWeight: '800', fontSize: '16px', cursor: 'pointer' }}>
             Call 0330 633 1247
           </button>
         </CustCard>
-        <button onClick={() => showToast('Opening referral link...')} style={{ width: '100%', padding: '14px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '15px', color: '#065F46', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '15px' }}>
+        <button onClick={() => showToast('Opening referral link...')} style={{ width: '100%', padding: '14px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '15px', color: '#065F46', fontWeight: '800', fontSize: '15px', cursor: 'pointer', marginBottom: '15px' }}>
           Refer a mate for 10% off
         </button>
-        <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '15px', color: '#92400E', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '15px' }}>
+        <button onClick={() => navigateTo('customer-review')} style={{ width: '100%', padding: '14px', backgroundColor: '#FEF3C7', border: '1px solid #FCD34D', borderRadius: '15px', color: '#92400E', fontWeight: '800', fontSize: '15px', cursor: 'pointer', marginBottom: '15px' }}>
           Leave a Google Review
         </button>
-        <p style={{ margin: 0, color: custTheme.info, fontSize: '15px', textDecoration: 'underline' }}>tyre-fit.co/ref/AB12CDE</p>
+        <p style={{ margin: 0, color: custTheme.info, fontSize: '16px', textDecoration: 'underline' }}>tyre-fit.co/ref/AB12CDE</p>
       </div>
     </div>
   );
@@ -8994,17 +8998,17 @@ const CustomerReceiptScreen = () => (
       <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
         <CustUrlBar url="tyre-fit.co/help/call" />
         <div style={{ padding: '20px' }}>
-          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-          <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 6px 0' }}>Customer support call</h1>
-          <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>24/7 AI helpline for booking, ETA, payment, and cover claims.</p>
+          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+          <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: '0 0 6px 0' }}>Customer support call</h1>
+          <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>24/7 AI helpline for booking, ETA, payment, and cover claims.</p>
 
           <CustCard style={{ borderColor: '#BFDBFE', backgroundColor: '#E5F3FF' }}>
-            <p style={{ margin: '0 0 4px 0', color: '#1D4ED8', fontWeight: '700', fontSize: '14px' }}>Helpline number</p>
-            <p style={{ margin: 0, color: custTheme.text, fontSize: '22px', fontWeight: '800' }}>0330 633 1247</p>
+            <p style={{ margin: '0 0 4px 0', color: '#1D4ED8', fontWeight: '800', fontSize: '15px' }}>Helpline number</p>
+            <p style={{ margin: 0, color: custTheme.text, fontSize: '23px', fontWeight: '800' }}>0330 633 1247</p>
           </CustCard>
 
           <CustCard>
-            <p style={{ margin: '0 0 10px 0', color: custTheme.text, fontSize: '15px', fontWeight: '600' }}>What do you need help with?</p>
+            <p style={{ margin: '0 0 10px 0', color: custTheme.text, fontSize: '16px', fontWeight: '700' }}>What do you need help with?</p>
             {[
               ['claim', 'Emergency claim'],
               ['eta', 'Fitter ETA update'],
@@ -9014,7 +9018,7 @@ const CustomerReceiptScreen = () => (
               <button
                 key={id}
                 onClick={() => setSelectedReason(id)}
-                style={{ width: '100%', padding: '14px', marginBottom: '8px', borderRadius: '12px', border: `1px solid ${selectedReason === id ? custTheme.primary : custTheme.border}`, backgroundColor: selectedReason === id ? '#00C85310' : '#fff', color: selectedReason === id ? custTheme.primary : custTheme.text, fontWeight: '700', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}
+                style={{ width: '100%', padding: '14px', marginBottom: '8px', borderRadius: '12px', border: `1px solid ${selectedReason === id ? custTheme.primary : custTheme.border}`, backgroundColor: selectedReason === id ? '#00C85310' : '#fff', color: selectedReason === id ? custTheme.primary : custTheme.text, fontWeight: '800', fontSize: '15px', cursor: 'pointer', textAlign: 'left' }}
               >
                 {label}
               </button>
@@ -9027,18 +9031,18 @@ const CustomerReceiptScreen = () => (
               showToast(`Calling 0330 633 1247${selectedReason ? ' — ' + selectedReason : ''}...`);
               setTimeout(() => setCallingNow(false), 1500);
             }}
-            style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '16px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '10px' }}
+            style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '800', fontSize: '17px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '10px' }}
           >
             <PhoneCall size={18} />
             {callingNow ? 'Connecting call...' : 'Call support now'}
           </button>
-          <button onClick={() => navigateTo('customer-callback')} style={{ width: '100%', padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '700', fontSize: '14px', cursor: 'pointer', marginBottom: '10px' }}>
+          <button onClick={() => navigateTo('customer-callback')} style={{ width: '100%', padding: '14px', backgroundColor: '#F5F3FF', border: '1px solid #DDD6FE', borderRadius: '15px', color: '#6D28D9', fontWeight: '800', fontSize: '15px', cursor: 'pointer', marginBottom: '10px' }}>
             Request a callback
           </button>
           <div style={{ display: 'flex', gap: '8px' }}>
-            <button onClick={() => navigateTo('customer-claim')} style={{ flex: 1, padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Claim</button>
-            <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ flex: 1, padding: '12px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '12px', color: '#065F46', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>Cover</button>
-            <button onClick={() => navigateTo('customer-eta-tracking')} style={{ flex: 1, padding: '12px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '12px', color: '#1D4ED8', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>ETA</button>
+            <button onClick={() => navigateTo('customer-claim')} style={{ flex: 1, padding: '12px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', borderRadius: '12px', color: '#991B1B', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Claim</button>
+            <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ flex: 1, padding: '12px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '12px', color: '#065F46', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>Cover</button>
+            <button onClick={() => navigateTo('customer-eta-tracking')} style={{ flex: 1, padding: '12px', backgroundColor: '#E5F3FF', border: '1px solid #BFDBFE', borderRadius: '12px', color: '#1D4ED8', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>ETA</button>
           </div>
         </div>
       </div>
@@ -9056,33 +9060,33 @@ const CustomerReceiptScreen = () => (
       <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
         <CustUrlBar url="tyre-fit.co/help/callback" />
         <div style={{ padding: '20px' }}>
-          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-          <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 6px 0' }}>Request a callback</h1>
-          <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>We call this number from the support line: 0330 633 1247.</p>
+          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+          <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: '0 0 6px 0' }}>Request a callback</h1>
+          <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>We call this number from the support line: 0330 633 1247.</p>
 
           {!requested ? (
             <CustCard>
-              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '13px', textTransform: 'uppercase', fontWeight: '700' }}>Name</p>
-              <input value={callbackName} onChange={(e) => setCallbackName(e.target.value)} placeholder="Your name" style={{ width: '100%', padding: '14px', marginBottom: '10px', backgroundColor: custTheme.bgInput, border: `1px solid ${custTheme.border}`, borderRadius: '12px', fontSize: '14px', color: custTheme.text, boxSizing: 'border-box' }} />
+              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '800' }}>Name</p>
+              <input value={callbackName} onChange={(e) => setCallbackName(e.target.value)} placeholder="Your name" style={{ width: '100%', padding: '14px', marginBottom: '10px', backgroundColor: custTheme.bgInput, border: `1px solid ${custTheme.border}`, borderRadius: '12px', fontSize: '15px', color: custTheme.text, boxSizing: 'border-box' }} />
 
-              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '13px', textTransform: 'uppercase', fontWeight: '700' }}>Mobile</p>
-              <input value={callbackMobile} onChange={(e) => setCallbackMobile(e.target.value)} placeholder="07..." style={{ width: '100%', padding: '14px', marginBottom: '10px', backgroundColor: custTheme.bgInput, border: `1px solid ${custTheme.border}`, borderRadius: '12px', fontSize: '14px', color: custTheme.text, boxSizing: 'border-box' }} />
+              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '800' }}>Mobile</p>
+              <input value={callbackMobile} onChange={(e) => setCallbackMobile(e.target.value)} placeholder="07..." style={{ width: '100%', padding: '14px', marginBottom: '10px', backgroundColor: custTheme.bgInput, border: `1px solid ${custTheme.border}`, borderRadius: '12px', fontSize: '15px', color: custTheme.text, boxSizing: 'border-box' }} />
 
-              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '13px', textTransform: 'uppercase', fontWeight: '700' }}>When should we call?</p>
+              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '800' }}>When should we call?</p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginBottom: '10px' }}>
                 {[
                   ['asap', 'ASAP'],
                   ['15m', 'In 15 min'],
                   ['30m', 'In 30 min']
                 ].map(([id, label]) => (
-                  <button key={id} onClick={() => setCallbackWindow(id)} style={{ padding: '12px', borderRadius: '12px', border: `1px solid ${callbackWindow === id ? custTheme.primary : custTheme.border}`, backgroundColor: callbackWindow === id ? '#00C85310' : '#fff', color: callbackWindow === id ? custTheme.primary : custTheme.text, fontSize: '13px', fontWeight: '700', cursor: 'pointer' }}>
+                  <button key={id} onClick={() => setCallbackWindow(id)} style={{ padding: '12px', borderRadius: '12px', border: `1px solid ${callbackWindow === id ? custTheme.primary : custTheme.border}`, backgroundColor: callbackWindow === id ? '#00C85310' : '#fff', color: callbackWindow === id ? custTheme.primary : custTheme.text, fontSize: '14px', fontWeight: '800', cursor: 'pointer' }}>
                     {label}
                   </button>
                 ))}
               </div>
 
-              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '13px', textTransform: 'uppercase', fontWeight: '700' }}>Reason (optional)</p>
-              <textarea value={callbackNote} onChange={(e) => setCallbackNote(e.target.value)} rows={3} placeholder="Brief reason so we route correctly" style={{ width: '100%', padding: '12px', marginBottom: '10px', backgroundColor: custTheme.bgInput, border: `1px solid ${custTheme.border}`, borderRadius: '12px', fontSize: '14px', color: custTheme.text, boxSizing: 'border-box', resize: 'vertical' }} />
+              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '800' }}>Reason (optional)</p>
+              <textarea value={callbackNote} onChange={(e) => setCallbackNote(e.target.value)} rows={3} placeholder="Brief reason so we route correctly" style={{ width: '100%', padding: '12px', marginBottom: '10px', backgroundColor: custTheme.bgInput, border: `1px solid ${custTheme.border}`, borderRadius: '12px', fontSize: '15px', color: custTheme.text, boxSizing: 'border-box', resize: 'vertical' }} />
 
               <button
                 onClick={() => {
@@ -9093,19 +9097,19 @@ const CustomerReceiptScreen = () => (
                   setRequested(true);
                   showToast('Callback request sent');
                 }}
-                style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '12px', color: '#fff', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}
+                style={{ width: '100%', padding: '14px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '12px', color: '#fff', fontSize: '15px', fontWeight: '800', cursor: 'pointer' }}
               >
                 Submit callback request
               </button>
             </CustCard>
           ) : (
             <CustCard style={{ borderColor: '#A7F3D0', backgroundColor: '#ECFDF5' }}>
-              <p style={{ margin: '0 0 8px 0', color: '#065F46', fontSize: '15px', fontWeight: '700' }}>Callback booked.</p>
-              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '14px' }}>We will call {callbackMobile} {callbackWindow === 'asap' ? 'as soon as possible' : callbackWindow === '15m' ? 'in around 15 minutes' : 'in around 30 minutes'}.</p>
-              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#fff', border: '1px solid #A7F3D0', borderRadius: '12px', color: '#065F46', fontSize: '14px', fontWeight: '700', cursor: 'pointer', marginBottom: '8px' }}>
+              <p style={{ margin: '0 0 8px 0', color: '#065F46', fontSize: '16px', fontWeight: '800' }}>Callback booked.</p>
+              <p style={{ margin: '0 0 8px 0', color: custTheme.textMuted, fontSize: '15px' }}>We will call {callbackMobile} {callbackWindow === 'asap' ? 'as soon as possible' : callbackWindow === '15m' ? 'in around 15 minutes' : 'in around 30 minutes'}.</p>
+              <button onClick={() => navigateTo('customer-call-support')} style={{ width: '100%', padding: '12px', backgroundColor: '#fff', border: '1px solid #A7F3D0', borderRadius: '12px', color: '#065F46', fontSize: '15px', fontWeight: '800', cursor: 'pointer', marginBottom: '8px' }}>
                 Back to call support
               </button>
-              <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '12px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '12px', color: '#fff', fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}>
+              <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '12px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '12px', color: '#fff', fontSize: '15px', fontWeight: '800', cursor: 'pointer' }}>
                 Back to cover dashboard
               </button>
             </CustCard>
@@ -9123,12 +9127,12 @@ const CustomerReceiptScreen = () => (
       <div style={{ minHeight: '100vh', backgroundColor: custTheme.bg }}>
         <CustUrlBar url="tyre-fit.co/review/ab12cde" />
         <div style={{ padding: '20px' }}>
-          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '15px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
-          <h1 style={{ color: custTheme.text, fontSize: '22px', fontWeight: '700', margin: '0 0 6px 0' }}>Leave a review</h1>
-          <p style={{ color: custTheme.textMuted, fontSize: '14px', margin: '0 0 16px 0' }}>Help other UK drivers find a trusted mobile fitter.</p>
+          <button onClick={goBack} style={{ background: 'none', border: 'none', color: custTheme.info, fontSize: '16px', cursor: 'pointer', padding: 0, marginBottom: '14px' }}>← Back</button>
+          <h1 style={{ color: custTheme.text, fontSize: '23px', fontWeight: '800', margin: '0 0 6px 0' }}>Leave a review</h1>
+          <p style={{ color: custTheme.textMuted, fontSize: '15px', margin: '0 0 16px 0' }}>Help other UK drivers find a trusted mobile fitter.</p>
 
           <CustCard style={{ textAlign: 'center' }}>
-            <p style={{ margin: '0 0 10px 0', color: custTheme.text, fontSize: '15px', fontWeight: '600' }}>How was your service?</p>
+            <p style={{ margin: '0 0 10px 0', color: custTheme.text, fontSize: '16px', fontWeight: '700' }}>How was your service?</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '14px' }}>
               {[1, 2, 3, 4, 5].map((value) => (
                 <button
@@ -9141,12 +9145,12 @@ const CustomerReceiptScreen = () => (
                 </button>
               ))}
             </div>
-            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px' }}>{rating >= 4 ? 'Great, thank you.' : 'Thanks for the feedback.'}</p>
+            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px' }}>{rating >= 4 ? 'Great, thank you.' : 'Thanks for the feedback.'}</p>
           </CustCard>
 
           <CustCard style={{ borderColor: '#BFDBFE', backgroundColor: '#E5F3FF' }}>
-            <p style={{ margin: '0 0 8px 0', color: '#1D4ED8', fontSize: '14px', fontWeight: '700' }}>Google review link</p>
-            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '14px', lineHeight: 1.6 }}>
+            <p style={{ margin: '0 0 8px 0', color: '#1D4ED8', fontSize: '15px', fontWeight: '800' }}>Google review link</p>
+            <p style={{ margin: 0, color: custTheme.textMuted, fontSize: '15px', lineHeight: 1.6 }}>
               Your review is posted directly on {signUpData.businessName || "Dan's Mobile Tyres"} Google Business Profile.
             </p>
           </CustCard>
@@ -9156,7 +9160,7 @@ const CustomerReceiptScreen = () => (
               showToast('Opening Google review page...');
               setSubmitted(true);
             }}
-            style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '700', fontSize: '16px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+            style={{ width: '100%', padding: '16px', backgroundColor: custTheme.primary, border: 'none', borderRadius: '15px', color: '#fff', fontWeight: '800', fontSize: '17px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
           >
             <ExternalLink size={18} />
             Post review on Google
@@ -9164,8 +9168,8 @@ const CustomerReceiptScreen = () => (
 
           {submitted && (
             <CustCard style={{ marginTop: '12px', borderColor: '#A7F3D0', backgroundColor: '#ECFDF5' }}>
-              <p style={{ margin: '0 0 8px 0', color: '#065F46', fontWeight: '700', fontSize: '14px' }}>Thank you. Your feedback helps this fitter win more local jobs.</p>
-              <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '12px', backgroundColor: '#fff', border: '1px solid #A7F3D0', borderRadius: '12px', color: '#065F46', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }}>
+              <p style={{ margin: '0 0 8px 0', color: '#065F46', fontWeight: '800', fontSize: '15px' }}>Thank you. Your feedback helps this fitter win more local jobs.</p>
+              <button onClick={() => navigateTo('customer-cover-dashboard')} style={{ width: '100%', padding: '12px', backgroundColor: '#fff', border: '1px solid #A7F3D0', borderRadius: '12px', color: '#065F46', fontWeight: '800', fontSize: '15px', cursor: 'pointer' }}>
                 Back to Cover Dashboard
               </button>
             </CustCard>
@@ -9256,19 +9260,19 @@ const CustomerReceiptScreen = () => (
   const JobTimerBadge = () => jobTimerRunning ? (
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', backgroundColor: theme.primary + '15', borderRadius: '20px', border: '1px solid ' + theme.primary + '30', marginBottom: '14px', justifyContent: 'center' }}>
       <Clock size={14} color={theme.primary} />
-      <span style={{ color: theme.primary, fontSize: '15px', fontWeight: '700' }}>{formatJobTimer(jobTimer)} on job</span>
+      <span style={{ color: theme.primary, fontSize: '16px', fontWeight: '800' }}>{formatJobTimer(jobTimer)} on job</span>
     </div>
   ) : null;
 
   const CancelJobButton = () => (
-    <button onClick={() => setShowCancelJob(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: 'none', color: theme.textMuted, fontSize: '15px', cursor: 'pointer', marginTop: '8px' }}>Cancel job</button>
+    <button onClick={() => setShowCancelJob(true)} style={{ width: '100%', padding: '14px', backgroundColor: 'transparent', border: 'none', color: theme.textMuted, fontSize: '16px', cursor: 'pointer', marginTop: '8px' }}>Cancel job</button>
   );
 
   const CancelJobModal = () => showCancelJob ? (
     <Modal title="Cancel This Job?" onClose={() => { setShowCancelJob(false); setCancelBy(''); setCancelReason(''); }}>
       {!cancelBy && (
         <>
-          <p style={{ color: theme.textMuted, margin: '0 0 12px 0', fontSize: '14px' }}>Who is cancelling?</p>
+          <p style={{ color: theme.textMuted, margin: '0 0 12px 0', fontSize: '15px' }}>Who is cancelling?</p>
           <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
             <Button variant="secondary" onClick={() => setCancelBy('fitter')} fullWidth>Fitter</Button>
             <Button variant="secondary" onClick={() => setCancelBy('customer')} fullWidth>Customer</Button>
@@ -9277,12 +9281,12 @@ const CustomerReceiptScreen = () => (
       )}
       {cancelBy && !cancelReason && (
         <>
-          <p style={{ color: theme.textMuted, margin: '0 0 12px 0', fontSize: '14px' }}>Why is it cancelled?</p>
+          <p style={{ color: theme.textMuted, margin: '0 0 12px 0', fontSize: '15px' }}>Why is it cancelled?</p>
           {(cancelBy === 'fitter'
             ? ['Wrong tyre / no stock', 'Unsafe location', 'Vehicle issue', 'Running behind', 'Other']
             : ['Changed mind', 'Found cheaper', 'No longer needed', 'Rescheduling', 'Other']
           ).map(function(label) { return (
-            <button key={label} onClick={() => setCancelReason(label)} style={{ width: '100%', padding: '14px', marginBottom: '8px', backgroundColor: theme.bgInput, border: '1px solid ' + theme.border, borderRadius: '15px', cursor: 'pointer', textAlign: 'left', color: theme.text, fontSize: '14px' }}>
+            <button key={label} onClick={() => setCancelReason(label)} style={{ width: '100%', padding: '14px', marginBottom: '8px', backgroundColor: theme.bgInput, border: '1px solid ' + theme.border, borderRadius: '15px', cursor: 'pointer', textAlign: 'left', color: theme.text, fontSize: '15px' }}>
               {label}
             </button>
           ); })}
@@ -9291,18 +9295,18 @@ const CustomerReceiptScreen = () => (
       {cancelBy && cancelReason && (
         <>
           <div style={{ padding: '14px', borderRadius: '15px', backgroundColor: `${theme.warning}10`, border: `1px solid ${theme.warning}30`, marginBottom: '14px' }}>
-            <p style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '700', fontSize: '14px' }}>Refund rule</p>
-            <p style={{ margin: 0, color: theme.textMuted, fontSize: '15px', lineHeight: 1.5 }}>
+            <p style={{ margin: '0 0 4px 0', color: theme.text, fontWeight: '800', fontSize: '15px' }}>Refund rule</p>
+            <p style={{ margin: 0, color: theme.textMuted, fontSize: '16px', lineHeight: 1.5 }}>
               Cancel within 5 minutes: £5.95 refunded. After 5 minutes: £5.95 kept by TYRE-FIT.
             </p>
           </div>
           <div style={{ padding: '14px', borderRadius: '15px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, marginBottom: '14px' }}>
             <Toggle label="Send customer cancellation text now" checked={cancelNotifiedCustomer} onChange={setCancelNotifiedCustomer} />
-            <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>
+            <p style={{ margin: '6px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>
               Customer message includes reason, refund outcome, and reschedule link.
             </p>
           </div>
-          <p style={{ color: theme.textMuted, margin: '0 0 12px 0', fontSize: '14px' }}>
+          <p style={{ color: theme.textMuted, margin: '0 0 12px 0', fontSize: '15px' }}>
             Canceller: <strong style={{ color: theme.text, textTransform: 'capitalize' }}>{cancelBy}</strong><br />
             Reason: <strong style={{ color: theme.text }}>{cancelReason}</strong><br />
             Payment outcome: <strong style={{ color: theme.text }}>Deposit refund policy applied automatically</strong>
@@ -9341,42 +9345,42 @@ const CustomerReceiptScreen = () => (
             <div style={{ width: '100%', maxWidth: '340px', backgroundColor: theme.danger + '12', border: '2px solid ' + theme.danger + '40', borderRadius: '16px', padding: '16px', marginBottom: '16px', textAlign: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '8px' }}>
                 <Zap size={20} color={theme.danger} />
-                <span style={{ color: theme.danger, fontSize: '14px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px' }}>Emergency Cover Job</span>
+                <span style={{ color: theme.danger, fontSize: '15px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '2px' }}>Emergency Cover Job</span>
                 <Zap size={20} color={theme.danger} />
               </div>
-              <p style={{ color: theme.danger, fontSize: '14px', fontWeight: '700', margin: 0 }}>Respond in 1:30 or it goes to the next fitter</p>
+              <p style={{ color: theme.danger, fontSize: '15px', fontWeight: '800', margin: 0 }}>Respond in 1:30 or it goes to the next fitter</p>
             </div>
             <div style={{ width: '100%', maxWidth: '340px', backgroundColor: theme.primary + '12', border: '2px solid ' + theme.primary, borderRadius: '16px', padding: '20px', marginBottom: '14px', textAlign: 'center' }}>
-              <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '14px', fontWeight: '600', textTransform: 'uppercase' }}>You could earn</p>
-              <p style={{ margin: '0 0 6px 0', color: theme.primary, fontSize: '32px', fontWeight: '800' }}>{'\u00A3'}{estimatedEarning}</p>
-              <p style={{ margin: 0, color: theme.primary, fontSize: '15px', fontWeight: '600' }}>Paid direct to your wallet by TYRE-FIT</p>
+              <p style={{ margin: '0 0 4px 0', color: theme.textMuted, fontSize: '15px', fontWeight: '700', textTransform: 'uppercase' }}>You could earn</p>
+              <p style={{ margin: '0 0 6px 0', color: theme.primary, fontSize: '33px', fontWeight: '800' }}>{'\u00A3'}{estimatedEarning}</p>
+              <p style={{ margin: 0, color: theme.primary, fontSize: '16px', fontWeight: '700' }}>Paid direct to your wallet by TYRE-FIT</p>
             </div>
             <div style={{ width: '100%', maxWidth: '340px', display: 'flex', gap: '8px', marginBottom: '14px' }}>
               <div style={{ flex: 1, backgroundColor: theme.bgCard, border: '1px solid ' + theme.border, borderRadius: '14px', padding: '14px', textAlign: 'center' }}>
                 <Navigation size={18} color={theme.info} />
-                <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '20px', fontWeight: '700' }}>{cj.distance}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>away</p>
+                <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '21px', fontWeight: '800' }}>{cj.distance}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>away</p>
               </div>
               <div style={{ flex: 1, backgroundColor: theme.bgCard, border: '1px solid ' + theme.border, borderRadius: '14px', padding: '14px', textAlign: 'center' }}>
                 <Clock size={18} color={theme.warning} />
-                <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '20px', fontWeight: '700' }}>~{driveTime} min</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>drive</p>
+                <p style={{ margin: '4px 0 0 0', color: theme.text, fontSize: '21px', fontWeight: '800' }}>~{driveTime} min</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>drive</p>
               </div>
               <div style={{ flex: 1, backgroundColor: theme.bgCard, border: '1px solid ' + (tyreOnVan ? theme.primary + '30' : theme.warning + '30'), borderRadius: '14px', padding: '14px', textAlign: 'center' }}>
                 <Package size={18} color={tyreOnVan ? theme.primary : theme.warning} />
-                <p style={{ margin: '4px 0 0 0', color: tyreOnVan ? theme.primary : theme.warning, fontSize: '14px', fontWeight: '700' }}>{tyreOnVan ? 'On van' : 'Depot'}</p>
-                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '14px' }}>{cj.tyreSize}</p>
+                <p style={{ margin: '4px 0 0 0', color: tyreOnVan ? theme.primary : theme.warning, fontSize: '15px', fontWeight: '800' }}>{tyreOnVan ? 'On van' : 'Depot'}</p>
+                <p style={{ margin: '2px 0 0 0', color: theme.textMuted, fontSize: '15px' }}>{cj.tyreSize}</p>
               </div>
             </div>
             <div style={{ width: '100%', maxWidth: '340px', backgroundColor: theme.bgCard, border: '1px solid ' + theme.border, borderRadius: '14px', padding: '14px', marginBottom: '14px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '700', fontSize: '15px' }}>{cj.name}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '500', fontSize: '15px' }}>{cj.vehicle || cj.plate}</span></div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted, fontSize: '15px' }}>Issue</span><span style={{ color: theme.danger, fontWeight: '600', fontSize: '15px' }}>{cj.issue}</span></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', paddingTop: '8px', borderTop: '1px solid ' + theme.border }}><MapPin size={13} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '14px' }}>{cj.location}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Customer</span><span style={{ color: theme.text, fontWeight: '800', fontSize: '16px' }}>{cj.name}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Vehicle</span><span style={{ color: theme.text, fontWeight: '600', fontSize: '16px' }}>{cj.vehicle || cj.plate}</span></div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ color: theme.textMuted, fontSize: '16px' }}>Issue</span><span style={{ color: theme.danger, fontWeight: '700', fontSize: '16px' }}>{cj.issue}</span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', paddingTop: '8px', borderTop: '1px solid ' + theme.border }}><MapPin size={13} color={theme.textMuted} /><span style={{ color: theme.textMuted, fontSize: '15px' }}>{cj.location}</span></div>
             </div>
             <div style={{ width: '100%', maxWidth: '340px', display: 'flex', gap: '6px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '4px' }}>
               {['Called in', 'Photo sent', 'Cover verified'].map(function(step) { return (
-                <span key={step} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '4px 10px', backgroundColor: theme.primary + '10', borderRadius: '20px', fontSize: '14px', color: theme.primary, fontWeight: '600' }}>
+                <span key={step} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '4px 10px', backgroundColor: theme.primary + '10', borderRadius: '20px', fontSize: '15px', color: theme.primary, fontWeight: '700' }}>
                   <CheckCircle size={10} color={theme.primary} />{step}
                 </span>
               ); })}
@@ -9384,8 +9388,8 @@ const CustomerReceiptScreen = () => (
           </div>
         </div>
         <div style={{ padding: '12px 20px 32px', display: 'flex', gap: '14px', flexShrink: 0, borderTop: '1px solid ' + theme.border }}>
-          <button onClick={() => { setShowCoverJobAlert(false); }} style={{ flex: 1, padding: '16px', backgroundColor: theme.bgInput, border: '1px solid ' + theme.border, borderRadius: '14px', color: theme.text, fontSize: '15px', fontWeight: '600', cursor: 'pointer' }}>{"Can't Do It"}</button>
-          <button onClick={() => { setShowCoverJobAlert(false); setActiveCoverJob(cj); setCoverQuotePrice(''); setCoverDepotNeeded(!tyreOnVan); setEmergencyAccepted(true); navigateTo('cover-quote'); }} style={{ flex: 2, padding: '16px', backgroundColor: theme.primary, border: 'none', borderRadius: '14px', color: '#000', fontSize: '16px', fontWeight: '800', cursor: 'pointer' }}>{"Accept & Quote \u2192"}</button>
+          <button onClick={() => { setShowCoverJobAlert(false); }} style={{ flex: 1, padding: '16px', backgroundColor: theme.bgInput, border: '1px solid ' + theme.border, borderRadius: '14px', color: theme.text, fontSize: '16px', fontWeight: '700', cursor: 'pointer' }}>{"Can't Do It"}</button>
+          <button onClick={() => { setShowCoverJobAlert(false); setActiveCoverJob(cj); setCoverQuotePrice(''); setCoverDepotNeeded(!tyreOnVan); setEmergencyAccepted(true); navigateTo('cover-quote'); }} style={{ flex: 2, padding: '16px', backgroundColor: theme.primary, border: 'none', borderRadius: '14px', color: '#000', fontSize: '17px', fontWeight: '800', cursor: 'pointer' }}>{"Accept & Quote \u2192"}</button>
         </div>
       </div>
     );
@@ -9434,7 +9438,7 @@ const CustomerReceiptScreen = () => (
             {coverApprovalPhase === 'sending' && (
               <div>
                 <div style={{ width: '80px', height: '80px', border: '4px solid rgba(255,255,255,0.2)', borderTop: '4px solid ' + theme.primary, borderRadius: '50%', margin: '0 auto 24px', animation: 'spin 1s linear infinite' }} />
-                <h2 style={{ margin: '0 0 8px 0', fontSize: '22px' }}>Verifying Cover</h2>
+                <h2 style={{ margin: '0 0 8px 0', fontSize: '23px' }}>Verifying Cover</h2>
                 <p style={{ margin: 0, opacity: 0.7 }}>Checking limits and eligibility...</p>
               </div>
             )}
@@ -9443,7 +9447,7 @@ const CustomerReceiptScreen = () => (
                 <div style={{ width: '80px', height: '80px', backgroundColor: theme.primary + '20', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
                   <CheckCircle size={40} color={theme.primary} />
                 </div>
-                <h2 style={{ margin: '0 0 8px 0', fontSize: '22px', color: theme.primary }}>Cover Approved</h2>
+                <h2 style={{ margin: '0 0 8px 0', fontSize: '23px', color: theme.primary }}>Cover Approved</h2>
                 <p style={{ margin: 0, opacity: 0.7 }}>Starting job...</p>
               </div>
             )}
@@ -9452,7 +9456,7 @@ const CustomerReceiptScreen = () => (
                 <div style={{ width: '80px', height: '80px', backgroundColor: theme.danger + '20', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
                   <X size={40} color={theme.danger} />
                 </div>
-                <h2 style={{ margin: '0 0 8px 0', fontSize: '22px', color: theme.danger }}>Over Limit</h2>
+                <h2 style={{ margin: '0 0 8px 0', fontSize: '23px', color: theme.danger }}>Over Limit</h2>
                 <p style={{ margin: 0, opacity: 0.7 }}>Quote exceeds cover limit</p>
                 <button onClick={function() { setCoverApprovalPhase('idle'); }} style={{ marginTop: '20px', padding: '12px 24px', backgroundColor: 'transparent', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '14px', color: '#fff', cursor: 'pointer' }}>Back to Quote</button>
               </div>
@@ -9465,11 +9469,11 @@ const CustomerReceiptScreen = () => (
       {flowRunnerActive && flowRunnerNext && (
         <div style={{ position: 'fixed', left: '50%', bottom: '15px', transform: 'translateX(-50%)', width: 'calc(100% - 20px)', maxWidth: '410px', backgroundColor: theme.bgCard, border: `1px solid ${theme.primary}60`, borderRadius: '14px', padding: '15px', zIndex: 2100, boxShadow: '0 10px 30px rgba(0,0,0,0.35)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <button onClick={goToFlowRunnerNext} style={{ flex: 1, minHeight: '48px', backgroundColor: theme.primary, border: 'none', borderRadius: '14px', color: '#000', fontSize: '14px', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <button onClick={goToFlowRunnerNext} style={{ flex: 1, minHeight: '48px', backgroundColor: theme.primary, border: 'none', borderRadius: '14px', color: '#000', fontSize: '15px', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
               <ArrowRight size={18} color="#000" />
               Next: {flowRunnerNext.label}
             </button>
-            <button onClick={() => { setFlowRunnerActive(false); navigateTo('flow-runner'); }} style={{ minHeight: '48px', padding: '0 12px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '14px', fontWeight: '700', cursor: 'pointer' }}>
+            <button onClick={() => { setFlowRunnerActive(false); navigateTo('flow-runner'); }} style={{ minHeight: '48px', padding: '0 12px', backgroundColor: theme.bgInput, border: `1px solid ${theme.border}`, borderRadius: '14px', color: theme.text, fontSize: '15px', fontWeight: '800', cursor: 'pointer' }}>
               Exit Runner
             </button>
           </div>
