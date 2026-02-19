@@ -2153,17 +2153,21 @@ export default function TyreFitApp() {
       { id: 'l3', customer: 'Tom Harris', plate: 'EF12 YZA', stage: 'Deposit paid', nextStep: 'Job added to route', priority: 'done' }
     ];
     const activeLeadCount = crmLeadQueue.filter(l => l.stage !== 'Deposit paid').length;
+    const emergencyBannerHeight = emergencyAccepted ? 56 : 0;
+    const headerHeight = isOffline ? 130 : 84;
+    const dashboardContentTop = emergencyBannerHeight + headerHeight + 12;
+    const stickyTop = emergencyBannerHeight + headerHeight + 8;
     return (
       <div style={{ minHeight: '100vh', backgroundColor: theme.bg, paddingBottom: '100px' }}>
         <Toast />
         {emergencyAccepted && (
-          <div style={{ backgroundColor: theme.primary, color: '#000', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, backgroundColor: theme.primary, color: '#000', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '14px' }}>
             <CheckCircle size={20} />
             <div style={{ flex: 1 }}><p style={{ margin: 0, fontWeight: '600' }}>Emergency cover job accepted</p><p style={{ margin: '2px 0 0 0', fontSize: '14px' }}>TYRE-FIT will update the customer</p></div>
             <button onClick={() => setEmergencyAccepted(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#000' }}><X size={20} /></button>
           </div>
         )}
-        <div style={{ backgroundColor: theme.bgCard, borderBottom: `1px solid ${theme.border}`, padding: '16px' }}>
+        <div style={{ position: 'fixed', top: `${emergencyBannerHeight}px`, left: 0, right: 0, zIndex: 45, backgroundColor: theme.bgCard, borderBottom: `1px solid ${theme.border}`, padding: '16px' }}>
           {/* OFFLINE BANNER */}
           {isOffline && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', backgroundColor: `${theme.warning}15`, borderRadius: '8px', marginBottom: '14px', border: `1px solid ${theme.warning}30` }}>
@@ -2182,8 +2186,8 @@ export default function TyreFitApp() {
           </div>
         </div>
         
-        <div style={{ padding: '16px' }}>
-          <Card style={{ position: 'sticky', top: '80px', zIndex: 30, borderColor: `${theme.primary}40`, borderWidth: '2px' }}>
+        <div style={{ padding: '16px', paddingTop: `${dashboardContentTop}px` }}>
+          <Card style={{ position: 'sticky', top: `${stickyTop}px`, zIndex: 30, borderColor: `${theme.primary}40`, borderWidth: '2px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: '14px' }}>
               <div style={{ flex: 1 }}>
                 <p style={{ margin: 0, color: theme.textMuted, fontSize: '14px', textTransform: 'uppercase', fontWeight: '700' }}>Total Earnings</p>
